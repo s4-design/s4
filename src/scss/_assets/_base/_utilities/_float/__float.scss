@@ -1,0 +1,11 @@
+@each $name, $float in (
+    "left": "left",
+    "right": "right",
+    "start": "inline-start",
+    "end": "inline-end",
+    "none": "none"
+) {
+    .#{$type}#{$orientation}float--#{$name} {
+        float: #{$float} !important;
+    }
+}

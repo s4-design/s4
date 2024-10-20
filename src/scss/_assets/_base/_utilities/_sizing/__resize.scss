@@ -1,0 +1,12 @@
+/* resize */
+
+@each $resize in (
+    "both",
+    "horizontal",
+    "vertical",
+    "none"
+) {
+    .#{$type}#{$orientation}resize--#{$resize} {
+        resize: #{$resize} !important;
+    }
+}

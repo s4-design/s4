@@ -1,0 +1,14 @@
+$borderSides: (
+    "top",
+    "right",
+    "bottom",
+    "left"
+);
+
+@import "_border-width";
+@import "_border-style";
+@import "_border-color";
+@import "_border-radius";
+@import "_border-collapse";
+@import "_border-spacing";
+  

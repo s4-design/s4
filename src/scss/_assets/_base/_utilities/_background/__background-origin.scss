@@ -1,0 +1,11 @@
+/* background origin */
+
+@each $item, $origin in (
+    "border": "border-box",
+    "padding": "padding-box",
+    "content": "content-box"
+) {
+    .#{$type}#{$orientation}background-origin--#{$item} {
+        background-origin: #{$origin} !important;
+    }
+}

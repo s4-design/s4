@@ -1,0 +1,9 @@
+@mixin body (
+    $position: relative,
+    $min-height: 100dvh,
+    $background-color: var(--negative--01),
+) {
+    --body_position: #{$position};
+    --body_min-height: #{$min-height};
+    --body_background-color: #{$background-color};
+}

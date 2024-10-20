@@ -1,0 +1,13 @@
+@mixin sub (
+    $top: calc(var(--size--2) * -1),
+    $font-size: var(--size--3),
+    $line-height: var(--size--0),
+    $position: relative,
+    $vertical-align: baseline
+) {
+    --sub_top: #{$top};
+    --sub_font-size: #{$font-size};
+    --sub_line-height: #{$line-height};
+    --sub_position: #{$position};
+    --sub_vertical-align: #{$vertical-align};
+}

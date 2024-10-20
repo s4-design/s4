@@ -1,0 +1,27 @@
+/* background color */
+
+.#{$type}#{$orientation}background-color {
+    &--transparent {
+    // &--transparent\:hover:hover {
+        background-color: #{transparent} !important;
+    }
+}
+
+@if $enableVariables {
+    .background,
+    .background-color {
+        background-color: var(--#{$type}#{$orientation}background-color, var(--background-color, initial));
+    }
+    @each $pseudoClass in (
+        "focus",
+        "active",
+        "hover",
+        "checked",
+        "enabled",
+        "disabled"
+    ) {
+        .background-color\:#{$pseudoClass}:#{$pseudoClass} {
+            background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}, initial));
+        }
+    }
+}

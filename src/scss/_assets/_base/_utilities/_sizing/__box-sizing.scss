@@ -1,0 +1,10 @@
+/* box sizing */
+
+@each $sizing in (
+    "border",
+    "content"
+) {
+    .box-sizing--#{$sizing} {
+        box-sizing: #{$sizing}-box !important
+    }    
+}

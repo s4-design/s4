@@ -1,0 +1,15 @@
+/* preset: gap */
+
+@each $tracksName in (
+    "row",
+    "column"
+) {
+    .#{$type}#{$orientation}gap,
+    .#{$type}#{$orientation}#{$tracksName}-gap {
+        @each $space in $spacingSizes {
+            &--#{$space} {
+                #{$tracksName}-gap: var(--gap--#{$space}) !important;
+            }
+        }
+    }
+}

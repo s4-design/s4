@@ -1,0 +1,11 @@
+/* grid template columns */
+@each $template in (
+    "columns",
+    "rows"
+) {
+    @if $enableVariables {
+        .grid-template-#{$template} {
+            grid-template-#{$template}: var(--#{$type}#{$orientation}grid-template-#{$template}, var(--grid-template-#{$template}, unset));
+        }
+    }
+}

@@ -1,0 +1,11 @@
+/* text transform */
+
+@each $transform in (
+    "lowercase",
+    "uppercase",
+    "capitalize"
+) {
+    .#{$type}#{$orientation}text-transform--#{$transform} {
+        text-transform: #{$transform} !important;
+    }
+}

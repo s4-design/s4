@@ -1,0 +1,12 @@
+/* justify self */
+
+@each $self in (
+    "center",
+    "end",
+    "start",
+    "stretch"
+) {
+    .#{$type}#{$orientation}justify-self--#{$self} {        
+        justify-self: #{$self} !important;
+    }
+}

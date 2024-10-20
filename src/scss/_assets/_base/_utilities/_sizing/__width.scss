@@ -1,0 +1,28 @@
+/* width */
+
+@each $width in (
+    "min-width",
+    "width",
+    "max-width"
+) {
+    .#{$type}#{$orientation}#{$width} {
+        &--inherit {
+            #{$width}: inherit !important;
+        }
+        &--fit {
+            #{$width}: fit-content !important;
+        }
+        &--min {
+            #{$width}: min-content !important;
+        }
+        &--max {
+            #{$width}: max-content !important;
+        }
+    }
+
+    @if $enableVariables {
+        .#{$width} {
+            #{$width}: var(--#{$type}#{$orientation}#{$width}, var(--#{$width}));
+        }
+    }
+}

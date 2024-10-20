@@ -1,0 +1,35 @@
+/* preset: border color */
+
+@each $color in $defaultColors {
+    .#{$type}#{$orientation}border-color {
+        &--#{$color},
+        &--#{$color}\:hover:hover {
+            border-color: var(--#{$color}) !important;
+        }
+        @for $i from 1 through math.div(100, $defaultExtraColorsInterval) - 1 {
+            &--#{$color}-#{$i * $defaultExtraColorsInterval},
+            &--#{$color}-#{$i * $defaultExtraColorsInterval}\:hover:hover {
+                border-color: var(--#{$color}-#{$i * $defaultExtraColorsInterval}) !important;
+            }
+        }
+        &--#{$color}-m,
+        &--#{$color}-m\:hover:hover {
+            border-color: var(--#{$color}-m) !important;
+        }
+    }
+}
+
+@each $color in $accentColors {
+    .#{$type}#{$orientation}border-color {
+        &--#{$color},
+        &--#{$color}\:hover:hover {
+            border-color: var(--#{$color}) !important;
+        }
+        @each $pref in $accentExtraColorsPrefs {
+            &--#{$color}-#{$pref},
+            &--#{$color}-#{$pref}\:hover:hover {
+                border-color: var(--#{$color}-#{$pref}) !important;
+            }
+        }
+    }
+}

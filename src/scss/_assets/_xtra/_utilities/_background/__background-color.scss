@@ -1,0 +1,35 @@
+/* preset: background color */
+
+@each $color in $defaultColors {
+    .#{$type}#{$orientation}background-color {
+        &--#{$color} {
+        // &--#{$color}\:hover:hover {
+            background-color: var(--#{$color}) !important;
+        }
+        @for $i from 1 through math.div(100, $defaultExtraColorsInterval) - 1 {
+            &--#{$color}-#{$i * $defaultExtraColorsInterval} {
+            // &--#{$color}-#{$i * $defaultExtraColorsInterval}\:hover:hover {
+                background-color: var(--#{$color}-#{$i * $defaultExtraColorsInterval}) !important;
+            }
+        }
+        &--#{$color}-m {
+        // &--#{$color}-m\:hover:hover {
+            background-color: var(--#{$color}-m) !important;
+        }
+    }
+}
+
+@each $color in $accentColors {
+    .#{$type}#{$orientation}background-color {
+        &--#{$color} {
+        // &--#{$color}\:hover:hover {
+            background-color: var(--#{$color}) !important;
+        }
+        @each $pref in $accentExtraColorsPrefs {
+            &--#{$color}-#{$pref} {
+            // &--#{$color}-#{$pref}\:hover:hover {
+                background-color: var(--#{$color}-#{$pref}) !important;
+            }
+        }
+    }
+}

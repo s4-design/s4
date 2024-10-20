@@ -1,0 +1,42 @@
+/* background-position */
+
+.#{$type}#{$orientation}background-position {
+    &--left {
+        background-position: left center !important;
+    }
+    &--top-left,
+    &--left-top {
+        background-position: left top !important;
+    }
+    &--top {
+        background-position: center top !important;
+    }
+    &--top-right,
+    &--right-top {
+        background-position: right top !important;
+    }
+    &--righ {
+        background-position: right center !important;
+    }
+    &--bottom-right,
+    &--right-bottom {
+        background-position: right bottom !important;
+    }
+    &--bottom {
+        background-position: center bottom !important;
+    }
+    &--bottom-left,
+    &--left-bottom {
+        background-position: left bottom !important;
+    }
+    &--center {
+        background-position: center center !important;
+    }
+}
+
+@if $enableVariables {
+    .background,
+    .background-position {
+        background-position: var(--#{$type}#{$orientation}background-position, var(--background-position, initial));
+    }
+}

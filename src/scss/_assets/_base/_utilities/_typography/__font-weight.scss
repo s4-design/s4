@@ -1,0 +1,18 @@
+/* font weight */
+
+.#{$type}#{$orientation}font-weight {
+    @for $i from 1 through 9 {
+        &--#{$i * 100} {
+            font-weight: #{$i * 100} !important;
+        }
+    }
+    &--initial {
+        font-weight: initial !important;
+    }
+}
+
+@if $enableVariables {
+    .font-weight {
+        font-weight: var(--#{$type}#{$orientation}font-weight, var(--font-weight, initial));
+    }
+}

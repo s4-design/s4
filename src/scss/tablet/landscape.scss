@@ -1,0 +1,6 @@
+@import "../_settings";
+
+$orientation: map-get($tabletLandscape, orientation);
+$type: map-get($tabletLandscape, type);
+
+@import "../_assets/_base/_utilities/index";

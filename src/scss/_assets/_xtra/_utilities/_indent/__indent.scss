@@ -1,0 +1,32 @@
+/* preset: margin & padding */
+
+@each $spacingName in (
+    "margin",
+    "padding"
+) {
+    .#{$type}#{$orientation}#{$spacingName} {
+        @each $space in $spacingSizes {
+            &--#{$space} {
+                #{$spacingName}: var(--#{$spacingName}--#{$space}) !important;
+            }
+        }
+        @each $space in $spacingSizes {
+            &-y--#{$space},
+            &-top--#{$space} {
+                #{$spacingName}-top: var(--#{$spacingName}--#{$space}) !important;
+            }
+            &-x--#{$space},
+            &-right--#{$space} {
+                #{$spacingName}-right: var(--#{$spacingName}--#{$space}) !important;
+            }
+            &-y--#{$space},
+            &-bottom--#{$space} {
+                #{$spacingName}-bottom: var(--#{$spacingName}--#{$space}) !important;
+            }
+            &-x--#{$space},
+            &-left--#{$space} {
+                #{$spacingName}-left: var(--#{$spacingName}--#{$space}) !important;
+            }
+        }
+    }
+}

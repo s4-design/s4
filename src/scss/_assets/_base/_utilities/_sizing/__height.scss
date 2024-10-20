@@ -1,0 +1,25 @@
+/* height */
+
+@each $height in (
+    "min-height",
+    "height",
+    "max-height"
+) {
+    .#{$type}#{$orientation}#{$height} {
+        &--fit {
+            #{$height}: fit-content !important;
+        }
+        &--min {
+            #{$height}: min-content !important;
+        }
+        &--max {
+            #{$height}: max-content !important;
+        }
+    }
+
+    @if $enableVariables {
+        .#{$height} {
+            #{$height}: var(--#{$type}#{$orientation}#{$height}, var(--#{$height}));
+        }
+    }
+}

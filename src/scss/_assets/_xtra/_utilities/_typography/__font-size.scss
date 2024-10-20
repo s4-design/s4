@@ -1,0 +1,16 @@
+/* preset: font size */
+
+@each $size in (
+    "xxs",
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "xxl",
+    "xxxl"
+) {
+    .#{$type}#{$orientation}font-size--#{$size} {
+        font-size: var(--fs-#{$size}) !important;
+    }
+}

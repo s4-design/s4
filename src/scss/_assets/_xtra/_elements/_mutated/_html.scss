@@ -1,0 +1,9 @@
+html {
+    position: var(--html_position);
+    box-sizing: var(--html_box-sizing);
+    background-color: var(--html_background-color);
+    word-break: var(--html_word-break);
+    tab-size: var(--html_tab-size);
+    overscroll-behavior: var(--html_overscroll-behavior);
+    font: var(--html_font-style) var(--html_font-weight) var(--html_font-size)/var(--html_line-height) var(--html_font-family);
+}

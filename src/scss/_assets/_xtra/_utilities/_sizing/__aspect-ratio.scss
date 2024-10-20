@@ -1,0 +1,14 @@
+/* preset: aspect ratio */
+
+@each $w, $h in (
+    1 1,
+    4 3, 3 4,
+    16 9, 9 16,
+    16 10, 10 16,
+    21 9, 9 21,
+    32 9, 9 32
+) {
+    .#{$type}#{$orientation}aspect-ratio--#{$w}\/#{$h} {
+        aspect-ratio: #{$w + '/' + $h};
+    }
+}

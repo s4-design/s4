@@ -1,0 +1,17 @@
+/* background-size */
+
+@each $size in (
+    "cover",
+    "contain"
+) {
+    .#{$type}#{$orientation}background-size--#{$size} {
+        background-size: #{$size} !important;
+    }
+}
+
+@if $enableVariables {
+    .background,
+    .background-size {
+        background-size: var(--#{$type}#{$orientation}background-size, var(--background-size, initial));
+    }
+}

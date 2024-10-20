@@ -1,0 +1,27 @@
+/* preset: color */
+
+.#{$type}#{$orientation}color {
+    @each $color in $defaultColors {
+        &--#{$color} {
+            color: var(--#{$color}) !important;
+        }
+        @for $i from 1 through math.div(100, $defaultExtraColorsInterval) - 1 {
+            &--#{$color}-#{$i * $defaultExtraColorsInterval} {
+                color: var(--#{$color}-#{$i * $defaultExtraColorsInterval}) !important;
+            }
+        }
+        &--#{$color}-m {
+            color: var(--#{$color}-m) !important;
+        }
+    }
+    @each $color in $accentColors {
+        &--#{$color} {
+            color: var(--#{$color}) !important;
+        }
+        @each $pref in $accentExtraColorsPrefs {
+            &--#{$color}-#{$pref} {
+                color: var(--#{$color}-#{$pref}) !important;
+            }
+        }
+    }
+}

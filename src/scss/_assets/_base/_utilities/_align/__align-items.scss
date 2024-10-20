@@ -1,0 +1,13 @@
+/* align items */
+
+@each $align-items in (
+    "baseline",
+    "center",
+    "end",
+    "start",
+    "stretch"
+) {
+    .#{$type}#{$orientation}align-items--#{$align-items} {
+        align-items: #{$align-items} !important;
+    }
+}

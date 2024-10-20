@@ -1,0 +1,31 @@
+// object-fit--cover
+// object-position--center
+
+@each $fit in (
+    contain,
+    cover,
+    fill,
+    none
+) {
+    .object-fit--#{$fit} {
+        object-fit: #{$fit} !important
+    }    
+}
+
+@each $position in (
+    top,
+    bottom,
+    left,
+    right,
+    center
+) {
+    .object-position--#{$position} {
+        object-position: #{$position} !important
+    }    
+}
+
+@if $enableVariables {
+    .object-position {
+        object-position: var(--#{$type}#{$orientation}object-position, var(--object-position, auto));
+    }
+}

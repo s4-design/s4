@@ -1,0 +1,11 @@
+/* flex */
+
+@each $value in (
+    "none",
+    "initial",
+    "auto"
+) {
+    .#{$type}#{$orientation}flex--#{$value} {
+        flex: #{$value} !important;
+    }
+}

@@ -1,0 +1,17 @@
+/* text decoration */
+
+@each $decoration in (
+    "none",
+    "underline",
+    "line-through"
+) {
+    .#{$type}#{$orientation}text-decoration--#{$decoration} {
+        text-decoration: #{$decoration} !important;
+    }
+}
+
+@if $enableVariables {
+    .text-decoration {
+        text-decoration: var(--#{$type}#{$orientation}text-decoration, var(--text-decoration, initial));
+    }
+}

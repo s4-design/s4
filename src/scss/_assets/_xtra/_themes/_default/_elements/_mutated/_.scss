@@ -1,0 +1,29 @@
+@mixin _ (
+    $margin: unset,
+    $padding: unset,
+    $box-sizing: inherit,
+) {
+    --_margin: #{$margin};
+    --_padding: #{$padding};
+    --_box-sizing: #{$box-sizing};
+}
+
+@mixin _\:\:before (
+    $margin: unset,
+    $padding: unset,
+    $box-sizing: inherit
+) {
+    --_margin\:\:before: #{$margin};
+    --_padding\:\:before: #{$padding};
+    --_box-sizing\:\:before: #{$box-sizing};
+}
+
+@mixin _\:\:after (
+    $margin: unset,
+    $padding: unset,
+    $box-sizing: inherit
+) {
+    --_margin\:\:after: #{$margin};
+    --_padding\:\:after: #{$padding};
+    --_box-sizing\:\:after: #{$box-sizing};
+}

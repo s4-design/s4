@@ -1,0 +1,22 @@
+// style dependency prefixes map
+
+// Shotcuts for class and variable naming "type_orientation_class-name" or "type_orientation_variable-name"
+// Type:
+//   desktop = d_ 
+//   tablet = t_
+//   mobile = m_
+// Orientation
+//   landscape = l_
+//   portrait = p_
+
+$desktopLandscape: (type: "d_", orientation: "l_"); // desktop/landscape.css
+$desktopPortrait:  (type: "d_", orientation: "p_"); // desktop/portrait.css
+
+$tabletLandscape:  (type: "t_", orientation: "l_"); // tablet/landscape.css
+$tabletPortrait:   (type: "t_", orientation: "p_"); // tablet/portrait.css
+
+$mobileLandscape:  (type: "m_", orientation: "l_"); // mobile/landscape.css
+$mobilePortrait:   (type: "m_", orientation: "p_"); // mobile/portrait.css
+
+// variables activator
+$enableVariables: true;

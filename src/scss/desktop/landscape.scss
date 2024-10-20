@@ -1,0 +1,6 @@
+@import "../_settings";
+
+$type: map-get($desktopLandscape, type);
+$orientation: map-get($desktopLandscape, orientation);
+
+@import "../_assets/_base/_utilities/index";

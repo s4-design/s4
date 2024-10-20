@@ -1,0 +1,6 @@
+@import "../_settings";
+
+$orientation: map-get($mobilePortrait, orientation);
+$type: map-get($mobilePortrait, type);
+
+@import "../_assets/_base/_utilities/index";

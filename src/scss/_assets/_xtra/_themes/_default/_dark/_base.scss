@@ -1,0 +1,179 @@
+@mixin sizes (
+    $size--0: 0em,
+    $size--025: 0.0625em,
+    $size--05: 0.125em,
+    $size--1: 0.25em,
+    $size--2: 0.5em,
+    $size--3: 0.75em,
+    $size--4: 1em,
+    $size--5: 1.25em,
+    $size--6: 1.5em,
+    $size--7: 1.75em,
+    $size--8: 2em
+) {
+    --size--0: #{$size--0};
+    --size--025: #{$size--025};
+    --size--05: #{$size--05};
+    --size--1: #{$size--1};
+    --size--2: #{$size--2};
+    --size--3: #{$size--3};
+    --size--4: #{$size--4};
+    --size--5: #{$size--5};
+    --size--6: #{$size--6};
+    --size--7: #{$size--7};
+    --size--8: #{$size--8};
+}
+
+// properties
+@mixin margin (
+    $margin--s3: var(--size--1),
+    $margin--s2: var(--size--2),
+    $margin--s1: var(--size--3),
+    $margin--md: var(--size--4),
+    $margin--l1: var(--size--5),
+    $margin--l2: var(--size--6),
+    $margin--l3: var(--size--7),
+    $margin--l4: var(--size--8)
+) {
+    --margin--s3: #{$margin--s3};
+    --margin--s2: #{$margin--s2};
+    --margin--s1: #{$margin--s1};
+    --margin--md: #{$margin--md};
+    --margin--l1: #{$margin--l1};
+    --margin--l2: #{$margin--l2};
+    --margin--l3: #{$margin--l3};
+    --margin--l4: #{$margin--l4};
+}
+@mixin padding (
+    $padding--s3: var(--size--1),
+    $padding--s2: var(--size--2),
+    $padding--s1: var(--size--3),
+    $padding--md: var(--size--4),
+    $padding--l1: var(--size--5),
+    $padding--l2: var(--size--6),
+    $padding--l3: var(--size--7),
+    $padding--l4: var(--size--8)
+) {
+    --padding--s3: #{$padding--s3};
+    --padding--s2: #{$padding--s2};
+    --padding--s1: #{$padding--s1};
+    --padding--md: #{$padding--md};
+    --padding--l1: #{$padding--l1};
+    --padding--l2: #{$padding--l2};
+    --padding--l3: #{$padding--l3};
+    --padding--l4: #{$padding--l4};
+}
+@mixin gap (
+    $gap--s3: var(--size--1),
+    $gap--s2: var(--size--2),
+    $gap--s1: var(--size--3),
+    $gap--md: var(--size--4),
+    $gap--l1: var(--size--5),
+    $gap--l2: var(--size--6),
+    $gap--l3: var(--size--7),
+    $gap--l4: var(--size--8)
+) {
+    --gap--3s: #{$gap--s3};
+    --gap--2s: #{$gap--s2};
+    --gap--1s: #{$gap--s1};
+    --gap--md: #{$gap--md};
+    --gap--1l: #{$gap--l1};
+    --gap--2l: #{$gap--l2};
+    --gap--3l: #{$gap--l3};
+    --gap--4l: #{$gap--l4};
+}
+@mixin border-width (
+    $border-width--min: var(--size--025),
+    $border-width--thin: thin,
+    $border-width--medium: medium,
+    $border-width--thick: thick
+) {
+    --border-width--min: #{$border-width--min};
+    --border-width--thin: #{$border-width--thin};
+    --border-width--medium: #{$border-width--medium};
+    --border-width--thick: #{$border-width--thick};
+}
+@mixin border-radius (
+    $border-radius--s3: var(--size--025),
+    $border-radius--s2: var(--size--05),
+    $border-radius--s1: var(--size--1),
+    $border-radius--md: var(--size--2),
+    $border-radius--l1: var(--size--3),
+    $border-radius--l2: var(--size--4),
+    $border-radius--l3: var(--size--5),
+    $border-radius--l4: var(--size--6)
+) {
+    --border-radius--s3: #{$border-radius--s3};
+    --border-radius--s2: #{$border-radius--s2};
+    --border-radius--s1: #{$border-radius--s1};
+    --border-radius--md: #{$border-radius--md};
+    --border-radius--l1: #{$border-radius--l1};
+    --border-radius--l2: #{$border-radius--l2};
+    --border-radius--l3: #{$border-radius--l3};
+    --border-radius--l4: #{$border-radius--l4};
+}
+@mixin box-shadow (
+    $box-shadow--s3: var(--size--025),
+    $box-shadow--s2: var(--size--05),
+    $box-shadow--s1: var(--size--1),
+    $box-shadow--md: var(--size--2),
+    $box-shadow--l1: var(--size--3),
+    $box-shadow--l2: var(--size--4),
+    $box-shadow--l3: var(--size--5),
+    $box-shadow--l4: var(--size--6)
+) {
+    --box-shadow--s3: #{$box-shadow--s3};
+    --box-shadow--s2: #{$box-shadow--s2};
+    --box-shadow--s1: #{$box-shadow--s1};
+    --box-shadow--md: #{$box-shadow--md};
+    --box-shadow--l1: #{$box-shadow--l1};
+    --box-shadow--l2: #{$box-shadow--l2};
+    --box-shadow--l3: #{$box-shadow--l3};
+    --box-shadow--l4: #{$box-shadow--l4};
+}
+
+@mixin colors {
+    // Yin/Yang
+    $alfa: 0.25;
+    $positive-lightness: 1;
+    $positive-chroma: 0;
+    $positive-hue: 0;
+    --positive: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue});
+    --positive--mute: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue} / #{$alfa});
+    @for $i from 9 through 1 {
+        --positive--0#{$i}: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue} / #{$i * 0.1});
+    }
+    $negative-lightness: 0;
+    $negative-chroma: 0;
+    $negative-hue: 0;
+    @for $i from 1 through 9 {
+        --negative--0#{$i}: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue} / #{$i * 0.1});
+    }
+    --negative--mute: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue} / #{$alfa});
+    --negative: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue});
+
+    // Accent
+    $accent-lightness: 0.60;
+    $accent-lightness-offset: 0.15;
+    $accent-chroma: 0.2;
+    @each $accentColor, $hue in (
+        "prime": 255,
+        "second": 255,
+        // "info": 295,
+        "success": 145,
+        // "warning": 95,
+        "error": 25
+    ) {
+        @if $accentColor == "second" {
+            --#{$accentColor}--light: oklch(#{$accent-lightness + $accent-lightness-offset} #{$accent-chroma* .1} #{$hue});
+            --#{$accentColor}: oklch(#{$accent-lightness} #{$accent-chroma* .1} #{$hue});
+            --#{$accentColor}--dark: oklch(#{$accent-lightness - $accent-lightness-offset} #{$accent-chroma* .1} #{$hue});
+            --#{$accentColor}--mute: oklch(#{$accent-lightness} #{$accent-chroma* .1} #{$hue} / #{$alfa});
+        } @else {
+            --#{$accentColor}--light: oklch(#{$accent-lightness + $accent-lightness-offset} #{$accent-chroma} #{$hue});
+            --#{$accentColor}:   oklch(#{$accent-lightness} #{$accent-chroma} #{$hue});
+            --#{$accentColor}--dark: oklch(#{$accent-lightness - $accent-lightness-offset} #{$accent-chroma} #{$hue});
+            --#{$accentColor}--mute: oklch(#{$accent-lightness} #{$accent-chroma} #{$hue} / #{$alfa});
+        }
+    }    
+}

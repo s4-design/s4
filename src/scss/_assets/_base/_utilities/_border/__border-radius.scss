@@ -1,0 +1,39 @@
+/* border radius */
+
+$borderRadiusCorner: (
+    "top-left",
+    "top-right",
+    "bottom-right",
+    "bottom-left"
+);
+$borderRadiusXtraSize: (
+    unset: "unset",
+);
+
+.#{$type}#{$orientation}border-radius {
+    @each $name, $xtraSize in $borderRadiusXtraSize {
+        &--#{$name} {
+            border-radius: #{$xtraSize} !important;
+        }
+    }
+}
+
+@each $corner in $borderRadiusCorner {
+    .#{$type}#{$orientation}border-#{$corner}-radius {
+        @each $name, $xtraSize in $borderRadiusXtraSize {
+            &--#{$name} {
+                border-#{$corner}-radius: #{$xtraSize} !important;
+            }
+        }
+    }
+}
+
+
+@if $enableVariables {
+    @each $corner in $borderRadiusCorner {
+        .border-radius,
+        .border-#{$corner}-radius {
+            border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius, initial));
+        }
+    }
+}

@@ -1,0 +1,10 @@
+/* writing mode */
+
+@each $mode in (
+    "vertical-rl",
+    "vertical-lr"
+) {
+    .#{$type}#{$orientation}writing-mode--#{$mode} {
+        writing-mode: #{$mode} !important;
+    }
+}

@@ -1,0 +1,50 @@
+/* preset: border radius */
+
+$borderRadiusCorner: (
+    "top-left",
+    "top-right",
+    "bottom-right",
+    "bottom-left"
+);
+$borderRadiusSize: (
+    "xxs",
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "xxl",
+    "xxxl"
+);
+$borderRadiusXtraSize: (
+    oval: 50%,
+    pill: 4em
+);
+
+.#{$type}#{$orientation}border-radius {
+    @each $size in $borderRadiusSize {
+        &--#{$size} {
+            border-radius: var(--border-radius--#{$size}) !important;
+        }
+    }
+    @each $name, $xtraSize in $borderRadiusXtraSize {
+        &--#{$name} {
+            border-radius: #{$xtraSize} !important;
+        }
+    }
+}
+
+@each $corner in $borderRadiusCorner {
+    .#{$type}#{$orientation}border-#{$corner}-radius {
+        @each $size in $borderRadiusSize {
+            &--#{$size} {
+                border-#{$corner}-radius: var(--border-radius--#{$size}) !important;
+            }
+        }
+        @each $name, $xtraSize in $borderRadiusXtraSize {
+            &--#{$name} {
+                border-#{$corner}-radius: #{$xtraSize} !important;
+            }
+        }
+    }
+}

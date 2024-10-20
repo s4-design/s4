@@ -1,0 +1,11 @@
+@each $position in (
+    "static",
+    "relative",
+    "absolute",
+    "fixed",
+    "sticky"
+) {
+    .#{$type}#{$orientation}position--#{$position} {
+        position: #{$position} !important;
+    }
+}

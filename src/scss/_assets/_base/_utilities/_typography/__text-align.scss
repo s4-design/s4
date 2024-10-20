@@ -1,0 +1,12 @@
+/* text align */
+
+@each $align in (
+    "start",
+    "center",
+    "end",
+    "justify"
+) {
+.#{$type}#{$orientation}text-align--#{$align} {
+        text-align: #{$align} !important;
+    }
+}

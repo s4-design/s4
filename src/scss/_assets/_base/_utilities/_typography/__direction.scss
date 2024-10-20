@@ -1,0 +1,10 @@
+/* directions */
+
+@each $directions in (
+    "ltr",
+    "rtl"
+) {
+    .#{$type}#{$orientation}direction--#{$directions} {
+        direction: #{$directions} !important;
+    }
+}

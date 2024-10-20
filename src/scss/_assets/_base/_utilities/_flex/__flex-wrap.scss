@@ -1,0 +1,11 @@
+/* flex wrap */
+
+@each $wrap in (
+    "wrap",
+    "wrap-reverse",
+    "nowrap"
+) {
+    .#{$type}#{$orientation}flex-wrap--#{$wrap} {
+        flex-wrap: #{$wrap} !important
+    }
+}

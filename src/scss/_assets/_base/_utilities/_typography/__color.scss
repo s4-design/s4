@@ -1,0 +1,29 @@
+/* color */
+
+.#{$type}#{$orientation}color {
+    &--transparent {
+        color: #{transparent} !important;
+    }
+}
+
+@if $enableVariables {
+    .color {
+        color: var(--#{$type}#{$orientation}-color, var(--color, initial));
+    }
+    @each $pseudoClass in (
+        "focus",
+        "active",
+        "hover",
+        "checked",
+        "enabled",
+        "disabled"
+    ) {
+        .color\:#{$pseudoClass}:#{$pseudoClass} {
+            color: var(--#{$type}#{$orientation}-color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}, initial));
+        }
+    }
+}
+
+// .color {
+//     color: var(--#{$type}#{$orientation}color, var(--color, initial)) !important;
+// }

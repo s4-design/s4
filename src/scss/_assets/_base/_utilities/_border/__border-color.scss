@@ -1,0 +1,17 @@
+/* border-color */
+
+.#{$type}#{$orientation}border-color--transparent,
+.#{$type}#{$orientation}border-color--transparent\:hover:hover {
+    border-color: #{transparent} !important;
+}
+
+@if $enableVariables {
+    @each $color in $borderSides {
+        .border,
+        .border-color,
+        .border-#{$color},
+        .border-#{$color} {
+            border-#{$color}: var(--#{$type}#{$orientation}border-color, var(--border-color, initial));
+        }
+    }
+}

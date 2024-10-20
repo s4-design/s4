@@ -1,0 +1,10 @@
+/* border collapse */
+
+@each $collapse in (
+    "collapse",
+    "separate"
+) {
+    .border--#{$collapse} {
+        border-collapse: #{$collapse} !important;
+    }
+}

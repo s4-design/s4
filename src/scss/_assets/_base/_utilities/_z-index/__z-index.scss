@@ -1,0 +1,7 @@
+/* z-index */
+
+@if $enableVariables {
+    .z-index {
+        z-index: var(--#{$type}#{$orientation}z-index, var(--z-index));
+    }
+}

@@ -1,0 +1,19 @@
+/* flex basis */
+
+@each $name, $basis in (
+    // "auto": "auto",
+    "max": "max-content",
+    "min": "min-content",
+    "fit": "fit-content"
+) {
+    .#{$type}#{$orientation}flex-basis--#{$name} {
+        flex-basis: #{$basis} !important;
+    }
+}
+
+@if $enableVariables {
+    .flex,
+    .flex-basis {
+        flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis, initial));
+    }
+}

@@ -1,0 +1,27 @@
+/* border width */
+
+@each $width in (
+    "thin",
+    "medium",
+    "thick"
+) {
+    .#{$type}#{$orientation}border-width--#{$width} {
+        border-width: var(--border-width--#{$width}) !important;
+    }
+    // @each $side in $borderSides {
+    //     .#{$type}#{$orientation}border-#{$side}-width--#{$width} {
+    //         border-#{$side}-width: var(--border-width--#{$width}) !important
+    //     }
+    // }
+}
+
+@if $enableVariables {
+    @each $side in $borderSides {
+        .border,
+        .border-width,
+        .border-#{$side},
+        .border-#{$side}-width {
+            border-#{$side}-width: var(--#{$type}#{$orientation}border-width, var(--border-width, initial));
+        }
+    }
+}

@@ -1,0 +1,13 @@
+/* align self */
+
+@each $align-self in (
+    "baseline",
+    "center",
+    "end",
+    "start",
+    "stretch"
+) {
+    .#{$type}#{$orientation}align-self--#{$align-self} {
+        align-self: #{$align-self} !important;
+    }
+}

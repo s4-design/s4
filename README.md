@@ -1,11 +1,10 @@
-<center>
+<div align="center">
     <img src="https://avatars.githubusercontent.com/u/184809488" alt="S4 logo" width="160">
     <h1>S4</h1>
-    <p>
-      The customizable and truly responsive framework that provides absolute precision in user interface development. The lightweight of S4 makes it desirable in high-load systems.
-    </p>
-    <hr/>
-</center>
+</div>
+<p>
+    The customizable and truly responsive framework that provides absolute precision in user interface development. The lightweight of S4 makes it desirable in high-load systems.
+</p>
 
 <br>
 

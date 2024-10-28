@@ -135,7 +135,7 @@
 @mixin colors {
     // Yin/Yang
     $alfa: 0.25;
-    $positive-lightness: 1;
+    $positive-lightness: 0;
     $positive-chroma: 0;
     $positive-hue: 0;
     --positive: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue});
@@ -143,7 +143,7 @@
     @for $i from 9 through 1 {
         --positive--0#{$i}: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue} / #{$i * 0.1});
     }
-    $negative-lightness: 0;
+    $negative-lightness: 1;
     $negative-chroma: 0;
     $negative-hue: 0;
     @for $i from 1 through 9 {

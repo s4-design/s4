@@ -1,41 +1,69 @@
-@import "../_assets/_xtra/_themes/_default/_light/index";
-@import "../_assets/_xtra/_themes/_default/_dark/index";
+[theme=light] {
+    @import "../_assets/_xtra/_themes/_default/_light/index";
+    
+    /* global */
+    @include sizes;
+    @include colors;
 
-@each $theme in (
-    "light",
-    "dark"
-) {
-    [theme=#{$theme}] {
-        /* global */
-        @include sizes;
-        @include colors;
+    /* properties*/
+    @include margin;
+    @include padding;
+    @include gap;
+    @include border-width;
+    @include border-radius;
+    @include box-shadow;
 
-        /* properties*/
-        @include margin;
-        @include padding;
-        @include gap;
-        @include border-width;
-        @include border-radius;
-        @include box-shadow;
-
-        /* elements */
-        /* - mutated */
-        @include _;
-        @include _\:\:before;
-        @include _\:\:after;
-        @include _\[inert\];
-        @include html;
-        @include body;
-        @include h1($font-size--delta: 1.1);
-        @include h2($font-size--delta: 1.1);
-        @include h3($font-size--delta: 1.1);
-        @include h4($font-size--delta: 1.1);
-        @include h5($font-size--delta: 1.1);
-        @include h6;
-        @include sub;
-        @include sup;
-        /* - created */
-        @include icon;
-    }
+    /* elements */
+    /* - mutated */
+    @include _;
+    @include _\:\:before;
+    @include _\:\:after;
+    @include _\[inert\];
+    @include html;
+    @include body;
+    @include h1($font-size--delta: 1.1);
+    @include h2($font-size--delta: 1.1);
+    @include h3($font-size--delta: 1.1);
+    @include h4($font-size--delta: 1.1);
+    @include h5($font-size--delta: 1.1);
+    @include h6;
+    @include sub;
+    @include sup;
+    /* - created */
+    @include icon;
 }
 
+[theme=dark] {
+    @import "../_assets/_xtra/_themes/_default/_dark/index";
+
+    /* global */
+    @include sizes;
+    @include colors;
+
+    /* properties*/
+    @include margin;
+    @include padding;
+    @include gap;
+    @include border-width;
+    @include border-radius;
+    @include box-shadow;
+
+    /* elements */
+    /* - mutated */
+    @include _;
+    @include _\:\:before;
+    @include _\:\:after;
+    @include _\[inert\];
+    @include html;
+    @include body;
+    @include h1($font-size--delta: 1.1);
+    @include h2($font-size--delta: 1.1);
+    @include h3($font-size--delta: 1.1);
+    @include h4($font-size--delta: 1.1);
+    @include h5($font-size--delta: 1.1);
+    @include h6;
+    @include sub;
+    @include sup;
+    /* - created */
+    @include icon;
+}

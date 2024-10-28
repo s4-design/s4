@@ -8,7 +8,7 @@
 
 @if $enableVariables {
     .color {
-        color: var(--#{$type}#{$orientation}-color, var(--color, initial));
+        color: var(--#{$type}#{$orientation}color, var(--color, initial));
     }
     @each $pseudoClass in (
         "focus",
@@ -19,7 +19,7 @@
         "disabled"
     ) {
         .color\:#{$pseudoClass}:#{$pseudoClass} {
-            color: var(--#{$type}#{$orientation}-color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}, initial));
+            color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}, initial));
         }
     }
 }

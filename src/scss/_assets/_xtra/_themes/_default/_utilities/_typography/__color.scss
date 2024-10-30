@@ -5,9 +5,9 @@
         &--#{$color} {
             color: var(--#{$color}) !important;
         }
-        @for $i from 1 through math.div(100, $defaultExtraColorsInterval) - 1 {
-            &--#{$color}-#{$i * $defaultExtraColorsInterval} {
-                color: var(--#{$color}-#{$i * $defaultExtraColorsInterval}) !important;
+        @for $i from 1 through math.div(100, $xtraColorInterval) - 1 {
+            &--#{$color}-#{$i * $xtraColorInterval} {
+                color: var(--#{$color}-#{$i * $xtraColorInterval}) !important;
             }
         }
         &--#{$color}-m {

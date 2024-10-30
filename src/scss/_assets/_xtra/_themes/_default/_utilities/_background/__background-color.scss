@@ -6,9 +6,9 @@
         // &--#{$color}\:hover:hover {
             background-color: var(--#{$color}) !important;
         }
-        @for $i from 1 through $defaultExtraColorsInterval {
+        @for $i from 1 through $xtraColorInterval {
             &--#{$color}--0#{$i} {
-            // &--#{$color}-#{$i * $defaultExtraColorsInterval}\:hover:hover {
+            // &--#{$color}-#{$i * $xtraColorInterval}\:hover:hover {
                 background-color: var(--#{$color}-0#{$i}) !important;
             }
         }

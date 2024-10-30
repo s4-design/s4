@@ -141,7 +141,7 @@
 ) {
     --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
     --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});    
-    @for $i from 1 through $defaultExtraColorsInterval {
+    @for $i from 1 through $xtraColorInterval {
         --#{$prefix}--0#{$i}: oklch(#{$lightness} #{$chroma} #{$hue} / #{$i * 0.1});
     }
 }

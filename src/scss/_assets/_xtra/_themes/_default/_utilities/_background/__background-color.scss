@@ -1,4 +1,4 @@
-/* preset: background color */
+// preset: background color
 
 @each $color in $defaultColors {
     .#{$type}#{$orientation}background-color {
@@ -6,10 +6,10 @@
         // &--#{$color}\:hover:hover {
             background-color: var(--#{$color}) !important;
         }
-        @for $i from 1 through math.div(100, $defaultExtraColorsInterval) - 1 {
-            &--#{$color}-#{$i * $defaultExtraColorsInterval} {
+        @for $i from 1 through $defaultExtraColorsInterval {
+            &--#{$color}--0#{$i} {
             // &--#{$color}-#{$i * $defaultExtraColorsInterval}\:hover:hover {
-                background-color: var(--#{$color}-#{$i * $defaultExtraColorsInterval}) !important;
+                background-color: var(--#{$color}-0#{$i}) !important;
             }
         }
         &--#{$color}-m {

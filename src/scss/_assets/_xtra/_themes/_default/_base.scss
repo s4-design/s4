@@ -132,48 +132,32 @@
     --box-shadow--l4: #{$box-shadow--l4};
 }
 
-@mixin colors {
-    // Yin/Yang
-    $alfa: 0.25;
-    $positive-lightness: 1;
-    $positive-chroma: 0;
-    $positive-hue: 0;
-    --positive: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue});
-    --positive--mute: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue} / #{$alfa});
-    @for $i from 9 through 1 {
-        --positive--0#{$i}: oklch(#{$positive-lightness} #{$positive-chroma} #{$positive-hue} / #{$i * 0.1});
+@mixin base-colors (
+    $prefix,
+    $lightness,
+    $chroma,
+    $hue,
+    $alfa
+) {
+    --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
+    --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});    
+    @for $i from 1 through $defaultExtraColorsInterval {
+        --#{$prefix}--0#{$i}: oklch(#{$lightness} #{$chroma} #{$hue} / #{$i * 0.1});
     }
-    $negative-lightness: 0;
-    $negative-chroma: 0;
-    $negative-hue: 0;
-    @for $i from 1 through 9 {
-        --negative--0#{$i}: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue} / #{$i * 0.1});
-    }
-    --negative--mute: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue} / #{$alfa});
-    --negative: oklch(#{$negative-lightness} #{$negative-chroma} #{$negative-hue});
+}
 
-    // Accent
-    $accent-lightness: 0.60;
-    $accent-lightness-offset: 0.15;
-    $accent-chroma: 0.2;
-    @each $accentColor, $hue in (
-        "prime": 255,
-        "second": 255,
-        // "info": 295,
-        "success": 145,
-        // "warning": 95,
-        "error": 25
-    ) {
-        @if $accentColor == "second" {
-            --#{$accentColor}--light: oklch(#{$accent-lightness + $accent-lightness-offset} #{$accent-chroma* .1} #{$hue});
-            --#{$accentColor}: oklch(#{$accent-lightness} #{$accent-chroma* .1} #{$hue});
-            --#{$accentColor}--dark: oklch(#{$accent-lightness - $accent-lightness-offset} #{$accent-chroma* .1} #{$hue});
-            --#{$accentColor}--mute: oklch(#{$accent-lightness} #{$accent-chroma* .1} #{$hue} / #{$alfa});
-        } @else {
-            --#{$accentColor}--light: oklch(#{$accent-lightness + $accent-lightness-offset} #{$accent-chroma} #{$hue});
-            --#{$accentColor}:   oklch(#{$accent-lightness} #{$accent-chroma} #{$hue});
-            --#{$accentColor}--dark: oklch(#{$accent-lightness - $accent-lightness-offset} #{$accent-chroma} #{$hue});
-            --#{$accentColor}--mute: oklch(#{$accent-lightness} #{$accent-chroma} #{$hue} / #{$alfa});
-        }
-    }    
+@mixin accent-colors (
+    $prefixes,
+    $lightness,
+    $lightness-offset,
+    $chroma,
+    $hue,
+    $alfa
+) {
+    @each $prefix in $prefixes {
+        --#{$prefix}--light: oklch(#{$lightness + $lightness-offset} #{$chroma} #{$hue});
+        --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
+        --#{$prefix}--dark: oklch(#{$lightness - $lightness-offset} #{$chroma} #{$hue});
+        --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
+    }
 }

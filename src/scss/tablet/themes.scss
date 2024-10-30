@@ -1,9 +1,12 @@
 [theme=light] {
-    @import "../_assets/_xtra/_themes/_default/_light/index";
+    @import "../_assets/_xtra/_themes/_default/index";
     
     /* global */
     @include sizes;
-    @include colors;
+    @include accent-colors("prime", .60, .15, .2, 255, .25);
+    @include accent-colors("second", .60, .15, .02, 255, .25);
+    @include accent-colors("success", .60, .15, .2, 145, .25);
+    @include accent-colors("danger", .60, .15, .2, 25, .25);
 
     /* properties*/
     @include margin;
@@ -34,11 +37,14 @@
 }
 
 [theme=dark] {
-    @import "../_assets/_xtra/_themes/_default/_dark/index";
+    @import "../_assets/_xtra/_themes/_default/index";
 
     /* global */
     @include sizes;
-    @include colors;
+    @include accent-colors("prime", .60, .15, .2, 255, .25);
+    @include accent-colors("second", .60, .15, .02, 255, .25);
+    @include accent-colors("success", .60, .15, .2, 145, .25);
+    @include accent-colors("danger", .60, .15, .2, 25, .25);
 
     /* properties*/
     @include margin;

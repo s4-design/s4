@@ -107,6 +107,12 @@ function updateLinks(currentDepends, allDependencies) {
 // Функция управления загрузкой CSS в зависимости от устройства и ориентации
 // Function to control CSS loading depending on device and orientation
 async function S4() {
+    // Добавление тега <style> со списком слоев стилей
+    // Adding a <style> tag with a list of style layers
+    document.head.appendChild(Object.assign(document.createElement('style'), {
+        textContent: `@layer themes, elements, utilities;`
+    }));
+
     try {
         // Загружаем ключевой скрипт current-device
         // Load the current-device key script

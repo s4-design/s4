@@ -7,6 +7,6 @@
     "none"
 ) {
     .#{$type}#{$orientation}resize--#{$resize} {
-        resize: #{$resize} !important;
+        resize: #{$resize};
     }
 }

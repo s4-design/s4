@@ -8,6 +8,6 @@
     "stretch"
 ) {
     .#{$type}#{$orientation}align-self--#{$align-self} {
-        align-self: #{$align-self} !important;
+        align-self: #{$align-self};
     }
 }

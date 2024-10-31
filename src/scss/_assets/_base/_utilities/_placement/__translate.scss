@@ -2,12 +2,12 @@
 
 .#{$type}#{$orientation}translate {
     &--middle {
-        transform: translate(-50%, -50%) !important;
+        transform: translate(-50%, -50%);
     }
     &-x--middle {
-        transform: translateX(-50%) !important;
+        transform: translateX(-50%);
     }
     &-y--middle {
-        transform: translateY(-50%) !important;
+        transform: translateY(-50%);
     }
 }

@@ -6,6 +6,6 @@
     "sticky"
 ) {
     .#{$type}#{$orientation}position--#{$position} {
-        position: #{$position} !important;
+        position: #{$position};
     }
 }

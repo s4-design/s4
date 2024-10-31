@@ -3,11 +3,11 @@
 .#{$type}#{$orientation}font-weight {
     @for $i from 1 through 9 {
         &--#{$i * 100} {
-            font-weight: #{$i * 100} !important;
+            font-weight: #{$i * 100};
         }
     }
     &--initial {
-        font-weight: initial !important;
+        font-weight: initial;
     }
 }
 

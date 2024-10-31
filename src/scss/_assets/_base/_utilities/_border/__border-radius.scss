@@ -13,7 +13,7 @@ $borderRadiusXtraSize: (
 .#{$type}#{$orientation}border-radius {
     @each $name, $xtraSize in $borderRadiusXtraSize {
         &--#{$name} {
-            border-radius: #{$xtraSize} !important;
+            border-radius: #{$xtraSize};
         }
     }
 }
@@ -22,7 +22,7 @@ $borderRadiusXtraSize: (
     .#{$type}#{$orientation}border-#{$corner}-radius {
         @each $name, $xtraSize in $borderRadiusXtraSize {
             &--#{$name} {
-                border-#{$corner}-radius: #{$xtraSize} !important;
+                border-#{$corner}-radius: #{$xtraSize};
             }
         }
     }

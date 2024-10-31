@@ -7,13 +7,13 @@
 ) {
     .#{$type}#{$orientation}#{$height} {
         &--fit {
-            #{$height}: fit-content !important;
+            #{$height}: fit-content;
         }
         &--min {
-            #{$height}: min-content !important;
+            #{$height}: min-content;
         }
         &--max {
-            #{$height}: max-content !important;
+            #{$height}: max-content;
         }
     }
 

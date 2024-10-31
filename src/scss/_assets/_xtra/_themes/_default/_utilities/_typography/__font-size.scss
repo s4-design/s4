@@ -11,6 +11,6 @@
     "xxxl"
 ) {
     .#{$type}#{$orientation}font-size--#{$size} {
-        font-size: var(--fs-#{$size}) !important;
+        font-size: var(--fs-#{$size})
     }
 }

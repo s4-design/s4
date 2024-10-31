@@ -5,7 +5,7 @@
 ) {
     @for $i from 1 through $gridSize {
         .#{$type}#{$orientation}grid-template-#{$template}--#{$i} {
-            grid-template-#{$template}: repeat($i, 1fr) !important;
+            grid-template-#{$template}: repeat($i, 1fr)
         }
     }
 }

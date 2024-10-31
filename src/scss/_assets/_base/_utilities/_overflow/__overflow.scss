@@ -7,11 +7,11 @@
     "scroll"
 ) {
     .#{$type}#{$orientation}overflow--#{$overflow} {
-        overflow: #{$overflow} !important;
+        overflow: #{$overflow};
     }
     @each $axis in ( "x", "y" ) {
         .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
-               overflow-#{$axis}: #{$overflow} !important;
+               overflow-#{$axis}: #{$overflow};
            }
     }
 }

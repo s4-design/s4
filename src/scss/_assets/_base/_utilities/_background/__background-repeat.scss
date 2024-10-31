@@ -8,6 +8,6 @@
     "no": "no-repeat"
 ) {
     .#{$type}#{$orientation}background-repeat--#{$name} {
-        background-repeat: #{$repeat} !important;
+        background-repeat: #{$repeat};
     }
 }

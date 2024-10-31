@@ -5,7 +5,7 @@
     "contain"
 ) {
     .#{$type}#{$orientation}background-size--#{$size} {
-        background-size: #{$size} !important;
+        background-size: #{$size};
     }
 }
 

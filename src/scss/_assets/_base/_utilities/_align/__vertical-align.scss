@@ -11,6 +11,6 @@
     "text-top"
 ) {
     .#{$type}#{$orientation}vertical-align--#{$vertical-align} {
-        vertical-align: #{$vertical-align} !important;
+        vertical-align: #{$vertical-align};
     }
 }

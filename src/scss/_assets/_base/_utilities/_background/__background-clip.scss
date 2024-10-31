@@ -7,7 +7,7 @@
     "text": "text"
 ) {
     .#{$type}#{$orientation}background-clip--#{$alias} {
-        background-clip: #{$background-clip} !important;
+        background-clip: #{$background-clip};
         // @if $background-clip == text {
         //     color: #{transparent};
         // }

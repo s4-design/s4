@@ -8,6 +8,6 @@
     "column-dense": "column dense"
 ) {
     .#{$type}#{$orientation}grid-auto-flow--#{$item} {
-        grid-auto-flow: #{$flow} !important;
+        grid-auto-flow: #{$flow};
     }
 }

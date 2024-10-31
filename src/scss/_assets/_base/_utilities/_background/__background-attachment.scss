@@ -6,6 +6,6 @@
     "local"
 ) {
     .#{$type}#{$orientation}background-attachment--#{$background-attachment} {
-        background-attachment: #{$background-attachment} !important;
+        background-attachment: #{$background-attachment};
     }
 }

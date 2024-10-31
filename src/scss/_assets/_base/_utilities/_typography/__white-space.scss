@@ -9,6 +9,6 @@
     "break-spaces"
 ) {
     .#{$type}#{$orientation}white-space--#{$space} {
-        white-space: #{$space} !important;
+        white-space: #{$space};
     }
 }

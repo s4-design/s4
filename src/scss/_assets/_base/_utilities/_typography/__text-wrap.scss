@@ -6,6 +6,6 @@
     "balance"
 ) {
     .#{$type}#{$orientation}text-wrap--#{$wrap} {
-        text-wrap: #{$wrap} !important;
+        text-wrap: #{$wrap};
     }
 }

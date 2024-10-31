@@ -7,7 +7,7 @@
     "fit": "fit-content"
 ) {
     .#{$type}#{$orientation}flex-basis--#{$name} {
-        flex-basis: #{$basis} !important;
+        flex-basis: #{$basis};
     }
 }
 

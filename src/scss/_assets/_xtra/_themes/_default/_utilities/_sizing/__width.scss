@@ -8,7 +8,7 @@
     .#{$type}#{$orientation}#{$width} {
         @for $i from 0 through math.div(100, $defaultSizingStep) {
             &--#{$i * $defaultSizingStep} {
-                #{$width}: #{$i * $defaultSizingStep + '%'} !important;
+                #{$width}: #{$i * $defaultSizingStep + '%'}
             }
         }
     }

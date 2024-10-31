@@ -3,24 +3,24 @@
 .#{$type}#{$orientation}color {
     @each $color in $defaultColors {
         &--#{$color} {
-            color: var(--#{$color}) !important;
+            color: var(--#{$color})
         }
         @for $i from 1 through math.div(100, $xtraColorInterval) - 1 {
             &--#{$color}-#{$i * $xtraColorInterval} {
-                color: var(--#{$color}-#{$i * $xtraColorInterval}) !important;
+                color: var(--#{$color}-#{$i * $xtraColorInterval})
             }
         }
         &--#{$color}-m {
-            color: var(--#{$color}-m) !important;
+            color: var(--#{$color}-m)
         }
     }
     @each $color in $accentColors {
         &--#{$color} {
-            color: var(--#{$color}) !important;
+            color: var(--#{$color})
         }
         @each $pref in $accentExtraColorsPrefs {
             &--#{$color}-#{$pref} {
-                color: var(--#{$color}-#{$pref}) !important;
+                color: var(--#{$color}-#{$pref})
             }
         }
     }

@@ -6,6 +6,6 @@
     "capitalize"
 ) {
     .#{$type}#{$orientation}text-transform--#{$transform} {
-        text-transform: #{$transform} !important;
+        text-transform: #{$transform};
     }
 }

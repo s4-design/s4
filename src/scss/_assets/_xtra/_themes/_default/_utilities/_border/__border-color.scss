@@ -4,17 +4,17 @@
     .#{$type}#{$orientation}border-color {
         &--#{$color},
         &--#{$color}\:hover:hover {
-            border-color: var(--#{$color}) !important;
+            border-color: var(--#{$color})
         }
         @for $i from 1 through math.div(100, $xtraColorInterval) - 1 {
             &--#{$color}-#{$i * $xtraColorInterval},
             &--#{$color}-#{$i * $xtraColorInterval}\:hover:hover {
-                border-color: var(--#{$color}-#{$i * $xtraColorInterval}) !important;
+                border-color: var(--#{$color}-#{$i * $xtraColorInterval})
             }
         }
         &--#{$color}-m,
         &--#{$color}-m\:hover:hover {
-            border-color: var(--#{$color}-m) !important;
+            border-color: var(--#{$color}-m)
         }
     }
 }
@@ -23,12 +23,12 @@
     .#{$type}#{$orientation}border-color {
         &--#{$color},
         &--#{$color}\:hover:hover {
-            border-color: var(--#{$color}) !important;
+            border-color: var(--#{$color})
         }
         @each $pref in $accentExtraColorsPrefs {
             &--#{$color}-#{$pref},
             &--#{$color}-#{$pref}\:hover:hover {
-                border-color: var(--#{$color}-#{$pref}) !important;
+                border-color: var(--#{$color}-#{$pref})
             }
         }
     }

@@ -2,35 +2,35 @@
 
 .#{$type}#{$orientation}background-position {
     &--left {
-        background-position: left center !important;
+        background-position: left center;
     }
     &--top-left,
     &--left-top {
-        background-position: left top !important;
+        background-position: left top;
     }
     &--top {
-        background-position: center top !important;
+        background-position: center top;
     }
     &--top-right,
     &--right-top {
-        background-position: right top !important;
+        background-position: right top;
     }
     &--righ {
-        background-position: right center !important;
+        background-position: right center;
     }
     &--bottom-right,
     &--right-bottom {
-        background-position: right bottom !important;
+        background-position: right bottom;
     }
     &--bottom {
-        background-position: center bottom !important;
+        background-position: center bottom;
     }
     &--bottom-left,
     &--left-bottom {
-        background-position: left bottom !important;
+        background-position: left bottom;
     }
     &--center {
-        background-position: center center !important;
+        background-position: center center;
     }
 }
 

@@ -9,6 +9,6 @@
     1000: 1000
 ) {
     .#{$type}#{$orientation}z-index--#{$name} {
-        z-index: #{$index} !important;
+        z-index: #{$index}
     }
 }

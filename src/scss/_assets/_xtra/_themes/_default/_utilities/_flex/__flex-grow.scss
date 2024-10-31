@@ -2,6 +2,6 @@
 
 @for $i from 0 through 1 {
     .#{$type}#{$orientation}flex-grow--#{$i} {
-        flex-grow: $i !important;
+        flex-grow: $i
     }
 }

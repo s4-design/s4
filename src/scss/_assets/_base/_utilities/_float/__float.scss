@@ -6,6 +6,6 @@
     "none": "none"
 ) {
     .#{$type}#{$orientation}float--#{$name} {
-        float: #{$float} !important;
+        float: #{$float};
     }
 }

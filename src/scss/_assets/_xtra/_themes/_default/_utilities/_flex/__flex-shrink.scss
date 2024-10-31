@@ -2,6 +2,6 @@
 
 @for $i from 0 through 1 {
     .#{$type}#{$orientation}flex-shrink--#{$i} {
-        flex-shrink: $i !important;
+        flex-shrink: $i
     }
 }

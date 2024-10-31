@@ -5,6 +5,6 @@
     "separate"
 ) {
     .border--#{$collapse} {
-        border-collapse: #{$collapse} !important;
+        border-collapse: #{$collapse};
     }
 }

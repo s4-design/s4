@@ -8,6 +8,6 @@
     "stretch"
 ) {
     .#{$type}#{$orientation}align-items--#{$align-items} {
-        align-items: #{$align-items} !important;
+        align-items: #{$align-items};
     }
 }

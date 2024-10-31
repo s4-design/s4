@@ -24,12 +24,12 @@ $borderRadiusXtraSize: (
 .#{$type}#{$orientation}border-radius {
     @each $size in $borderRadiusSize {
         &--#{$size} {
-            border-radius: var(--border-radius--#{$size}) !important;
+            border-radius: var(--border-radius--#{$size})
         }
     }
     @each $name, $xtraSize in $borderRadiusXtraSize {
         &--#{$name} {
-            border-radius: #{$xtraSize} !important;
+            border-radius: #{$xtraSize}
         }
     }
 }
@@ -38,12 +38,12 @@ $borderRadiusXtraSize: (
     .#{$type}#{$orientation}border-#{$corner}-radius {
         @each $size in $borderRadiusSize {
             &--#{$size} {
-                border-#{$corner}-radius: var(--border-radius--#{$size}) !important;
+                border-#{$corner}-radius: var(--border-radius--#{$size})
             }
         }
         @each $name, $xtraSize in $borderRadiusXtraSize {
             &--#{$name} {
-                border-#{$corner}-radius: #{$xtraSize} !important;
+                border-#{$corner}-radius: #{$xtraSize}
             }
         }
     }

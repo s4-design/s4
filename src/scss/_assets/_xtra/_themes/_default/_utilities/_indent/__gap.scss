@@ -8,7 +8,7 @@
     .#{$type}#{$orientation}#{$tracksName}-gap {
         @each $space in $spacingSizes {
             &--#{$space} {
-                #{$tracksName}-gap: var(--gap--#{$space}) !important;
+                #{$tracksName}-gap: var(--gap--#{$space})
             }
         }
     }

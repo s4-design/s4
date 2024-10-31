@@ -5,6 +5,6 @@
     "rtl"
 ) {
     .#{$type}#{$orientation}direction--#{$directions} {
-        direction: #{$directions} !important;
+        direction: #{$directions};
     }
 }

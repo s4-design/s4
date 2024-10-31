@@ -2,7 +2,7 @@
 
 @for $i from 1 through $gridSize {
     .#{$type}#{$orientation}grid-row--span-#{$i} {
-        grid-row: span $i / span $i !important;
+        grid-row: span $i / span $i
     }
 }
 .#{$type}#{$orientation}grid-row--full {
@@ -11,9 +11,9 @@
 
 @for $i from 1 through $gridSize {
     .#{$type}#{$orientation}grid-row-start--#{$i} {
-        grid-row-start: $i !important;
+        grid-row-start: $i
     }
     .#{$type}#{$orientation}grid-row-end-#{$i} {
-        grid-row-end: $i !important;
+        grid-row-end: $i
     }
 }

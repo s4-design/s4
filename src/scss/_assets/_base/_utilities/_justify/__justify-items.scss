@@ -7,6 +7,6 @@
     "stretch"
 ) {
     .#{$type}#{$orientation}justify-items--#{$items} {
-        justify-items: #{$items} !important;
+        justify-items: #{$items};
     }
 }

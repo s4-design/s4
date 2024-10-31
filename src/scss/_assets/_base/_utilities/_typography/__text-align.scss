@@ -7,6 +7,6 @@
     "justify"
 ) {
 .#{$type}#{$orientation}text-align--#{$align} {
-        text-align: #{$align} !important;
+        text-align: #{$align};
     }
 }

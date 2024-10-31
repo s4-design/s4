@@ -1,75 +1,84 @@
-[theme=light] {
-    @import "../_assets/_xtra/_themes/_default/index";
+@layer themes {
+    [theme=light] {
+        @import "../_assets/_xtra/_themes/_default/index";
+        
+        /* global */
+        @include sizes;
+        @include base-colors("positive", 1, 0, 0, .25);
+        @include base-colors("negative", 0, 0, 0, .25);
+        @include accent-colors("prime", .60, .15, .2, 255, .25);
+        @include accent-colors("second", .60, .15, .02, 255, .25);
+        @include accent-colors("success", .60, .15, .2, 145, .25);
+        @include accent-colors("error", .60, .15, .2, 25, .25);
     
-    /* global */
-    @include sizes;
-    @include accent-colors("prime", .60, .15, .2, 255, .25);
-    @include accent-colors("second", .60, .15, .02, 255, .25);
-    @include accent-colors("success", .60, .15, .2, 145, .25);
-    @include accent-colors("error", .60, .15, .2, 25, .25);
+        /* properties*/
+        @include margin;
+        @include padding;
+        @include gap;
+        @include border-width;
+        @include border-radius;
+        @include box-shadow;
+    
+        /* elements */
+        /* - mutated */
+        @include _;
+        @include _\:\:before;
+        @include _\:\:after;
+        @include _\[inert\];
+        @include html;
+        @include body;
+        @include h1($font-size--delta: 1.05);
+        @include h2($font-size--delta: 1.05);
+        @include h3($font-size--delta: 1.05);
+        @include h4($font-size--delta: 1.05);
+        @include h5($font-size--delta: 1.05);
+        @include h6;
+        @include sub;
+        @include sup;
+        /* - created */
+        @include icon;
+        @include _\[theme\];
+    }
 
-    /* properties*/
-    @include margin;
-    @include padding;
-    @include gap;
-    @include border-width;
-    @include border-radius;
-    @include box-shadow;
-
-    /* elements */
-    /* - mutated */
-    @include _;
-    @include _\:\:before;
-    @include _\:\:after;
-    @include _\[inert\];
-    @include html;
-    @include body;
-    @include h1($font-size--delta: 1.05);
-    @include h2($font-size--delta: 1.05);
-    @include h3($font-size--delta: 1.05);
-    @include h4($font-size--delta: 1.05);
-    @include h5($font-size--delta: 1.05);
-    @include h6;
-    @include sub;
-    @include sup;
-    /* - created */
-    @include icon;
+    [theme=dark] {
+        @import "../_assets/_xtra/_themes/_default/index";
+    
+        /* global */
+        @include sizes;
+        @include base-colors('positive', .22, .012, 254, .25);
+        @include base-colors('negative', .78, .012, 254, .25);
+        @include accent-colors("prime", .60, .15, .2, 255, .25);
+        @include accent-colors("second", .60, .15, .02, 255, .25);
+        @include accent-colors("success", .60, .15, .2, 145, .25);
+        @include accent-colors("danger", .60, .15, .2, 25, .25);
+    
+        /* properties*/
+        @include margin;
+        @include padding;
+        @include gap;
+        @include border-width;
+        @include border-radius;
+        @include box-shadow;
+    
+        /* elements */
+        /* - mutated */
+        @include _;
+        @include _\:\:before;
+        @include _\:\:after;
+        @include _\[inert\];
+        @include html;
+        @include body;
+        @include h1($font-size--delta: 1.05);
+        @include h2($font-size--delta: 1.05);
+        @include h3($font-size--delta: 1.05);
+        @include h4($font-size--delta: 1.05);
+        @include h5($font-size--delta: 1.05);
+        @include h6;
+        @include sub;
+        @include sup;
+        /* - created */
+        @include icon;
+        @include _\[theme\];
+    }
 }
 
-[theme=dark] {
-    @import "../_assets/_xtra/_themes/_default/index";
-
-    /* global */
-    @include sizes;
-    @include accent-colors("prime", .60, .15, .2, 255, .25);
-    @include accent-colors("second", .60, .15, .02, 255, .25);
-    @include accent-colors("success", .60, .15, .2, 145, .25);
-    @include accent-colors("danger", .60, .15, .2, 25, .25);
-
-    /* properties*/
-    @include margin;
-    @include padding;
-    @include gap;
-    @include border-width;
-    @include border-radius;
-    @include box-shadow;
-
-    /* elements */
-    /* - mutated */
-    @include _;
-    @include _\:\:before;
-    @include _\:\:after;
-    @include _\[inert\];
-    @include html;
-    @include body;
-    @include h1($font-size--delta: 1.05);
-    @include h2($font-size--delta: 1.05);
-    @include h3($font-size--delta: 1.05);
-    @include h4($font-size--delta: 1.05);
-    @include h5($font-size--delta: 1.05);
-    @include h6;
-    @include sub;
-    @include sup;
-    /* - created */
-    @include icon;
-}

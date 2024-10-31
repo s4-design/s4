@@ -7,25 +7,25 @@
     .#{$type}#{$orientation}#{$spacingName} {
         @each $space in $spacingSizes {
             &--#{$space} {
-                #{$spacingName}: var(--#{$spacingName}--#{$space}) !important;
+                #{$spacingName}: var(--#{$spacingName}--#{$space})
             }
         }
         @each $space in $spacingSizes {
             &-y--#{$space},
             &-top--#{$space} {
-                #{$spacingName}-top: var(--#{$spacingName}--#{$space}) !important;
+                #{$spacingName}-top: var(--#{$spacingName}--#{$space})
             }
             &-x--#{$space},
             &-right--#{$space} {
-                #{$spacingName}-right: var(--#{$spacingName}--#{$space}) !important;
+                #{$spacingName}-right: var(--#{$spacingName}--#{$space})
             }
             &-y--#{$space},
             &-bottom--#{$space} {
-                #{$spacingName}-bottom: var(--#{$spacingName}--#{$space}) !important;
+                #{$spacingName}-bottom: var(--#{$spacingName}--#{$space})
             }
             &-x--#{$space},
             &-left--#{$space} {
-                #{$spacingName}-left: var(--#{$spacingName}--#{$space}) !important;
+                #{$spacingName}-left: var(--#{$spacingName}--#{$space})
             }
         }
     }

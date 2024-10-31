@@ -9,7 +9,7 @@ $borderStyle: (
 
 @each $style in $borderStyle {
     .#{$type}#{$orientation}border-style--#{$style} {
-        border-style: #{$style} !important;
+        border-style: #{$style};
         @if $style != none {
             border-width: var(--border-width--min);
         }
@@ -19,7 +19,7 @@ $borderStyle: (
 @each $style in $borderStyle {
     @each $side in $borderSides {
         .#{$type}#{$orientation}border-#{$side}-style--#{$style} {
-            border-#{$side}-style: #{$style} !important;
+            border-#{$side}-style: #{$style};
             @if $style != none {
                 border-width: var(--border-width--min);
             }

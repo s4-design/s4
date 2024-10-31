@@ -7,16 +7,16 @@
 ) {
     .#{$type}#{$orientation}#{$width} {
         &--inherit {
-            #{$width}: inherit !important;
+            #{$width}: inherit;
         }
         &--fit {
-            #{$width}: fit-content !important;
+            #{$width}: fit-content;
         }
         &--min {
-            #{$width}: min-content !important;
+            #{$width}: min-content;
         }
         &--max {
-            #{$width}: max-content !important;
+            #{$width}: max-content;
         }
     }
 

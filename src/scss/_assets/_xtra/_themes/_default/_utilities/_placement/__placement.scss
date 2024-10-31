@@ -8,7 +8,7 @@
 ) {
     @for $i from 0 through 2 {
         .#{$type}#{$orientation}#{$placement}--#{$i * 50} {
-            #{$placement}: $i * 50% !important;
+            #{$placement}: $i * 50%
         }
     }
 }

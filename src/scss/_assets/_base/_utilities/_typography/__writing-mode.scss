@@ -5,6 +5,6 @@
     "vertical-lr"
 ) {
     .#{$type}#{$orientation}writing-mode--#{$mode} {
-        writing-mode: #{$mode} !important;
+        writing-mode: #{$mode};
     }
 }

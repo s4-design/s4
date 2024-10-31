@@ -2,7 +2,7 @@
 
 .#{$type}#{$orientation}border-color--transparent,
 .#{$type}#{$orientation}border-color--transparent\:hover:hover {
-    border-color: #{transparent} !important;
+    border-color: #{transparent};
 }
 
 @if $enableVariables {

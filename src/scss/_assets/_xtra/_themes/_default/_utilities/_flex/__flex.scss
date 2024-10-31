@@ -6,6 +6,6 @@
     "auto"
 ) {
     .#{$type}#{$orientation}flex--#{$value} {
-        flex: #{$value} !important;
+        flex: #{$value}
     }
 }

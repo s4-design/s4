@@ -7,6 +7,6 @@
     "column-reverse"
 ) {
     .#{$type}#{$orientation}flex-direction--#{$direction} {
-        flex-direction: #{$direction} !important;
+        flex-direction: #{$direction};
     }
 }

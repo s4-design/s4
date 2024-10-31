@@ -10,6 +10,6 @@
     "stretch": "stretch"
 ) {
     .#{$type}#{$orientation}justify-content--#{$name} {
-        justify-content: #{$content} !important;
+        justify-content: #{$content};
     }
 }

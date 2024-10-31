@@ -3,7 +3,7 @@
 .#{$type}#{$orientation}text-shadow {
     @each $size in $shadowSize {
         &--#{$size} {
-            text-shadow: calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .5) var(--text-shadow--color) !important;
+            text-shadow: calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .5) var(--text-shadow--color);
         }
     }
 }

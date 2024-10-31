@@ -10,6 +10,6 @@
     "stretch": "stretch"
 ) {
     .#{$type}#{$orientation}align-content--#{$alias} {
-        align-content: #{$align-content} !important;
+        align-content: #{$align-content};
     }
 }

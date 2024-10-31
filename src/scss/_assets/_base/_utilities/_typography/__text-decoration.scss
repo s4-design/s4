@@ -6,7 +6,7 @@
     "line-through"
 ) {
     .#{$type}#{$orientation}text-decoration--#{$decoration} {
-        text-decoration: #{$decoration} !important;
+        text-decoration: #{$decoration};
     }
 }
 

@@ -6,6 +6,6 @@
     "content": "content-box"
 ) {
     .#{$type}#{$orientation}background-origin--#{$item} {
-        background-origin: #{$origin} !important;
+        background-origin: #{$origin};
     }
 }

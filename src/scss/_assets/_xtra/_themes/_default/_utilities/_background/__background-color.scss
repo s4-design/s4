@@ -4,17 +4,17 @@
     .#{$type}#{$orientation}background-color {
         &--#{$color} {
         // &--#{$color}\:hover:hover {
-            background-color: var(--#{$color}) !important;
+            background-color: var(--#{$color})
         }
         @for $i from 1 through $xtraColorInterval {
             &--#{$color}--0#{$i} {
             // &--#{$color}-#{$i * $xtraColorInterval}\:hover:hover {
-                background-color: var(--#{$color}-0#{$i}) !important;
+                background-color: var(--#{$color}-0#{$i})
             }
         }
         &--#{$color}-m {
         // &--#{$color}-m\:hover:hover {
-            background-color: var(--#{$color}-m) !important;
+            background-color: var(--#{$color}-m)
         }
     }
 }
@@ -23,12 +23,12 @@
     .#{$type}#{$orientation}background-color {
         &--#{$color} {
         // &--#{$color}\:hover:hover {
-            background-color: var(--#{$color}) !important;
+            background-color: var(--#{$color})
         }
         @each $pref in $accentExtraColorsPrefs {
             &--#{$color}-#{$pref} {
             // &--#{$color}-#{$pref}\:hover:hover {
-                background-color: var(--#{$color}-#{$pref}) !important;
+                background-color: var(--#{$color}-#{$pref})
             }
         }
     }

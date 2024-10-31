@@ -5,6 +5,6 @@
     1
 ) {
     .#{$type}#{$orientation}line-height--#{$height} {
-        line-height: #{$height} !important;
+        line-height: #{$height}
     }
 }

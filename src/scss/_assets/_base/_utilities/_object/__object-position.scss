@@ -8,7 +8,7 @@
     none
 ) {
     .object-fit--#{$fit} {
-        object-fit: #{$fit} !important
+        object-fit: #{$fit};
     }    
 }
 
@@ -20,7 +20,7 @@
     center
 ) {
     .object-position--#{$position} {
-        object-position: #{$position} !important
+        object-position: #{$position};
     }    
 }
 

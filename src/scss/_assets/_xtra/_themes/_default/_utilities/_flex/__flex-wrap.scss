@@ -6,6 +6,6 @@
     "nowrap"
 ) {
     .#{$type}#{$orientation}flex-wrap--#{$wrap} {
-        flex-wrap: #{$wrap} !important;
+        flex-wrap: #{$wrap};
     }
 }

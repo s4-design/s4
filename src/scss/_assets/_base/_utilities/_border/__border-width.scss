@@ -10,7 +10,7 @@
     }
     // @each $side in $borderSides {
     //     .#{$type}#{$orientation}border-#{$side}-width--#{$width} {
-    //         border-#{$side}-width: var(--border-width--#{$width}) !important
+    //         border-#{$side}-width: var(--border-width--#{$width});
     //     }
     // }
 }

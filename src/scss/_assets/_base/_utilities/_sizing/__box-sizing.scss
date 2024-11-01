@@ -5,6 +5,6 @@
     "content"
 ) {
     .box-sizing--#{$sizing} {
-        box-sizing: #{$sizing}-box !important
+        box-sizing: #{$sizing}-box;
     }    
 }

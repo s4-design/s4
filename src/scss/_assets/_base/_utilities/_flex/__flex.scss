@@ -1,9 +1,9 @@
 /* flex */
 
 @each $value in (
-    "none",
-    "initial",
-    "auto"
+    "none", // 0 0 auto
+    "initial", // 0 1 auto
+    "auto" // 1 1 auto
 ) {
     .#{$type}#{$orientation}flex--#{$value} {
         flex: #{$value};

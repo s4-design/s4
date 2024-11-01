@@ -12,6 +12,7 @@
         @include accent-colors("error", .60, .15, .2, 25, .25);
     
         /* properties*/
+        @include font-size;
         @include margin;
         @include padding;
         @include gap;
@@ -53,6 +54,7 @@
         @include accent-colors("danger", .60, .15, .2, 25, .25);
     
         /* properties*/
+        @include font-size;
         @include margin;
         @include padding;
         @include gap;

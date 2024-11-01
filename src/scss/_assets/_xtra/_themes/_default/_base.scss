@@ -25,6 +25,25 @@
 }
 
 // properties
+@mixin font-size (
+    $font-size--s3: var(--size--1),
+    $font-size--s2: var(--size--2),
+    $font-size--s1: var(--size--3),
+    $font-size--md: var(--size--4),
+    $font-size--l1: var(--size--5),
+    $font-size--l2: var(--size--6),
+    $font-size--l3: var(--size--7),
+    $font-size--l4: var(--size--8)
+) {
+    --font-size--s3: #{$font-size--s3};
+    --font-size--s2: #{$font-size--s2};
+    --font-size--s1: #{$font-size--s1};
+    --font-size--md: #{$font-size--md};
+    --font-size--l1: #{$font-size--l1};
+    --font-size--l2: #{$font-size--l2};
+    --font-size--l3: #{$font-size--l3};
+    --font-size--l4: #{$font-size--l4};
+}
 @mixin margin (
     $margin--s3: var(--size--1),
     $margin--s2: var(--size--2),
@@ -73,14 +92,14 @@
     $gap--l3: var(--size--7),
     $gap--l4: var(--size--8)
 ) {
-    --gap--3s: #{$gap--s3};
-    --gap--2s: #{$gap--s2};
-    --gap--1s: #{$gap--s1};
+    --gap--s3: #{$gap--s3};
+    --gap--s2: #{$gap--s2};
+    --gap--s1: #{$gap--s1};
     --gap--md: #{$gap--md};
-    --gap--1l: #{$gap--l1};
-    --gap--2l: #{$gap--l2};
-    --gap--3l: #{$gap--l3};
-    --gap--4l: #{$gap--l4};
+    --gap--l1: #{$gap--l1};
+    --gap--l2: #{$gap--l2};
+    --gap--l3: #{$gap--l3};
+    --gap--l4: #{$gap--l4};
 }
 @mixin border-width (
     $border-width--min: var(--size--025),

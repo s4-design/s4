@@ -3,7 +3,7 @@
     <h1>S4</h1>
 </div>
 <p>
-    The customizable and truly responsive framework that provides absolute precision in user interface development. The lightweight of S4 makes it desirable in high-load systems.
+    The customizable responsive and truly adaptive framework that provides absolute precision in user interface development. The lightweight of S4 makes it desirable in high-load systems.
 </p>
 
 <br>

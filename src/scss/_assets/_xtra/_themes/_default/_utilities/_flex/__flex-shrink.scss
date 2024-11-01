@@ -1,7 +1,7 @@
-/* preset: flex shrink */
+// preset: flex shrink
 
 @for $i from 0 through 1 {
     .#{$type}#{$orientation}flex-shrink--#{$i} {
-        flex-shrink: $i
+        flex-shrink: $i;
     }
 }

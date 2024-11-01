@@ -1,14 +1,11 @@
-/* preset: z-index */
+// preset: z-index
 
 @each $name, $index in (
     n: -1,
     0: 0,
     1: 1,
-    10: 10,
-    100: 100,
-    1000: 1000
 ) {
     .#{$type}#{$orientation}z-index--#{$name} {
-        z-index: #{$index}
+        z-index: #{$index};
     }
 }

@@ -1,4 +1,4 @@
-/* preset: border radius */
+// preset: border radius
 
 $borderRadiusCorner: (
     "top-left",
@@ -7,14 +7,14 @@ $borderRadiusCorner: (
     "bottom-left"
 );
 $borderRadiusSize: (
-    "xxs",
-    "xs",
-    "sm",
+    "3s",
+    "2s",
+    "1s",
     "md",
-    "lg",
-    "xl",
-    "xxl",
-    "xxxl"
+    "1l",
+    "2l",
+    "3l",
+    "4l"
 );
 $borderRadiusXtraSize: (
     oval: 50%,
@@ -24,12 +24,12 @@ $borderRadiusXtraSize: (
 .#{$type}#{$orientation}border-radius {
     @each $size in $borderRadiusSize {
         &--#{$size} {
-            border-radius: var(--border-radius--#{$size})
+            border-radius: var(--border-radius--#{$size});
         }
     }
     @each $name, $xtraSize in $borderRadiusXtraSize {
         &--#{$name} {
-            border-radius: #{$xtraSize}
+            border-radius: #{$xtraSize};
         }
     }
 }
@@ -38,12 +38,12 @@ $borderRadiusXtraSize: (
     .#{$type}#{$orientation}border-#{$corner}-radius {
         @each $size in $borderRadiusSize {
             &--#{$size} {
-                border-#{$corner}-radius: var(--border-radius--#{$size})
+                border-#{$corner}-radius: var(--border-radius--#{$size});
             }
         }
         @each $name, $xtraSize in $borderRadiusXtraSize {
             &--#{$name} {
-                border-#{$corner}-radius: #{$xtraSize}
+                border-#{$corner}-radius: #{$xtraSize};
             }
         }
     }

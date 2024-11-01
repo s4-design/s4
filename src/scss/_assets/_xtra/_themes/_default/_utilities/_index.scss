@@ -5,7 +5,7 @@
 @layer utilities {
     :is([theme="light"], [theme="dark"]) {
         @import "_background/index";
-        // @import "_border/index";
+        @import "_border/index";
         @import "_cursor/index";
         @import "_flex/index";
         // @import "_grid/index";

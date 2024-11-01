@@ -1,4 +1,4 @@
-/* preset: width */
+// preset: width
 
 @each $width in (
     "min-width",
@@ -8,7 +8,7 @@
     .#{$type}#{$orientation}#{$width} {
         @for $i from 0 through math.div(100, $defaultSizingStep) {
             &--#{$i * $defaultSizingStep} {
-                #{$width}: #{$i * $defaultSizingStep + '%'}
+                #{$width}: #{$i * $defaultSizingStep + '%'};
             }
         }
     }

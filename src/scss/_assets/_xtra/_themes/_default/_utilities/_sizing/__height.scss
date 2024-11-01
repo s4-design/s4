@@ -1,4 +1,4 @@
-/* preset: height */
+// preset: height
 
 @each $height in (
     "min-height",
@@ -8,7 +8,7 @@
     .#{$type}#{$orientation}#{$height} {
         @for $i from 0 through math.div(100, $defaultSizingStep) {
             &--#{$i * $defaultSizingStep} {
-                #{$height}: #{$i * $defaultSizingStep + '%'}
+                #{$height}: #{$i * $defaultSizingStep + '%'};
             }
         }
     }

@@ -1,10 +1,10 @@
-/* preset: box shadow */
+// preset: box shadow
 
 .#{$type}#{$orientation}box-shadow {
     @each $size in $shadowSize {
         &--#{$size},
         &--#{$size}\:hover:hover {
-            box-shadow: 0 var(--box-shadow--#{$size}) calc(var(--box-shadow--#{$size}) * 2) calc(var(--box-shadow--#{$size}) * .5) var(--box-shadow--color)
+            box-shadow: 0 var(--box-shadow--#{$size}) calc(var(--box-shadow--#{$size}) * 2) calc(var(--box-shadow--#{$size}) * .5) var(--box-shadow--color);
         }
     }
 }

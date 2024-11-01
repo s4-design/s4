@@ -18,7 +18,7 @@
         &--#{$color} {
             color: var(--#{$color})
         }
-        @each $pref in $accentExtraColorsPrefs {
+        @each $pref in $accentColorsPostfixes {
             &--#{$color}-#{$pref} {
                 color: var(--#{$color}-#{$pref})
             }

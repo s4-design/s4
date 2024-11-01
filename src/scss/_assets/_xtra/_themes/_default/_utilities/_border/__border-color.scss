@@ -1,20 +1,20 @@
-/* preset: border color */
+// preset: border color
 
 @each $color in $defaultColors {
     .#{$type}#{$orientation}border-color {
         &--#{$color},
         &--#{$color}\:hover:hover {
-            border-color: var(--#{$color})
+            border-color: var(--#{$color});
         }
-        @for $i from 1 through math.div(100, $xtraColorInterval) - 1 {
-            &--#{$color}-#{$i * $xtraColorInterval},
-            &--#{$color}-#{$i * $xtraColorInterval}\:hover:hover {
-                border-color: var(--#{$color}-#{$i * $xtraColorInterval})
+        @for $i from 1 through $xtraColorInterval {
+            &--#{$color}--0#{$i},
+            &--#{$color}--0#{$i}\:hover:hover {
+                border-color: var(--#{$color}--0#{$i});
             }
         }
-        &--#{$color}-m,
-        &--#{$color}-m\:hover:hover {
-            border-color: var(--#{$color}-m)
+        &--#{$color}--mute,
+        &--#{$color}--mute\:hover:hover {
+            border-color: var(--#{$color}--mute);
         }
     }
 }
@@ -23,12 +23,12 @@
     .#{$type}#{$orientation}border-color {
         &--#{$color},
         &--#{$color}\:hover:hover {
-            border-color: var(--#{$color})
+            border-color: var(--#{$color});
         }
-        @each $pref in $accentExtraColorsPrefs {
-            &--#{$color}-#{$pref},
-            &--#{$color}-#{$pref}\:hover:hover {
-                border-color: var(--#{$color}-#{$pref})
+        @each $postfix in $accentColorsPostfixes {
+            &--#{$color}--#{$postfix},
+            &--#{$color}--#{$postfix}\:hover:hover {
+                border-color: var(--#{$color}--#{$postfix});
             }
         }
     }

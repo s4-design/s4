@@ -2,33 +2,33 @@
 
 @each $color in $defaultColors {
     .#{$type}#{$orientation}background-color {
-        &--#{$color} {
-        // &--#{$color}\:hover:hover {
-            background-color: var(--#{$color})
+        &--#{$color},
+        &--#{$color}\:hover:hover {
+            background-color: var(--#{$color});
         }
         @for $i from 1 through $xtraColorInterval {
-            &--#{$color}--0#{$i} {
-            // &--#{$color}-#{$i * $xtraColorInterval}\:hover:hover {
-                background-color: var(--#{$color}-0#{$i})
+            &--#{$color}--0#{$i},
+            &--#{$color}--0#{$i}\:hover:hover {
+                background-color: var(--#{$color}--0#{$i});
             }
         }
-        &--#{$color}-m {
-        // &--#{$color}-m\:hover:hover {
-            background-color: var(--#{$color}-m)
+        &--#{$color}--mute,
+        &--#{$color}--mute\:hover:hover {
+            background-color: var(--#{$color}--mute);
         }
     }
 }
 
 @each $color in $accentColors {
     .#{$type}#{$orientation}background-color {
-        &--#{$color} {
-        // &--#{$color}\:hover:hover {
-            background-color: var(--#{$color})
+        &--#{$color},
+        &--#{$color}\:hover:hover {
+            background-color: var(--#{$color});
         }
-        @each $pref in $accentExtraColorsPrefs {
-            &--#{$color}-#{$pref} {
-            // &--#{$color}-#{$pref}\:hover:hover {
-                background-color: var(--#{$color}-#{$pref})
+        @each $postfix in $accentColorsPostfixes {
+            &--#{$color}--#{$postfix},
+            &--#{$color}--#{$postfix}\:hover:hover {
+                background-color: var(--#{$color}--#{$postfix});
             }
         }
     }

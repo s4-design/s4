@@ -23,9 +23,8 @@ const loadedLinks = new Set()
 async function loadDependencyMap(url) {
     try {
         const response = await fetch(url)
-        if (!response.ok) {
+        if (!response.ok)
             throw new Error(`Ошибка загрузки JSON | Loading error JSON: ${response.statusText}`)
-        }
         const data = await response.json()
         return data
     } catch (error) {
@@ -52,9 +51,9 @@ async function loadDependencyMap(url) {
 // Функция для загрузки CSS файлов
 // Function for loading CSS files
 function loadLink(href, id = '') {
-    if (loadedLinks.has(href)) {
-        // console.log(`Link "${href}" уже загружен. Пропуск.`)
-    } else {
+    if (loadedLinks.has(href))
+        console.log(`Пропуск: "${href}" уже загружен | Skip: "${href}" is already loaded.`)
+    else {
         // Создание нового <link> элемента
         // Create a new <link> element
         const link = document.createElement('link')
@@ -111,13 +110,13 @@ async function S4() {
     // Adding a <style> tag with a list of style layers
     document.head.appendChild(Object.assign(document.createElement('style'), {
         textContent: `@layer themes, elements, utilities;`
-    }));
+    }))
 
     try {
         // Загружаем ключевой скрипт current-device
         // Load the current-device key script
         await loadScript(`${baseUrl}js/current-device.min.js`)
-        // console.log('Скрипт current-device загружен успешно')
+        console.info(`Скрипт current-device загружен успешно | The current-device script loaded successfully`)
 
         // Загрузка dependencyMap из JSON с обработкой ошибок
         const dependencyMap = await loadDependencyMap(`${baseUrl}dependency-map.json`)

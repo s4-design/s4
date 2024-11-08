@@ -1,7 +1,0 @@
-/* border spacing */
-
-@if $enableVariables {
-    .border-spacing {
-        border-spacing: var(--#{$type}#{$orientation}border-spacing, var(--border-spacing, initial));
-    }
-}

@@ -1,0 +1,15 @@
+@mixin placement ($type, $orientation, $enableVariables) {
+    /* placement */
+    @each $placement in (
+        "left",
+        "top",
+        "right",
+        "bottom"
+    ) {
+        @if $enableVariables {
+            .#{$placement} {
+                #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}, initial));
+            }
+        }
+    }
+}

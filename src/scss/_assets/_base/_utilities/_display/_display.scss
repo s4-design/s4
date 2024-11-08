@@ -1,0 +1,24 @@
+@mixin display ($type, $orientation) {
+    /* display */
+    @each $display in (
+        "inline",
+        "block",
+        "flow-root",
+        "flex",
+        "grid",
+        "inline-block",
+        "inline-flex",
+        "inline-grid",
+        "contents"
+    ) {
+        .#{$type}#{$orientation}display--#{$display} {
+            display: #{$display};
+        }
+    }
+    .#{$type}#{$orientation}display--none,
+    .#{$type}#{$orientation}display--none\:empty:empty,
+    .#{$type}#{$orientation}display--none\:\:before::before,
+    .#{$type}#{$orientation}display--none\:\:after::after {
+        display: none;
+    }
+}

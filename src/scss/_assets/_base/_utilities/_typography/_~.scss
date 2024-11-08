@@ -1,0 +1,28 @@
+// @use "_assets" as *;
+@use "color" as *;
+@use "direction" as *;
+@use "text-align" as *;
+@use "text-decoration" as *;
+@use "text-transform" as *;
+@use "text-wrap" as *;
+@use "font-size" as *;
+@use "font-weight" as *;
+@use "line-height" as *;
+@use "white-space" as *;
+@use "writing-mode" as *;
+@use "user-select" as *;
+
+@mixin typography($type, $orientation, $enableVariables) {
+    @include color ($type, $orientation, $enableVariables);
+    @include direction ($type, $orientation);
+    @include font-size ($type, $orientation, $enableVariables);
+    @include font-weight ($type, $orientation, $enableVariables);
+    @include line-height ($type, $orientation, $enableVariables);
+    @include text-align ($type, $orientation);
+    @include text-decoration ($type, $orientation, $enableVariables);
+    @include text-transform ($type, $orientation);
+    @include text-wrap ($type, $orientation);
+    @include white-space ($type, $orientation);
+    @include writing-mode ($type, $orientation);
+    @include user-select ();
+}

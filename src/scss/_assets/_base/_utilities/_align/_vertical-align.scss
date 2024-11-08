@@ -1,0 +1,17 @@
+@mixin vertical-align ($type, $orientation) {
+    /* vertical align */
+    @each $vertical-align in (
+        "baseline",
+        "sub",
+        "super",
+        "top",
+        "middle",
+        "bottom",
+        "text-bottom",
+        "text-top"
+    ) {
+        .#{$type}#{$orientation}vertical-align--#{$vertical-align} {
+            vertical-align: #{$vertical-align};
+        }
+    }
+}

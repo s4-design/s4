@@ -1,0 +1,28 @@
+@mixin gap ($type, $orientation, $enableVariables, $spacingSizes) {
+    /* gap */
+    @each $tracksName in (
+        "row",
+        "column"
+    ) {
+        .#{$type}#{$orientation}gap,
+        .#{$type}#{$orientation}#{$tracksName}-gap {
+            @each $space in $spacingSizes {
+                &--#{$space} {
+                    #{$tracksName}-gap: #{$space};
+                }
+                // @if $space != auto {
+                //     &--#{$space} {
+                //         #{$tracksName}-gap: spacePattern(gap, $space);
+                //     }
+                // }
+            }
+        }
+    
+        @if $enableVariables {
+            .gap,
+            .#{$tracksName}-gap {
+                #{$tracksName}-gap: var(--#{$type}#{$orientation}gap, var(--gap, initial));
+            }
+        }
+    }
+}

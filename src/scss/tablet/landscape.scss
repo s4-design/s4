@@ -1,7 +1,11 @@
-@import "../_settings";
+// // @import "../_assets/_xtra/_themes/_default/_utilities/index";
 
-$orientation: map-get($tabletLandscape, orientation);
-$type: map-get($tabletLandscape, type);
+@use "../_settings" as settings;
 
-@import "../_assets/_base/_utilities/index";
-@import "../_assets/_xtra/_themes/_default/_utilities/index";
+@use "../_assets/_base/_utilities/~" as *;
+
+@include utilities(
+    map-get(settings.$tabletLandscape, type),
+    map-get(settings.$tabletLandscape, orientation),
+    settings.$enableVariables
+);

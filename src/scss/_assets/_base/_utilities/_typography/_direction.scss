@@ -1,0 +1,11 @@
+@mixin direction ($type, $orientation) {
+    /* directions */
+    @each $directions in (
+        "ltr",
+        "rtl"
+    ) {
+        .#{$type}#{$orientation}direction--#{$directions} {
+            direction: #{$directions};
+        }
+    }
+}

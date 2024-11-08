@@ -1,0 +1,5 @@
+@use "display" as display;
+
+@mixin display($type, $orientation) {
+    @include display.display($type, $orientation);
+}

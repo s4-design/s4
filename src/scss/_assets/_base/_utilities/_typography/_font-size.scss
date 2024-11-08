@@ -1,0 +1,11 @@
+@mixin font-size ($type, $orientation, $enableVariables) {
+    /* font size */
+    .font-size--unset {
+        font-size: unset;
+    }
+    @if $enableVariables {
+        .font-size {
+            font-size: var(--#{$type}#{$orientation}font-size, var(--font-size, initial));
+        }
+    }
+}

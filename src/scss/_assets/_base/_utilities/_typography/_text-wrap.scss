@@ -1,0 +1,12 @@
+@mixin text-wrap ($type, $orientation) {
+    /* text wrap */
+    @each $wrap in (
+        "wrap",
+        "nowrap",
+        "balance"
+    ) {
+        .#{$type}#{$orientation}text-wrap--#{$wrap} {
+            text-wrap: #{$wrap};
+        }
+    }
+}

@@ -1,7 +1,11 @@
-@import "../_settings";
+// // @import "../_assets/_xtra/_themes/_default/_utilities/index";
 
-$type: map-get($desktopLandscape, type);
-$orientation: map-get($desktopLandscape, orientation);
+@use "../_settings" as settings;
 
-@import "../_assets/_base/_utilities/index";
-@import "../_assets/_xtra/_themes/_default/_utilities/index";
+@use "../_assets/_base/_utilities/~" as *;
+
+@include utilities(
+    map-get(settings.$desktopLandscape, type),
+    map-get(settings.$desktopLandscape, orientation),
+    settings.$enableVariables
+);

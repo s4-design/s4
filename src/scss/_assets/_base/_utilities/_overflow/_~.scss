@@ -1,0 +1,5 @@
+@use "overflow" as overflow;
+
+@mixin overflow($type, $orientation) {
+    @include overflow.overflow($type, $orientation);
+}

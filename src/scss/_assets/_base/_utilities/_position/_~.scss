@@ -1,0 +1,5 @@
+@use "position" as position;
+
+@mixin position($type, $orientation) {
+    @include position.position($type, $orientation);
+}

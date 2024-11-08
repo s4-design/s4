@@ -1,0 +1,8 @@
+@mixin cursor ($type, $orientation, $enableVariables) {
+    /* cursor */
+    @if $enableVariables {
+        .cursor {
+            cursor: var(--#{$type}#{$orientation}cursor, var(--cursor));
+        }
+    }
+}

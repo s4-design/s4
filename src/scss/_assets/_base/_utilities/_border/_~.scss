@@ -1,0 +1,22 @@
+$borderSides: (
+    "top",
+    "right",
+    "bottom",
+    "left"
+);
+
+@use "border-collapse" as *;
+@use "border-color" as *;
+@use "border-radius" as *;
+@use "border-spacing" as *;
+@use "border-style" as *;
+@use "border-width" as *;
+
+@mixin border($type, $orientation, $enableVariables) {
+    @include border-collapse($type, $orientation);
+    @include border-color($type, $orientation, $enableVariables, $borderSides);
+    @include border-radius($type, $orientation, $enableVariables);
+    @include border-spacing($type, $orientation, $enableVariables);
+    @include border-style($type, $orientation, $enableVariables, $borderSides);
+    @include border-width($type, $orientation, $enableVariables, $borderSides);
+}

@@ -1,0 +1,11 @@
+@use "align-content" as *;
+@use "align-items" as *;
+@use "align-self" as *;
+@use "vertical-align" as *;
+
+@mixin align($type, $orientation) {
+    @include align-content($type, $orientation);
+    @include align-items($type, $orientation);
+    @include align-self($type, $orientation);
+    @include vertical-align($type, $orientation);
+}

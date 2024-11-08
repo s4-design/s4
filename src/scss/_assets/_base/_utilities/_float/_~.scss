@@ -1,0 +1,5 @@
+@use "float" as float;
+
+@mixin float($type, $orientation) {
+    @include float.float($type, $orientation);
+}

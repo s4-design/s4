@@ -1,0 +1,15 @@
+@mixin box-shadow ($type, $orientation, $enableVariables) {
+    /* box shadow */
+    .#{$type}#{$orientation}box-shadow {
+        &--unset,
+        &--unset\:hover:hover {
+            box-shadow: unset;
+        }
+    }
+    
+    @if $enableVariables {
+        .box-shadow {
+            box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow, initial));
+        }
+    }
+}

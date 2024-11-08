@@ -1,0 +1,15 @@
+@use "flex-basis" as *;
+@use "flex-direction" as *;
+@use "flex-grow" as *;
+@use "flex-shrink" as *;
+@use "flex-wrap" as *;
+@use "flex" as flex;
+
+@mixin flex($type, $orientation, $enableVariables) {
+    @include flex-basis($type, $orientation, $enableVariables);
+    @include flex-direction($type, $orientation);
+    @include flex-grow($type, $orientation, $enableVariables);
+    @include flex-shrink($type, $orientation, $enableVariables);
+    @include flex-wrap($type, $orientation);
+    @include flex.flex($type, $orientation);
+}

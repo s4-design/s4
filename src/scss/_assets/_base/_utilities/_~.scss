@@ -1,0 +1,45 @@
+@use "_align/~" as *;
+@use "_background/~" as *;
+@use "_border/~" as *;
+@use "_cursor/~" as *;
+@use "_display/~" as *;
+@use "_flex/~" as *;
+@use "_float/~" as *;
+@use "_grid/~" as *;
+@use "_indent/~" as *;
+@use "_justify/~" as *;
+@use "_object/~" as *;
+@use "_order/~" as *;
+@use "_overflow/~" as *;
+@use "_placement/~" as *;
+@use "_pointer-events/~" as *;
+@use "_position/~" as *;
+@use "_shadow/~" as *;
+@use "_sizing/~" as *;
+@use "_typography/~" as *;
+@use "_z-index/~" as *;
+
+@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
+    @layer utilities {
+        @include align($type, $orientation);
+        @include background($type, $orientation, $enableVariables);
+        @include border($type, $orientation, $enableVariables);
+        @include cursor($type, $orientation, $enableVariables);
+        @include display($type, $orientation);
+        @include flex($type, $orientation, $enableVariables);
+        @include float($type, $orientation);
+        @include grid($type, $orientation, $enableVariables);
+        @include indent($type, $orientation, $enableVariables);
+        @include justify($type, $orientation);
+        @include object($type, $orientation, $enableVariables);
+        @include order($type, $orientation, $enableVariables);
+        @include overflow($type, $orientation);
+        @include placement($type, $orientation, $enableVariables);
+        @include pointer-events($type, $orientation);
+        @include position($type, $orientation);
+        @include shadow($type, $orientation, $enableVariables);
+        @include sizing($type, $orientation, $enableVariables);
+        @include typography($type, $orientation, $enableVariables);
+        @include z-index($type, $orientation, $enableVariables);
+    }
+}

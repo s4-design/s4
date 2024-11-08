@@ -1,0 +1,20 @@
+@mixin order ($type, $orientation, $enableVariables) {
+    /* order */
+    
+    // .#{$type}#{$orientation}order {
+    //     &--n1 {
+    //         order: -1;
+    //     }
+    //     @for $i from 1 through $gridSize {
+    //         &--#{$i} {
+    //             order: $i;
+    //         }
+    //     }
+    // }
+    
+    @if $enableVariables {
+        .order {
+            order: var(--#{$type}#{$orientation}order, var(--order, none));
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use "aspect-ratio" as *;
+@use "box-sizing" as *;
+@use "height" as *;
+@use "resize" as *;
+@use "width" as *;
+
+@mixin sizing($type, $orientation, $enableVariables) {
+    @include aspect-ratio($type, $orientation, $enableVariables);
+    @include box-sizing($type, $orientation, $enableVariables);
+    @include height($type, $orientation, $enableVariables);
+    @include resize($type, $orientation, $enableVariables);
+    @include width($type, $orientation, $enableVariables);
+}

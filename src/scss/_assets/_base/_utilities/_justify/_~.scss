@@ -1,0 +1,9 @@
+@use "justify-content" as *;
+@use "justify-items" as *;
+@use "justify-self" as *;
+
+@mixin justify($type, $orientation) {
+    @include justify-content($type, $orientation);
+    @include justify-items($type, $orientation);
+    @include justify-self($type, $orientation);
+}

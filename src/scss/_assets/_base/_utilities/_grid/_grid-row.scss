@@ -1,0 +1,8 @@
+@mixin grid-row ($type, $orientation, $enableVariables) {
+    /* grid row */
+    @if $enableVariables {
+        .grid-row {
+            grid-row: var(--#{$type}#{$orientation}grid-row-start, var(--grid-row-start, auto)) / var(--#{$type}#{$orientation}grid-row-end, var(--grid-row-end, auto));
+        }
+    }
+}

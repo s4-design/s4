@@ -1,0 +1,16 @@
+@mixin align-content ($type, $orientation) {
+    /* align content */
+    @each $alias, $align-content in (
+        "around": "space-around",
+        "between": "space-between",
+        "center": "center",
+        "end": "end",
+        "evenly": "space-evenly",
+        "start": "start",
+        "stretch": "stretch"
+    ) {
+        .#{$type}#{$orientation}align-content--#{$alias} {
+            align-content: #{$align-content};
+        }
+    }
+}

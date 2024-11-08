@@ -1,0 +1,18 @@
+@mixin overflow ($type, $orientation) {
+    /* overflow */
+    @each $overflow in (
+        "auto",
+        "hidden",
+        "visible",
+        "scroll"
+    ) {
+        .#{$type}#{$orientation}overflow--#{$overflow} {
+            overflow: #{$overflow};
+        }
+        @each $axis in ( "x", "y" ) {
+            .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
+                   overflow-#{$axis}: #{$overflow};
+               }
+        }
+    }
+}

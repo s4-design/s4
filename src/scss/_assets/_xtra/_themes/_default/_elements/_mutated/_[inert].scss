@@ -1,4 +1,4 @@
-@mixin _\[inert\] (
+@mixin \*\[inert\] (
     $opacity: 50%
 ) {
     --_\[inert\]-opacity: #{$opacity};

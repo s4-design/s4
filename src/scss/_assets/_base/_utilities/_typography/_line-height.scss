@@ -1,0 +1,16 @@
+@mixin line-height ($type, $orientation, $enableVariables) {
+    /* line height */
+    @each $height in (
+        "unset"
+    ) {
+        .#{$type}#{$orientation}line-height--#{$height} {
+            line-height: #{$height};
+        }
+    }
+    
+    @if $enableVariables {
+        .line-height {
+            line-height: var(--#{$type}#{$orientation}line-height, var(--line-height, initial));
+        }
+    }
+}

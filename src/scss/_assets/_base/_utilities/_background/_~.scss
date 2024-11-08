@@ -1,0 +1,19 @@
+@use "background-attachment" as *;
+@use "background-clip" as *;
+@use "background-color" as *;
+@use "background-image" as *;
+@use "background-origin" as *;
+@use "background-position" as *;
+@use "background-repeat" as *;
+@use "background-size" as *;
+
+@mixin background($type, $orientation, $enableVariables) {
+    @include background-attachment($type, $orientation);
+    @include background-clip($type, $orientation);
+    @include background-color($type, $orientation, $enableVariables);
+    @include background-image($type, $orientation, $enableVariables);
+    @include background-origin($type, $orientation);
+    @include background-position($type, $orientation, $enableVariables);
+    @include background-repeat($type, $orientation);
+    @include background-size($type, $orientation, $enableVariables);
+}

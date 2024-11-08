@@ -1,0 +1,21 @@
+@mixin a (
+    $color: var(--prime),
+    $text-decoration-color: currentcolor,
+    $text-decoration-line: none,
+    $text-decoration-style: solid,
+    $text-decoration-thickness: auto
+) {
+    --color: #{$color};
+    --text-decoration-color: #{$text-decoration-color};
+    --text-decoration-line: #{$text-decoration-line};
+    --text-decoration-style: #{$text-decoration-style};
+    --text-decoration-thickness: #{$text-decoration-thickness};
+}
+
+@mixin a\:visited (
+    $color: var(--prime),
+    $text-decoration-color: currentcolor,
+) {
+    --color: #{$color};
+    --text-decoration-color: #{$text-decoration-color};
+}

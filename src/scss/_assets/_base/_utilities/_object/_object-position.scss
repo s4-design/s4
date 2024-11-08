@@ -1,0 +1,20 @@
+@mixin object-position ($type, $orientation, $enableVariables) {
+    /* object-position */
+    @each $position in (
+        top,
+        bottom,
+        left,
+        right,
+        center
+    ) {
+        .object-position--#{$position} {
+            object-position: #{$position};
+        }    
+    }
+    
+    @if $enableVariables {
+        .object-position {
+            object-position: var(--#{$type}#{$orientation}object-position, var(--object-position, auto));
+        }
+    }
+}

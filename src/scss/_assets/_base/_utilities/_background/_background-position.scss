@@ -1,0 +1,43 @@
+@mixin background-position ($type, $orientation, $enableVariables) {
+    /* background-position */
+    .#{$type}#{$orientation}background-position {
+        &--left {
+            background-position: left center;
+        }
+        &--top-left,
+        &--left-top {
+            background-position: left top;
+        }
+        &--top {
+            background-position: center top;
+        }
+        &--top-right,
+        &--right-top {
+            background-position: right top;
+        }
+        &--righ {
+            background-position: right center;
+        }
+        &--bottom-right,
+        &--right-bottom {
+            background-position: right bottom;
+        }
+        &--bottom {
+            background-position: center bottom;
+        }
+        &--bottom-left,
+        &--left-bottom {
+            background-position: left bottom;
+        }
+        &--center {
+            background-position: center center;
+        }
+    }
+    
+    @if $enableVariables {
+        .background,
+        .background-position {
+            background-position: var(--#{$type}#{$orientation}background-position, var(--background-position, initial));
+        }
+    }
+}

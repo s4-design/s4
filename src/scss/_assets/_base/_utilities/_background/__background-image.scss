@@ -1,8 +1,0 @@
-/* background image */
-
-@if $enableVariables {
-    .background,
-    .background-image {
-        background-image: var(--#{$type}#{$orientation}background-image, var(--background-image, initial));
-    }
-}

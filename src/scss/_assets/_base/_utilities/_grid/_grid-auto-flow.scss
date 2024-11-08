@@ -1,0 +1,14 @@
+@mixin grid-auto-flow ($type, $orientation) {
+    /* grid auto flow */
+    @each $item, $flow in (
+        "column": "column",
+        "row": "row",
+        "dense": "dense",
+        "row-dense": "row dense",
+        "column-dense": "column dense"
+    ) {
+        .#{$type}#{$orientation}grid-auto-flow--#{$item} {
+            grid-auto-flow: #{$flow};
+        }
+    }
+}

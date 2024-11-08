@@ -1,0 +1,13 @@
+@mixin text-shadow ($type, $orientation, $enableVariables) {
+    /* text shadow */
+    .#{$type}#{$orientation}text-shadow {
+        &--unset {
+            text-shadow: unset;
+        }
+    }
+    @if $enableVariables {
+        .text-shadow {
+            text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow, initial));
+        }
+    }
+}

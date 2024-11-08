@@ -1,0 +1,12 @@
+$spacingSizes: (
+    "auto",
+    "unset"
+);
+
+@use "gap" as *;
+@use "indent" as indent;
+
+@mixin indent($type, $orientation, $enableVariables) {
+    @include gap($type, $orientation, $enableVariables, $spacingSizes);
+    @include indent.indent($type, $orientation, $enableVariables, $spacingSizes);
+}

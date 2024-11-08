@@ -1,0 +1,12 @@
+@mixin background-attachment ($type, $orientation) {
+    /* background attachment */
+    @each $background-attachment in (
+        "scroll",
+        "fixed",
+        "local"
+    ) {
+        .#{$type}#{$orientation}background-attachment--#{$background-attachment} {
+            background-attachment: #{$background-attachment};
+        }
+    }
+}

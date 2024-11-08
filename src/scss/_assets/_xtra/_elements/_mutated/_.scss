@@ -1,15 +1,15 @@
 * {
-    margin: var(--_margin);
-    padding: var(--_padding);
-    box-sizing: var(--_box-sizing);
-}
-::before {
-    margin: var(--_margin\:\:before);
-    padding: var(--_padding\:\:before);
-    box-sizing: var(--_box-sizing\:\:before);
-}
-::after {
-    margin: var(--_margin\:\:after);
-    padding: var(--_padding\:\:after);
-    box-sizing: var(--_box-sizing\:\:after);
+    margin: var(--margin);
+    padding: var(--padding);
+    box-sizing: var(--box-sizing);
+    &::before {
+        margin: var(--margin);
+        padding: var(--padding);
+        box-sizing: var(--box-sizing);
+    }
+    &::after {
+        margin: var(--margin);
+        padding: var(--padding);
+        box-sizing: var(--box-sizing);
+    }
 }

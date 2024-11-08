@@ -14,7 +14,7 @@
     
     @if $enableVariables {
         .object-position {
-            object-position: var(--#{$type}#{$orientation}object-position, var(--object-position, auto));
+            object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
         }
     }
 }

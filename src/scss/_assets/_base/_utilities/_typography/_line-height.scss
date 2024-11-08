@@ -10,7 +10,7 @@
     
     @if $enableVariables {
         .line-height {
-            line-height: var(--#{$type}#{$orientation}line-height, var(--line-height, initial));
+            line-height: var(--#{$type}#{$orientation}line-height, var(--line-height));
         }
     }
 }

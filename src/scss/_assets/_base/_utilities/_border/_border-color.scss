@@ -11,7 +11,7 @@
             .border-color,
             .border-#{$side},
             .border-#{$side}-color {
-                border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color, initial));
+                border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
             }
         }
     }

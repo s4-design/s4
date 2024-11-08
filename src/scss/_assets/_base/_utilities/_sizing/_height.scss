@@ -15,6 +15,9 @@
             &--max {
                 #{$height}: max-content;
             }
+            &--unset {
+                #{$height}: unset;
+            }
         }
     
         @if $enableVariables {

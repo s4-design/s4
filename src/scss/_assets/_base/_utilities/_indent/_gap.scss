@@ -21,7 +21,7 @@
         @if $enableVariables {
             .gap,
             .#{$tracksName}-gap {
-                #{$tracksName}-gap: var(--#{$type}#{$orientation}gap, var(--gap, initial));
+                #{$tracksName}-gap: var(--#{$type}#{$orientation}gap, var(--gap));
             }
         }
     }

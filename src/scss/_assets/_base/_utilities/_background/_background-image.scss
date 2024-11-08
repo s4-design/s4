@@ -3,7 +3,7 @@
     @if $enableVariables {
         .background,
         .background-image {
-            background-image: var(--#{$type}#{$orientation}background-image, var(--background-image, initial));
+            background-image: var(--#{$type}#{$orientation}background-image, var(--background-image));
         }
     }
 }

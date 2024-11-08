@@ -12,7 +12,7 @@
     
     @if $enableVariables {
         .text-decoration {
-            text-decoration: var(--#{$type}#{$orientation}text-decoration, var(--text-decoration, initial));
+            text-decoration: var(--#{$type}#{$orientation}text-decoration, var(--text-decoration));
         }
     }
 }

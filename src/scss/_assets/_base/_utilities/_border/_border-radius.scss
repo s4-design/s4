@@ -32,7 +32,7 @@
         @each $corner in $borderRadiusCorner {
             .border-radius,
             .border-#{$corner}-radius {
-                border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius, initial));
+                border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
             }
         }
     }

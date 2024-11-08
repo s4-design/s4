@@ -7,7 +7,7 @@
     }
     @if $enableVariables {
         .text-shadow {
-            text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow, initial));
+            text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow));
         }
     }
 }

@@ -9,7 +9,7 @@
     
     @if $enableVariables {
         .box-shadow {
-            box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow, initial));
+            box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
         }
     }
 }

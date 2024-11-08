@@ -2,7 +2,7 @@
     /* grid auto columns */
     @if $enableVariables {
         .grid-auto-columns {
-            grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns, auto));
+            grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
         }
     }
 }

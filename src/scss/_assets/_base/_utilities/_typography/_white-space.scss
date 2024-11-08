@@ -6,7 +6,8 @@
         "pre",
         "pre-wrap",
         "pre-line",
-        "break-spaces"
+        "break-spaces",
+        "unset"
     ) {
         .#{$type}#{$orientation}white-space--#{$space} {
             white-space: #{$space};

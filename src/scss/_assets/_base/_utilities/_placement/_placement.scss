@@ -8,7 +8,7 @@
     ) {
         @if $enableVariables {
             .#{$placement} {
-                #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}, initial));
+                #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}));
             }
         }
     }

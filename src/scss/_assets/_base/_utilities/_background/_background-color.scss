@@ -10,7 +10,7 @@
     @if $enableVariables {
         .background,
         .background-color {
-            background-color: var(--#{$type}#{$orientation}background-color, var(--background-color, initial));
+            background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
         }
         @each $pseudoClass in (
             "focus",
@@ -21,7 +21,7 @@
             "disabled"
         ) {
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
-                background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}, initial));
+                background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
             }
         }
     }

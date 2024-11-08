@@ -6,7 +6,7 @@
     ) {
         @if $enableVariables {
             .grid-template-#{$template} {
-                grid-template-#{$template}: var(--#{$type}#{$orientation}grid-template-#{$template}, var(--grid-template-#{$template}, unset));
+                grid-template-#{$template}: var(--#{$type}#{$orientation}grid-template-#{$template}, var(--grid-template-#{$template}));
             }
         }
     }

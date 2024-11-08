@@ -36,22 +36,22 @@
     
         @if $enableVariables {
             .#{$spacingName} {
-                #{$spacingName}: var(--#{$type}#{$orientation}#{$spacingName}, var(--#{$spacingName}, initial));
+                #{$spacingName}: var(--#{$type}#{$orientation}#{$spacingName}, var(--#{$spacingName}));
                 &-y,
                 &-top {
-                    #{$spacingName}-top: var(--#{$type}#{$orientation}#{$spacingName}-top, var(--#{$spacingName}, initial));
+                    #{$spacingName}-top: var(--#{$type}#{$orientation}#{$spacingName}-top, var(--#{$spacingName}));
                 }
                 &-x,
                 &-right {
-                    #{$spacingName}-right: var(--#{$type}#{$orientation}#{$spacingName}-right, var(--#{$spacingName}, initial));
+                    #{$spacingName}-right: var(--#{$type}#{$orientation}#{$spacingName}-right, var(--#{$spacingName}));
                 }
                 &-y,
                 &-bottom {
-                    #{$spacingName}-bottom: var(--#{$type}#{$orientation}#{$spacingName}-bottom, var(--#{$spacingName}, initial));
+                    #{$spacingName}-bottom: var(--#{$type}#{$orientation}#{$spacingName}-bottom, var(--#{$spacingName}));
                 }
                 &-x,
                 &-left {
-                    #{$spacingName}-left: var(--#{$type}#{$orientation}#{$spacingName}-left, var(--#{$spacingName}, initial));
+                    #{$spacingName}-left: var(--#{$type}#{$orientation}#{$spacingName}-left, var(--#{$spacingName}));
                 }
             }
         }

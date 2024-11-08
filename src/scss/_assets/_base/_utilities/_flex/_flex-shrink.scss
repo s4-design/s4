@@ -3,7 +3,7 @@
     @if $enableVariables {
         .flex,
         .flex-shrink {
-            flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink, initial));
+            flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink));
         }
     }
 }

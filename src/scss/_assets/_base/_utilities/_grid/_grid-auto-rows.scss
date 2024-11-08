@@ -2,7 +2,7 @@
     /* grid auto rows */
     @if $enableVariables {
         .grid-auto-rows {
-            grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows, auto));
+            grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
         }
     }
 }

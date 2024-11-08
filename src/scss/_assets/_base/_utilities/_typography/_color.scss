@@ -1,14 +1,12 @@
 @mixin color ($type, $orientation, $enableVariables) {
     /* color */
-    .#{$type}#{$orientation}color {
-        &--transparent {
-            color: #{transparent};
-        }
+    .#{$type}#{$orientation}color--transparent {
+        color: #{transparent};
     }
     
     @if $enableVariables {
         .color {
-            color: var(--#{$type}#{$orientation}color, var(--color, initial));
+            color: var(--#{$type}#{$orientation}color, var(--color));
         }
         @each $pseudoClass in (
             "focus",
@@ -19,7 +17,7 @@
             "disabled"
         ) {
             .color\:#{$pseudoClass}:#{$pseudoClass} {
-                color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}, initial));
+                color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}));
             }
         }
     }

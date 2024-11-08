@@ -36,7 +36,7 @@
             .border-style,
             .border-#{$side},
             .border-#{$side}-style {
-                border-#{$side}-style: var(--#{$type}#{$orientation}border-style, var(--border-style, initial));
+                border-#{$side}-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
             }
         }
     }

@@ -2,7 +2,7 @@
     /* grid column */
     @if $enableVariables {
         .grid-column {
-            grid-column: var(--#{$type}#{$orientation}grid-column-start, var(--grid-column-start, auto)) / var(--#{$type}#{$orientation}grid-column-end, var(--grid-column-end, auto));
+            grid-column: var(--#{$type}#{$orientation}grid-column-start, var(--grid-column-start)) / var(--#{$type}#{$orientation}grid-column-end, var(--grid-column-end));
         }
     }
 }

@@ -14,7 +14,7 @@
     @if $enableVariables {
         .flex,
         .flex-basis {
-            flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis, initial));
+            flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
         }
     }
 }

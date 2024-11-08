@@ -6,9 +6,6 @@
         "max-width"
     ) {
         .#{$type}#{$orientation}#{$width} {
-            &--inherit {
-                #{$width}: inherit;
-            }
             &--fit {
                 #{$width}: fit-content;
             }
@@ -17,6 +14,9 @@
             }
             &--max {
                 #{$width}: max-content;
+            }
+            &--unset {
+                #{$width}: unset;
             }
         }
     

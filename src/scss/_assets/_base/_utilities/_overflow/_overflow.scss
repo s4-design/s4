@@ -11,8 +11,8 @@
         }
         @each $axis in ( "x", "y" ) {
             .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
-                   overflow-#{$axis}: #{$overflow};
-               }
+                overflow-#{$axis}: #{$overflow};
+            }
         }
     }
 }

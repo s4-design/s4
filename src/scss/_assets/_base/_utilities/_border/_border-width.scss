@@ -21,7 +21,7 @@
             .border-width,
             .border-#{$side},
             .border-#{$side}-width {
-                border-#{$side}-width: var(--#{$type}#{$orientation}border-width, var(--border-width, initial));
+                border-#{$side}-width: var(--#{$type}#{$orientation}border-width, var(--border-width));
             }
         }
     }

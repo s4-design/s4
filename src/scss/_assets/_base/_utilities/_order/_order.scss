@@ -1,4 +1,4 @@
-@mixin order ($type, $orientation, $enableVariables) {
+@mixin order($type, $orientation, $enableVariables) {
     /* order */
     
     .#{$type}#{$orientation}order--unset {

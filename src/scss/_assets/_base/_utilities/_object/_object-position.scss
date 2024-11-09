@@ -1,6 +1,6 @@
-@mixin object-position ($type, $orientation, $enableVariables) {
+@mixin object-position($type, $orientation, $enableVariables) {
     /* object-position */
-    @each $position in (
+    @each $position in(
         top,
         bottom,
         left,

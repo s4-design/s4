@@ -1,6 +1,6 @@
-@mixin placement ($type, $orientation, $enableVariables) {
+@mixin placement($type, $orientation, $enableVariables) {
     /* placement */
-    @each $placement in (
+    @each $placement in(
         "left",
         "top",
         "right",

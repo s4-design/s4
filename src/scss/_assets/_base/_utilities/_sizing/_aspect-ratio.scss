@@ -1,4 +1,4 @@
-@mixin aspect-ratio ($type, $orientation, $enableVariables) {
+@mixin aspect-ratio($type, $orientation, $enableVariables) {
     /* aspect ratio */
     @if $enableVariables {
         .aspect-ratio {

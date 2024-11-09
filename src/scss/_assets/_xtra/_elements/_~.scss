@@ -1,0 +1,30 @@
+@use "./_created/[theme]" as *;
+@use "./_created/icon" as *;
+
+@use "./_mutated/" as *;
+@use "./_mutated/[inert]" as *;
+@use "./_mutated/a" as *;
+@use "./_mutated/html" as *;
+@use "./_mutated/body" as *;
+@use "./_mutated/h" as *;
+@use "./_mutated/sub" as *;
+@use "./_mutated/sup" as *;
+
+
+@mixin elements() {
+    @layer elements {
+        /* mutated */
+        @include \*;
+        @include \[inert\];
+        @include a;
+        @include body;
+        @include h;
+        @include html;
+        @include sub;
+        @include sup;
+
+        /* created */
+        @include \[theme\];
+        @include icon;
+    }
+}

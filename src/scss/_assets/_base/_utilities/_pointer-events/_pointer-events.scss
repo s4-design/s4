@@ -1,4 +1,4 @@
-@mixin pointer-events ($type, $orientation) {
+@mixin pointer-events($type, $orientation) {
     /* pointer events */
     .#{$type}#{$orientation}pointer-events--none {
         pointer-events: none;

@@ -1,4 +1,4 @@
-@mixin flex-shrink ($type, $orientation, $enableVariables) {
+@mixin flex-shrink($type, $orientation, $enableVariables) {
     /* flex shrink */
     @if $enableVariables {
         .flex,

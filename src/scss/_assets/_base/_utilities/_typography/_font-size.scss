@@ -1,4 +1,4 @@
-@mixin font-size ($type, $orientation, $enableVariables) {
+@mixin font-size($type, $orientation, $enableVariables) {
     /* font size */
     @if $enableVariables {
         .font-size {

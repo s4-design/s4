@@ -1,4 +1,4 @@
-@mixin color ($type, $orientation, $enableVariables) {
+@mixin color($type, $orientation, $enableVariables) {
     /* color */
     .#{$type}#{$orientation}color--transparent {
         color: #{transparent};
@@ -8,7 +8,7 @@
         .color {
             color: var(--#{$type}#{$orientation}color, var(--color));
         }
-        @each $pseudoClass in (
+        @each $pseudoClass in(
             "focus",
             "active",
             "hover",

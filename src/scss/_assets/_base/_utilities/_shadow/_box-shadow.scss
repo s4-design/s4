@@ -1,4 +1,4 @@
-@mixin box-shadow ($type, $orientation, $enableVariables) {
+@mixin box-shadow($type, $orientation, $enableVariables) {
     /* box shadow */
     .#{$type}#{$orientation}box-shadow {
         &--unset,

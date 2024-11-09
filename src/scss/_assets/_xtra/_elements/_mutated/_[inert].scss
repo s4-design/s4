@@ -1,3 +1,5 @@
-[inert] {
-    opacity: var(--_\[inert\]-opacity);
+@mixin \[inert\]() {
+    [inert] {
+        opacity: var(--_\[inert\]-opacity);
+    }
 }

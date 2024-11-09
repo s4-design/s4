@@ -1,19 +1,19 @@
-@mixin indent ($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin indent($type, $orientation, $enableVariables, $spacingSizes) {
     /* margin & padding */
-    @each $spacingName in (
+    @each $spacingName in(
         "margin",
         "padding"
     ) {
         .#{$type}#{$orientation}#{$spacingName} {
             @each $space in $spacingSizes {
-                @if $spacingName == margin or ($spacingName == padding and $space != auto) {
+                @if $spacingName == margin or($spacingName == padding and $space != auto) {
                     &--#{$space} {
                         #{$spacingName}: #{$space};
                     }
                 }
             }
             @each $space in $spacingSizes {
-                @if $spacingName == margin or ($spacingName == padding and $space != auto) {
+                @if $spacingName == margin or($spacingName == padding and $space != auto) {
                     &-y--#{$space},
                     &-top--#{$space} {
                         #{$spacingName}-top: #{$space};

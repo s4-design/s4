@@ -1,6 +1,6 @@
-@mixin gap ($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin gap($type, $orientation, $enableVariables, $spacingSizes) {
     /* gap */
-    @each $tracksName in (
+    @each $tracksName in(
         "row",
         "column"
     ) {

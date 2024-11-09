@@ -1,6 +1,6 @@
-@mixin position ($type, $orientation) {
+@mixin position($type, $orientation) {
     /* position */
-    @each $position in (
+    @each $position in(
         "static",
         "relative",
         "absolute",

@@ -1,4 +1,4 @@
-@mixin grid-auto-rows ($type, $orientation, $enableVariables) {
+@mixin grid-auto-rows($type, $orientation, $enableVariables) {
     /* grid auto rows */
     @if $enableVariables {
         .grid-auto-rows {

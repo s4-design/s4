@@ -1,6 +1,6 @@
-@mixin background-repeat ($type, $orientation) {
+@mixin background-repeat($type, $orientation) {
     /* background repeat */
-    @each $name, $repeat in (
+    @each $name, $repeat in(
         "x": "repeat-x",
         "y": "repeat-y",
         "space": "space",

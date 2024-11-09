@@ -1,8 +1,10 @@
-icon {
-    display: var(--icon_display);
-    min-width: var(--icon_min-width);
-    min-height: var(--icon_min-height);
-    vertical-align: var(--icon_vertical-align);
-    background-color: var(--icon_background-color);
-    mask: var(--icon_mask);
+@mixin icon() {
+    icon {
+        display: var(--display);
+        min-width: var(--min-width);
+        min-height: var(--min-height);
+        vertical-align: var(--vertical-align);
+        background-color: var(--background-color);
+        mask: var(--mask);
+    }
 }

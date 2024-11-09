@@ -1,6 +1,6 @@
-@mixin object-fit ($type, $orientation) {
+@mixin object-fit($type, $orientation) {
     /* object-fit--cover */
-    @each $fit in (
+    @each $fit in(
         contain,
         cover,
         fill,

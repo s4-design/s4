@@ -1,6 +1,6 @@
-@mixin white-space ($type, $orientation) {
+@mixin white-space($type, $orientation) {
     /* white-space */
-    @each $space in (
+    @each $space in(
         "normal",
         "nowrap",
         "pre",

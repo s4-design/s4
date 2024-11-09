@@ -1,4 +1,4 @@
-@mixin cursor ($type, $orientation, $enableVariables) {
+@mixin cursor($type, $orientation, $enableVariables) {
     /* cursor */
     @if $enableVariables {
         .cursor {

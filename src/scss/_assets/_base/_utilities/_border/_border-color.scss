@@ -1,4 +1,4 @@
-@mixin border-color ($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-color($type, $orientation, $enableVariables, $borderSides) {
     /* border-color */
     .#{$type}#{$orientation}border-color--transparent,
     .#{$type}#{$orientation}border-color--transparent\:hover:hover {

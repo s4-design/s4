@@ -1,4 +1,4 @@
-@mixin flex-grow ($type, $orientation, $enableVariables) {
+@mixin flex-grow($type, $orientation, $enableVariables) {
     /* flex grow */
     @if $enableVariables {
         .flex,

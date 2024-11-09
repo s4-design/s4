@@ -1,4 +1,6 @@
-body {
-    position: var(--position);
-    min-height: var(--min-height);
+@mixin body() {
+    body {
+        position: var(--position);
+        min-height: var(--min-height);
+    }
 }

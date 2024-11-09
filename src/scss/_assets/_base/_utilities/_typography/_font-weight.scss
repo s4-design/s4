@@ -1,4 +1,4 @@
-@mixin font-weight ($type, $orientation, $enableVariables) {
+@mixin font-weight($type, $orientation, $enableVariables) {
     /* font weight */
     .#{$type}#{$orientation}font-weight {
         @for $i from 1 through 9 {

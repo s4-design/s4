@@ -1,7 +1,9 @@
-sup {
-    top: var(--sup_top);
-    font-size: var(--sup_font-size);
-    line-height: var(--sup_line-height);
-    position: var(--sup_position);
-    vertical-align: var(--sup_vertical-align);
+@mixin sup() {
+    sup {
+        top: var(--top);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        position: var(--position);
+        vertical-align: var(--vertical-align);
+    }
 }

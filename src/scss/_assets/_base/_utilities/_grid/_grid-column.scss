@@ -1,4 +1,4 @@
-@mixin grid-column ($type, $orientation, $enableVariables) {
+@mixin grid-column($type, $orientation, $enableVariables) {
     /* grid column */
     @if $enableVariables {
         .grid-column {

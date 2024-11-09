@@ -1,6 +1,6 @@
-@mixin background-origin ($type, $orientation) {
+@mixin background-origin($type, $orientation) {
     /* background origin */
-    @each $item, $origin in (
+    @each $item, $origin in(
         "border": "border-box",
         "padding": "padding-box",
         "content": "content-box"

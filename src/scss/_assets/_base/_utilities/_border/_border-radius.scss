@@ -1,12 +1,12 @@
-@mixin border-radius ($type, $orientation, $enableVariables) {
+@mixin border-radius($type, $orientation, $enableVariables) {
     /* border radius */
-    $borderRadiusCorner: (
+    $borderRadiusCorner:(
         "top-left",
         "top-right",
         "bottom-right",
         "bottom-left"
     );
-    $borderRadiusXtraSize: (
+    $borderRadiusXtraSize:(
         unset: "unset",
     );
     

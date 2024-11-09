@@ -1,6 +1,6 @@
-@mixin text-transform ($type, $orientation) {
+@mixin text-transform($type, $orientation) {
     /* text transform */
-    @each $transform in (
+    @each $transform in(
         "lowercase",
         "uppercase",
         "capitalize"

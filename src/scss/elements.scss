@@ -1,12 +1,3 @@
-@layer elements {
-    @import "./_assets/_xtra/_elements/_mutated/";
-    @import "./_assets/_xtra/_elements/_mutated/[inert]";
-    @import "./_assets/_xtra/_elements/_mutated/html";
-    @import "./_assets/_xtra/_elements/_mutated/body";
-    @import "./_assets/_xtra/_elements/_mutated/h";
-    @import "./_assets/_xtra/_elements/_mutated/sub";
-    @import "./_assets/_xtra/_elements/_mutated/sup";
-    
-    @import "./_assets/_xtra/_elements/_created/[theme]";
-    @import "./_assets/_xtra/_elements/_created/icon";
-}
+@use "./_assets/_xtra/_elements/~" as *;
+
+@include elements();

@@ -1,6 +1,6 @@
-@mixin display ($type, $orientation) {
+@mixin display($type, $orientation) {
     /* display */
-    @each $display in (
+    @each $display in(
         "inline",
         "block",
         "flow-root",

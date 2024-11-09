@@ -1,6 +1,6 @@
-@mixin flex-direction ($type, $orientation) {
+@mixin flex-direction($type, $orientation) {
     /* flex direction */
-    @each $direction in (
+    @each $direction in(
         "row",
         "row-reverse",
         "column",

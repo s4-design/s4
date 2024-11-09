@@ -1,4 +1,4 @@
-@mixin background-image ($type, $orientation, $enableVariables) {
+@mixin background-image($type, $orientation, $enableVariables) {
     /* background image */
     @if $enableVariables {
         .background,

@@ -1,6 +1,6 @@
-@mixin border-style ($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-style($type, $orientation, $enableVariables, $borderSides) {
     /* border style */
-    $borderStyle: (
+    $borderStyle:(
         "dotted",
         "dashed",
         "solid",

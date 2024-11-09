@@ -1,6 +1,6 @@
-@mixin vertical-align ($type, $orientation) {
+@mixin vertical-align($type, $orientation) {
     /* vertical align */
-    @each $vertical-align in (
+    @each $vertical-align in(
         "baseline",
         "sub",
         "super",

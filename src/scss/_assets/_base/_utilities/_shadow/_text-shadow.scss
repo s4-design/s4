@@ -1,4 +1,4 @@
-@mixin text-shadow ($type, $orientation, $enableVariables) {
+@mixin text-shadow($type, $orientation, $enableVariables) {
     /* text shadow */
     .#{$type}#{$orientation}text-shadow {
         &--unset {

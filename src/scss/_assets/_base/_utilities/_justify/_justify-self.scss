@@ -1,6 +1,6 @@
-@mixin justify-self ($type, $orientation) {
+@mixin justify-self($type, $orientation) {
     /* justify self */
-    @each $self in (
+    @each $self in(
         "center",
         "end",
         "start",

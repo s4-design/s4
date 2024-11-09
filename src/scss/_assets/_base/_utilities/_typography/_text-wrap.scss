@@ -1,6 +1,6 @@
-@mixin text-wrap ($type, $orientation) {
+@mixin text-wrap($type, $orientation) {
     /* text wrap */
-    @each $wrap in (
+    @each $wrap in(
         "wrap",
         "nowrap",
         "balance"

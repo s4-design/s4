@@ -1,4 +1,4 @@
-@mixin background-color ($type, $orientation, $enableVariables) {
+@mixin background-color($type, $orientation, $enableVariables) {
     /* background color */
     .#{$type}#{$orientation}background-color {
         &--transparent {
@@ -12,7 +12,7 @@
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
         }
-        @each $pseudoClass in (
+        @each $pseudoClass in(
             "focus",
             "active",
             "hover",

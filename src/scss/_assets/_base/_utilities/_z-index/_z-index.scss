@@ -1,4 +1,4 @@
-@mixin z-index ($type, $orientation, $enableVariables) {
+@mixin z-index($type, $orientation, $enableVariables) {
     /* z-index */
     @if $enableVariables {
         .z-index {

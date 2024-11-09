@@ -1,6 +1,6 @@
-@mixin grid-template ($type, $orientation, $enableVariables) {
+@mixin grid-template($type, $orientation, $enableVariables) {
     /* grid template */
-    @each $template in (
+    @each $template in(
         "columns",
         "rows"
     ) {

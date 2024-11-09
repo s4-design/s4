@@ -1,6 +1,6 @@
-@mixin align-self ($type, $orientation) {
+@mixin align-self($type, $orientation) {
     /* align self */
-    @each $align-self in (
+    @each $align-self in(
         "baseline",
         "center",
         "end",

@@ -1,6 +1,6 @@
-@mixin height ($type, $orientation, $enableVariables) {
+@mixin height($type, $orientation, $enableVariables) {
     /* height */
-    @each $height in (
+    @each $height in(
         "min-height",
         "height",
         "max-height"

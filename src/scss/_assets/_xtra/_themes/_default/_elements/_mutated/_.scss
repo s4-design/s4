@@ -3,9 +3,11 @@
     $padding: unset,
     $box-sizing: inherit,
 ) {
-    --margin: #{$margin};
-    --padding: #{$padding};
-    --box-sizing: #{$box-sizing};
+    * {
+        --margin: #{$margin};
+        --padding: #{$padding};
+        --box-sizing: #{$box-sizing};
+    }
 }
 
 @mixin \*\:\:before (
@@ -13,9 +15,11 @@
     $padding: unset,
     $box-sizing: inherit
 ) {
-    --margin: #{$margin};
-    --padding: #{$padding};
-    --box-sizing: #{$box-sizing};
+    *::before {
+        --margin: #{$margin};
+        --padding: #{$padding};
+        --box-sizing: #{$box-sizing};
+    }
 }
 
 @mixin \*\:\:after (
@@ -23,17 +27,9 @@
     $padding: unset,
     $box-sizing: inherit
 ) {
-    --margin: #{$margin};
-    --padding: #{$padding};
-    --box-sizing: #{$box-sizing};
+    *::after {
+        --margin: #{$margin};
+        --padding: #{$padding};
+        --box-sizing: #{$box-sizing};
+    }
 }
-
-// * {
-//     @include \*;
-//     &::before {
-//         @include \*\:\:before;
-//     }
-//     &::after {
-//         @include \*\:\:after;
-//     }
-// }

@@ -2,6 +2,8 @@
     $position: relative,
     $min-height: 100dvh,
 ) {
-    --position: #{$position};
-    --min-height: #{$min-height};
+    body {
+        --position: #{$position};
+        --min-height: #{$min-height};
+    }
 }

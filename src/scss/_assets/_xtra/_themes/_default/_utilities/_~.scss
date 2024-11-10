@@ -1,0 +1,28 @@
+// @use "sass:math";
+
+// @import "../_settings";
+
+// @layer utilities {
+//     :is([theme="light"], [theme="dark"]) {
+//         @import "_background/index";
+//         @import "_border/index";
+//         @import "_cursor/index";
+//         @import "_flex/index";
+//         // @import "_grid/index";
+//         @import "_indent/index";
+//         // @import "_order/index";
+//         @import "_placement/index";
+//         @import "_shadow/index";
+//         @import "_sizing/index";
+//         @import "_typography/index";
+//         @import "_z-index/index";
+//     }
+// }
+
+@use "./_background/~" as *;
+
+@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
+//     @layer utilities {
+//         @include align($type, $orientation);
+//     }
+}

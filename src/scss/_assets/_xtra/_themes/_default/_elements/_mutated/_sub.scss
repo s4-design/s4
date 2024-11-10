@@ -5,9 +5,11 @@
     $position: relative,
     $vertical-align: baseline
 ) {
-    --sub_top: #{$top};
-    --sub_font-size: #{$font-size};
-    --sub_line-height: #{$line-height};
-    --sub_position: #{$position};
-    --sub_vertical-align: #{$vertical-align};
+    sub {
+        --top: #{$top};
+        --font-size: #{$font-size};
+        --line-height: #{$line-height};
+        --position: #{$position};
+        --vertical-align: #{$vertical-align};
+    }
 }

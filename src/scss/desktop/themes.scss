@@ -1,7 +1,7 @@
+@use "../_assets/_xtra/_themes/_default/~" as *;
+
 @layer themes {
     [theme=light] {
-        @import "../_assets/_xtra/_themes/_default/index";
-    
         /* global */
         @include sizes;
         @include base-colors("positive", 1, 0, 0, .25);
@@ -12,49 +12,7 @@
         @include accent-colors("success", .60, .15, .2, 145, .25);
         // @include accent-colors("warning", .60, .15, .2, 95, .25);
         @include accent-colors("error", .60, .15, .2, 25, .25);
-    
-        /* properties*/
-        @include font-size;
-        @include margin;
-        @include padding;
-        @include gap;
-        @include border-width;
-        @include border-radius;
-        @include box-shadow;
-    
-        /* elements */
-        /* - mutated */
-        @include _;
-        @include _\:\:before;
-        @include _\:\:after;
-        @include _\[inert\];
-        @include html;
-        @include body;
-        @include h1;
-        @include h2;
-        @include h3;
-        @include h4;
-        @include h5;
-        @include h6;
-        @include sub;
-        @include sup;
-        /* - created */
-        @include icon;
-        @include _\[theme\];
-    }
 
-    [theme=dark] {
-        @import "../_assets/_xtra/_themes/_default/index";
-    
-        /* global */
-        @include sizes;
-        @include base-colors('positive', .22, .012, 254, .25);
-        @include base-colors('negative', .78, .012, 254, .25);
-        @include accent-colors("prime", .60, .15, .2, 255, .25);
-        @include accent-colors("second", .60, .15, .02, 255, .25);
-        @include accent-colors("success", .60, .15, .2, 145, .25);
-        @include accent-colors("danger", .60, .15, .2, 25, .25);
-    
         /* properties*/
         @include font-size;
         @include margin;
@@ -63,25 +21,125 @@
         @include border-width;
         @include border-radius;
         @include box-shadow;
-    
+
         /* elements */
-        /* - mutated */
-        @include _;
-        @include _\:\:before;
-        @include _\:\:after;
-        @include _\[inert\];
-        @include html;
+        // mutated
+        @include \*;
+        @include \*\:\:before;
+        @include \*\:\:after;
+        @include \*\[inert\];
+        @include a;
+        @include a\:visited;
         @include body;
-        @include h1;
-        @include h2;
-        @include h3;
-        @include h4;
-        @include h5;
-        @include h6;
+        @include html;
         @include sub;
         @include sup;
-        /* - created */
+        // created
+        @include \*\[theme\];
         @include icon;
-        @include _\[theme\];
+
+
     }
 }
+
+
+
+
+// @layer themes {
+//     [theme=light] {
+//         @import "../_assets/_xtra/_themes/_default/index";
+    
+//         /* global */
+//         @include sizes;
+//         @include base-colors("positive", 1, 0, 0, .25);
+//         @include base-colors("negative", 0, 0, 0, .25);
+//         @include accent-colors("prime", .60, .15, .2, 255, .25);
+//         @include accent-colors("second", .60, .15, .02, 255, .25);
+//         // @include accent-colors("info", .60, .15, .2, 295, .25);
+//         @include accent-colors("success", .60, .15, .2, 145, .25);
+//         // @include accent-colors("warning", .60, .15, .2, 95, .25);
+//         @include accent-colors("error", .60, .15, .2, 25, .25);
+    
+//         /* properties*/
+//         @include font-size;
+//         @include margin;
+//         @include padding;
+//         @include gap;
+//         @include border-width;
+//         @include border-radius;
+//         @include box-shadow;
+    
+//         /* elements */
+//         /* - mutated */
+
+        
+//         // @include \*;
+//         // @include \*\:\:before;
+//         // @include \*\:\:after;
+//         @include \*\[inert\];
+//         a {
+//             @include a;
+//             &:visited {
+//                 @include a\:visited;
+//             }
+//         }
+//         // @include html;
+//         body {
+//             @include body;
+//         }
+//         @include h1;
+//         @include h2;
+//         @include h3;
+//         @include h4;
+//         @include h5;
+//         @include h6;
+//         @include sub;
+//         @include sup;
+//         /* - created */
+//         @include icon;
+//         @include \*\[theme\];
+//     }
+
+//     [theme=dark] {
+//         @import "../_assets/_xtra/_themes/_default/index";
+    
+//         /* global */
+//         @include sizes;
+//         @include base-colors('positive', .22, .012, 254, .25);
+//         @include base-colors('negative', .78, .012, 254, .25);
+//         @include accent-colors("prime", .60, .15, .2, 255, .25);
+//         @include accent-colors("second", .60, .15, .02, 255, .25);
+//         @include accent-colors("success", .60, .15, .2, 145, .25);
+//         @include accent-colors("danger", .60, .15, .2, 25, .25);
+    
+//         /* properties*/
+//         @include font-size;
+//         @include margin;
+//         @include padding;
+//         @include gap;
+//         @include border-width;
+//         @include border-radius;
+//         @include box-shadow;
+    
+//         /* elements */
+//         /* - mutated */
+//         // @include \*;
+//         // @include \*\:\:before;
+//         // @include \*\:\:after;
+//         @include \*\[inert\];
+//         // @include a;
+//         // @include html;
+//         // @include body;
+//         @include h1;
+//         @include h2;
+//         @include h3;
+//         @include h4;
+//         @include h5;
+//         @include h6;
+//         @include sub;
+//         @include sup;
+//         /* - created */
+//         @include icon;
+//         @include \*\[theme\];
+//     }
+// }

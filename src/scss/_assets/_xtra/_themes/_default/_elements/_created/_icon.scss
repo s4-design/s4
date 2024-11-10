@@ -6,10 +6,12 @@
     $background-color: currentColor,
     $mask: var(--icon-image) no-repeat center content-box
 ) {
-    --icon_display: #{$display};
-    --icon_min-width: #{$min-width};
-    --icon_min-height: #{$min-height};
-    --icon_vertical-align: #{$vertical-align};
-    --icon_background-color: #{$background-color};
-    --icon_mask: #{$mask};
+    icon {
+        --display: #{$display};
+        --min-width: #{$min-width};
+        --min-height: #{$min-height};
+        --vertical-align: #{$vertical-align};
+        --background-color: #{$background-color};
+        --mask: #{$mask};
+    }
 }

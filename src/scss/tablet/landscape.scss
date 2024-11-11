@@ -1,11 +1,13 @@
+@use "sass:map";
+
 // // @import "../_assets/_xtra/_themes/_default/_utilities/index";
 
 @use "../_settings" as settings;
 
-@use "../_assets/_base/_utilities/~" as *;
+@use "../_assets/_base/_utilities/~" as base;
 
-@include utilities(
-    map-get(settings.$tabletLandscape, type),
-    map-get(settings.$tabletLandscape, orientation),
+@include base.utilities(
+    map.get(settings.$tabletLandscape, type),
+    map.get(settings.$tabletLandscape, orientation),
     settings.$enableVariables
 );

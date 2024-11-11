@@ -3,9 +3,7 @@
     $box-sizing: border-box,
     $overscroll-behavior: none
 ) {
-    html {
-        --position: #{$position};
-        --box-sizing: #{$box-sizing};
-        --overscroll-behavior: #{$overscroll-behavior};
-    }
+    --position: #{$position};
+    --box-sizing: #{$box-sizing};
+    --overscroll-behavior: #{$overscroll-behavior};
 }

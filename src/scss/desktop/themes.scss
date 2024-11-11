@@ -24,6 +24,11 @@
 
         /* elements */
         // mutated
+        @at-root {
+            html[theme=light] {
+                @include html; // root
+            }
+        }
         @include \*;
         @include \*\:\:before;
         @include \*\:\:after;
@@ -31,115 +36,63 @@
         @include a;
         @include a\:visited;
         @include body;
-        @include html;
+        @include h($aria-level: 1, $margin: unset unset var(--margin--s2) unset);
+        @include h($aria-level: 2);
+        @include h($aria-level: 3);
+        @include h($aria-level: 4);
+        @include h($aria-level: 5);
+        @include h($aria-level: 6);
         @include sub;
         @include sup;
         // created
-        @include \*\[theme\];
+        @include \[theme\];
         @include icon;
-
-
     }
+
+
+    [theme=dark] {
+        /* global */
+        @include sizes;
+        @include base-colors('positive', .22, .012, 254, .25);
+        @include base-colors('negative', .78, .012, 254, .25);
+        @include accent-colors("prime", .60, .15, .2, 255, .25);
+        @include accent-colors("second", .60, .15, .02, 255, .25);
+        @include accent-colors("success", .60, .15, .2, 145, .25);
+        @include accent-colors("danger", .60, .15, .2, 25, .25);
+
+        /* properties*/
+        @include font-size;
+        @include margin;
+        @include padding;
+        @include gap;
+        @include border-width;
+        @include border-radius;
+        @include box-shadow;
+
+        /* elements */
+        // mutated
+        @at-root {
+            html[theme=dark] {
+                @include html; // root
+            }
+        }
+        @include \*;
+        @include \*\:\:before;
+        @include \*\:\:after;
+        @include \*\[inert\];
+        @include a;
+        @include a\:visited;
+        @include body;
+        @include h($aria-level: 1, $margin: unset unset var(--margin--s2) unset);
+        @include h($aria-level: 2);
+        @include h($aria-level: 3);
+        @include h($aria-level: 4);
+        @include h($aria-level: 5);
+        @include h($aria-level: 6);
+        @include sub;
+        @include sup;
+        // created
+        @include \[theme\]; // root
+        @include icon;
+    }    
 }
-
-
-
-
-// @layer themes {
-//     [theme=light] {
-//         @import "../_assets/_xtra/_themes/_default/index";
-    
-//         /* global */
-//         @include sizes;
-//         @include base-colors("positive", 1, 0, 0, .25);
-//         @include base-colors("negative", 0, 0, 0, .25);
-//         @include accent-colors("prime", .60, .15, .2, 255, .25);
-//         @include accent-colors("second", .60, .15, .02, 255, .25);
-//         // @include accent-colors("info", .60, .15, .2, 295, .25);
-//         @include accent-colors("success", .60, .15, .2, 145, .25);
-//         // @include accent-colors("warning", .60, .15, .2, 95, .25);
-//         @include accent-colors("error", .60, .15, .2, 25, .25);
-    
-//         /* properties*/
-//         @include font-size;
-//         @include margin;
-//         @include padding;
-//         @include gap;
-//         @include border-width;
-//         @include border-radius;
-//         @include box-shadow;
-    
-//         /* elements */
-//         /* - mutated */
-
-        
-//         // @include \*;
-//         // @include \*\:\:before;
-//         // @include \*\:\:after;
-//         @include \*\[inert\];
-//         a {
-//             @include a;
-//             &:visited {
-//                 @include a\:visited;
-//             }
-//         }
-//         // @include html;
-//         body {
-//             @include body;
-//         }
-//         @include h1;
-//         @include h2;
-//         @include h3;
-//         @include h4;
-//         @include h5;
-//         @include h6;
-//         @include sub;
-//         @include sup;
-//         /* - created */
-//         @include icon;
-//         @include \*\[theme\];
-//     }
-
-//     [theme=dark] {
-//         @import "../_assets/_xtra/_themes/_default/index";
-    
-//         /* global */
-//         @include sizes;
-//         @include base-colors('positive', .22, .012, 254, .25);
-//         @include base-colors('negative', .78, .012, 254, .25);
-//         @include accent-colors("prime", .60, .15, .2, 255, .25);
-//         @include accent-colors("second", .60, .15, .02, 255, .25);
-//         @include accent-colors("success", .60, .15, .2, 145, .25);
-//         @include accent-colors("danger", .60, .15, .2, 25, .25);
-    
-//         /* properties*/
-//         @include font-size;
-//         @include margin;
-//         @include padding;
-//         @include gap;
-//         @include border-width;
-//         @include border-radius;
-//         @include box-shadow;
-    
-//         /* elements */
-//         /* - mutated */
-//         // @include \*;
-//         // @include \*\:\:before;
-//         // @include \*\:\:after;
-//         @include \*\[inert\];
-//         // @include a;
-//         // @include html;
-//         // @include body;
-//         @include h1;
-//         @include h2;
-//         @include h3;
-//         @include h4;
-//         @include h5;
-//         @include h6;
-//         @include sub;
-//         @include sup;
-//         /* - created */
-//         @include icon;
-//         @include \*\[theme\];
-//     }
-// }

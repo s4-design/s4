@@ -1,21 +1,22 @@
-@mixin \*\[theme\] (
+@mixin \[theme\] (
     $background-color: var(--positive),
     $color: var(--negative--09),
     $word-break: normal,
     $tab-size: 4,
-    $overscroll-behavior: none,
-    $font-size: var(--size--4),
+    // $overscroll-behavior: none,
+    $font-size: var(--font-size--md),
     $font-weight: normal,
-    $line-height: var(--size--6),
+    $line-height: var(--font-size--l2),
     $font-family: '',
     $text-underline-offset: var(--size--025)
 ) {
-    [theme] {
+    // [theme] {
+    & {
         --background-color: #{$background-color};
         --color: #{$color};
         --word-break: #{$word-break};
         --tab-size: #{$tab-size};
-        --overscroll-behavior: #{$overscroll-behavior};
+        // --overscroll-behavior: #{$overscroll-behavior};
         --font-size: #{$font-size};
         --font-weight: #{$font-weight};
         --line-height: #{$line-height};

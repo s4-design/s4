@@ -11,7 +11,7 @@
     @if $aria-level {
         h#{$aria-level} {
             --margin: #{$margin};
-            --font-size: calc(#{$font-size} * #{math.div(ceil(pow($font-size--delta, (6 - $aria-level)) * 100), 100)});
+            --font-size: calc(#{$font-size} * #{math.div(math.ceil(math.pow($font-size--delta, (6 - $aria-level)) * 100), 100)});
             --font-weight: #{$font-weight};
             --line-height: #{$line-height};
         }

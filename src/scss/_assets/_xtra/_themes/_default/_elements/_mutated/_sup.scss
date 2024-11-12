@@ -1,15 +1,9 @@
 @mixin sup (
-    $top: calc(var(--size--1) * -1),
-    $font-size: var(--size--3),
-    $line-height: var(--size--0),
-    $position: relative,
-    $vertical-align: baseline
+    $font-size: var(--font-size--s1),
+    $line-height: var(--font-size--s1),
 ) {
     sup {
-        --top: #{$top};
         --font-size: #{$font-size};
         --line-height: #{$line-height};
-        --position: #{$position};
-        --vertical-align: #{$vertical-align};
     }
 }

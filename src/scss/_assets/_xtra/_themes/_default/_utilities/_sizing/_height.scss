@@ -1,0 +1,19 @@
+@use 'sass:math';
+@mixin height($type, $orientation, $defaultSizingStep) {
+    /* preset: height */
+    @each $height in (
+        "min-height",
+        "height",
+        "max-height"
+    ) {
+        .#{$type}#{$orientation}#{$height} {
+            @for $i from 0 through math.div(100, $defaultSizingStep) {
+                @if $i != 0 {
+                    &--#{$i * $defaultSizingStep} {
+                        #{$height}: #{$i * $defaultSizingStep + '%'};
+                    }
+                }
+            }
+        }
+    }
+}

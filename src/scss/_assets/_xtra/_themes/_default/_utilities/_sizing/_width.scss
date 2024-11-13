@@ -1,0 +1,19 @@
+@use 'sass:math';
+@mixin width($type, $orientation, $defaultSizingStep) {
+    // preset: width
+    @each $width in (
+        "min-width",
+        "width",
+        "max-width"
+    ) {
+        .#{$type}#{$orientation}#{$width} {
+            @for $i from 0 through math.div(100, $defaultSizingStep) {
+                @if $i != 0 {
+                    &--#{$i * $defaultSizingStep} {
+                        #{$width}: #{$i * $defaultSizingStep + '%'};
+                    }
+                }
+            }
+        }
+    }
+}

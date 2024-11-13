@@ -24,9 +24,10 @@
 @use "./_background/~" as *;
 
 
-
+@use "_sizing/~" as *;
 @use "_z-index/~" as *;
 
 @mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_") {
+    @include sizing($type, $orientation);
     @include z-index($type, $orientation);
 }

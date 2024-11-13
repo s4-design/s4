@@ -1,0 +1,12 @@
+@mixin z-index($type, $orientation) {
+    /* preset: z-index */
+    @each $name, $index in (
+        n: -1,
+        0: 0,
+        1: 1,
+    ) {
+        .#{$type}#{$orientation}z-index--#{$name} {
+            z-index: #{$index};
+        }
+    }
+}

@@ -1,35 +1,5 @@
 @mixin h() {
-    h1 {
-        margin: var(--margin);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
-        line-height: var(--line-height);
-    }
-    h2 {
-        margin: var(--margin);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
-        line-height: var(--line-height);
-    }
-    h3 {
-        margin: var(--margin);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
-        line-height: var(--line-height);
-    }
-    h4 {
-        margin: var(--margin);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
-        line-height: var(--line-height);
-    }
-    h5 {
-        margin: var(--margin);
-        font-size: var(--font-size);
-        font-weight: var(--font-weight);
-        line-height: var(--line-height);
-    }
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
         margin: var(--margin);
         font-size: var(--font-size);
         font-weight: var(--font-weight);

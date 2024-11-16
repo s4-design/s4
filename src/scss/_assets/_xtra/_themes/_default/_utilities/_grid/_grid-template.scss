@@ -1,0 +1,13 @@
+@mixin grid-template($type, $orientation, $gridSize) {
+    // preset: grid template columns and rows
+    @each $template in (
+        "columns",
+        "rows"
+    ) {
+        @for $i from 1 through $gridSize {
+            .#{$type}#{$orientation}grid-template-#{$template}--#{$i} {
+                grid-template-#{$template}: repeat($i, 1fr)
+            }
+        }
+    }
+}

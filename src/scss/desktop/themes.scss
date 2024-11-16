@@ -22,7 +22,7 @@
         @include border-radius;
         @include box-shadow;
 
-        /* elements */
+        // elements
         // mutated
         @at-root {
             html[theme=light] {
@@ -69,7 +69,7 @@
         @include border-radius;
         @include box-shadow;
 
-        /* elements */
+        // elements
         // mutated
         @at-root {
             html[theme=dark] {

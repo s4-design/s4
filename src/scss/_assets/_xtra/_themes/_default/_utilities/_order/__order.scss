@@ -1,9 +1,0 @@
-// preset: order
-
-.#{$type}#{$orientation}order {
-    @for $i from -1 through $gridSize {
-        &--#{$i} {
-            order: $i;
-        }
-    }
-}

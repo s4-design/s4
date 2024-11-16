@@ -1,5 +1,5 @@
 @mixin aspect-ratio($type, $orientation) {
-    /* preset: aspect ratio */
+    // preset: aspect ratio
     @each $w, $h in (
         1 1,
         4 3, 3 4,

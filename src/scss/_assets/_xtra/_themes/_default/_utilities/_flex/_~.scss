@@ -1,0 +1,9 @@
+@use "flex-grow" as *;
+@use "flex-shrink" as *;
+@use "flex-wrap" as *;
+
+@mixin flex($type, $orientation) {
+    @include flex-grow($type, $orientation);
+    @include flex-shrink($type, $orientation);
+    @include flex-wrap($type, $orientation);
+}

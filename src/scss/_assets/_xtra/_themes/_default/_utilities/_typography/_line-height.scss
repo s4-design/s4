@@ -1,0 +1,11 @@
+@mixin line-height($type, $orientation) {
+    // preset: line height
+    @each $height in (
+        0,
+        1
+    ) {
+        .#{$type}#{$orientation}line-height--#{$height} {
+            line-height: #{$height};
+        }
+    }
+}

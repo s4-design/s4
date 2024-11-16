@@ -1,6 +1,6 @@
 @use 'sass:math';
 @mixin height($type, $orientation, $defaultSizingStep) {
-    /* preset: height */
+    // preset: height
     @each $height in (
         "min-height",
         "height",

@@ -1,33 +1,27 @@
-// @use "sass:math";
-
-// @import "../_settings";
-
-// @layer utilities {
-//     :is([theme="light"], [theme="dark"]) {
-//         @import "_background/index";
-//         @import "_border/index";
-//         @import "_cursor/index";
-//         @import "_flex/index";
-//         // @import "_grid/index";
-//         @import "_indent/index";
-//         // @import "_order/index";
-//         @import "_placement/index";
-//         @import "_shadow/index";
-//         @import "_sizing/index";
-//         @import "_typography/index";
-//         @import "_z-index/index";
-//     }
-// }
-
-
-
-@use "./_background/~" as *;
-
-
+@use "_background/~" as *;
+@use "_border/~" as *;
+@use "_flex/~" as *;
+@use "_grid/~" as *;
+@use "_indent/~" as *;
+@use "_order/~" as *;
+@use "_placement/~" as *;
+@use "_shadow/~" as *;
 @use "_sizing/~" as *;
+@use "_typography/~" as *;
 @use "_z-index/~" as *;
 
 @mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_") {
-    @include sizing($type, $orientation);
-    @include z-index($type, $orientation);
+    :is([theme="light"], [theme="dark"]) {
+        @include background($type, $orientation);
+        @include border($type, $orientation);
+        @include flex($type, $orientation);
+        @include grid($type, $orientation);
+        @include indent($type, $orientation);
+        @include order($type, $orientation);
+        @include placement($type, $orientation);
+        @include shadow($type, $orientation);
+        @include sizing($type, $orientation);
+        @include typography($type, $orientation);
+        @include z-index($type, $orientation);
+    }
 }

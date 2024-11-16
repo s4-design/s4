@@ -1,8 +1,10 @@
 @use "../../_settings" as *;
-@use "background-color" as *;
 
-@mixin background($type, $orientation) {
-    @include background-color(
+@use "border-color" as *;
+@use "border-radius" as *;
+
+@mixin border($type, $orientation) {
+    @include border-color(
         $type,
         $orientation,
         $defaultColors,
@@ -10,4 +12,5 @@
         $colorsGradientNumberSteps,
         $accentColorsPostfixes
     );
+    @include border-radius($type, $orientation);
 }

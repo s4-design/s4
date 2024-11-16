@@ -1,0 +1,14 @@
+@mixin translate($type, $orientation) {
+    // preset: translate
+    .#{$type}#{$orientation}translate {
+        &--middle {
+            transform: translate(-50%, -50%);
+        }
+        &-x--middle {
+            transform: translateX(-50%);
+        }
+        &-y--middle {
+            transform: translateY(-50%);
+        }
+    }
+}

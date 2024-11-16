@@ -1,0 +1,10 @@
+@mixin text-shadow($type, $orientation, $shadowSize, $shadowColor) {
+    // preset: text shadow
+    .#{$type}#{$orientation}text-shadow {
+        @each $size in $shadowSize {
+            &--#{$size} {
+                text-shadow: calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .125) calc(var(--text-shadow--#{$size}) * .5) $shadowColor;
+            }
+        }
+    }
+}

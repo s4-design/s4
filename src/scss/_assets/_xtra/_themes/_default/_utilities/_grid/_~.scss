@@ -1,0 +1,11 @@
+$gridSize: 12;
+
+@use "grid-column" as *;
+@use "grid-row" as *;
+@use "grid-template" as *;
+
+@mixin grid($type, $orientation) {
+    @include grid-column($type, $orientation, $gridSize);
+    @include grid-row($type, $orientation, $gridSize);
+    @include grid-template($type, $orientation, $gridSize);
+}

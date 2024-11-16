@@ -1,0 +1,18 @@
+$spacingSizes: (
+    "s3",
+    "s2",
+    "s1",
+    "md",
+    "l1",
+    "l2",
+    "l3",
+    "l4"
+);
+
+@use "indent" as indent;
+@use "gap" as *;
+
+@mixin indent($type, $orientation) {
+    @include indent.indent($type, $orientation, $spacingSizes);
+    @include gap($type, $orientation, $spacingSizes);
+}

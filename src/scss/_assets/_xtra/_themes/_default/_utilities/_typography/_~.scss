@@ -1,0 +1,20 @@
+@use "../../_settings" as *;
+
+@use "assets" as *;
+@use "color" as *;
+@use "font-size" as *;
+@use "line-height" as *;
+
+@mixin typography($type, $orientation) {
+    @include assets();
+    @include color(
+        $type,
+        $orientation,
+        $defaultColors,
+        $accentColors,
+        $colorsGradientNumberSteps,
+        $accentColorsPostfixes
+    );
+    @include font-size($type, $orientation);
+    @include line-height($type, $orientation);
+}

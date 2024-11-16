@@ -1,5 +1,5 @@
 @mixin z-index($type, $orientation) {
-    /* preset: z-index */
+    // preset: z-index
     @each $name, $index in (
         n: -1,
         0: 0,

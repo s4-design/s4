@@ -1,0 +1,37 @@
+@mixin color(
+    $type,
+    $orientation,
+    $defaultColors,
+    $accentColors,
+    $colorsGradientNumberSteps,
+    $accentColorsPostfixes
+) {
+    // preset: color
+    @each $color in $defaultColors {
+        .#{$type}#{$orientation}color {
+            &--#{$color} {
+                color: var(--#{$color});
+            }
+            @for $i from 1 through $colorsGradientNumberSteps {
+                &--#{$color}--0#{$i} {
+                    color: var(--#{$color}--0#{$i});
+                }
+            }
+            &--#{$color}--mute {
+                color: var(--#{$color}--mute);
+            }
+        }
+    }
+    @each $color in $accentColors {
+        .#{$type}#{$orientation}color {
+            &--#{$color} {
+                color: var(--#{$color});
+            }
+            @each $postfix in $accentColorsPostfixes {
+                &--#{$color}--#{$postfix} {
+                    color: var(--#{$color}--#{$postfix});
+                }
+            }
+        }
+    }
+}

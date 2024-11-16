@@ -1,0 +1,20 @@
+@mixin grid-row($type, $orientation, $gridSize) {
+    // preset: grid row
+    @for $i from 1 through $gridSize {
+        .#{$type}#{$orientation}grid-row--span-#{$i} {
+            grid-row: span $i / span $i
+        }
+    }
+    .#{$type}#{$orientation}grid-row--full {
+        grid-row: 1 / -1;
+    }
+    
+    @for $i from 1 through $gridSize {
+        .#{$type}#{$orientation}grid-row-start--#{$i} {
+            grid-row-start: $i
+        }
+        .#{$type}#{$orientation}grid-row-end-#{$i} {
+            grid-row-end: $i
+        }
+    }
+}

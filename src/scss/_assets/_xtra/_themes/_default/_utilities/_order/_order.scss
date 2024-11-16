@@ -1,0 +1,13 @@
+@mixin order($type, $orientation, $gridSize) {
+    // preset: order
+    .#{$type}#{$orientation}order {
+        @for $i from -1 through $gridSize {
+            @if $i == -1 {
+                $i: 'n';
+            }
+            &--#{$i} {
+                order: $i;
+            }
+        }
+    }
+}

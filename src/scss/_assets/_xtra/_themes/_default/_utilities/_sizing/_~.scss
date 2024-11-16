@@ -1,8 +1,8 @@
 $defaultSizingStep: 25;
 
 @use "aspect-ratio" as *;
-@use "_height" as *;
-@use "_width" as *;
+@use "height" as *;
+@use "width" as *;
 
 @mixin sizing($type, $orientation) {
     @include aspect-ratio($type, $orientation);

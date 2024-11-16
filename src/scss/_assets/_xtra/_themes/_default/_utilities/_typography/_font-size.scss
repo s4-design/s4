@@ -1,0 +1,17 @@
+@mixin font-size($type, $orientation) {
+    // preset: font size
+    @each $size in (
+        "s3",
+        "s2",
+        "s1",
+        "md",
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+    ) {
+        .#{$type}#{$orientation}font-size--#{$size} {
+            font-size: var(--font-size--#{$size});
+        }
+    }
+}

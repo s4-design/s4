@@ -1,0 +1,5 @@
+@use "cursor" as cursor;
+
+@mixin cursor($type, $orientation) {
+    @include cursor.cursor($type, $orientation);
+}

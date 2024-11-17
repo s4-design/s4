@@ -1,8 +1,8 @@
 @mixin icon() {
     icon {
         display: var(--display);
-        min-width: var(--min-width);
-        min-height: var(--min-height);
+        width: var(--width);
+        height: var(--height);
         vertical-align: var(--vertical-align);
         background-color: var(--background-color);
         mask: var(--mask);

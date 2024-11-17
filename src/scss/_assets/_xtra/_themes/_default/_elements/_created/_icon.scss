@@ -1,15 +1,15 @@
 @mixin icon (
     $display: inline-block,
-    $min-width: calc(var(--size--6) * 1em),
-    $min-height: calc(var(--size--6) * 1em),
-    $vertical-align: middle,
+    $width: 2ch,
+    $height: 1lh,
+    $vertical-align: bottom,
     $background-color: currentColor,
     $mask: var(--icon-image) no-repeat center content-box
 ) {
     icon {
         --display: #{$display};
-        --min-width: #{$min-width};
-        --min-height: #{$min-height};
+        --width: #{$width};
+        --height: #{$height};
         --vertical-align: #{$vertical-align};
         --background-color: #{$background-color};
         --mask: #{$mask};

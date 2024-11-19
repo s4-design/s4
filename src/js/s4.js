@@ -103,9 +103,49 @@ function updateLinks(currentDepends, allDependencies) {
     
 }
 
+// Функция для проверки и установки темы
+// Function for checking and setting the theme
+function setThemeBasedOnPreference() {
+    // Получаем текущую установленную тему
+    // Getting the currently installed theme
+    const currentTheme = document.documentElement.getAttribute('theme')
+    
+    // Если тема уже установлена и не равна 'dark' или 'light', прерываем выполнение функции
+    // If the theme is already set and is not 'dark' or 'light', abort the function
+    if (currentTheme && currentTheme !== 'dark' && currentTheme !== 'light')
+        return;
+
+    // Собираем информацию, предпочитает ли пользователь тёмную тему или светлую
+    // Getting information on whether the user prefers a dark or light theme
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)')
+  
+    // В зависимости от предпочтений пользователя на корневом элементе <html> устанавливается атрибут [theme=dark] или [theme=light]
+    // Depending on the user's preferences, the [theme=dark] or [theme=light] attribute is set on the root <html> element
+    if (prefersDarkScheme.matches)
+        document.documentElement.setAttribute('theme', 'dark')
+    else if (prefersLightScheme.matches)
+        document.documentElement.setAttribute('theme', 'light')
+    else {
+        // Если тема не выбрана, задется значение по умолчанию - light
+        // If the theme is not selected, set the default value - light
+        document.documentElement.setAttribute('theme', 'light')
+    }
+}
+
 // Функция управления загрузкой CSS в зависимости от устройства и ориентации
 // Function to control CSS loading depending on device and orientation
 async function S4() {
+
+    // Установка темы при загрузке страницы
+    // Set theme on page load
+    setThemeBasedOnPreference()
+    
+    // Следить за изменениями предпочтений темы
+    // Track changes in theme preferences
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeBasedOnPreference)
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', setThemeBasedOnPreference)
+
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers
     document.head.appendChild(Object.assign(document.createElement('style'), {

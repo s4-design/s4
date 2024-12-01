@@ -1,0 +1,11 @@
+@use "outline-color" as *;
+@use "outline-offset" as *;
+@use "outline-style" as *;
+@use "outline-width" as *;
+
+@mixin outline($type, $orientation, $enableVariables) {
+    @include outline-color($type, $orientation, $enableVariables);
+    @include outline-offset($type, $orientation, $enableVariables);
+    @include outline-style($type, $orientation, $enableVariables);
+    @include outline-width($type, $orientation, $enableVariables);
+}

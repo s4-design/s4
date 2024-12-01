@@ -1,0 +1,24 @@
+@mixin outline-width($type, $orientation, $enableVariables) {
+    /* outline-width */
+    @each $width in(
+        "thin",
+        "medium",
+        "thick"
+    ) {
+        .#{$type}#{$orientation}outline-width--#{$width} {
+            outline-width: var(--outline-width--#{$width});
+        }
+        // @each $side in $outlineSides {
+        //     .#{$type}#{$orientation}outline-#{$side}-width--#{$width} {
+        //         outline-#{$side}-width: var(--outline-width--#{$width});
+        //     }
+        // }
+    }
+    
+    @if $enableVariables {
+        .outline,
+        .outline-width {
+            outline-width: var(--#{$type}#{$orientation}outline-width, var(--outline-width));
+        }
+    }
+}

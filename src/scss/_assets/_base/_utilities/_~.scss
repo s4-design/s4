@@ -10,6 +10,7 @@
 @use "_justify/~" as *;
 @use "_object/~" as *;
 @use "_order/~" as *;
+@use "_outline/~" as *;
 @use "_overflow/~" as *;
 @use "_placement/~" as *;
 @use "_pointer-events/~" as *;
@@ -32,6 +33,7 @@
     @include justify($type, $orientation);
     @include object($type, $orientation, $enableVariables);
     @include order($type, $orientation, $enableVariables);
+    @include outline($type, $orientation, $enableVariables);
     @include overflow($type, $orientation);
     @include placement($type, $orientation, $enableVariables);
     @include pointer-events($type, $orientation);

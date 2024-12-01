@@ -10,9 +10,9 @@
     @each $style in $borderStyle {
         .#{$type}#{$orientation}border-style--#{$style} {
             border-style: #{$style};
-            @if $style != none {
-                border-width: var(--border-width--min);
-            }
+            // @if $style != none {
+            //     border-width: var(--border-width--min);
+            // }
         }
     }
     

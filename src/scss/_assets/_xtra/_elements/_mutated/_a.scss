@@ -5,13 +5,7 @@
         text-decoration-line: var(--text-decoration-line);
         text-decoration-style: var(--text-decoration-style);
         text-decoration-thickness: var(--text-decoration-thickness);
-        &:hover {
-            color: var(--color);
-            text-decoration-color: var(--text-decoration-color);
-        }
-        &:visited {
-            color: var(--color);
-            text-decoration-color: var(--text-decoration-color);
-        }
+        text-underline-offset: var(--text-underline-offset);
+        cursor: var(--cursor);
     }
 }

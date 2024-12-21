@@ -1,0 +1,185 @@
+@use "../_assets/_xtra/_themes/_default/~" as *;
+
+@mixin theme() {
+    /* elements */
+    @at-root {
+        html[theme=light] {
+            @include html; // root
+        }
+    }
+    :scope {
+        /* global */
+        @include sizes;
+        // @include base-colors("positive", 1, 0, 0, .25);
+        // @include base-colors("negative", 0, 0, 0, .25);
+        // @include accent-colors("prime", .60, .15, .2, 255, .25);
+        // @include accent-colors("second", .60, .15, .02, 255, .25);
+        // // @include accent-colors("info", .60, .15, .2, 295, .25);
+        // @include accent-colors("success", .60, .15, .2, 145, .25);
+        // // @include accent-colors("warning", .60, .15, .2, 95, .25);
+        // @include accent-colors("danger", .60, .15, .2, 25, .25);
+    
+        @include base-colors("positive", .96, .0135, 276, .25);
+        @include base-colors("negative", .04, .0135, 276, .25);
+        @include accent-colors("positive", .96, .15, .0135, 276, .25);
+        @include accent-colors("negative", .04, .15, .0135, 276, .25);
+        @include accent-colors("prime", .70, .05, .2, 255, .25);
+        @include accent-colors("second", .70, .05, .02, 255, .25);
+        @include accent-colors("success", .70, .05, .2, 145, .25);
+        @include accent-colors("danger", .70, .05, .2, 25, .25);
+    
+        // --color-body: #f3f5ff;
+        // --color-text-main2: #34344a;
+        // --color-text-main3: #f96a00;
+        // --color-text-placeholder: #9f9fb5;
+        // --color-bg-ghost: rgba(159,159,181,0.3);
+        // --color-border: #d6d6e4;
+        // --color-text-danger: red
+    
+        /* properties*/
+        @include font-size;
+        @include margin;
+        @include padding;
+        @include gap;
+        @include border-width;
+        @include border-radius;
+        @include box-shadow;
+    }
+    /* elements */
+    // html {
+    //     @include html; // root
+    // }
+    // mutated
+    @include \*;
+    @include \*\:\:before;
+    @include \*\:\:after;
+    @include \*\[inert\];
+    
+    @include a;
+    @include ruleset(
+        "a", "", "",
+        (
+            --color: red,
+            --text-decoration-color: var(--negative--light)
+        )
+    );
+    @include ruleset(
+        "a", ":hover", "",
+        (
+            --color: var(--negative--light),
+            --text-decoration-color: var(--negative--light)
+        )
+    );
+    @include ruleset(
+        "a", ":visited", "",
+        (
+            --color: var(--negative--dark),
+            --text-decoration-color: var(--negative--dark)
+        )
+    );
+    
+    @include body;
+    
+    @include button;
+    @include ruleset(
+        "button", "", "",
+        (
+            --background-color: var(--positive),
+        )
+    );
+    @include ruleset(
+        "button", ":hover", "",
+        (
+            --background-color: var(--positive--light)
+        )
+    );
+    @include ruleset(
+        "button", ":active", "",
+        (
+            --background-color: var(--negative--dark),
+            --outline-color: var(--negative--mute),
+            --outline-offset: var(--size--0)
+        )
+    );
+    @include ruleset(
+        "button", ":focus-visible", "",
+        (
+            --background-color: var(--negative),
+            --outline-color: var(--positive--mute),
+            --outline-offset: var(--size--05)
+        )
+    );
+    @include ruleset(
+        "button", ":disabled", "",
+        (
+            --background-color: var(--positive--mute),
+            --color: var(--negative--mute),
+            --cursor: not-allowed
+        )
+    );
+    @each $color in (
+        "prime",
+        "second",
+        "success",
+        "danger"
+    ) {
+        @include ruleset(
+            "button", "", ".#{$color}",
+            (
+                --background-color: var(--#{$color})
+            )
+        );
+        @include ruleset(
+            "button", ":hover", ".#{$color}",
+            (
+                --background-color: var(--#{$color}--light)
+            )
+        );
+        @include ruleset(
+            "button", ":active:not(:focus-visible)", ".#{$color}",
+            (
+                --background-color: var(--#{$color}--dark),
+                --outline-color: var(--#{$color}--mute),
+                --outline-offset: var(--size--0)
+            )
+        );
+        @include ruleset(
+            "button", ":focus-visible:not(:active)", ".#{$color}",
+            (
+                --background-color: var(--#{$color}),
+                --outline-color: var(--#{$color}--mute),
+                --outline-offset: var(--size--05)
+            )
+        );
+        @include ruleset(
+            "button", ":disabled", ".#{$color}",
+            (
+                --background-color: var(--#{$color}--mute),
+                --color: var(--negative--mute),
+                --cursor: not-allowed
+            )
+        );
+    }
+    @include ruleset(
+        "button", ":has(icon)>icon", "",
+        (
+            --width: 1lh
+        )
+    );
+    
+    @include h($aria-level: 1, $margin: unset unset var(--margin--s2) unset);
+    @include h($aria-level: 2);
+    @include h($aria-level: 3);
+    @include h($aria-level: 4);
+    @include h($aria-level: 5);
+    @include h($aria-level: 6);
+    
+    @include sub;
+    @include sup;
+    
+    // created
+    @include \[theme\];
+    @include icon;
+    // @layer themes {
+    // }
+}

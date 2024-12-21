@@ -158,8 +158,8 @@
     $hue,
     $alfa
 ) {
-    --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
-    --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});    
+    // --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
+    // --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
     @for $i from 1 through 9 {
         --#{$prefix}--0#{$i}: oklch(#{$lightness} #{$chroma} #{$hue} / #{$i * 0.1});
     }
@@ -178,5 +178,18 @@
         --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
         --#{$prefix}--dark: oklch(#{$lightness - $lightness-offset} #{$chroma} #{$hue});
         --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
+    }
+}
+
+@mixin ruleset (
+    $selector,
+    $pseudo,
+    $class,
+    $declarations
+) {
+    #{$selector}#{$pseudo}#{$class} {
+        @each $property, $value in $declarations {
+            #{$property}: #{$value};
+        }
     }
 }

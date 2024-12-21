@@ -1,7 +1,5 @@
 @mixin html() {
     html {
-        position: var(--position);
-        box-sizing: var(--box-sizing);
         overscroll-behavior: var(--overscroll-behavior);
     }
 }

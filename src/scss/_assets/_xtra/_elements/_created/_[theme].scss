@@ -1,5 +1,7 @@
 @mixin \[theme\] () {
     [theme] {
+        position: var(--position);
+        box-sizing: var(--box-sizing);
         background-color: var(--background-color);
         color: var(--color);
         word-break: var(--word-break);

@@ -1,9 +1,0 @@
-@mixin html (
-    $position: relative,
-    $box-sizing: border-box,
-    $overscroll-behavior: none
-) {
-    --position: #{$position};
-    --box-sizing: #{$box-sizing};
-    --overscroll-behavior: #{$overscroll-behavior};
-}

@@ -1,12 +1,6 @@
 @use "../_assets/_xtra/_themes/_default/~" as *;
 
 @mixin theme() {
-    /* elements */
-    @at-root {
-        html[theme=light] {
-            @include html; // root
-        }
-    }
     :scope {
         /* global */
         @include sizes;

@@ -1,5 +1,5 @@
-@use "theme-light" as light;
-@use "theme-dark" as dark;
+@use "../_assets/_xtra/_themes/theme-light" as light;
+@use "../_assets/_xtra/_themes/theme-dark" as dark;
 
 @layer themes {
     @scope ([theme=light]) {

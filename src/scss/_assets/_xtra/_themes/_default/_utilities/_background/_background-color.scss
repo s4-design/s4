@@ -19,10 +19,10 @@
                     background-color: var(--#{$color}--0#{$i});
                 }
             }
-            &--#{$color}--mute,
-            &--#{$color}--mute\:hover:hover {
-                background-color: var(--#{$color}--mute);
-            }
+            // &--#{$color}--mute,
+            // &--#{$color}--mute\:hover:hover {
+            //     background-color: var(--#{$color}--mute);
+            // }
         }
     }
     @each $color in $accentColors {

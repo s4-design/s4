@@ -156,13 +156,14 @@
     $lightness,
     $chroma,
     $hue,
-    $alfa
+    $alfa-delta: 0.1
 ) {
     // --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
     // --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
     @for $i from 1 through 9 {
-        --#{$prefix}--0#{$i}: oklch(#{$lightness} #{$chroma} #{$hue} / #{$i * 0.1});
+        --#{$prefix}--0#{$i}: oklch(#{$lightness} #{$chroma} #{$hue} / #{$i * $alfa-delta});
     }
+    --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
 }
 
 @mixin accent-colors (

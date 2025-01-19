@@ -17,9 +17,9 @@
                     color: var(--#{$color}--0#{$i});
                 }
             }
-            &--#{$color}--mute {
-                color: var(--#{$color}--mute);
-            }
+            // &--#{$color}--mute {
+            //     color: var(--#{$color}--mute);
+            // }
         }
     }
     @each $color in $accentColors {

@@ -19,10 +19,10 @@
                     border-color: var(--#{$color}--0#{$i});
                 }
             }
-            &--#{$color}--mute,
-            &--#{$color}--mute\:hover:hover {
-                border-color: var(--#{$color}--mute);
-            }
+            // &--#{$color}--mute,
+            // &--#{$color}--mute\:hover:hover {
+            //     border-color: var(--#{$color}--mute);
+            // }
         }
     }
     

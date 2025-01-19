@@ -7,8 +7,8 @@
     :scope {
         /* global */
         @include sizes;    
-        @include base-colors("positive", .96, .0135, 276, .25);
-        @include base-colors("negative", .04, .0135, 276, .25);
+        @include base-colors("white", 1, 0, 0);
+        @include base-colors("black", 0, 0, 0);
         @include accent-colors("positive", .96, .15, .0135, 276, .25);
         @include accent-colors("negative", .04, .15, .0135, 276, .25);
         @include accent-colors("prime", .70, .05, .2, 255, .25);

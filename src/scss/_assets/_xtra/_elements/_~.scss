@@ -8,6 +8,7 @@
 @use "_mutated/body" as *;
 @use "_mutated/button" as *;
 @use "_mutated/h" as *;
+@use "_mutated/hr" as *;
 @use "_mutated/sub" as *;
 @use "_mutated/sup" as *;
 
@@ -21,6 +22,7 @@
         @include body;
         @include button;
         @include h;
+        @include hr;
         @include html;
         @include sub;
         @include sup;

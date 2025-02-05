@@ -1,0 +1,13 @@
+@mixin hr (
+    $min-width: var(--size--025),
+    $min-height: var(--size--025),
+    $border-style: unset,
+    $background-color: currentColor
+) {
+    hr {
+        --min-width: #{$min-width};
+        --min-height: #{$min-height};
+        --border-style: #{$border-style};
+        --background-color: #{$background-color};
+    }
+}

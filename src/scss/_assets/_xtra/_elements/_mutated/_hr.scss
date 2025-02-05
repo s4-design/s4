@@ -1,0 +1,8 @@
+@mixin hr() {
+    hr {
+        min-width: var(--min-width);
+        min-height: var(--min-height);
+        border-style: var(--border-style);
+        background-color: var(--background-color);
+    }
+}

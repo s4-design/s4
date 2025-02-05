@@ -154,6 +154,8 @@
     @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
+
+    @include hr($background-color: var(--white--02));
     
     @include sub;
     @include sup;

@@ -155,7 +155,7 @@
     @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
 
-    @include hr($background-color: var(--black--02));
+    @include hr($background-color: var(--negative--mute));
     
     @include sub;
     @include sup;

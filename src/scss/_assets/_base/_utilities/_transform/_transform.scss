@@ -1,0 +1,8 @@
+@mixin transform($type, $orientation, $enableVariables) {
+    /* transform */
+    @if $enableVariables {
+        .transform {
+            transform: var(--#{$type}#{$orientation}transform, var(--transform));
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@mixin zoom($type, $orientation, $enableVariables) {
+    /* zoom */
+    @if $enableVariables {
+        .zoom {
+            zoom: var(--#{$type}#{$orientation}zoom, var(--zoom));
+        }
+    }
+}

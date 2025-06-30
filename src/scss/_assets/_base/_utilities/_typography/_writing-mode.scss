@@ -1,6 +1,6 @@
 @mixin writing-mode($type, $orientation) {
     /* writing mode */
-    @each $mode in(
+    @each $mode in (
         "vertical-rl",
         "vertical-lr"
     ) {

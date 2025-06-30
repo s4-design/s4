@@ -1,6 +1,6 @@
 @mixin justify-items($type, $orientation) {
     /* justify items */
-    @each $items in(
+    @each $items in (
         "center",
         "end",
         "start",

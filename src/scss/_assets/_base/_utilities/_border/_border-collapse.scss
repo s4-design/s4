@@ -1,6 +1,6 @@
 @mixin border-collapse($type, $orientation) {
     /* border collapse */
-    @each $collapse in(
+    @each $collapse in (
         "collapse",
         "separate"
     ) {

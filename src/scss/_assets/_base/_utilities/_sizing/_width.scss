@@ -1,6 +1,6 @@
 @mixin width($type, $orientation, $enableVariables) {
     /* width */
-    @each $width in(
+    @each $width in (
         "min-width",
         "width",
         "max-width"

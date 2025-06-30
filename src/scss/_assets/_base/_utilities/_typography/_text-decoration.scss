@@ -1,6 +1,6 @@
 @mixin text-decoration($type, $orientation, $enableVariables) {
     /* text decoration */
-    @each $decoration in(
+    @each $decoration in (
         "none",
         "underline",
         "line-through"

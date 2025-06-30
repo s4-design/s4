@@ -1,10 +1,10 @@
 @mixin object-fit($type, $orientation) {
     /* object-fit--cover */
-    @each $fit in(
-        contain,
-        cover,
-        fill,
-        none
+    @each $fit in (
+        "contain",
+        "cover",
+        "fill",
+        "none"
     ) {
         .object-fit--#{$fit} {
             object-fit: #{$fit};

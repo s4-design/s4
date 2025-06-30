@@ -13,12 +13,14 @@
 @use "_outline/~" as *;
 @use "_overflow/~" as *;
 @use "_placement/~" as *;
-@use "_pointer-events/~" as *;
+@use "_events/~" as *;
 @use "_position/~" as *;
 @use "_shadow/~" as *;
 @use "_sizing/~" as *;
+@use "_transform/~" as *;
 @use "_typography/~" as *;
 @use "_z-index/~" as *;
+@use "_zoom/~" as *;
 
 @mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
     @include align($type, $orientation);
@@ -36,10 +38,12 @@
     @include outline($type, $orientation, $enableVariables);
     @include overflow($type, $orientation);
     @include placement($type, $orientation, $enableVariables);
-    @include pointer-events($type, $orientation);
+    @include events($type, $orientation, $enableVariables);
     @include position($type, $orientation);
     @include shadow($type, $orientation, $enableVariables);
     @include sizing($type, $orientation, $enableVariables);
+    @include transform($type, $orientation, $enableVariables);
     @include typography($type, $orientation, $enableVariables);
     @include z-index($type, $orientation, $enableVariables);
+    @include zoom($type, $orientation, $enableVariables);
 }

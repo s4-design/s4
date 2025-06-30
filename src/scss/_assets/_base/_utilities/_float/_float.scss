@@ -1,6 +1,6 @@
 @mixin float($type, $orientation) {
     /* float */
-    @each $name, $float in(
+    @each $name, $float in (
         "left": "left",
         "right": "right",
         "start": "inline-start",

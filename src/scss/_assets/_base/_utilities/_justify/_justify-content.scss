@@ -1,6 +1,6 @@
 @mixin justify-content($type, $orientation) {
     /* justify content */
-    @each $name, $content in(
+    @each $name, $content in (
         "around": "space-around",
         "between": "space-between",
         "center": "center",

@@ -12,7 +12,7 @@
     @include background-clip($type, $orientation);
     @include background-color($type, $orientation, $enableVariables);
     @include background-image($type, $orientation, $enableVariables);
-    @include background-origin($type, $orientation);
+    @include background-origin ($type, $orientation);
     @include background-position($type, $orientation, $enableVariables);
     @include background-repeat($type, $orientation);
     @include background-size($type, $orientation, $enableVariables);

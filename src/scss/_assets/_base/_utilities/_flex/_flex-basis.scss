@@ -1,6 +1,6 @@
 @mixin flex-basis($type, $orientation, $enableVariables) {
     /* flex basis */
-    @each $name, $basis in(
+    @each $name, $basis in (
         // "auto": "auto",
         "max": "max-content",
         "min": "min-content",

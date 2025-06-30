@@ -1,6 +1,6 @@
 @mixin align-content($type, $orientation) {
     /* align content */
-    @each $alias, $align-content in(
+    @each $alias, $align-content in (
         "around": "space-around",
         "between": "space-between",
         "center": "center",

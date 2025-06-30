@@ -8,7 +8,7 @@
         .color {
             color: var(--#{$type}#{$orientation}color, var(--color));
         }
-        @each $pseudoClass in(
+        @each $pseudoClass in (
             "focus",
             "active",
             "hover",

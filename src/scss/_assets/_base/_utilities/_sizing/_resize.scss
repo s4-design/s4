@@ -1,6 +1,6 @@
 @mixin resize($type, $orientation, $enableVariables) {
     /* resize */
-    @each $resize in(
+    @each $resize in (
         "both",
         "horizontal",
         "vertical",

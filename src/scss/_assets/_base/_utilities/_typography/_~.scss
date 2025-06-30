@@ -10,7 +10,6 @@
 @use "line-height" as *;
 @use "white-space" as *;
 @use "writing-mode" as *;
-@use "user-select" as *;
 
 @mixin typography($type, $orientation, $enableVariables) {
     @include color($type, $orientation, $enableVariables);
@@ -24,5 +23,4 @@
     @include text-wrap($type, $orientation);
     @include white-space($type, $orientation);
     @include writing-mode($type, $orientation);
-    @include user-select();
 }

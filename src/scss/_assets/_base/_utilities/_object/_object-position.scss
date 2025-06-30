@@ -1,11 +1,11 @@
 @mixin object-position($type, $orientation, $enableVariables) {
     /* object-position */
-    @each $position in(
-        top,
-        bottom,
-        left,
-        right,
-        center
+    @each $position in (
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "center"
     ) {
         .object-position--#{$position} {
             object-position: #{$position};

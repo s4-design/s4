@@ -1,6 +1,6 @@
 @mixin flex($type, $orientation) {
     /* flex */
-    @each $value in(
+    @each $value in (
         "none", // 0 0 auto
         "initial", // 0 1 auto
         "auto" // 1 1 auto

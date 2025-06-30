@@ -20,9 +20,9 @@
         @each $side in $borderSides {
             .#{$type}#{$orientation}border-#{$side}-style--#{$style} {
                 border-#{$side}-style: #{$style};
-                @if $style != none {
-                    border-width: var(--border-width--min);
-                }
+                // @if $style != none {
+                //     border-width: var(--border-width--min);
+                // }
             }
         }
     }

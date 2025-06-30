@@ -12,7 +12,7 @@
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
         }
-        @each $pseudoClass in(
+        @each $pseudoClass in (
             "focus",
             "active",
             "hover",

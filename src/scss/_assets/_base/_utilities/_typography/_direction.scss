@@ -1,6 +1,6 @@
 @mixin direction($type, $orientation) {
     /* directions */
-    @each $directions in(
+    @each $directions in (
         "ltr",
         "rtl"
     ) {

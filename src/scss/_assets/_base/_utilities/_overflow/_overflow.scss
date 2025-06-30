@@ -1,6 +1,6 @@
 @mixin overflow($type, $orientation) {
     /* overflow */
-    @each $overflow in(
+    @each $overflow in (
         "auto",
         "hidden",
         "visible",
@@ -9,7 +9,7 @@
         .#{$type}#{$orientation}overflow--#{$overflow} {
             overflow: #{$overflow};
         }
-        @each $axis in( "x", "y" ) {
+        @each $axis in ( "x", "y" ) {
             .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
                 overflow-#{$axis}: #{$overflow};
             }

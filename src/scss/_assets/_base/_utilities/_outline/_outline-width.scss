@@ -1,6 +1,6 @@
 @mixin outline-width($type, $orientation, $enableVariables) {
     /* outline-width */
-    @each $width in(
+    @each $width in (
         "thin",
         "medium",
         "thick"

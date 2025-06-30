@@ -1,6 +1,6 @@
 @mixin background-clip($type, $orientation) {
     /* background clip */
-    @each $alias, $background-clip in(
+    @each $alias, $background-clip in (
         "border": "border-box",
         "padding": "padding-box",
         "content": "content-box",

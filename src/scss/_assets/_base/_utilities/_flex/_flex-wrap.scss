@@ -1,6 +1,6 @@
 @mixin flex-wrap($type, $orientation) {
     /* flex wrap */
-    @each $wrap in(
+    @each $wrap in (
         "wrap",
         "wrap-reverse",
         "nowrap"

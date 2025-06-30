@@ -1,6 +1,6 @@
 @mixin border-width($type, $orientation, $enableVariables, $borderSides) {
     /* border width */
-    @each $width in(
+    @each $width in (
         "thin",
         "medium",
         "thick"

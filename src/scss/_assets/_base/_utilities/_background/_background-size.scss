@@ -1,6 +1,6 @@
 @mixin background-size($type, $orientation, $enableVariables) {
     /* background-size */
-    @each $size in(
+    @each $size in (
         "cover",
         "contain"
     ) {

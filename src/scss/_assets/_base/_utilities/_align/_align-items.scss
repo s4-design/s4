@@ -1,6 +1,6 @@
 @mixin align-items($type, $orientation) {
     /* align items */
-    @each $align-items in(
+    @each $align-items in (
         "baseline",
         "center",
         "end",

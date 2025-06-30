@@ -1,6 +1,6 @@
 @mixin grid-auto-flow($type, $orientation) {
     /* grid auto flow */
-    @each $item, $flow in(
+    @each $item, $flow in (
         "column": "column",
         "row": "row",
         "dense": "dense",

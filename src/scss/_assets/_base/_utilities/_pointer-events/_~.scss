@@ -1,5 +1,0 @@
-@use 'pointer-events' as pointer-events;
-
-@mixin pointer-events($type, $orientation) {
-    @include pointer-events.pointer-events($type, $orientation);
-}

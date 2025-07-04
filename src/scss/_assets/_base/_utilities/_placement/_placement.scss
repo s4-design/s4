@@ -4,7 +4,8 @@
         "left",
         "top",
         "right",
-        "bottom"
+        "bottom",
+        "inset"
     ) {
         @if $enableVariables {
             .#{$placement} {

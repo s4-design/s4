@@ -11,6 +11,7 @@
 @use "_mutated/hr" as *;
 @use "_mutated/sub" as *;
 @use "_mutated/sup" as *;
+@use "_mutated/table" as *;
 
 
 @mixin elements() {
@@ -26,6 +27,7 @@
         @include html;
         @include sub;
         @include sup;
+        @include table;
 
         /* created */
         @include \[theme\];

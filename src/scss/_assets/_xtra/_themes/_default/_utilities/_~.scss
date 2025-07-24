@@ -11,7 +11,7 @@
 @use "_z-index/~" as *;
 
 @mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_") {
-    :is([theme="light"], [theme="dark"]) {
+    // :is([theme="light"], [theme="dark"]) {
         @include background($type, $orientation);
         @include border($type, $orientation);
         @include flex($type, $orientation);
@@ -23,5 +23,5 @@
         @include sizing($type, $orientation);
         @include typography($type, $orientation);
         @include z-index($type, $orientation);
-    }
+    // }
 }

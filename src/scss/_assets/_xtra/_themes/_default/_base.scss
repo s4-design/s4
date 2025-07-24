@@ -175,8 +175,14 @@
     $alfa
 ) {
     @each $prefix in $prefixes {
+        @if ($lightness + $lightness-offset > 1) {
+            @error "Сумма lightness и lightness-offset не должна превышать 1";
+        }
         --#{$prefix}--light: oklch(#{$lightness + $lightness-offset} #{$chroma} #{$hue});
         --#{$prefix}: oklch(#{$lightness} #{$chroma} #{$hue});
+        @if (($lightness - $lightness-offset) < 0) {
+            @error "Разница lightness и lightness-offset не должна быть ниже 0";
+        }
         --#{$prefix}--dark: oklch(#{$lightness - $lightness-offset} #{$chroma} #{$hue});
         --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
     }

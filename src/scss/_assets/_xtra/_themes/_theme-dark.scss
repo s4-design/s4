@@ -9,8 +9,8 @@
         @include sizes;
         @include base-colors("white", 1, 0, 0);
         @include base-colors("black", 0, 0, 0);
-        @include accent-colors("positive", .22, .05, .012, 254, .35);
-        @include accent-colors("negative", .78, .05, .012, 254, .35);
+        @include accent-colors("positive", .18, .05, .012, 254, .35);
+        @include accent-colors("negative", .82, .05, .012, 254, .35);
         @include accent-colors("prime", .40, .05, .2, 240, .35);
         @include accent-colors("second", .40, .05, .02, 240, .35);
         @include accent-colors("success", .40, .05, .2, 145, .35);
@@ -159,6 +159,8 @@
     
     @include sub;
     @include sup;
+    @include table;
+    @include tbody;
     
     // created
     @include \[theme\];

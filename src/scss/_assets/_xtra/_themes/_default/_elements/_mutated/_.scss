@@ -1,35 +1,35 @@
 @mixin \* (
-    $margin: unset,
-    $padding: unset,
+    // $margin: unset,
+    // $padding: unset,
     $box-sizing: inherit,
 ) {
     * {
-        --margin: #{$margin};
-        --padding: #{$padding};
+        // --margin: #{$margin};
+        // --padding: #{$padding};
         --box-sizing: #{$box-sizing};
     }
 }
 
 @mixin \*\:\:before (
-    $margin: unset,
-    $padding: unset,
+    // $margin: unset,
+    // $padding: unset,
     $box-sizing: inherit
 ) {
     *::before {
-        --margin: #{$margin};
-        --padding: #{$padding};
+        // --margin: #{$margin};
+        // --padding: #{$padding};
         --box-sizing: #{$box-sizing};
     }
 }
 
 @mixin \*\:\:after (
-    $margin: unset,
-    $padding: unset,
+    // $margin: unset,
+    // $padding: unset,
     $box-sizing: inherit
 ) {
     *::after {
-        --margin: #{$margin};
-        --padding: #{$padding};
+        // --margin: #{$margin};
+        // --padding: #{$padding};
         --box-sizing: #{$box-sizing};
     }
 }

@@ -1,16 +1,16 @@
 @mixin \*() {
     * {
-        margin: var(--margin);
-        padding: var(--padding);
+        // margin: var(--margin);
+        // padding: var(--padding);
         box-sizing: var(--box-sizing);
         &::before {
-            margin: var(--margin);
-            padding: var(--padding);
+            // margin: var(--margin);
+            // padding: var(--padding);
             box-sizing: var(--box-sizing);
         }
         &::after {
-            margin: var(--margin);
-            padding: var(--padding);
+            // margin: var(--margin);
+            // padding: var(--padding);
             box-sizing: var(--box-sizing);
         }
     }

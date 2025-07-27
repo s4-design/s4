@@ -11,19 +11,19 @@
                 }
             }
             @each $space in $spacingSizes {
-                &-y--#{$space},
+                // &-y--#{$space},
                 &-top--#{$space} {
                     #{$spacingName}-top: var(--#{$spacingName}--#{$space});
                 }
-                &-x--#{$space},
+                // &-x--#{$space},
                 &-right--#{$space} {
                     #{$spacingName}-right: var(--#{$spacingName}--#{$space});
                 }
-                &-y--#{$space},
+                // &-y--#{$space},
                 &-bottom--#{$space} {
                     #{$spacingName}-bottom: var(--#{$spacingName}--#{$space});
                 }
-                &-x--#{$space},
+                // &-x--#{$space},
                 &-left--#{$space} {
                     #{$spacingName}-left: var(--#{$spacingName}--#{$space});
                 }

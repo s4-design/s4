@@ -1,0 +1,244 @@
+@mixin table() {
+    table {
+        width: var(--width);
+        height: var(--height);
+        table-layout: var(--table-layout);
+        vertical-align: var(--vertical-align);
+        // border-collapse: var(--border-collapse);
+        border-spacing: var(--border-spacing);
+        border-radius: var(--border-radius);
+        border-width: var(--border-width);
+        border-style: var(--border-style);
+        // border-color: var(--border-color);
+        // border-color: var(--negative--mute);
+        // border-width: var(--border-width--min);
+        background-color: var(--background-color);
+        color: var(--color);
+        // tbody {
+        //     border-width: var(--border-width);
+        //     border-style: var(--border-style);
+        //     border-color: var(--border-color);
+        // }
+        // > :first-child > *,
+        // > caption + * > * {
+        //     > :first-child {
+        //         border-top-left-radius: var(--border-radius);
+        //     }
+        //     > :last-child {
+        //         border-top-right-radius: var(--border-radius);
+        //     }
+        // }
+        // > :last-child > * {
+        //     > :first-child {
+        //         border-bottom-left-radius: var(--border-radius);
+        //     }
+        //     > :last-child {
+        //         border-bottom-right-radius: var(--border-radius);
+        //     }
+        // }
+
+
+        > :first-child > :first-child,
+        > caption + * > :first-child {
+            > :first-child {
+                border-top-left-radius: var(--border-radius);
+            }
+            > :last-child {
+                border-top-right-radius: var(--border-radius);
+            }
+        }
+        > :last-child > :last-child {
+            > :first-child {
+                border-bottom-left-radius: var(--border-radius);
+            }
+            > :last-child {
+                border-bottom-right-radius: var(--border-radius);
+            }
+        }
+
+        > caption {
+            padding: var(--size--2);
+            text-align: start;
+            font-weight: 600;
+            font-size: var(--font-size--l1);
+        }
+
+        > thead > * > * {
+            padding: var(--size--2);
+            background-color: var(--positive--dark);
+            // border-bottom-width: var(--border-width--min) !important;
+            font-weight: 600;
+        }
+        > tbody {
+            background-color: var(--background-color);
+            > tr:hover {
+                background-color: var(--positive--mute);
+            }
+            > * > * {
+                padding: var(--size--2);
+            }
+        }
+
+
+
+        // > tbody {
+        //     tr:nth-child(even) td {
+        //         background-color: var(--positive--mute)
+        //     }
+              
+        //     // tr:nth-child(odd) td {
+        //     //     background-color: rgb(240 240 240);
+        //     // }
+        // }
+
+        // > tbody > :not(:last-child) > * {
+        //     border-bottom-width: var(--border-width--min) !important;
+        // }
+        > tfoot > * > * {
+        //     --table-border-color: var(--negative-color-25);
+            padding: var(--size--2);
+            background-color: var(--positive--dark);
+            border-top-style: solid;
+            border-top-width: var(--border-width);
+        }
+    }
+}
+
+// {
+//   width: 100%;
+//   vertical-align: top;
+//   border-collapse: collapse;
+// }
+// tbody {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// td {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// tfoot {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// th {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// thead {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// tr {
+//   --table-border-color: var(--negative-color-10);
+//   border-color: var(--table-border-color);
+//   border-style: solid;
+//   border-width: 0;
+// }
+// > thead > * > * {
+//   padding: var(--p-2, calc(var(--key-size) * 0.5));
+//   background-color: var(--table-cell-bg-color, --positive-color);
+//   border-bottom-width: 1px !important;
+// }
+// > tbody > * > * {
+//   padding: var(--p-2, calc(var(--key-size) * 0.5));
+//   background-color: var(--table-cell-bg-color, --positive-color);
+// }
+// > tbody > :not(:last-child) > * {
+//   border-bottom-width: 1px !important;
+// }
+// > tfoot > * > * {
+//   --table-border-color: var(--negative-color-25);
+//   padding: var(--p-2, calc(var(--key-size) * 0.5));
+//   background-color: var(--table-cell-bg-color, --positive-color);
+//   border-top-width: 1px !important;
+// }
+// .tf_table-striped-rows > tbody > tr:nth-of-type(odd) > * {
+//   --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+// }
+// .tf_table-striped-cols > tbody > tr > :nth-child(even) {
+//   --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+// }
+// .tf_table-hover-cell > tbody td:hover {
+//   background-color: rgba(0, 0, 0, 0.05);
+// }
+// .tf_table-hover-rows > tbody > tr:hover > * {
+//   --table-cell-bg-color: rgba(0, 0, 0, 0.05);
+// }
+// .tf_table-hover-cols {
+//   z-index: 1;
+//   position: relative;
+//   overflow: hidden;
+// }
+// .tf_table-hover-cols > tbody > * > * {
+//   position: relative;
+// }
+// .tf_table-hover-cols > tbody > tr > :hover::after {
+//   background-color: rgba(0, 0, 0, 0.05);
+//   content: ' ';
+//   z-index: -1;
+//   height: 10000px;
+//   left: 0;
+//   position: absolute;
+//   top: -5000px;
+//   width: 100%;
+// }
+
+
+
+            // /* Нужные стили от сель */
+            // {
+            //     width: 100%;
+            //     vertical-align: top;
+            //     border-collapse: collapse;
+            // }
+
+            // tbody,
+            // td,
+            // tfoot,
+            // th,
+            // thead,
+            // tr {
+            //     --table-border-color: var(--negative-color-10);
+            //     border-color: var(--table-border-color);
+            //     border-style: solid;
+            //     border-width: 0;
+            // }
+            // > thead > * > * {
+            //     padding: var(--p-2, calc(var(--key-size) * 0.5));
+            //     background-color: var(--table-cell-bg-color, --positive-color);
+            //     border-bottom-width: 1px !important;
+            // }
+            // > tbody > * > * {
+            //     padding: var(--p-2, calc(var(--key-size) * 0.5));
+            //     background-color: var(--table-cell-bg-color, --positive-color);
+            // }
+            // > tbody > :not(:last-child) > * {
+            //     border-bottom-width: 1px !important;
+            // }
+            // > tfoot > * > * {
+            //     --table-border-color: var(--negative-color-25);
+
+            //     padding: var(--p-2, calc(var(--key-size) * 0.5));
+            //     background-color: var(--table-cell-bg-color, --positive-color);
+            //     border-top-width: 1px !important;
+            // }
+            // > * > * > :not(:last-child) {
+            //     border-right-width: 1px !important;
+            // }
+
+            // .tf_table-striped-rows > tbody > tr:nth-of-type(odd) > * {
+            //     --table-cell-bg-color: rgba(0, 0, 0, .05);
+            // }
+            // /* до сель */
+

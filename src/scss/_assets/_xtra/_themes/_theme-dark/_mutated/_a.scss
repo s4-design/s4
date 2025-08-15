@@ -1,0 +1,42 @@
+@mixin a($hover-active) {
+    a {
+        --color: var(--negative);
+        --text-decoration-color: var(--negative--light);
+        --text-decoration-line: underline;
+        --text-decoration-style: solid;
+        --text-decoration-thickness: auto;
+        --text-underline-offset: var(--size--1);
+        --cursor: pointer;
+        @if ($hover-active) {
+            &:hover {
+                --color: var(--negative--light);
+                --text-decoration-color: var(--negative--light);
+            }
+        }
+        &:visited {
+            --color: var(--negative--dark);
+            --text-decoration-color: var(--negative--dark);
+        }
+    }
+    @each $color in (
+        "prime",
+        "second",
+        "success",
+        "danger"
+    ) {
+        a.#{$color} {
+            --color: var(--#{$color});
+            --text-decoration-color: var(--#{$color}--light);
+        }
+        @if ($hover-active) {
+            a:hover.#{$color} {
+                --color: var(--#{$color}--light);
+                --text-decoration-color: var(--#{$color}--light);
+            }
+        }
+        a:visited.#{$color} {
+            --color: var(--#{$color}--dark);
+            --text-decoration-color: var(--#{$color}--dark);
+        }
+    }
+}

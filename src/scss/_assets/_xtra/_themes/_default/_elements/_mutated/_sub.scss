@@ -1,9 +1,0 @@
-@mixin sub (
-    $font-size: var(--font-size--s1),
-    $line-height: var(--font-size--s1),
-) {
-    sub {
-        --font-size: #{$font-size};
-        --line-height: #{$line-height};
-    }
-}

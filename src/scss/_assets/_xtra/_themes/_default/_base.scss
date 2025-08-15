@@ -187,16 +187,3 @@
         --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
     }
 }
-
-@mixin ruleset (
-    $selector,
-    $pseudo,
-    $class,
-    $declarations
-) {
-    #{$selector}#{$pseudo}#{$class} {
-        @each $property, $value in $declarations {
-            #{$property}: #{$value};
-        }
-    }
-}

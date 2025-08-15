@@ -1,5 +1,6 @@
 @mixin \[inert\]() {
     [inert] {
         opacity: var(--opacity);
+        z-index: var(--z-index);
     }
 }

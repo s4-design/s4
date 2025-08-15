@@ -1,0 +1,88 @@
+@mixin button($hover-active) {
+    button {
+        --display: inline-grid;
+        --grid-auto-flow: column;
+        --grid-gap: calc(var(--padding-block) + var(--border-width--min));
+        --justify-content: center;
+        --align-items: center;
+        --margin: unset;
+        --vertical-align: middle;
+        --text-align: center;
+        --appearance: none;
+        --min-width: calc(var(--line-height) + var(--padding-block) * 2 + var(--border-width--min) * 2);
+        --min-height: var(--min-width);
+        --font-size: var(--font-size--md);
+        --font-weight: 500;
+        --font-family: var(--font-family);
+        --line-height: var(--font-size--l2);
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--md);
+        --border-radius: var(--border-radius--md);
+        --border-width: var(--border-width--min);
+        --border-style: solid;
+        --border-color: transparent;
+        --color: currentColor;
+        --background-color: var(--positive);
+        --cursor: pointer;
+        --text-transform: uppercase;
+        --letter-spacing: var(--size--025);
+        --outline-style: solid;
+        --outline-width: medium;
+        --outline-color: transparent;
+        --outline-offset: var(--size--0);
+        --transition: color .15s linear, background-color .15s linear, outline .15s linear;
+        @if ($hover-active) {
+            &:hover {
+                --background-color: var(--positive--light);
+            }
+        }
+    }
+    button:active:not(:focus-visible){
+        --background-color: var(--positive--dark);
+        --outline-color: var(--negative--mute);
+        --outline-offset: var(--size--0);
+    }
+    button:focus-visible:not(:active) {
+        --background-color: var(--positive);
+        --outline-color: var(--negative--mute);
+        --outline-offset: var(--size--05);
+    }
+    button:disabled {
+        --background-color: var(--positive--mute);
+        --color: var(--negative--mute);
+        --cursor: not-allowed;
+    }
+    @each $color in (
+        "prime",
+        "second",
+        "success",
+        "danger"
+    ) {
+        button.#{$color} {
+            --background-color: var(--#{$color});
+        }
+        @if ($hover-active) {
+            button:hover.#{$color} {
+                --background-color: var(--#{$color}--light);
+            }
+        };
+        button:active:not(:focus-visible).#{$color} {
+            --background-color: var(--#{$color}--dark);
+            --outline-color: var(--#{$color}--mute);
+            --outline-offset: var(--size--0);
+        }
+        button:focus-visible:not(:active).#{$color} {
+            --background-color: var(--#{$color});
+            --outline-color: var(--#{$color}--mute);
+            --outline-offset: var(--size--05);
+        }
+        button:disabled.#{$color} {
+            --background-color: var(--#{$color}--mute);
+            --color: var(--negative--mute);
+            --cursor: not-allowed;
+        }
+    }
+    button:has(icon)>icon {
+        --width: 1lh;
+    }
+}

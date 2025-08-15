@@ -11,5 +11,12 @@
         .box-shadow {
             box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
         }
+        @each $pseudoClass in (
+            "hover"
+        ) {
+            .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
+                box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+            }
+        }
     }
 }

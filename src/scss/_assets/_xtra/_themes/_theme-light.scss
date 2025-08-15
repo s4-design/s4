@@ -27,142 +27,142 @@
     }
     /* elements */
     // mutated
-    @include \*;
-    @include \*\:\:before;
-    @include \*\:\:after;
-    @include \*\[inert\];
+    // @include \*;
+    // @include \*\:\:before;
+    // @include \*\:\:after;
+    // @include \*\[inert\];
     
-    @include a;
-    @include ruleset(
-        "a", "", "",
-        (
-            --color: var(--negative),
-            --text-decoration-color: var(--negative--light)
-        )
-    );
-    @if ($hover-active) {
-        @include ruleset(
-            "a", ":hover", "",
-            (
-                --color: var(--negative--light),
-                --text-decoration-color: var(--negative--light)
-            )
-        );
-    }
-    @include ruleset(
-        "a", ":visited", "",
-        (
-            --color: var(--negative--dark),
-            --text-decoration-color: var(--negative--dark)
-        )
-    );
+    // @include a;
+    // @include ruleset(
+    //     "a", "", "",
+    //     (
+    //         --color: var(--negative),
+    //         --text-decoration-color: var(--negative--light)
+    //     )
+    // );
+    // @if ($hover-active) {
+    //     @include ruleset(
+    //         "a", ":hover", "",
+    //         (
+    //             --color: var(--negative--light),
+    //             --text-decoration-color: var(--negative--light)
+    //         )
+    //     );
+    // }
+    // @include ruleset(
+    //     "a", ":visited", "",
+    //     (
+    //         --color: var(--negative--dark),
+    //         --text-decoration-color: var(--negative--dark)
+    //     )
+    // );
     
-    @include body;
+//     @include body;
     
-    @include button;
-    @include ruleset(
-        "button", "", "",
-        (
-            --background-color: var(--positive),
-        )
-    );
-    @if ($hover-active) {
-        @include ruleset(
-            "button", ":hover", "",
-            (
-                --background-color: var(--positive--light)
-            )
-        );
-    }
-    @include ruleset(
-        "button", ":active:not(:focus-visible)", "",
-        (
-            --background-color: var(--positive),
-            --outline-color: var(--negative--mute),
-            --outline-offset: var(--size--0)
-        )
-    );
-    @include ruleset(
-        "button", ":focus-visible:not(:active)", "",
-        (
-            --background-color: var(--positive),
-            --outline-color: var(--negative--mute),
-            --outline-offset: var(--size--05)
-        )
-    );
-    @include ruleset(
-        "button", ":disabled", "",
-        (
-            --background-color: var(--positive--mute),
-            --color: var(--negative--mute),
-            --cursor: not-allowed
-        )
-    );
-    @each $color in (
-        "prime",
-        "second",
-        "success",
-        "danger"
-    ) {
-        @include ruleset(
-            "button", "", ".#{$color}",
-            (
-                --background-color: var(--#{$color})
-            )
-        );
-        @include ruleset(
-            "button", ":hover", ".#{$color}",
-            (
-                --background-color: var(--#{$color}--light)
-            )
-        );
-        @include ruleset(
-            "button", ":active:not(:focus-visible)", ".#{$color}",
-            (
-                --background-color: var(--#{$color}--dark),
-                --outline-color: var(--#{$color}--mute),
-                --outline-offset: var(--size--0)
-            )
-        );
-        @include ruleset(
-            "button", ":focus-visible:not(:active)", ".#{$color}",
-            (
-                --background-color: var(--#{$color}),
-                --outline-color: var(--#{$color}--mute),
-                --outline-offset: var(--size--05)
-            )
-        );
-        @include ruleset(
-            "button", ":disabled", ".#{$color}",
-            (
-                --background-color: var(--#{$color}--mute),
-                --color: var(--negative--mute),
-                --cursor: not-allowed
-            )
-        );
-    }
-    @include ruleset(
-        "button", ":has(icon)>icon", "",
-        (
-            --width: 1lh
-        )
-    );
+//     @include button;
+//     @include ruleset(
+//         "button", "", "",
+//         (
+//             --background-color: var(--positive),
+//         )
+//     );
+//     @if ($hover-active) {
+//         @include ruleset(
+//             "button", ":hover", "",
+//             (
+//                 --background-color: var(--positive--light)
+//             )
+//         );
+//     }
+//     @include ruleset(
+//         "button", ":active:not(:focus-visible)", "",
+//         (
+//             --background-color: var(--positive),
+//             --outline-color: var(--negative--mute),
+//             --outline-offset: var(--size--0)
+//         )
+//     );
+//     @include ruleset(
+//         "button", ":focus-visible:not(:active)", "",
+//         (
+//             --background-color: var(--positive),
+//             --outline-color: var(--negative--mute),
+//             --outline-offset: var(--size--05)
+//         )
+//     );
+//     @include ruleset(
+//         "button", ":disabled", "",
+//         (
+//             --background-color: var(--positive--mute),
+//             --color: var(--negative--mute),
+//             --cursor: not-allowed
+//         )
+//     );
+//     @each $color in (
+//         "prime",
+//         "second",
+//         "success",
+//         "danger"
+//     ) {
+//         @include ruleset(
+//             "button", "", ".#{$color}",
+//             (
+//                 --background-color: var(--#{$color})
+//             )
+//         );
+//         @include ruleset(
+//             "button", ":hover", ".#{$color}",
+//             (
+//                 --background-color: var(--#{$color}--light)
+//             )
+//         );
+//         @include ruleset(
+//             "button", ":active:not(:focus-visible)", ".#{$color}",
+//             (
+//                 --background-color: var(--#{$color}--dark),
+//                 --outline-color: var(--#{$color}--mute),
+//                 --outline-offset: var(--size--0)
+//             )
+//         );
+//         @include ruleset(
+//             "button", ":focus-visible:not(:active)", ".#{$color}",
+//             (
+//                 --background-color: var(--#{$color}),
+//                 --outline-color: var(--#{$color}--mute),
+//                 --outline-offset: var(--size--05)
+//             )
+//         );
+//         @include ruleset(
+//             "button", ":disabled", ".#{$color}",
+//             (
+//                 --background-color: var(--#{$color}--mute),
+//                 --color: var(--negative--mute),
+//                 --cursor: not-allowed
+//             )
+//         );
+//     }
+//     @include ruleset(
+//         "button", ":has(icon)>icon", "",
+//         (
+//             --width: 1lh
+//         )
+//     );
     
-    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
-    @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
-    @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
-    @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
-    @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
-    @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
+//     @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
+//     @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
+//     @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
+//     @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
+//     @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
+//     @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
 
-    @include hr($background-color: var(--negative--mute));
+//     @include hr($background-color: var(--negative--mute));
     
-    @include sub;
-    @include sup;
-    @include table;
-    @include tbody;
+//     @include sub;
+//     @include sup;
+//     @include table;
+//     @include tbody;
         
-    // created
-    @include \[theme\];
-    @include icon;
+//     // created
+//     @include \[theme\];
+//     @include icon;
 }

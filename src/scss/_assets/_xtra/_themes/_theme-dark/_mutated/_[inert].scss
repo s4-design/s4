@@ -1,0 +1,6 @@
+@mixin \[inert\]() {
+    [inert] {
+        --opacity: 50%;
+        --z-index: unset;
+    }
+}

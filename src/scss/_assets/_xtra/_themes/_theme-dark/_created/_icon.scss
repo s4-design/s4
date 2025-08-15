@@ -1,0 +1,10 @@
+@mixin icon() {
+    icon {
+        --display: inline-block;
+        --width: 2ch;
+        --height: 1lh;
+        --vertical-align: bottom;
+        --background-color: currentColor;
+        --mask: var(--icon-image) no-repeat center content-box;
+    }
+}

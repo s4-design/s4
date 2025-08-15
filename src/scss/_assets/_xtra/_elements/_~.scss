@@ -4,7 +4,6 @@
 @use "_mutated/" as *;
 @use "_mutated/[inert]" as *;
 @use "_mutated/a" as *;
-@use "_mutated/html" as *;
 @use "_mutated/body" as *;
 @use "_mutated/button" as *;
 @use "_mutated/h" as *;
@@ -24,7 +23,6 @@
         @include button;
         @include h;
         @include hr;
-        @include html;
         @include sub;
         @include sup;
         @include table;

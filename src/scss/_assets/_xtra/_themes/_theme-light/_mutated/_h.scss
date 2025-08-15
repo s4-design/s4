@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+@mixin h (
+    $aria-level: false,
+    $margin: var(--margin--s1) unset var(--margin--s2) unset,
+    $font-size--delta: 1.25,
+    $font-size: var(--font-size--md),
+    $font-weight: 600,
+    $line-height: var(--font-size--l1)
+) {
+    @if $aria-level {
+        h#{$aria-level} {
+            --margin: #{$margin};
+            --font-size: calc(#{$font-size} * #{math.div(math.ceil(math.pow($font-size--delta, (6 - $aria-level)) * 100), 100)});
+            --font-weight: #{$font-weight};
+            --line-height: #{$line-height};
+        }
+    } @else {
+        @error "$aria-level: undefined for @mixin h";
+    }
+}

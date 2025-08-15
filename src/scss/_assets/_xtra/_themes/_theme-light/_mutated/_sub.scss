@@ -1,0 +1,6 @@
+@mixin sub() {
+    sub {
+        --font-size: var(--font-size--s1);
+        --line-height: var(--font-size--s1);
+    }
+}

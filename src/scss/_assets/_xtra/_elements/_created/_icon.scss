@@ -1,10 +1,10 @@
 @mixin icon() {
     icon {
-        display: var(--display);
-        width: var(--width);
-        height: var(--height);
-        vertical-align: var(--vertical-align);
-        background-color: var(--background-color);
-        mask: var(--mask);
+        display: var(--icon--display);
+        width: var(--icon--width);
+        height: var(--icon--height);
+        vertical-align: var(--icon--vertical-align);
+        background-color: var(--icon--background-color);
+        mask: var(--icon--mask);
     }
 }

@@ -1,0 +1,8 @@
+@mixin body() {
+    body {
+        --position: relative;
+        --margin: unset;
+        --padding: unset;
+        --min-height: 100dvh;
+    }
+}

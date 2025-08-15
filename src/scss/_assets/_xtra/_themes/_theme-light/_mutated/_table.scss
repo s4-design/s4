@@ -1,0 +1,22 @@
+@mixin table() {
+    table {
+        --width: 100%;
+        --height: min-content;
+        --table-layout: fixed;
+        --vertical-align: top;
+        // --border-collapse: collapse;
+        --border-spacing: unset;
+        --border-radius: var(--border-radius--md);
+        --background-color: var(--background-color);
+        --color: currentColor;
+        --border-color: var(--negative--mute);
+        --border-width: var(--border-width--min);
+    }
+
+    table > tbody {
+        // --border-width: var(--border-width--min);
+        // --border-style: solid;
+        // --border-color: transparent;
+        --background-color: var(--positive--mute);
+    }
+}

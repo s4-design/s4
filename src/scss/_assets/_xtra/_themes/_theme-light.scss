@@ -1,4 +1,5 @@
 @use "_default/~" as *;
+@use "_theme-light/~" as *;
 
 @mixin theme(
     $hover-active: true,
@@ -25,6 +26,30 @@
         @include border-radius;
         @include box-shadow;
     }
+
+    /* elements */
+    // created
+    @include \[theme\]();
+    @include icon;
+
+    // mutated
+    @include \*();
+    @include \[inert\];
+    @include a($hover-active);
+    @include body();
+    @include button($hover-active);
+    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
+    @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
+    @include hr();
+    @include sub;
+    @include sup;
+    @include table;
+   
+
     /* elements */
     // mutated
     // @include \*;

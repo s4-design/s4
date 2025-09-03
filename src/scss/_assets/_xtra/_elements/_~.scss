@@ -4,6 +4,7 @@
 @use "_mutated/" as *;
 @use "_mutated/[inert]" as *;
 @use "_mutated/a" as *;
+@use "_mutated/abbr" as *;
 @use "_mutated/body" as *;
 @use "_mutated/button" as *;
 @use "_mutated/h" as *;
@@ -19,6 +20,7 @@
         @include \*;
         @include \[inert\];
         @include a;
+        @include abbr;
         @include body;
         @include button;
         @include h;

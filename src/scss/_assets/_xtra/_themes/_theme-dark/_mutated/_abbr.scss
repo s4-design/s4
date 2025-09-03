@@ -1,0 +1,19 @@
+@mixin abbr() {
+    abbr {
+        --color: var(--second);
+        --text-decoration-line: underline;
+        --text-decoration-style: dotted;
+        --text-underline-offset: var(--size--1);
+        &[title]::after {
+            --display: inline-block;
+            --content: 'ℹ';
+            --font-size: var(--font-size--s1);
+            --line-height: var(--font-size--s1);
+            --vertical-align: super;
+            --margin-left: var(--size--05);
+        }
+        &[title=""]::after {
+            color: var(--danger);
+        }        
+    }
+}

@@ -13,10 +13,10 @@
         $dark-key: .18;
         @include accent-colors("positive", $dark-key, .1, .012, 254, .35);
         @include accent-colors("negative", 1 - $dark-key, .1, .012, 254, .35);
-        @include accent-colors("prime", calc($dark-key * 3), .1, $dark-key, 240, .35);
-        @include accent-colors("second", calc($dark-key * 3), .1, calc($dark-key / 3), 240, .35);
-        @include accent-colors("success", calc($dark-key * 3), .1, .2, 145, .35);
-        @include accent-colors("danger", calc($dark-key * 3), .1, .2, 25, .35);
+        @include accent-colors("prime", calc($dark-key * 4), .1, $dark-key, 240, .35);
+        @include accent-colors("second", calc($dark-key * 4), .1, calc($dark-key / 3), 240, .35);
+        @include accent-colors("success", calc($dark-key * 4), .1, $dark-key, 145, .35);
+        @include accent-colors("danger", calc($dark-key * 4), .1, $dark-key, 25, .35);
 
         /* properties*/
         @include font-size;
@@ -37,6 +37,7 @@
     @include \*();
     @include \[inert\];
     @include a($hover-active);
+    @include abbr();
     @include body();
     @include button($hover-active);
     @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);

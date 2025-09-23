@@ -1,0 +1,43 @@
+@mixin outline-color(
+    $type,
+    $orientation,
+    $defaultColors,
+    $accentColors,
+    $colorsGradientNumberSteps,
+    $accentColorsPostfixes
+) {
+    // preset: outline color
+    @each $color in $defaultColors {
+        .#{$type}#{$orientation}outline-color {
+            &--#{$color},
+            &--#{$color}\:hover:hover {
+                outline-color: var(--#{$color});
+            }
+            @for $i from 1 through $colorsGradientNumberSteps {
+                &--#{$color}--0#{$i},
+                &--#{$color}--0#{$i}\:hover:hover {
+                    outline-color: var(--#{$color}--0#{$i});
+                }
+            }
+            // &--#{$color}--mute,
+            // &--#{$color}--mute\:hover:hover {
+            //     outline-color: var(--#{$color}--mute);
+            // }
+        }
+    }
+    
+    @each $color in $accentColors {
+        .#{$type}#{$orientation}outline-color {
+            &--#{$color},
+            &--#{$color}\:hover:hover {
+                outline-color: var(--#{$color});
+            }
+            @each $postfix in $accentColorsPostfixes {
+                &--#{$color}--#{$postfix},
+                &--#{$color}--#{$postfix}\:hover:hover {
+                    outline-color: var(--#{$color}--#{$postfix});
+                }
+            }
+        }
+    }
+}

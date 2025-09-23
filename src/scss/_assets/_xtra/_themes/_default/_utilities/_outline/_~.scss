@@ -1,0 +1,14 @@
+@use "../../_settings" as *;
+
+@use "outline-color" as *;
+
+@mixin outline($type, $orientation) {
+    @include outline-color(
+        $type,
+        $orientation,
+        $defaultColors,
+        $accentColors,
+        $colorsGradientNumberSteps,
+        $accentColorsPostfixes
+    );
+}

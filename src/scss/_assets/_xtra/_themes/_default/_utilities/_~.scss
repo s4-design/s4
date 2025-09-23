@@ -4,6 +4,7 @@
 @use "_grid/~" as *;
 @use "_indent/~" as *;
 @use "_order/~" as *;
+@use "_outline/~" as *;
 @use "_placement/~" as *;
 @use "_shadow/~" as *;
 @use "_sizing/~" as *;
@@ -18,6 +19,7 @@
         @include grid($type, $orientation);
         @include indent($type, $orientation);
         @include order($type, $orientation);
+        @include outline($type, $orientation);
         @include placement($type, $orientation);
         @include shadow($type, $orientation);
         @include sizing($type, $orientation);

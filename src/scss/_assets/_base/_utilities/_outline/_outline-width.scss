@@ -6,11 +6,11 @@
         "thick"
     ) {
         .#{$type}#{$orientation}outline-width--#{$width} {
-            outline-width: var(--outline-width--#{$width});
+            outline-width: var(--outline-width--#{$width}, #{$width});
         }
         // @each $side in $outlineSides {
         //     .#{$type}#{$orientation}outline-#{$side}-width--#{$width} {
-        //         outline-#{$side}-width: var(--outline-width--#{$width});
+        //         outline-#{$side}-width: var(--outline-width--#{$width}, #{$width});
         //     }
         // }
     }

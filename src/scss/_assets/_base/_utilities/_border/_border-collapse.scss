@@ -1,11 +1,11 @@
 @mixin border-collapse($type, $orientation) {
     /* border collapse */
-    @each $collapse in (
+    @each $borderCollapse in (
         "collapse",
         "separate"
     ) {
-        .border--#{$collapse} {
-            border-collapse: #{$collapse};
+        .border--#{$borderCollapse} {
+            border-collapse: #{$borderCollapse};
         }
     }
 }

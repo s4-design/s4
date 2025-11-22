@@ -11,6 +11,9 @@
         .background,
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
+            > * {
+                --#{$type}#{$orientation}grid-auto-columns: initial;
+            }
         }
         @each $pseudoClass in (
             "focus",

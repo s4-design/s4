@@ -1,11 +1,11 @@
 @mixin writing-mode($type, $orientation) {
     /* writing mode */
-    @each $mode in (
+    @each $writingMode in (
         "vertical-rl",
         "vertical-lr"
     ) {
-        .#{$type}#{$orientation}writing-mode--#{$mode} {
-            writing-mode: #{$mode};
+        .#{$type}#{$orientation}writing-mode--#{$writingMode} {
+            writing-mode: #{$writingMode};
         }
     }
 }

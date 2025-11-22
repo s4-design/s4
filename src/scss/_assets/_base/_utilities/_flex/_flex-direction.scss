@@ -1,13 +1,13 @@
 @mixin flex-direction($type, $orientation) {
     /* flex direction */
-    @each $direction in (
+    @each $flexDirection in (
         "row",
         "row-reverse",
         "column",
         "column-reverse"
     ) {
-        .#{$type}#{$orientation}flex-direction--#{$direction} {
-            flex-direction: #{$direction};
+        .#{$type}#{$orientation}flex-direction--#{$flexDirection} {
+            flex-direction: #{$flexDirection};
         }
     }
 }

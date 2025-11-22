@@ -1,16 +1,16 @@
 @mixin outline-style($type, $orientation, $enableVariables) {
-    /* outline-style */
+    /* outline style */
 
-    @each $style in (
+    @each $outlineStyle in (
         "dotted",
         "dashed",
         "solid",
         "none"
     ) {
-        .#{$type}#{$orientation}outline-style--#{$style} {
-        // .#{$type}#{$orientation}outline-style--#{$style}\:hover:hover {
-            outline-style: #{$style};
-            // @if $style != none {
+        .#{$type}#{$orientation}outline-style--#{$outlineStyle} {
+        // .#{$type}#{$orientation}outline-style--#{$outlineStyle}\:hover:hover {
+            outline-style: #{$outlineStyle};
+            // @if $outlineStyle != none {
             //     outline-width: var(--outline-width--min);
             // }
         }

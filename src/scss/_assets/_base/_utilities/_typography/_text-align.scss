@@ -1,13 +1,13 @@
 @mixin text-align($type, $orientation) {
     /* text align */
-    @each $align in (
+    @each $textAlign in (
         "start",
         "center",
         "end",
         "justify"
     ) {
-    .#{$type}#{$orientation}text-align--#{$align} {
-            text-align: #{$align};
+    .#{$type}#{$orientation}text-align--#{$textAlign} {
+            text-align: #{$textAlign};
         }
     }
 }

@@ -1,10 +1,10 @@
 @mixin line-height($type, $orientation, $enableVariables) {
     /* line height */
-    @each $height in (
+    @each $lineHeight in (
         "unset"
     ) {
-        .#{$type}#{$orientation}line-height--#{$height} {
-            line-height: #{$height};
+        .#{$type}#{$orientation}line-height--#{$lineHeight} {
+            line-height: #{$lineHeight};
         }
     }
     

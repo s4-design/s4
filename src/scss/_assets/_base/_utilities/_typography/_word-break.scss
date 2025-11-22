@@ -1,0 +1,14 @@
+@mixin word-break($type, $orientation) {
+    /* word break */
+    @each $wordBreak in (
+        "normal",
+        "break-all",
+        "keep-all",
+        "auto-phrase",
+        "unset"
+    ) {
+        .#{$type}#{$orientation}word-break--#{$wordBreak} {
+            word-break: #{$wordBreak};
+        }
+    }
+}

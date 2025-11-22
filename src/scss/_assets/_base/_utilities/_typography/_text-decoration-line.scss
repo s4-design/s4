@@ -1,0 +1,12 @@
+@mixin text-decoration-line($type, $orientation) {
+    /* text-decoration-line */
+    @each $alias, $textDecorationLine in (
+        "none": "none",
+        "underline": "underline",
+        "through": "line-through"
+    ) {
+        .#{$type}#{$orientation}text-decoration-line--#{$alias} {
+            text-decoration-line: #{$textDecorationLine};
+        }
+    }
+}

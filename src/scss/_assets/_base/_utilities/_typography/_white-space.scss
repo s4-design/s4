@@ -1,6 +1,6 @@
 @mixin white-space($type, $orientation) {
-    /* white-space */
-    @each $space in (
+    /* white space */
+    @each $whiteSpace in (
         "normal",
         "nowrap",
         "pre",
@@ -9,8 +9,8 @@
         "break-spaces",
         "unset"
     ) {
-        .#{$type}#{$orientation}white-space--#{$space} {
-            white-space: #{$space};
+        .#{$type}#{$orientation}white-space--#{$whiteSpace} {
+            white-space: #{$whiteSpace};
         }
     }
 }

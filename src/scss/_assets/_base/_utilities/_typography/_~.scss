@@ -1,14 +1,17 @@
-// @use "_assets" as *;
 @use "color" as *;
 @use "direction" as *;
 @use "text-align" as *;
-@use "text-decoration" as *;
+@use "text-decoration-color" as *;
+@use "text-decoration-line" as *;
+@use "text-decoration-style" as *;
+@use "text-decoration-thickness" as *;
 @use "text-transform" as *;
 @use "text-wrap" as *;
 @use "font-size" as *;
 @use "font-weight" as *;
 @use "line-height" as *;
 @use "white-space" as *;
+@use "word-break" as *;
 @use "writing-mode" as *;
 
 @mixin typography($type, $orientation, $enableVariables) {
@@ -18,9 +21,13 @@
     @include font-weight($type, $orientation, $enableVariables);
     @include line-height($type, $orientation, $enableVariables);
     @include text-align($type, $orientation);
-    @include text-decoration($type, $orientation, $enableVariables);
+    @include text-decoration-color($type, $orientation, $enableVariables);
+    @include text-decoration-line($type, $orientation);
+    @include text-decoration-style($type, $orientation);
+    @include text-decoration-thickness($type, $orientation, $enableVariables);
     @include text-transform($type, $orientation);
     @include text-wrap($type, $orientation);
     @include white-space($type, $orientation);
+    @include word-break($type, $orientation);
     @include writing-mode($type, $orientation);
 }

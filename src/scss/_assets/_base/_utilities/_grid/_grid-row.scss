@@ -3,6 +3,11 @@
     @if $enableVariables {
         .grid-row {
             grid-row: var(--#{$type}#{$orientation}grid-row-start, var(--grid-row-start)) / var(--#{$type}#{$orientation}grid-row-end, var(--grid-row-end));
+            > * {
+                --#{$type}#{$orientation}grid-row-start: initial;
+                --#{$type}#{$orientation}grid-row-end: initial;
+            }
+
         }
     }
 }

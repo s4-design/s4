@@ -1,14 +1,14 @@
 @mixin background-clip($type, $orientation) {
     /* background clip */
-    @each $alias, $background-clip in (
+    @each $alias, $backgroundClip in (
         "border": "border-box",
         "padding": "padding-box",
         "content": "content-box",
         "text": "text"
     ) {
         .#{$type}#{$orientation}background-clip--#{$alias} {
-            background-clip: #{$background-clip};
-            // @if $background-clip == text {
+            background-clip: #{$backgroundClip};
+            // @if $backgroundClip == text {
             //     color: #{transparent};
             // }
         }

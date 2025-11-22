@@ -1,11 +1,11 @@
 @mixin background-size($type, $orientation, $enableVariables) {
     /* background-size */
-    @each $size in (
+    @each $backgroundSize in (
         "cover",
         "contain"
     ) {
-        .#{$type}#{$orientation}background-size--#{$size} {
-            background-size: #{$size};
+        .#{$type}#{$orientation}background-size--#{$backgroundSize} {
+            background-size: #{$backgroundSize};
         }
     }
     

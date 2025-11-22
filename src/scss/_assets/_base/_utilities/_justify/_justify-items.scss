@@ -1,13 +1,13 @@
 @mixin justify-items($type, $orientation) {
     /* justify items */
-    @each $items in (
+    @each $justifyItems in (
         "center",
         "end",
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}justify-items--#{$items} {
-            justify-items: #{$items};
+        .#{$type}#{$orientation}justify-items--#{$justifyItems} {
+            justify-items: #{$justifyItems};
         }
     }
 }

@@ -15,6 +15,9 @@
             &--max {
                 #{$height}: max-content;
             }
+            &--stretch {
+                #{$height}: stretch;
+            }
             &--unset {
                 #{$height}: unset;
             }

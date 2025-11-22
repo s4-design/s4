@@ -1,11 +1,11 @@
 @mixin box-sizing($type, $orientation, $enableVariables) {
     /* box sizing */
-    @each $sizing in (
+    @each $boxSizing in (
         "border",
         "content"
     ) {
-        .box-sizing--#{$sizing} {
-            box-sizing: #{$sizing}-box;
+        .box-sizing--#{$boxSizing} {
+            box-sizing: #{$boxSizing}-box;
         }    
     }
 }

@@ -1,13 +1,13 @@
 @mixin justify-self($type, $orientation) {
     /* justify self */
-    @each $self in (
+    @each $justifySelf in (
         "center",
         "end",
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}justify-self--#{$self} {        
-            justify-self: #{$self};
+        .#{$type}#{$orientation}justify-self--#{$justifySelf} {        
+            justify-self: #{$justifySelf};
         }
     }
 }

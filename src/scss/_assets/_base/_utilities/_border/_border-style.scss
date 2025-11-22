@@ -7,20 +7,20 @@
         "none"
     );
     
-    @each $style in $borderStyle {
-        .#{$type}#{$orientation}border-style--#{$style} {
-            border-style: #{$style};
-            // @if $style != none {
+    @each $alias in $borderStyle {
+        .#{$type}#{$orientation}border-style--#{$alias} {
+            border-style: #{$alias};
+            // @if $alias != none {
             //     border-width: var(--border-width--min);
             // }
         }
     }
     
-    @each $style in $borderStyle {
+    @each $alias in $borderStyle {
         @each $side in $borderSides {
-            .#{$type}#{$orientation}border-#{$side}-style--#{$style} {
-                border-#{$side}-style: #{$style};
-                // @if $style != none {
+            .#{$type}#{$orientation}border-#{$side}-style--#{$alias} {
+                border-#{$side}-style: #{$alias};
+                // @if $alias != none {
                 //     border-width: var(--border-width--min);
                 // }
             }

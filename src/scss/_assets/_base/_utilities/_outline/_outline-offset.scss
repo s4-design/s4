@@ -1,5 +1,5 @@
 @mixin outline-offset($type, $orientation, $enableVariables) {
-    /* outline-offset */
+    /* outline offset */
     
     @if $enableVariables {
         .outline,

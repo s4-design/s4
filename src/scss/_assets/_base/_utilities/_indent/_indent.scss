@@ -14,42 +14,45 @@
             }
             @each $space in $spacingSizes {
                 @if $spacingName == margin or($spacingName == padding and $space != auto) {
-                    // &-y--#{$space},
+                    &-block--#{$space} {
+                        #{$spacingName}-block: #{$space};
+                    }
+                    &-inline--#{$space} {
+                        #{$spacingName}-inline: #{$space};
+                    }
                     &-top--#{$space} {
                         #{$spacingName}-top: #{$space};
                     }
-                    // &-x--#{$space},
                     &-right--#{$space} {
                         #{$spacingName}-right: #{$space};
                     }
-                    // &-y--#{$space},
                     &-bottom--#{$space} {
                         #{$spacingName}-bottom: #{$space};
                     }
-                    // &-x--#{$space},
                     &-left--#{$space} {
                         #{$spacingName}-left: #{$space};
                     }
                 }
             }
         }
-    
         @if $enableVariables {
             .#{$spacingName} {
                 #{$spacingName}: var(--#{$type}#{$orientation}#{$spacingName}, var(--#{$spacingName}));
-                // &-y,
+                &-block {
+                    #{$spacingName}-block: var(--#{$type}#{$orientation}#{$spacingName}-block, var(--#{$spacingName}));
+                }
+                &-inline {
+                    #{$spacingName}-inline: var(--#{$type}#{$orientation}#{$spacingName}-inline, var(--#{$spacingName}));
+                }
                 &-top {
                     #{$spacingName}-top: var(--#{$type}#{$orientation}#{$spacingName}-top, var(--#{$spacingName}));
                 }
-                // &-x,
                 &-right {
                     #{$spacingName}-right: var(--#{$type}#{$orientation}#{$spacingName}-right, var(--#{$spacingName}));
                 }
-                // &-y,
                 &-bottom {
                     #{$spacingName}-bottom: var(--#{$type}#{$orientation}#{$spacingName}-bottom, var(--#{$spacingName}));
                 }
-                // &-x,
                 &-left {
                     #{$spacingName}-left: var(--#{$type}#{$orientation}#{$spacingName}-left, var(--#{$spacingName}));
                 }

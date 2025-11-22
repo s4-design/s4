@@ -1,12 +1,12 @@
 @mixin flex-wrap($type, $orientation) {
     /* flex wrap */
-    @each $wrap in (
+    @each $flexWrap in (
         "wrap",
         "wrap-reverse",
         "nowrap"
     ) {
-        .#{$type}#{$orientation}flex-wrap--#{$wrap} {
-            flex-wrap: #{$wrap};
+        .#{$type}#{$orientation}flex-wrap--#{$flexWrap} {
+            flex-wrap: #{$flexWrap};
         }
     }
 }

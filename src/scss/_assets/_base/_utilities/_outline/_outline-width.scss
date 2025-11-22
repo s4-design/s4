@@ -1,16 +1,16 @@
 @mixin outline-width($type, $orientation, $enableVariables) {
-    /* outline-width */
-    @each $width in (
+    /* outline width */
+    @each $outlineWidth in (
         "thin",
         "medium",
         "thick"
     ) {
-        .#{$type}#{$orientation}outline-width--#{$width} {
-            outline-width: var(--outline-width--#{$width}, #{$width});
+        .#{$type}#{$orientation}outline-width--#{$outlineWidth} {
+            outline-width: var(--outline-width--#{$outlineWidth}, #{$outlineWidth});
         }
         // @each $side in $outlineSides {
-        //     .#{$type}#{$orientation}outline-#{$side}-width--#{$width} {
-        //         outline-#{$side}-width: var(--outline-width--#{$width}, #{$width});
+        //     .#{$type}#{$orientation}outline-#{$side}-width--#{$outlineWidth} {
+        //         outline-#{$side}-width: var(--outline-width--#{$outlineWidth}, #{$outlineWidth});
         //     }
         // }
     }

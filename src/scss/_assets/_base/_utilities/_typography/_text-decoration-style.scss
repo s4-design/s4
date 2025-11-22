@@ -1,0 +1,13 @@
+@mixin text-decoration-style($type, $orientation) {
+    /* text-decoration-style */
+    @each $textDecorationStyle in (
+        "dotted",
+        "dashed",
+        "solid",
+        "none"
+    ) {
+        .#{$type}#{$orientation}text-decoration-style--#{$textDecorationStyle} {
+            text-decoration-style: #{$textDecorationStyle};
+        }
+    }
+}

@@ -15,9 +15,12 @@
             &--max {
                 #{$width}: max-content;
             }
+            &--stretch {
+                #{$width}: stretch;
+            }
             &--unset {
                 #{$width}: unset;
-            }
+            }            
         }
     
         @if $enableVariables {

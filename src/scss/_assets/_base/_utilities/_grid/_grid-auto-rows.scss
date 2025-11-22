@@ -3,6 +3,9 @@
     @if $enableVariables {
         .grid-auto-rows {
             grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
+            > * {
+                --#{$type}#{$orientation}grid-auto-rows: initial;
+            }
         }
     }
 }

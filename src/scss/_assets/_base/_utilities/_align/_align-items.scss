@@ -1,14 +1,14 @@
 @mixin align-items($type, $orientation) {
     /* align items */
-    @each $align-items in (
+    @each $alignItems in (
         "baseline",
         "center",
         "end",
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}align-items--#{$align-items} {
-            align-items: #{$align-items};
+        .#{$type}#{$orientation}align-items--#{$alignItems} {
+            align-items: #{$alignItems};
         }
     }
 }

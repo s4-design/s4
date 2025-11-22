@@ -1,13 +1,13 @@
 @mixin flex-basis($type, $orientation, $enableVariables) {
     /* flex basis */
-    @each $name, $basis in (
+    @each $alias, $flexBasis in (
         // "auto": "auto",
         "max": "max-content",
         "min": "min-content",
         "fit": "fit-content"
     ) {
-        .#{$type}#{$orientation}flex-basis--#{$name} {
-            flex-basis: #{$basis};
+        .#{$type}#{$orientation}flex-basis--#{$alias} {
+            flex-basis: #{$flexBasis};
         }
     }
     

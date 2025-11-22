@@ -1,14 +1,14 @@
 @mixin align-self($type, $orientation) {
     /* align self */
-    @each $align-self in (
+    @each $alignSelf in (
         "baseline",
         "center",
         "end",
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}align-self--#{$align-self} {
-            align-self: #{$align-self};
+        .#{$type}#{$orientation}align-self--#{$alignSelf} {
+            align-self: #{$alignSelf};
         }
     }
 }

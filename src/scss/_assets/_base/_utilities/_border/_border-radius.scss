@@ -33,6 +33,10 @@
             .border-radius,
             .border-#{$corner}-radius {
                 border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}border-radius: initial;
+                }
             }
         }
     }

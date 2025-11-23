@@ -1,6 +1,5 @@
 @mixin outline-style($type, $orientation, $enableVariables) {
     /* outline style */
-
     @each $outlineStyle in (
         "dotted",
         "dashed",
@@ -20,6 +19,10 @@
         .outline,
         .outline-style {
             outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}outline-style: initial;
+            }
         }
     }
 }

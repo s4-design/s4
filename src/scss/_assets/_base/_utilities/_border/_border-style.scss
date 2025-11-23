@@ -6,7 +6,6 @@
         "solid",
         "none"
     );
-    
     @each $alias in $borderStyle {
         .#{$type}#{$orientation}border-style--#{$alias} {
             border-style: #{$alias};
@@ -15,7 +14,6 @@
             // }
         }
     }
-    
     @each $alias in $borderStyle {
         @each $side in $borderSides {
             .#{$type}#{$orientation}border-#{$side}-style--#{$alias} {
@@ -27,9 +25,6 @@
         }
     }
     
-        // [class*=border-style--] {
-        //     border-width: var(--border-width--min);
-        // }
     @if $enableVariables {
         @each $side in $borderSides {
             .border,
@@ -37,6 +32,10 @@
             .border-#{$side},
             .border-#{$side}-style {
                 border-#{$side}-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}border-style: initial;
+                }
             }
         }
     }

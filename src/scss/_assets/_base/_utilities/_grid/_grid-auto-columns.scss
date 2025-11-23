@@ -1,8 +1,10 @@
 @mixin grid-auto-columns($type, $orientation, $enableVariables) {
     /* grid auto columns */
+    
     @if $enableVariables {
         .grid-auto-columns {
             grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
+            // сбрасываем у потомков значения переменных
             > * {
                 --#{$type}#{$orientation}grid-auto-columns: initial;   
             }

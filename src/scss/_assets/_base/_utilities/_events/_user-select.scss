@@ -1,8 +1,13 @@
 @mixin user-select($type, $orientation, $enableVariables) {
     /* user select */
-    @if $enableVariables {
-        .user-select {
-            zoom: var(--#{$type}#{$orientation}user-select, var(--user-select));
+    @each $userSelect in (
+        "none",
+        "auto",
+        "text",
+        "all"
+    ) {
+        .#{$type}#{$orientation}user-select--#{$userSelect} {
+            user-select: #{$userSelect};
         }
     }
 }

@@ -9,6 +9,10 @@
         .outline,
         .outline-color {
             outline-color: var(--#{$type}#{$orientation}outline-color, var(--outline-color));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}outline-color: initial;
+            }
         }
     }
 }

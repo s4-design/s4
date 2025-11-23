@@ -1,5 +1,5 @@
 @mixin text-decoration-line($type, $orientation) {
-    /* text-decoration-line */
+    /* text decoration line */
     @each $alias, $textDecorationLine in (
         "none": "none",
         "underline": "underline",

@@ -11,6 +11,10 @@
     @if $enableVariables {
         .line-height {
             line-height: var(--#{$type}#{$orientation}line-height, var(--line-height));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}line-height: initial;
+            }
         }
     }
 }

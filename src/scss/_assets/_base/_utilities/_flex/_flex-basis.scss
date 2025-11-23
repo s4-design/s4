@@ -15,6 +15,10 @@
         .flex,
         .flex-basis {
             flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}flex-basis: initial;
+                }
         }
     }
 }

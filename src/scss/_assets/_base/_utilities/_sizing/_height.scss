@@ -6,26 +6,26 @@
         "max-height"
     ) {
         .#{$type}#{$orientation}#{$height} {
-            &--fit {
-                #{$height}: fit-content;
-            }
-            &--min {
-                #{$height}: min-content;
-            }
-            &--max {
-                #{$height}: max-content;
-            }
-            &--stretch {
-                #{$height}: stretch;
-            }
-            &--unset {
-                #{$height}: unset;
+            @each $alias, $value in (
+                "fit": "fit-content",
+                "min": "min-content",
+                "max": "max-content",
+                "stretch": "stretch",
+                "unset": "unset"
+            ) {
+                &--#{$alias} {
+                    #{$height}: #{$value};
+                }
             }
         }
     
         @if $enableVariables {
             .#{$height} {
                 #{$height}: var(--#{$type}#{$orientation}#{$height}, var(--#{$height}));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}#{$height}: initial;
+                }
             }
         }
     }

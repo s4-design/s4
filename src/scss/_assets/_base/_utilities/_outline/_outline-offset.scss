@@ -5,6 +5,10 @@
         .outline,
         .outline-offset {
             outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}outline-offset: initial;
+            }
         }
     }
 }

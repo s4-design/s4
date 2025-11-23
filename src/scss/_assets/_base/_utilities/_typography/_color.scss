@@ -7,6 +7,10 @@
     @if $enableVariables {
         .color {
             color: var(--#{$type}#{$orientation}color, var(--color));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}color: initial;
+            }
         }
         @each $pseudoClass in (
             "focus",
@@ -18,6 +22,10 @@
         ) {
             .color\:#{$pseudoClass}:#{$pseudoClass} {
                 color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}color\:#{$pseudoClass}: initial;
+                }
             }
         }
     }

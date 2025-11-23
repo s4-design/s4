@@ -12,6 +12,10 @@
             .border-#{$side},
             .border-#{$side}-color {
                 border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}border-color: initial;
+                }
             }
         }
     }

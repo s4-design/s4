@@ -1,9 +1,14 @@
 @mixin text-decoration-thickness($type, $orientation, $enableVariables) {
-    /* text-decoration-thickness */
+    /* text decoration thickness */
+
     @if $enableVariables {
         .text-decoration,
         .text-decoration-thickness {
             text-decoration-thickness: var(--#{$type}#{$orientation}text-decoration-thickness, var(--text-decoration-thickness));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}text-decoration-thickness: initial;
+            }
         }
     }
 }

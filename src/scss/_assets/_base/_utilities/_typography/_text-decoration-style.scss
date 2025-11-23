@@ -1,5 +1,5 @@
 @mixin text-decoration-style($type, $orientation) {
-    /* text-decoration-style */
+    /* text decoration style */
     @each $textDecorationStyle in (
         "dotted",
         "dashed",

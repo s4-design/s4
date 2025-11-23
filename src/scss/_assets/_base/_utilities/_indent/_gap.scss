@@ -22,6 +22,10 @@
             .gap,
             .#{$tracksName}-gap {
                 #{$tracksName}-gap: var(--#{$type}#{$orientation}gap, var(--gap));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}gap: initial;
+                }
             }
         }
     }

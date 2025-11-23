@@ -1,13 +1,14 @@
 @mixin grid-row($type, $orientation, $enableVariables) {
     /* grid row */
+    
     @if $enableVariables {
         .grid-row {
             grid-row: var(--#{$type}#{$orientation}grid-row-start, var(--grid-row-start)) / var(--#{$type}#{$orientation}grid-row-end, var(--grid-row-end));
+            // сбрасываем у потомков значения переменных
             > * {
                 --#{$type}#{$orientation}grid-row-start: initial;
                 --#{$type}#{$orientation}grid-row-end: initial;
             }
-
         }
     }
 }

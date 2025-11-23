@@ -6,26 +6,26 @@
         "max-width"
     ) {
         .#{$type}#{$orientation}#{$width} {
-            &--fit {
-                #{$width}: fit-content;
+            @each $alias, $value in (
+                "fit": "fit-content",
+                "min": "min-content",
+                "max": "max-content",
+                "stretch": "stretch",
+                "unset": "unset"
+            ) {
+                &--#{$alias} {
+                    #{$width}: #{$value};
+                }
             }
-            &--min {
-                #{$width}: min-content;
-            }
-            &--max {
-                #{$width}: max-content;
-            }
-            &--stretch {
-                #{$width}: stretch;
-            }
-            &--unset {
-                #{$width}: unset;
-            }            
         }
     
         @if $enableVariables {
             .#{$width} {
                 #{$width}: var(--#{$type}#{$orientation}#{$width}, var(--#{$width}));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}#{$width}: initial;
+                }
             }
         }
     }

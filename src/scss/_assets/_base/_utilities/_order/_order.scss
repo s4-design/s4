@@ -1,6 +1,5 @@
 @mixin order($type, $orientation, $enableVariables) {
     /* order */
-    
     .#{$type}#{$orientation}order--unset {
         order: unset;
     }
@@ -8,6 +7,10 @@
     @if $enableVariables {
         .order {
             order: var(--#{$type}#{$orientation}order, var(--order));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}order: initial;
+            }
         }
     }
 }

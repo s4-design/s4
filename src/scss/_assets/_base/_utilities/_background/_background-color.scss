@@ -11,8 +11,9 @@
         .background,
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
+            // сбрасываем у потомков значения переменных
             > * {
-                --#{$type}#{$orientation}grid-auto-columns: initial;
+                --#{$type}#{$orientation}background-color: initial;
             }
         }
         @each $pseudoClass in (
@@ -25,6 +26,10 @@
         ) {
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
                 background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}background-color\:#{$pseudoClass}: initial;
+                }
             }
         }
     }

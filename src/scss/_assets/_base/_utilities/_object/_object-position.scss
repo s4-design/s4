@@ -15,6 +15,10 @@
     @if $enableVariables {
         .object-position {
             object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}object-position: initial;
+            }
         }
     }
 }

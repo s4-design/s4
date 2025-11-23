@@ -23,6 +23,10 @@
             .border-#{$side},
             .border-#{$side}-width {
                 border-#{$side}-width: var(--#{$type}#{$orientation}border-width, var(--border-width));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}border-width: initial;
+                }
             }
         }
     }

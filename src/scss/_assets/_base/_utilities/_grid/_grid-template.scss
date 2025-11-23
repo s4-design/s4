@@ -1,15 +1,17 @@
 @mixin grid-template($type, $orientation, $enableVariables) {
     /* grid template */
-    @each $template in (
+    
+    @each $gridTemplate in (
         "columns",
         "rows"
     ) {
         @if $enableVariables {
-            .grid-template-#{$template} {
-                grid-template-#{$template}: var(--#{$type}#{$orientation}grid-template-#{$template}, var(--grid-template-#{$template}));
-                // > * {
-                //     --#{$type}#{$orientation}grid-template-#{$template}: initial;
-                // }
+            .grid-template-#{$gridTemplate} {
+                grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}grid-template-#{$gridTemplate}: initial;
+                }
             }
         }
     }

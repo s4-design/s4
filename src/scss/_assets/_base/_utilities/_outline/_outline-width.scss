@@ -19,6 +19,10 @@
         .outline,
         .outline-width {
             outline-width: var(--#{$type}#{$orientation}outline-width, var(--outline-width));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}outline-width: initial;
+            }
         }
     }
 }

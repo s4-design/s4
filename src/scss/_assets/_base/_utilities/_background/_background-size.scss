@@ -13,6 +13,10 @@
         .background,
         .background-size {
             background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}background-size: initial;
+            }
         }
     }
 }

@@ -1,9 +1,14 @@
 @mixin background-image($type, $orientation, $enableVariables) {
     /* background image */
+    
     @if $enableVariables {
         .background,
         .background-image {
             background-image: var(--#{$type}#{$orientation}background-image, var(--background-image));
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --#{$type}#{$orientation}background-image: initial;
+                }
         }
     }
 }

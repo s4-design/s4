@@ -38,6 +38,10 @@
         .background,
         .background-position {
             background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}background-position: initial;
+            }
         }
     }
 }

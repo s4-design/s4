@@ -1,8 +1,8 @@
 @mixin background-color($type, $orientation, $enableVariables) {
     /* background color */
     .#{$type}#{$orientation}background-color {
-        &--transparent {
-        // &--transparent\:hover:hover {
+        &--transparent,
+        &--transparent\:hover:hover {
             background-color: #{transparent};
         }
     }
@@ -17,12 +17,12 @@
             }
         }
         @each $pseudoClass in (
-            "focus",
-            "active",
+            // "focus",
+            // "active",
             "hover",
-            "checked",
-            "enabled",
-            "disabled"
+            // "checked",
+            // "enabled",
+            // "disabled"
         ) {
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
                 background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));

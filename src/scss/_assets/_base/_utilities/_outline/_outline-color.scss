@@ -1,8 +1,10 @@
 @mixin outline-color($type, $orientation, $enableVariables) {
     /* outline color */
-    .#{$type}#{$orientation}outline-color--transparent {
-    // .#{$type}#{$orientation}outline-color--transparent\:hover:hover {
-        outline-color: #{transparent};
+    .#{$type}#{$orientation}outline-color {
+        &--transparent,
+        &--transparent\:hover:hover {
+            outline-color: #{transparent};
+        }
     }
     
     @if $enableVariables {

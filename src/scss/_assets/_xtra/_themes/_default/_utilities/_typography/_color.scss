@@ -9,11 +9,13 @@
     // preset: color
     @each $color in $defaultColors {
         .#{$type}#{$orientation}color {
-            &--#{$color} {
+            &--#{$color},
+            &--#{$color}\:hover:hover {
                 color: var(--#{$color});
             }
             @for $i from 1 through $colorsGradientNumberSteps {
-                &--#{$color}--0#{$i} {
+                &--#{$color}--0#{$i}
+                &--#{$color}--0#{$i}\:hover:hover {
                     color: var(--#{$color}--0#{$i});
                 }
             }
@@ -24,11 +26,13 @@
     }
     @each $color in $accentColors {
         .#{$type}#{$orientation}color {
-            &--#{$color} {
+            &--#{$color},
+            &--#{$color}\:hover:hover {
                 color: var(--#{$color});
             }
             @each $postfix in $accentColorsPostfixes {
-                &--#{$color}--#{$postfix} {
+                &--#{$color}--#{$postfix},
+                &--#{$color}--#{$postfix}\:hover:hover {
                     color: var(--#{$color}--#{$postfix});
                 }
             }

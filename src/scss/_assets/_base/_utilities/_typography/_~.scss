@@ -22,8 +22,8 @@
     @include line-height($type, $orientation, $enableVariables);
     @include text-align($type, $orientation);
     @include text-decoration-color($type, $orientation, $enableVariables);
-    @include text-decoration-line($type, $orientation);
-    @include text-decoration-style($type, $orientation);
+    @include text-decoration-line($type, $orientation, $enableVariables);
+    @include text-decoration-style($type, $orientation, $enableVariables);
     @include text-decoration-thickness($type, $orientation, $enableVariables);
     @include text-transform($type, $orientation);
     @include text-wrap($type, $orientation);

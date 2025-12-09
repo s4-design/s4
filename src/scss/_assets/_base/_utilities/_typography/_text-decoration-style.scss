@@ -1,13 +1,28 @@
-@mixin text-decoration-style($type, $orientation) {
+@mixin text-decoration-style($type, $orientation, $enableVariables) {
     /* text decoration style */
-    @each $textDecorationStyle in (
-        "dotted",
-        "dashed",
-        "solid",
-        "none"
-    ) {
-        .#{$type}#{$orientation}text-decoration-style--#{$textDecorationStyle} {
-            text-decoration-style: #{$textDecorationStyle};
+    // @each $textDecorationStyle in (
+    //     "dotted",
+    //     "dashed",
+    //     "solid",
+    //     // "wavy",
+    //     "none"
+    // ) {
+    //     .#{$type}#{$orientation}text-decoration-style {
+    //         &--#{$textDecorationStyle} {
+    //         // &--#{$textDecorationStyle}\:hover:hover {
+    //             text-decoration-style: #{$textDecorationStyle};
+    //         }
+    //     }
+    // }
+
+    @if $enableVariables {
+        .text-decoration,
+        .text-decoration-style {
+            text-decoration-style: var(--#{$type}#{$orientation}text-decoration-style, var(--text-decoration-style));
+            // сбрасываем у потомков значения переменных
+            > * {
+                --#{$type}#{$orientation}text-decoration-style: initial;
+            }
         }
     }
 }

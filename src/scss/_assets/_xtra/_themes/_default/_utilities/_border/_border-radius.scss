@@ -1,8 +1,8 @@
 $borderRadiusCorner: (
-    "top-left",
-    "top-right",
-    "bottom-right",
-    "bottom-left"
+    "start-start",
+    "start-end",
+    "end-end",
+    "end-start"
 );
 $borderRadiusSize: (
     "s3",
@@ -16,7 +16,7 @@ $borderRadiusSize: (
 );
 $borderRadiusXtraSize: (
     oval: 50%,
-    pill: 4em
+    pill: var(--border-radius--l4)
 );
 
 @mixin border-radius($type, $orientation) {

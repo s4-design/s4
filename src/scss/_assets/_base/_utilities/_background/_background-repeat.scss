@@ -1,13 +1,13 @@
 @mixin background-repeat($type, $orientation) {
     /* background repeat */
-    @each $alias, $backgroundRepeat in (
-        "x": "repeat-x",
-        "y": "repeat-y",
-        "space": "space",
-        "round": "round",
-        "no": "no-repeat"
+    @each $backgroundRepeat in (
+        "repeat-x",
+        "repeat-y",
+        "space",
+        "round",
+        "no-repeat"
     ) {
-        .#{$type}#{$orientation}background-repeat--#{$alias} {
+        .#{$type}#{$orientation}background-repeat--#{$backgroundRepeat} {
             background-repeat: #{$backgroundRepeat};
         }
     }

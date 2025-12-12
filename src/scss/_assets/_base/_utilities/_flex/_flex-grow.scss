@@ -1,14 +1,16 @@
-@mixin flex-grow($type, $orientation, $enableVariables) {
+@mixin flex-grow($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* flex grow */
     
     @if $enableVariables {
         .flex,
         .flex-grow {
             flex-grow: var(--#{$type}#{$orientation}flex-grow, var(--flex-grow));
+            @if $enableVariablesReset {
                 // сбрасываем у потомков значения переменных
                 > * {
-                    --#{$type}#{$orientation}flex-grow: initial;
+                    --flex-grow: initial;
                 }
+            }
         }
     }
 }

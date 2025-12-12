@@ -1,4 +1,4 @@
-@mixin border-color($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-color($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides) {
     /* border-color */
     .#{$type}#{$orientation}border-color {
         &--transparent,
@@ -14,9 +14,11 @@
             .border-#{$side},
             .border-#{$side}-color {
                 border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}border-color: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --border-color: initial;
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-@mixin background-size($type, $orientation, $enableVariables) {
+@mixin background-size($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* background-size */
     @each $backgroundSize in (
         "cover",
@@ -13,9 +13,11 @@
         .background,
         .background-size {
             background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}background-size: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --background-size: initial;
+                }
             }
         }
     }

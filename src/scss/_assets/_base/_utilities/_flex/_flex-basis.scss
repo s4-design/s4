@@ -1,12 +1,11 @@
-@mixin flex-basis($type, $orientation, $enableVariables) {
+@mixin flex-basis($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* flex basis */
-    @each $alias, $flexBasis in (
-        // "auto": "auto",
-        "max": "max-content",
-        "min": "min-content",
-        "fit": "fit-content"
+    @each $flexBasis in (
+        "max-content",
+        "min-content",
+        "fit-content"
     ) {
-        .#{$type}#{$orientation}flex-basis--#{$alias} {
+        .#{$type}#{$orientation}flex-basis--#{$flexBasis} {
             flex-basis: #{$flexBasis};
         }
     }
@@ -15,10 +14,12 @@
         .flex,
         .flex-basis {
             flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
+            @if $enableVariablesReset {
                 // сбрасываем у потомков значения переменных
                 > * {
-                    --#{$type}#{$orientation}flex-basis: initial;
+                    --flex-basis: initial;
                 }
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-@mixin object-position($type, $orientation, $enableVariables) {
+@mixin object-position($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* object position */
     @each $objectPosition in (
         "top",
@@ -15,9 +15,11 @@
     @if $enableVariables {
         .object-position {
             object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}object-position: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --object-position: initial;
+                }
             }
         }
     }

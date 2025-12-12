@@ -1,4 +1,4 @@
-@mixin gap($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin gap($type, $orientation, $enableVariables, $enableVariablesReset, $spacingSizes) {
     /* gap */
     @each $tracksName in (
         "row",
@@ -22,9 +22,11 @@
             .gap,
             .#{$tracksName}-gap {
                 #{$tracksName}-gap: var(--#{$type}#{$orientation}gap, var(--gap));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}gap: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --gap: initial;
+                    }
                 }
             }
         }

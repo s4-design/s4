@@ -1,4 +1,4 @@
-@mixin line-height($type, $orientation, $enableVariables) {
+@mixin line-height($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* line height */
     @each $lineHeight in (
         "unset"
@@ -11,9 +11,11 @@
     @if $enableVariables {
         .line-height {
             line-height: var(--#{$type}#{$orientation}line-height, var(--line-height));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}line-height: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --line-height: initial;
+                }
             }
         }
     }

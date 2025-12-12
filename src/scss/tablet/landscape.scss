@@ -8,7 +8,8 @@
     @include base.utilities(
         map.get(settings.$tabletLandscape, type),
         map.get(settings.$tabletLandscape, orientation),
-        settings.$enableVariables
+        settings.$enableVariables,
+        settings.$enableVariablesReset
     );
     @include xtra.utilities(
         map.get(settings.$tabletLandscape, type),

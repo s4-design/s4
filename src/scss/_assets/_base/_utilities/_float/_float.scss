@@ -1,13 +1,13 @@
 @mixin float($type, $orientation) {
     /* float */
-    @each $alias, $float in (
-        "left": "left",
-        "right": "right",
-        "start": "inline-start",
-        "end": "inline-end",
-        "none": "none"
+    @each $float in (
+        "left",
+        "right",
+        "inline-start",
+        "inline-end",
+        "none"
     ) {
-        .#{$type}#{$orientation}float--#{$alias} {
+        .#{$type}#{$orientation}float--#{$float} {
             float: #{$float};
         }
     }

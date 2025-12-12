@@ -1,4 +1,4 @@
-@mixin box-shadow($type, $orientation, $enableVariables) {
+@mixin box-shadow($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* box shadow */
     .#{$type}#{$orientation}box-shadow {
         &--unset,
@@ -10,9 +10,11 @@
     @if $enableVariables {
         .box-shadow {
             box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}box-shadow: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --box-shadow: initial;
+                }
             }
         }
         @each $pseudoClass in (
@@ -20,9 +22,11 @@
         ) {
             .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
                 box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}box-shadow\:#{$pseudoClass}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --box-shadow\:#{$pseudoClass}: initial;
+                    }
                 }
             }
         }

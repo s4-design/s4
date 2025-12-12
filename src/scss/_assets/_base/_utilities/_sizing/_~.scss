@@ -4,10 +4,10 @@
 @use "resize" as *;
 @use "width" as *;
 
-@mixin sizing($type, $orientation, $enableVariables) {
-    @include aspect-ratio($type, $orientation, $enableVariables);
-    @include box-sizing($type, $orientation, $enableVariables);
-    @include height($type, $orientation, $enableVariables);
-    @include resize($type, $orientation, $enableVariables);
-    @include width($type, $orientation, $enableVariables);
+@mixin sizing($type, $orientation, $enableVariables, $enableVariablesReset) {
+    @include aspect-ratio($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include box-sizing($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include height($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include resize($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include width($type, $orientation, $enableVariables, $enableVariablesReset);
 }

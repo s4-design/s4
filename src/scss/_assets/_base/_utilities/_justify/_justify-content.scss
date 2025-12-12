@@ -1,15 +1,15 @@
 @mixin justify-content($type, $orientation) {
     /* justify content */
-    @each $alias, $justifyContent in (
-        "around": "space-around",
-        "between": "space-between",
-        "center": "center",
-        "end": "end",
-        "evenly": "space-evenly",
-        "start": "start",
-        "stretch": "stretch"
+    @each $justifyContent in (
+        "space-around",
+        "space-between",
+        "center",
+        "end",
+        "space-evenly",
+        "start",
+        "stretch"
     ) {
-        .#{$type}#{$orientation}justify-content--#{$alias} {
+        .#{$type}#{$orientation}justify-content--#{$justifyContent} {
             justify-content: #{$justifyContent};
         }
     }

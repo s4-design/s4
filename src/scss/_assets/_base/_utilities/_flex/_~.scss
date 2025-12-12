@@ -5,11 +5,11 @@
 @use "flex-wrap" as *;
 @use "flex" as flex;
 
-@mixin flex($type, $orientation, $enableVariables) {
-    @include flex-basis($type, $orientation, $enableVariables);
+@mixin flex($type, $orientation, $enableVariables, $enableVariablesReset) {
+    @include flex-basis($type, $orientation, $enableVariables, $enableVariablesReset);
     @include flex-direction($type, $orientation);
-    @include flex-grow($type, $orientation, $enableVariables);
-    @include flex-shrink($type, $orientation, $enableVariables);
+    @include flex-grow($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include flex-shrink($type, $orientation, $enableVariables, $enableVariablesReset);
     @include flex-wrap($type, $orientation);
     @include flex.flex($type, $orientation);
 }

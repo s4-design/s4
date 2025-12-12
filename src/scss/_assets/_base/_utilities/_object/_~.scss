@@ -1,7 +1,7 @@
 @use "object-fit" as *;
 @use "object-position" as *;
 
-@mixin object($type, $orientation, $enableVariables) {
+@mixin object($type, $orientation, $enableVariables, $enableVariablesReset) {
     @include object-fit($type, $orientation);
-    @include object-position($type, $orientation, $enableVariables);
+    @include object-position($type, $orientation, $enableVariables, $enableVariablesReset);
 }

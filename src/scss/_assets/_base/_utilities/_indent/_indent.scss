@@ -1,4 +1,4 @@
-@mixin indent($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin indent($type, $orientation, $enableVariables, $enableVariablesReset, $spacingSizes) {
     /* margin & padding */
     @each $spacingName in (
         "margin",
@@ -33,9 +33,11 @@
         @if $enableVariables {
             .#{$spacingName} {
                 #{$spacingName}: var(--#{$type}#{$orientation}#{$spacingName}, var(--#{$spacingName}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}#{$spacingName}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --#{$spacingName}: initial;
+                    }
                 }
                 @each $property in (
                     "block",
@@ -47,9 +49,11 @@
                 ) {
                     &-#{$property} {
                         #{$spacingName}-#{$property}: var(--#{$type}#{$orientation}#{$spacingName}-#{$property}, var(--#{$spacingName}));
-                        // сбрасываем у потомков значения переменных
-                        > * {
-                            --#{$type}#{$orientation}#{$spacingName}-#{$property}: initial;
+                        @if $enableVariablesReset {
+                            // сбрасываем у потомков значения переменных
+                            > * {
+                                --#{$spacingName}: initial;
+                            }
                         }
                     }
                 }

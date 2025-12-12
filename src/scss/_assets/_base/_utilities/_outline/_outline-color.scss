@@ -1,4 +1,4 @@
-@mixin outline-color($type, $orientation, $enableVariables) {
+@mixin outline-color($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* outline color */
     .#{$type}#{$orientation}outline-color {
         &--transparent,
@@ -11,9 +11,11 @@
         .outline,
         .outline-color {
             outline-color: var(--#{$type}#{$orientation}outline-color, var(--outline-color));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}outline-color: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --outline-color: initial;
+                }
             }
         }
     }

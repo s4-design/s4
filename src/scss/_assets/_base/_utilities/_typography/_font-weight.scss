@@ -1,4 +1,4 @@
-@mixin font-weight($type, $orientation, $enableVariables) {
+@mixin font-weight($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* font weight */
     .#{$type}#{$orientation}font-weight {
         @for $i from 1 through 9 {
@@ -14,9 +14,11 @@
     @if $enableVariables {
         .font-weight {
             font-weight: var(--#{$type}#{$orientation}font-weight, var(--font-weight));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}font-weight: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --font-weight: initial;
+                }
             }
         }
     }

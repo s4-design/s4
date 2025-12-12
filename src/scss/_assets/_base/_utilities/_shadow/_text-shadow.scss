@@ -1,4 +1,4 @@
-@mixin text-shadow($type, $orientation, $enableVariables) {
+@mixin text-shadow($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* text shadow */
     .#{$type}#{$orientation}text-shadow {
         &--unset {
@@ -9,9 +9,11 @@
     @if $enableVariables {
         .text-shadow {
             text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}text-shadow: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --text-shadow: initial;
+                }
             }
         }
     }

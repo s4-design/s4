@@ -1,12 +1,14 @@
-@mixin aspect-ratio($type, $orientation, $enableVariables) {
+@mixin aspect-ratio($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* aspect ratio */
 
     @if $enableVariables {
         .aspect-ratio {
             aspect-ratio: var(--#{$type}#{$orientation}aspect-ratio, var(--aspect-ratio));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}aspect-ratio: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --aspect-ratio: initial;
+                }
             }
         }
     }

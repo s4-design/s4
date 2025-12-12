@@ -22,28 +22,28 @@
 @use "_z-index/~" as *;
 @use "_zoom/~" as *;
 
-@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
+@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false, $enableVariablesReset: false) {
     @include align($type, $orientation);
-    @include background($type, $orientation, $enableVariables);
-    @include border($type, $orientation, $enableVariables);
-    @include cursor($type, $orientation, $enableVariables);
+    @include background($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include border($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include cursor($type, $orientation, $enableVariables, $enableVariablesReset);
     @include display($type, $orientation);
-    @include flex($type, $orientation, $enableVariables);
+    @include flex($type, $orientation, $enableVariables, $enableVariablesReset);
     @include float($type, $orientation);
-    @include grid($type, $orientation, $enableVariables);
-    @include indent($type, $orientation, $enableVariables);
+    @include grid($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include indent($type, $orientation, $enableVariables, $enableVariablesReset);
     @include justify($type, $orientation);
-    @include object($type, $orientation, $enableVariables);
-    @include order($type, $orientation, $enableVariables);
-    @include outline($type, $orientation, $enableVariables);
+    @include object($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include order($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include outline($type, $orientation, $enableVariables, $enableVariablesReset);
     @include overflow($type, $orientation);
-    @include placement($type, $orientation, $enableVariables);
-    @include events($type, $orientation, $enableVariables);
+    @include placement($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include events($type, $orientation, $enableVariables, $enableVariablesReset);
     @include position($type, $orientation);
-    @include shadow($type, $orientation, $enableVariables);
-    @include sizing($type, $orientation, $enableVariables);
-    @include transform($type, $orientation, $enableVariables);
-    @include typography($type, $orientation, $enableVariables);
-    @include z-index($type, $orientation, $enableVariables);
-    @include zoom($type, $orientation, $enableVariables);
+    @include shadow($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include sizing($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include transform($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include typography($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include z-index($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include zoom($type, $orientation, $enableVariables, $enableVariablesReset);
 }

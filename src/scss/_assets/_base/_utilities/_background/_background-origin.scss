@@ -1,11 +1,11 @@
 @mixin background-origin ($type, $orientation) {
     /* background origin */
-    @each $alias, $backgroundOrigin in (
-        "border": "border-box",
-        "padding": "padding-box",
-        "content": "content-box"
+    @each $backgroundOrigin in (
+        "border-box",
+        "padding-box",
+        "content-box"
     ) {
-        .#{$type}#{$orientation}background-origin--#{$alias} {
+        .#{$type}#{$orientation}background-origin--#{$backgroundOrigin} {
             background-origin: #{$backgroundOrigin};
         }
     }

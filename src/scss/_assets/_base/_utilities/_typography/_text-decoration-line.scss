@@ -1,22 +1,15 @@
-@mixin text-decoration-line($type, $orientation, $enableVariables) {
+@mixin text-decoration-line($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* text decoration line */
-    // @each $alias, $textDecorationLine in (
-    //     "none": "none",
-    //     "underline": "underline",
-    //     "through": "line-through"
-    // ) {
-    //     .#{$type}#{$orientation}text-decoration-line--#{$alias} {
-    //         text-decoration-line: #{$textDecorationLine};
-    //     }
-    // }
 
     @if $enableVariables {
         .text-decoration,
         .text-decoration-line {
             text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}text-decoration-line: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --text-decoration-line: initial;
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-@mixin placement($type, $orientation, $enableVariables) {
+@mixin placement($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* placement */
     
     @each $placement in (
@@ -11,9 +11,11 @@
         @if $enableVariables {
             .#{$placement} {
                 #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}#{$placement}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --#{$placement}: initial;
+                    }
                 }
             }
         }

@@ -1,12 +1,14 @@
-@mixin transform($type, $orientation, $enableVariables) {
+@mixin transform($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* transform */
 
     @if $enableVariables {
         .transform {
             transform: var(--#{$type}#{$orientation}transform, var(--transform));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}transform: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --transform: initial;
+                }
             }
         }
     }

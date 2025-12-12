@@ -12,11 +12,11 @@ $borderSides:(
 @use "border-style" as *;
 @use "border-width" as *;
 
-@mixin border($type, $orientation, $enableVariables) {
+@mixin border($type, $orientation, $enableVariables, $enableVariablesReset) {
     @include border-collapse($type, $orientation);
-    @include border-color($type, $orientation, $enableVariables, $borderSides);
-    @include border-radius($type, $orientation, $enableVariables);
-    @include border-spacing($type, $orientation, $enableVariables);
-    @include border-style($type, $orientation, $enableVariables, $borderSides);
-    @include border-width($type, $orientation, $enableVariables, $borderSides);
+    @include border-color($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides);
+    @include border-radius($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include border-spacing($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include border-style($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides);
+    @include border-width($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides);
 }

@@ -14,17 +14,17 @@
 @use "word-break" as *;
 @use "writing-mode" as *;
 
-@mixin typography($type, $orientation, $enableVariables) {
-    @include color($type, $orientation, $enableVariables);
+@mixin typography($type, $orientation, $enableVariables, $enableVariablesReset) {
+    @include color($type, $orientation, $enableVariables, $enableVariablesReset);
     @include direction($type, $orientation);
-    @include font-size($type, $orientation, $enableVariables);
-    @include font-weight($type, $orientation, $enableVariables);
-    @include line-height($type, $orientation, $enableVariables);
+    @include font-size($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include font-weight($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include line-height($type, $orientation, $enableVariables, $enableVariablesReset);
     @include text-align($type, $orientation);
-    @include text-decoration-color($type, $orientation, $enableVariables);
-    @include text-decoration-line($type, $orientation, $enableVariables);
-    @include text-decoration-style($type, $orientation, $enableVariables);
-    @include text-decoration-thickness($type, $orientation, $enableVariables);
+    @include text-decoration-color($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include text-decoration-line($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include text-decoration-style($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include text-decoration-thickness($type, $orientation, $enableVariables, $enableVariablesReset);
     @include text-transform($type, $orientation);
     @include text-wrap($type, $orientation);
     @include white-space($type, $orientation);

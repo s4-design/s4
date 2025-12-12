@@ -1,4 +1,4 @@
-@mixin outline-width($type, $orientation, $enableVariables) {
+@mixin outline-width($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* outline width */
     @each $outlineWidth in (
         "thin",
@@ -19,9 +19,11 @@
         .outline,
         .outline-width {
             outline-width: var(--#{$type}#{$orientation}outline-width, var(--outline-width));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}outline-width: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --outline-width: initial;
+                }
             }
         }
     }

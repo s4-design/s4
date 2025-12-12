@@ -1,4 +1,4 @@
-@mixin height($type, $orientation, $enableVariables) {
+@mixin height($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* height */
     @each $height in (
         "min-height",
@@ -6,14 +6,14 @@
         "max-height"
     ) {
         .#{$type}#{$orientation}#{$height} {
-            @each $alias, $value in (
-                "fit": "fit-content",
-                "min": "min-content",
-                "max": "max-content",
-                "stretch": "stretch",
-                "unset": "unset"
+            @each $value in (
+                "fit-content",
+                "min-content",
+                "max-content",
+                "stretch",
+                "unset"
             ) {
-                &--#{$alias} {
+                &--#{$value} {
                     #{$height}: #{$value};
                 }
             }
@@ -22,9 +22,11 @@
         @if $enableVariables {
             .#{$height} {
                 #{$height}: var(--#{$type}#{$orientation}#{$height}, var(--#{$height}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}#{$height}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --#{$height}: initial;
+                    }
                 }
             }
         }

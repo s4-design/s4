@@ -1,4 +1,4 @@
-@mixin background-color($type, $orientation, $enableVariables) {
+@mixin background-color($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* background color */
     .#{$type}#{$orientation}background-color {
         &--transparent,
@@ -11,9 +11,11 @@
         .background,
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}background-color: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --background-color: initial;
+                }
             }
         }
         @each $pseudoClass in (
@@ -26,9 +28,11 @@
         ) {
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
                 background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}background-color\:#{$pseudoClass}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --background-color\:#{$pseudoClass}: initial;
+                    }
                 }
             }
         }

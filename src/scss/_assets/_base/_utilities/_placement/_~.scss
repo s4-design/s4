@@ -1,5 +1,5 @@
 @use "placement" as placement;
 
-@mixin placement($type, $orientation, $enableVariables) {
-    @include placement.placement($type, $orientation, $enableVariables);
+@mixin placement($type, $orientation, $enableVariables, $enableVariablesReset) {
+    @include placement.placement($type, $orientation, $enableVariables, $enableVariablesReset);
 }

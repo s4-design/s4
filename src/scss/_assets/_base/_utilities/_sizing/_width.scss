@@ -1,4 +1,4 @@
-@mixin width($type, $orientation, $enableVariables) {
+@mixin width($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* width */
     @each $width in (
         "min-width",
@@ -6,14 +6,14 @@
         "max-width"
     ) {
         .#{$type}#{$orientation}#{$width} {
-            @each $alias, $value in (
-                "fit": "fit-content",
-                "min": "min-content",
-                "max": "max-content",
-                "stretch": "stretch",
-                "unset": "unset"
+            @each $value in (
+                "fit-content",
+                "min-content",
+                "max-content",
+                "stretch",
+                "unset"
             ) {
-                &--#{$alias} {
+                &--#{$value} {
                     #{$width}: #{$value};
                 }
             }
@@ -22,9 +22,11 @@
         @if $enableVariables {
             .#{$width} {
                 #{$width}: var(--#{$type}#{$orientation}#{$width}, var(--#{$width}));
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --#{$type}#{$orientation}#{$width}: initial;
+                @if $enableVariablesReset {
+                    // сбрасываем у потомков значения переменных
+                    > * {
+                        --#{$width}: initial;
+                    }
                 }
             }
         }

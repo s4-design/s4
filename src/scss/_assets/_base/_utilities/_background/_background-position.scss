@@ -1,4 +1,4 @@
-@mixin background-position($type, $orientation, $enableVariables) {
+@mixin background-position($type, $orientation, $enableVariables, $enableVariablesReset) {
     /* background-position */
     .#{$type}#{$orientation}background-position {
         &--left {
@@ -38,9 +38,11 @@
         .background,
         .background-position {
             background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
-            // сбрасываем у потомков значения переменных
-            > * {
-                --#{$type}#{$orientation}background-position: initial;
+            @if $enableVariablesReset {
+                // сбрасываем у потомков значения переменных
+                > * {
+                    --background-position: initial;
+                }
             }
         }
     }

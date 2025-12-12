@@ -1,0 +1,12 @@
+@mixin overflow-wrap($type, $orientation) {
+    /* overflow wrap */
+    @each $alias, $overflowWrap in (
+        "normal": "normal",
+        "break": "break-word",
+        "anywhere": "anywhere"
+    ) {
+        .#{$type}#{$orientation}overflow-wrap--#{$alias} {
+            overflow-wrap: #{$overflowWrap};
+        }
+    }
+}

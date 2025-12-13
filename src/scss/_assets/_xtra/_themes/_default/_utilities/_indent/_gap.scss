@@ -4,7 +4,7 @@
         "row",
         "column"
     ) {
-        .#{$type}#{$orientation}gap,
+        // .#{$type}#{$orientation}gap,
         .#{$type}#{$orientation}#{$tracksName}-gap {
             @each $space in $spacingSizes {
                 &--#{$space} {

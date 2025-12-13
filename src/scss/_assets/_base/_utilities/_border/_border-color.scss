@@ -9,9 +9,9 @@
     
     @if $enableVariables {
         @each $side in $borderSides {
-            .border,
+            // .border,
             .border-color,
-            .border-#{$side},
+            // .border-#{$side},
             .border-#{$side}-color {
                 border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
                 @if $enableVariablesReset {

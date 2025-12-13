@@ -35,7 +35,7 @@
     }
     
     @if $enableVariables {
-        .background,
+        // .background,
         .background-position {
             background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
             @if $enableVariablesReset {

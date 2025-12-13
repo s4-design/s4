@@ -2,7 +2,7 @@
     /* text decoration color */
 
     @if $enableVariables {
-        .text-decoration,
+        // .text-decoration,
         .text-decoration-color {
             text-decoration-color: var(--#{$type}#{$orientation}text-decoration-color, var(--text-decoration-color));
             @if $enableVariablesReset {

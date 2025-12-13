@@ -8,7 +8,7 @@
     }
     
     @if $enableVariables {
-        .outline,
+        // .outline,
         .outline-color {
             outline-color: var(--#{$type}#{$orientation}outline-color, var(--outline-color));
             @if $enableVariablesReset {

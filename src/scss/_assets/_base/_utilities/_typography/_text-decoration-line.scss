@@ -2,7 +2,7 @@
     /* text decoration line */
 
     @if $enableVariables {
-        .text-decoration,
+        // .text-decoration,
         .text-decoration-line {
             text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
             @if $enableVariablesReset {

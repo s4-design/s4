@@ -8,7 +8,7 @@
     }
     
     @if $enableVariables {
-        .background,
+        // .background,
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
             @if $enableVariablesReset {
@@ -26,6 +26,7 @@
             // "enabled",
             // "disabled"
         ) {
+            // .background\:#{$pseudoClass}:#{$pseudoClass},
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
                 background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
                 @if $enableVariablesReset {

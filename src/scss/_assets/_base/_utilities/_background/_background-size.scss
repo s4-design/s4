@@ -10,7 +10,7 @@
     }
     
     @if $enableVariables {
-        .background,
+        // .background,
         .background-size {
             background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
             @if $enableVariablesReset {

@@ -2,7 +2,7 @@
     /* outline offset */
     
     @if $enableVariables {
-        .outline,
+        // .outline,
         .outline-offset {
             outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
             @if $enableVariablesReset {

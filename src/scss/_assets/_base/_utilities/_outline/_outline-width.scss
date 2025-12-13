@@ -16,7 +16,7 @@
     }
     
     @if $enableVariables {
-        .outline,
+        // .outline,
         .outline-width {
             outline-width: var(--#{$type}#{$orientation}outline-width, var(--outline-width));
             @if $enableVariablesReset {

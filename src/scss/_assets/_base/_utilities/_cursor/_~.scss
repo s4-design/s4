@@ -1,5 +1,5 @@
 @use "cursor" as cursor;
 
-@mixin cursor($type, $orientation, $enableVariables, $enableVariablesReset) {
-    @include cursor.cursor($type, $orientation, $enableVariables, $enableVariablesReset);
+@mixin cursor($type, $orientation, $enableVariables) {
+    @include cursor.cursor($type, $orientation, $enableVariables);
 }

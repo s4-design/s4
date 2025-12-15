@@ -1,16 +1,9 @@
-@mixin text-decoration-line($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin text-decoration-line($type, $orientation, $enableVariables) {
     /* text decoration line */
 
     @if $enableVariables {
-        // .text-decoration,
         .text-decoration-line {
             text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --text-decoration-line: initial;
-                }
-            }
         }
     }
 }

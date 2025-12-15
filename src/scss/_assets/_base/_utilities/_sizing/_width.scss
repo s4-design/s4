@@ -1,4 +1,4 @@
-@mixin width($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin width($type, $orientation, $enableVariables) {
     /* width */
     @each $width in (
         "min-width",
@@ -22,12 +22,6 @@
         @if $enableVariables {
             .#{$width} {
                 #{$width}: var(--#{$type}#{$orientation}#{$width}, var(--#{$width}));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --#{$width}: initial;
-                    }
-                }
             }
         }
     }

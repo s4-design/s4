@@ -1,7 +1,7 @@
 @use 'pointer-events' as *;
 @use "user-select" as *;
 
-@mixin events($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin events($type, $orientation, $enableVariables) {
     @include pointer-events($type, $orientation);
-    @include user-select($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include user-select($type, $orientation, $enableVariables);
 }

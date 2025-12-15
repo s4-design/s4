@@ -1,16 +1,9 @@
-@mixin outline-offset($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin outline-offset($type, $orientation, $enableVariables) {
     /* outline offset */
     
     @if $enableVariables {
-        // .outline,
         .outline-offset {
             outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --outline-offset: initial;
-                }
-            }
         }
     }
 }

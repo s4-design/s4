@@ -1,4 +1,4 @@
-@mixin border-width($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides) {
+@mixin border-width($type, $orientation, $enableVariables, $borderSides) {
     /* border width */
     @each $width in (
         "thin",
@@ -18,18 +18,12 @@
     }
     
     @if $enableVariables {
+        .border-width {
+            border-width: var(--#{$type}#{$orientation}border-width, var(--border-width));
+        }
         @each $side in $borderSides {
-            // .border,
-            .border-width,
-            // .border-#{$side},
             .border-#{$side}-width {
-                border-#{$side}-width: var(--#{$type}#{$orientation}border-width, var(--border-width));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --border-width: initial;
-                    }
-                }
+                border-#{$side}-width: var(--#{$type}#{$orientation}border-#{$side}-width, var(--border-#{$side}-width));
             }
         }
     }

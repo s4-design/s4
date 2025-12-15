@@ -1,4 +1,4 @@
-@mixin border-color($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides) {
+@mixin border-color($type, $orientation, $enableVariables, $borderSides) {
     /* border-color */
     .#{$type}#{$orientation}border-color {
         &--transparent,
@@ -6,20 +6,20 @@
             border-color: #{transparent};
         }
     }
-    
+
     @if $enableVariables {
+        .border-color {
+            border-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
+        }
+        .border-color\:hover:hover {
+            border-color: var(--#{$type}#{$orientation}border-color\:hover, var(--border-color\:hover));
+        }
         @each $side in $borderSides {
-            // .border,
-            .border-color,
-            // .border-#{$side},
             .border-#{$side}-color {
-                border-#{$side}-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --border-color: initial;
-                    }
-                }
+                border-#{$side}-color: var(--#{$type}#{$orientation}border-#{$side}-color, var(--border-#{$side}-color));
+            }
+            .border-#{$side}-color\:hover:hover {
+                border-#{$side}-color: var(--#{$type}#{$orientation}border-#{$side}-color\:hover, var(--border-#{$side}-color\:hover));
             }
         }
     }

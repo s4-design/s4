@@ -1,15 +1,9 @@
-@mixin font-size($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin font-size($type, $orientation, $enableVariables) {
     /* font size */
 
     @if $enableVariables {
         .font-size {
             font-size: var(--#{$type}#{$orientation}font-size, var(--font-size));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --font-size: initial;
-                }
-            }
         }
     }
 }

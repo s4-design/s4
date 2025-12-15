@@ -1,5 +1,5 @@
 @use "zoom" as zoom;
 
-@mixin zoom($type, $orientation, $enableVariables, $enableVariablesReset) {
-    @include zoom.zoom($type, $orientation, $enableVariables, $enableVariablesReset);
+@mixin zoom($type, $orientation, $enableVariables) {
+    @include zoom.zoom($type, $orientation, $enableVariables);
 }

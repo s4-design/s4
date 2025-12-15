@@ -1,4 +1,4 @@
-@mixin order($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin order($type, $orientation, $enableVariables) {
     /* order */
     .#{$type}#{$orientation}order--unset {
         order: unset;
@@ -7,12 +7,6 @@
     @if $enableVariables {
         .order {
             order: var(--#{$type}#{$orientation}order, var(--order));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --order: initial;
-                }
-            }
         }
     }
 }

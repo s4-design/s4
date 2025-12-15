@@ -1,4 +1,4 @@
-@mixin height($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin height($type, $orientation, $enableVariables) {
     /* height */
     @each $height in (
         "min-height",
@@ -22,12 +22,6 @@
         @if $enableVariables {
             .#{$height} {
                 #{$height}: var(--#{$type}#{$orientation}#{$height}, var(--#{$height}));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --#{$height}: initial;
-                    }
-                }
             }
         }
     }

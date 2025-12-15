@@ -1,4 +1,4 @@
-@mixin border-radius($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin border-radius($type, $orientation, $enableVariables) {
     /* border radius */
     $borderRadiusCorner:(
         "start-start",
@@ -33,12 +33,6 @@
             .border-radius,
             .border-#{$corner}-radius {
                 border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --border-radius: initial;
-                    }
-                }
             }
         }
     }

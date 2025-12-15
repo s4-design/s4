@@ -8,8 +8,7 @@
     @include base.utilities(
         map.get(settings.$mobilePortrait, type),
         map.get(settings.$mobilePortrait, orientation),
-        settings.$enableVariables,
-        settings.$enableVariablesReset
+        settings.$enableVariables
     );
     @include xtra.utilities(
         map.get(settings.$mobilePortrait, type),

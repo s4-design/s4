@@ -5,11 +5,11 @@
 @use "grid-row" as *;
 @use "grid-template" as *;
 
-@mixin grid($type, $orientation, $enableVariables, $enableVariablesReset) {
-    @include grid-auto-columns($type, $orientation, $enableVariables, $enableVariablesReset);
+@mixin grid($type, $orientation, $enableVariables) {
+    @include grid-auto-columns($type, $orientation, $enableVariables);
     @include grid-auto-flow($type, $orientation);
-    @include grid-auto-rows($type, $orientation, $enableVariables, $enableVariablesReset);
-    @include grid-column($type, $orientation, $enableVariables, $enableVariablesReset);
-    @include grid-row($type, $orientation, $enableVariables, $enableVariablesReset);
-    @include grid-template($type, $orientation, $enableVariables, $enableVariablesReset);
+    @include grid-auto-rows($type, $orientation, $enableVariables);
+    @include grid-column($type, $orientation, $enableVariables);
+    @include grid-row($type, $orientation, $enableVariables);
+    @include grid-template($type, $orientation, $enableVariables);
 }

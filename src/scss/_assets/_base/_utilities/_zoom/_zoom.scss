@@ -1,15 +1,9 @@
-@mixin zoom($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin zoom($type, $orientation, $enableVariables) {
     /* zoom */
 
     @if $enableVariables {
         .zoom {
             zoom: var(--#{$type}#{$orientation}zoom, var(--zoom));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --zoom: initial;
-                }
-            }
         }
     }
 }

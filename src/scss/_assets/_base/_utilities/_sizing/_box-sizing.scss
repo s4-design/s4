@@ -1,4 +1,4 @@
-@mixin box-sizing($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin box-sizing($type, $orientation, $enableVariables) {
     /* box sizing */
     @each $boxSizing in (
         "border",

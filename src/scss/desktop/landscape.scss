@@ -8,8 +8,7 @@
     @include base.utilities(
         map.get(settings.$desktopLandscape, type),
         map.get(settings.$desktopLandscape, orientation),
-        settings.$enableVariables,
-        settings.$enableVariablesReset
+        settings.$enableVariables
     );
     @include xtra.utilities(
         map.get(settings.$desktopLandscape, type),

@@ -1,4 +1,4 @@
-@mixin background-color($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin background-color($type, $orientation, $enableVariables) {
     /* background color */
     .#{$type}#{$orientation}background-color {
         &--transparent,
@@ -8,15 +8,8 @@
     }
     
     @if $enableVariables {
-        // .background,
         .background-color {
             background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --background-color: initial;
-                }
-            }
         }
         @each $pseudoClass in (
             // "focus",
@@ -26,15 +19,8 @@
             // "enabled",
             // "disabled"
         ) {
-            // .background\:#{$pseudoClass}:#{$pseudoClass},
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
                 background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --background-color\:#{$pseudoClass}: initial;
-                    }
-                }
             }
         }
     }

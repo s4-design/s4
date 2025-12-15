@@ -1,4 +1,4 @@
-@mixin box-shadow($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin box-shadow($type, $orientation, $enableVariables) {
     /* box shadow */
     .#{$type}#{$orientation}box-shadow {
         &--unset,
@@ -10,24 +10,12 @@
     @if $enableVariables {
         .box-shadow {
             box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --box-shadow: initial;
-                }
-            }
         }
         @each $pseudoClass in (
             "hover"
         ) {
             .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
                 box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --box-shadow\:#{$pseudoClass}: initial;
-                    }
-                }
             }
         }
     }

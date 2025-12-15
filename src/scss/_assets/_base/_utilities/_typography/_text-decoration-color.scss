@@ -1,16 +1,9 @@
-@mixin text-decoration-color($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin text-decoration-color($type, $orientation, $enableVariables) {
     /* text decoration color */
 
     @if $enableVariables {
-        // .text-decoration,
         .text-decoration-color {
             text-decoration-color: var(--#{$type}#{$orientation}text-decoration-color, var(--text-decoration-color));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --text-decoration-color: initial;
-                }
-            }
         }
     }
 }

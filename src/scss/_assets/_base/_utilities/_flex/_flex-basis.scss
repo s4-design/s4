@@ -1,4 +1,4 @@
-@mixin flex-basis($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin flex-basis($type, $orientation, $enableVariables) {
     /* flex basis */
     @each $flexBasis in (
         "max-content",
@@ -11,15 +11,8 @@
     }
     
     @if $enableVariables {
-        // .flex,
         .flex-basis {
             flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --flex-basis: initial;
-                }
-            }
         }
     }
 }

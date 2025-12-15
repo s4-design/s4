@@ -1,16 +1,9 @@
-@mixin grid-column($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin grid-column($type, $orientation, $enableVariables) {
     /* grid column */
     
     @if $enableVariables {
         .grid-column {
             grid-column: var(--#{$type}#{$orientation}grid-column-start, var(--grid-column-start)) / var(--#{$type}#{$orientation}grid-column-end, var(--grid-column-end));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --grid-column-start: initial;
-                    --grid-column-end: initial;
-                }
-            }
         }
     }
 }

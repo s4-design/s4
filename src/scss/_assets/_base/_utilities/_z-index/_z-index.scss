@@ -1,15 +1,9 @@
-@mixin z-index($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin z-index($type, $orientation, $enableVariables) {
     /* z-index */
 
     @if $enableVariables {
         .z-index {
             z-index: var(--#{$type}#{$orientation}z-index, var(--z-index));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --z-index: initial;
-                }
-            }
         }
     }
 }

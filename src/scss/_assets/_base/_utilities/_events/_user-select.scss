@@ -1,4 +1,4 @@
-@mixin user-select($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin user-select($type, $orientation, $enableVariables) {
     /* user select */
     @each $userSelect in (
         "none",

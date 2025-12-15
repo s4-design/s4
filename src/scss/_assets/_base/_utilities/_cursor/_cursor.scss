@@ -1,15 +1,9 @@
-@mixin cursor($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin cursor($type, $orientation, $enableVariables) {
     /* cursor */
     
     @if $enableVariables {
         .cursor {
             cursor: var(--#{$type}#{$orientation}cursor, var(--cursor));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --cursor: initial;
-                }
-            }
         }
     }
 }

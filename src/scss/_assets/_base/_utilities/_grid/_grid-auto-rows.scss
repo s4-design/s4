@@ -1,15 +1,9 @@
-@mixin grid-auto-rows($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin grid-auto-rows($type, $orientation, $enableVariables) {
     /* grid auto rows */
     
     @if $enableVariables {
         .grid-auto-rows {
             grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --grid-auto-rows: initial;
-                }
-            }
         }
     }
 }

@@ -1,16 +1,9 @@
-@mixin flex-shrink($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin flex-shrink($type, $orientation, $enableVariables) {
     /* flex shrink */
     
     @if $enableVariables {
-        // .flex,
         .flex-shrink {
             flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --flex-shrink: initial;
-                }
-            }
         }
     }
 }

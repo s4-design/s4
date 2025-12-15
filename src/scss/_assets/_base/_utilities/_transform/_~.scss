@@ -1,5 +1,5 @@
 @use "transform" as transform;
 
-@mixin transform($type, $orientation, $enableVariables, $enableVariablesReset) {
-    @include transform.transform($type, $orientation, $enableVariables, $enableVariablesReset);
+@mixin transform($type, $orientation, $enableVariables) {
+    @include transform.transform($type, $orientation, $enableVariables);
 }

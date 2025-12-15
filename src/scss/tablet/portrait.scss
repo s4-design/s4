@@ -8,8 +8,7 @@
     @include base.utilities(
         map.get(settings.$tabletPortrait, type),
         map.get(settings.$tabletPortrait, orientation),
-        settings.$enableVariables,
-        settings.$enableVariablesReset
+        settings.$enableVariables
     );
     @include xtra.utilities(
         map.get(settings.$tabletPortrait, type),

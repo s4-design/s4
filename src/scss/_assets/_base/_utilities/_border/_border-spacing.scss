@@ -1,15 +1,9 @@
-@mixin border-spacing($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin border-spacing($type, $orientation, $enableVariables) {
     /* border spacing */
     
     @if $enableVariables {
         .border-spacing {
             border-spacing: var(--#{$type}#{$orientation}border-spacing, var(--border-spacing));
-            @if $enableVariablesReset {
-                // сбрасываем у потомков значения переменных
-                > * {
-                    --border-spacing: initial;
-                }
-            }
         }
     }
 }

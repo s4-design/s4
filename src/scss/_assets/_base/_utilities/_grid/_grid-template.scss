@@ -1,4 +1,4 @@
-@mixin grid-template($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin grid-template($type, $orientation, $enableVariables) {
     /* grid template */
     
     @each $gridTemplate in (
@@ -8,12 +8,6 @@
         @if $enableVariables {
             .grid-template-#{$gridTemplate} {
                 grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --grid-template-#{$gridTemplate}: initial;
-                    }
-                }
             }
         }
     }

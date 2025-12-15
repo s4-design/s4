@@ -1,4 +1,4 @@
-@mixin border-style($type, $orientation, $enableVariables, $enableVariablesReset, $borderSides) {
+@mixin border-style($type, $orientation, $enableVariables, $borderSides) {
     /* border style */
     $borderStyle:(
         "dotted",
@@ -26,18 +26,12 @@
     }
     
     @if $enableVariables {
+        .border-style {
+            border-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
+        }
         @each $side in $borderSides {
-            // .border,
-            .border-style,
-            // .border-#{$side},
             .border-#{$side}-style {
-                border-#{$side}-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
-                @if $enableVariablesReset {
-                    // сбрасываем у потомков значения переменных
-                    > * {
-                        --border-style: initial;
-                    }
-                }
+                border-#{$side}-style: var(--#{$type}#{$orientation}border-#{$side}-style, var(--border-#{$side}-style));
             }
         }
     }

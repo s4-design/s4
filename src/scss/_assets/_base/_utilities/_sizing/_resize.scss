@@ -1,4 +1,4 @@
-@mixin resize($type, $orientation, $enableVariables, $enableVariablesReset) {
+@mixin resize($type, $orientation, $enableVariables) {
     /* resize */
     @each $resize in (
         "both",

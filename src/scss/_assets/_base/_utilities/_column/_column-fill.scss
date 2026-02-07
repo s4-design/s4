@@ -1,0 +1,11 @@
+@mixin column-fill($type, $orientation) {
+    /* column fill */
+    @each $columnFill in (
+        "auto",
+        "balance",
+    ) {
+        .#{$type}#{$orientation}column-fill--#{$columnFill} {
+            column-fill: #{$columnFill};
+        }
+    }
+}

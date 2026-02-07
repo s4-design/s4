@@ -1,0 +1,11 @@
+@mixin column-span($type, $orientation) {
+    /* column span */
+    @each $columnSpan in (
+        "auto",
+        "none",
+    ) {
+        .#{$type}#{$orientation}column-span--#{$columnSpan} {
+            column-span: #{$columnSpan};
+        }
+    }
+}

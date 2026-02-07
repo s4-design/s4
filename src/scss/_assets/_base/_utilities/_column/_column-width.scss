@@ -1,0 +1,8 @@
+@mixin column-width($type, $orientation, $enableVariables) {
+    /* column width */    
+    @if $enableVariables {
+        .column-width {
+            column-width: var(--#{$type}#{$orientation}column-width, var(--column-width));
+        }
+    }
+}

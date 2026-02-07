@@ -1,0 +1,17 @@
+@use "column-count" as *;
+@use "column-fill" as *;
+@use "column-rule-color" as *;
+@use "column-rule-style" as *;
+@use "column-rule-width" as *;
+@use "column-span" as *;
+@use "column-width" as *;
+
+@mixin column($type, $orientation, $enableVariables) {
+    @include column-count($type, $orientation, $enableVariables);
+    @include column-fill($type, $orientation);
+    @include column-rule-color($type, $orientation, $enableVariables);
+    @include column-rule-style($type, $orientation, $enableVariables);
+    @include column-rule-width($type, $orientation, $enableVariables);
+    @include column-span($type, $orientation);
+    @include column-width($type, $orientation, $enableVariables);
+}

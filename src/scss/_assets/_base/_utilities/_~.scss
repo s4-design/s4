@@ -1,6 +1,7 @@
 @use "_align/~" as *;
 @use "_background/~" as *;
 @use "_border/~" as *;
+@use "_column/~" as *;
 @use "_cursor/~" as *;
 @use "_display/~" as *;
 @use "_flex/~" as *;
@@ -26,6 +27,7 @@
     @include align($type, $orientation);
     @include background($type, $orientation, $enableVariables);
     @include border($type, $orientation, $enableVariables);
+    @include column($type, $orientation, $enableVariables);
     @include cursor($type, $orientation, $enableVariables);
     @include display($type, $orientation);
     @include flex($type, $orientation, $enableVariables);

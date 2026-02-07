@@ -1,0 +1,19 @@
+@mixin column-rule-style($type, $orientation, $enableVariables) {
+    /* column rule style */
+    @each $columnRuleStyle in (
+        "dotted",
+        "dashed",
+        "solid",
+        "none"
+    ) {
+        .#{$type}#{$orientation}outline-style--#{$columnRuleStyle} {
+            outline-style: #{$columnRuleStyle};
+        }
+    }
+    
+    @if $enableVariables {
+        .outline-style {
+            outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+        }
+    }
+}

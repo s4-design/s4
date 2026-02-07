@@ -1,0 +1,12 @@
+@mixin column-count($type, $orientation, $enableVariables) {
+    /* column count */
+    .#{$type}#{$orientation}column-count--auto {
+        column-count: auto;
+    }
+    
+    @if $enableVariables {
+        .column-count {
+            column-count: var(--#{$type}#{$orientation}column-count, var(--column-count));
+        }
+    }
+}

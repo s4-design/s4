@@ -1,0 +1,9 @@
+@mixin column-rule-color($type, $orientation, $enableVariables) {
+    /* column rule color */
+    
+    @if $enableVariables {
+        .column-rule-color {
+            column-count: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
+        }
+    }
+}

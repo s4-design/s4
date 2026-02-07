@@ -1,0 +1,18 @@
+@mixin column-rule-width($type, $orientation, $enableVariables) {
+    /* column-rule width */
+    @each $width in (
+        "thin",
+        "medium",
+        "thick"
+    ) {
+        .#{$type}#{$orientation}column-rule-width--#{$width} {
+            column-rule-width: var(--column-rule-width--#{$width}, #{$width});
+        }
+    }
+    
+    @if $enableVariables {
+        .column-rule-width {
+            column-rule-width: var(--#{$type}#{$orientation}column-rule-width, var(--column-rule-width));
+        }
+    }
+}

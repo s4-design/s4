@@ -42,7 +42,7 @@
                     "left"
                 ) {
                     &-#{$property} {
-                        #{$spacingName}-#{$property}: var(--#{$type}#{$orientation}#{$spacingName}-#{$property}, var(--#{$spacingName}));
+                        #{$spacingName}-#{$property}: var(--#{$type}#{$orientation}#{$spacingName}-#{$property}, var(--#{$spacingName}-#{$property}));
                     }
                 }
             }

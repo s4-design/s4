@@ -4,7 +4,8 @@
         "auto",
         "hidden",
         "visible",
-        "scroll"
+        "scroll",
+        "clip"
     ) {
         .#{$type}#{$orientation}overflow--#{$overflow} {
             overflow: #{$overflow};

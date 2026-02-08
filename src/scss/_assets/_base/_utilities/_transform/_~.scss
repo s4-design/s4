@@ -1,5 +1,11 @@
 @use "transform" as transform;
+@use "rotate" as *;
+@use "scale" as *;
+@use "translate" as *;
 
 @mixin transform($type, $orientation, $enableVariables) {
     @include transform.transform($type, $orientation, $enableVariables);
+    @include rotate($type, $orientation, $enableVariables);
+    @include scale($type, $orientation, $enableVariables);
+    @include translate($type, $orientation, $enableVariables);
 }

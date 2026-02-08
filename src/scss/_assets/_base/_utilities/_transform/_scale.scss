@@ -1,0 +1,9 @@
+@mixin scale($type, $orientation, $enableVariables) {
+    /* scale */
+
+    @if $enableVariables {
+        .scale {
+            scale: var(--#{$type}#{$orientation}scale, var(--scale));
+        }
+    }
+}

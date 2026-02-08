@@ -4,6 +4,7 @@
 @use "_column/~" as *;
 @use "_cursor/~" as *;
 @use "_display/~" as *;
+@use "_filter/~" as *;
 @use "_flex/~" as *;
 @use "_float/~" as *;
 @use "_grid/~" as *;
@@ -30,6 +31,7 @@
     @include column($type, $orientation, $enableVariables);
     @include cursor($type, $orientation, $enableVariables);
     @include display($type, $orientation);
+    @include filter($type, $orientation, $enableVariables);
     @include flex($type, $orientation, $enableVariables);
     @include float($type, $orientation);
     @include grid($type, $orientation, $enableVariables);

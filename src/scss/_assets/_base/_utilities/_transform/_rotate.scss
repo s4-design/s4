@@ -1,0 +1,9 @@
+@mixin rotate($type, $orientation, $enableVariables) {
+    /* rotate */
+
+    @if $enableVariables {
+        .rotate {
+            rotate: var(--#{$type}#{$orientation}rotate, var(--rotate));
+        }
+    }
+}

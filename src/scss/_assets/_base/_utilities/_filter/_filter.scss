@@ -1,0 +1,9 @@
+@mixin filter($type, $orientation, $enableVariables) {
+    /* filter */
+
+    @if $enableVariables {
+        .filter {
+            filter: var(--#{$type}#{$orientation}filter, var(--filter));
+        }
+    }
+}

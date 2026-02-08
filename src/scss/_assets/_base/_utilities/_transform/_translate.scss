@@ -1,0 +1,9 @@
+@mixin translate($type, $orientation, $enableVariables) {
+    /* translate */
+
+    @if $enableVariables {
+        .translate {
+            translate: var(--#{$type}#{$orientation}translate, var(--translate));
+        }
+    }
+}

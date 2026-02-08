@@ -1,0 +1,7 @@
+@use "backdrop-filter" as *;
+@use "filter" as filter;
+
+@mixin filter($type, $orientation, $enableVariables) {
+    @include backdrop-filter($type, $orientation, $enableVariables);
+    @include filter.filter($type, $orientation, $enableVariables);
+}

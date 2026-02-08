@@ -1,0 +1,9 @@
+@mixin backdrop-filter($type, $orientation, $enableVariables) {
+    /* backdrop filter */
+
+    @if $enableVariables {
+        .backdrop-filter {
+            backdrop-filter: var(--#{$type}#{$orientation}backdrop-filter, var(--backdrop-filter));
+        }
+    }
+}

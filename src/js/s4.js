@@ -149,7 +149,7 @@ async function S4() {
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers
     document.head.appendChild(Object.assign(document.createElement('style'), {
-        textContent: `@layer themes, elements, utilities;`
+        textContent: `@layer elements, themes, utilities;`
     }))
 
     try {

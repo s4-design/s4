@@ -1,11 +1,21 @@
 @mixin a() {
     a {
+        border-radius: var(--border-radius);
+
         color: var(--color);
-        text-decoration-color: var(--text-decoration-color);
-        text-decoration-line: var(--text-decoration-line);
-        text-decoration-style: var(--text-decoration-style);
-        text-decoration-thickness: var(--text-decoration-thickness);
+        text-decoration:
+            var(--text-decoration-color)
+            var(--text-decoration-line)
+            var(--text-decoration-style)
+            var(--text-decoration-thickness);
         text-underline-offset: var(--text-underline-offset);
+        
         cursor: var(--cursor);
+        transition: var(--transition);
+        outline:
+            var(--outline-color)
+            var(--outline-style)
+            var(--outline-width);
+        outline-offset: var(--outline-offset);
     }
 }

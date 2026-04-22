@@ -1,0 +1,34 @@
+@mixin blockquote() {
+    blockquote {
+        --position: relative;
+        --display: grid;
+        
+        --gap: var(--gap--s1);
+        --margin: var(--margin--md) var(--margin--l4);
+        --font-size: var(--font-size--l1);
+        > * {
+            --margin: 0;
+        }
+        &:where([data-content]) {
+            --padding: 0 0 0 var(--padding--l3);
+            &::before {
+                --position: absolute;
+                --display: block;
+                --left: 0;
+                --top: 0;
+                --bottom: 0;
+                --width: var(--size--5);
+                --color: var(--negative--mute);
+                --text-align: center;
+                --border-right: thin solid;
+                --line-height: 1.25lh;
+            }
+            > footer {
+                --text-align: end;
+            }
+        }
+        > footer {
+            --font-size: var(--font-size--s1);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+// https://www.linkedin.com/posts/utsavmeena_how-to-create-an-accessible-menu-in-css-share-7437886243197169665-eoQc?utm_source=share&utm_medium=member_desktop&rcm=ACoAABej0q0Bp26GEQ4dVPDJxYs_pFYddYmClMA
+
+.dropdown-container:where(.open, :focus-within) .dropdown-menu {
+   height: 132px;
+}
+
+.dropdown-container:not(.open):not(:focus-within) .dropdown-menu {
+   height: 0;
+}
+
+// https://media.licdn.com/dms/image/v2/D4D22AQFq_jnaXErUNg/feedshare-shrink_2048_1536/B4DZziuHnyJsAg-/0/1773330268361?e=1775088000&v=beta&t=RHlr9RStYw5Q5s9AL4ss2HOEiNTHORcFS15X-KWOPAc

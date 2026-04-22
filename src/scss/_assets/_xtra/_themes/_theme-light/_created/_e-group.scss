@@ -1,0 +1,52 @@
+@mixin e-group() {
+    e-group,
+    .element--group {
+        --display: contents;
+
+        &:is([class*=display--grid], [class*=display--inline-grid])[class*=--row],
+        &:is([class*=display--flex], [class*=display--inline-flex])[class*=--column],
+        &.direction--vertical {
+            > :first-child:not(:last-child),
+            > :not(:first-child, :last-child) {
+                --border-end-start-radius: 0;
+                --border-end-end-radius: 0;
+                > * {
+                    --border-end-start-radius: initial;
+                    --border-end-end-radius: initial;
+                }
+            }
+            > :not(:first-child, :last-child),
+            > :last-child:not(:first-child) {
+                --border-start-start-radius: 0;
+                --border-start-end-radius: 0;
+                > * {
+                    --border-start-start-radius: initial;
+                    --border-start-end-radius: initial; 
+                }
+            }
+        }
+
+        &:is([class*=display--grid], [class*=display--inline-grid])[class*=--column],
+        &:is([class*=display--flex], [class*=display--inline-flex])[class*=--row],
+        &.direction--horizontal {
+            > :first-child:not(:last-child),
+            > :not(:first-child, :last-child) {
+                --border-start-end-radius: 0;
+                --border-end-end-radius: 0;
+                > * {
+                    --border-start-end-radius: initial;
+                    --border-end-end-radius: initial;
+                }
+            }
+            > :not(:first-child, :last-child),
+            > :last-child:not(:first-child) {
+                --border-start-start-radius: 0;
+                --border-end-start-radius: 0;
+                > * {
+                    --border-start-start-radius: initial;
+                    --border-end-start-radius: initial;
+                }
+            }
+        }
+    }
+}

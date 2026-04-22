@@ -1,8 +1,11 @@
 @mixin abbr() {
     abbr {
         color: var(--color);
-        text-decoration-line: var(--text-decoration-line);
-        text-decoration-style: var(--text-decoration-style);
+        text-decoration:
+            var(--text-decoration-color)
+            var(--text-decoration-line)
+            var(--text-decoration-style)
+            var(--text-decoration-thickness);
         text-underline-offset: var(--text-underline-offset);
         &[title]::after {
             content: var(--content);
@@ -12,7 +15,7 @@
             line-height: var(--line-height);
             vertical-align: var(--vertical-align);
         }
-        &:not([title=""])::after {
+        &[title=""]::after {
             color: var(--color);
         }
     }

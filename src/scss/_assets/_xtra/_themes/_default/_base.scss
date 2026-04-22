@@ -25,130 +25,74 @@
 }
 
 // properties
-@mixin font-size (
-    $font-size--s3: var(--size--1),
-    $font-size--s2: var(--size--2),
-    $font-size--s1: var(--size--3),
-    $font-size--md: var(--size--4),
-    $font-size--l1: var(--size--5),
-    $font-size--l2: var(--size--6),
-    $font-size--l3: var(--size--7),
-    $font-size--l4: var(--size--8)
-) {
-    --font-size--s3: #{$font-size--s3};
-    --font-size--s2: #{$font-size--s2};
-    --font-size--s1: #{$font-size--s1};
-    --font-size--md: #{$font-size--md};
-    --font-size--l1: #{$font-size--l1};
-    --font-size--l2: #{$font-size--l2};
-    --font-size--l3: #{$font-size--l3};
-    --font-size--l4: #{$font-size--l4};
+@mixin font-size () {
+    --font-size--s3: var(--size--1);
+    --font-size--s2: var(--size--2);
+    --font-size--s1: var(--size--3);
+    --font-size--md: var(--size--4);
+    --font-size--l1: var(--size--5);
+    --font-size--l2: var(--size--6);
+    --font-size--l3: var(--size--7);
+    --font-size--l4: var(--size--8);
 }
-@mixin margin (
-    $margin--s3: var(--size--1),
-    $margin--s2: var(--size--2),
-    $margin--s1: var(--size--3),
-    $margin--md: var(--size--4),
-    $margin--l1: var(--size--5),
-    $margin--l2: var(--size--6),
-    $margin--l3: var(--size--7),
-    $margin--l4: var(--size--8)
-) {
-    --margin--s3: #{$margin--s3};
-    --margin--s2: #{$margin--s2};
-    --margin--s1: #{$margin--s1};
-    --margin--md: #{$margin--md};
-    --margin--l1: #{$margin--l1};
-    --margin--l2: #{$margin--l2};
-    --margin--l3: #{$margin--l3};
-    --margin--l4: #{$margin--l4};
+@mixin margin () {
+    --margin--s3: var(--size--1);
+    --margin--s2: var(--size--2);
+    --margin--s1: var(--size--3);
+    --margin--md: var(--size--4);
+    --margin--l1: var(--size--5);
+    --margin--l2: var(--size--6);
+    --margin--l3: var(--size--7);
+    --margin--l4: var(--size--8);
 }
-@mixin padding (
-    $padding--s3: var(--size--1),
-    $padding--s2: var(--size--2),
-    $padding--s1: var(--size--3),
-    $padding--md: var(--size--4),
-    $padding--l1: var(--size--5),
-    $padding--l2: var(--size--6),
-    $padding--l3: var(--size--7),
-    $padding--l4: var(--size--8)
-) {
-    --padding--s3: #{$padding--s3};
-    --padding--s2: #{$padding--s2};
-    --padding--s1: #{$padding--s1};
-    --padding--md: #{$padding--md};
-    --padding--l1: #{$padding--l1};
-    --padding--l2: #{$padding--l2};
-    --padding--l3: #{$padding--l3};
-    --padding--l4: #{$padding--l4};
+@mixin padding () {
+    --padding--s3: var(--size--1);
+    --padding--s2: var(--size--2);
+    --padding--s1: var(--size--3);
+    --padding--md: var(--size--4);
+    --padding--l1: var(--size--5);
+    --padding--l2: var(--size--6);
+    --padding--l3: var(--size--7);
+    --padding--l4: var(--size--8);
 }
-@mixin gap (
-    $gap--s3: var(--size--1),
-    $gap--s2: var(--size--2),
-    $gap--s1: var(--size--3),
-    $gap--md: var(--size--4),
-    $gap--l1: var(--size--5),
-    $gap--l2: var(--size--6),
-    $gap--l3: var(--size--7),
-    $gap--l4: var(--size--8)
-) {
-    --gap--s3: #{$gap--s3};
-    --gap--s2: #{$gap--s2};
-    --gap--s1: #{$gap--s1};
-    --gap--md: #{$gap--md};
-    --gap--l1: #{$gap--l1};
-    --gap--l2: #{$gap--l2};
-    --gap--l3: #{$gap--l3};
-    --gap--l4: #{$gap--l4};
+@mixin gap () {
+    --gap--s3: var(--size--1);
+    --gap--s2: var(--size--2);
+    --gap--s1: var(--size--3);
+    --gap--md: var(--size--4);
+    --gap--l1: var(--size--5);
+    --gap--l2: var(--size--6);
+    --gap--l3: var(--size--7);
+    --gap--l4: var(--size--8);
 }
-@mixin border-width (
-    $border-width--min: var(--size--025),
-    $border-width--thin: thin,
-    $border-width--medium: medium,
-    $border-width--thick: thick
-) {
-    --border-width--min: #{$border-width--min};
-    --border-width--thin: #{$border-width--thin};
-    --border-width--medium: #{$border-width--medium};
-    --border-width--thick: #{$border-width--thick};
+// @mixin border-width (
+//     $border-width--thin: thin,
+//     $border-width--medium: medium,
+//     $border-width--thick: thick
+// ) {
+//     --border-width--thin: #{$border-width--thin};
+//     --border-width--medium: #{$border-width--medium};
+//     --border-width--thick: #{$border-width--thick};
+// }
+@mixin border-radius () {
+    --border-radius--s3: var(--size--1);
+    --border-radius--s2: var(--size--2);
+    --border-radius--s1: var(--size--3);
+    --border-radius--md: var(--size--4);
+    --border-radius--l1: var(--size--5);
+    --border-radius--l2: var(--size--6);
+    --border-radius--l3: var(--size--7);
+    --border-radius--l4: var(--size--8);
 }
-@mixin border-radius (
-    $border-radius--s3: var(--size--025),
-    $border-radius--s2: var(--size--05),
-    $border-radius--s1: var(--size--1),
-    $border-radius--md: var(--size--2),
-    $border-radius--l1: var(--size--3),
-    $border-radius--l2: var(--size--4),
-    $border-radius--l3: var(--size--5),
-    $border-radius--l4: var(--size--6)
-) {
-    --border-radius--s3: #{$border-radius--s3};
-    --border-radius--s2: #{$border-radius--s2};
-    --border-radius--s1: #{$border-radius--s1};
-    --border-radius--md: #{$border-radius--md};
-    --border-radius--l1: #{$border-radius--l1};
-    --border-radius--l2: #{$border-radius--l2};
-    --border-radius--l3: #{$border-radius--l3};
-    --border-radius--l4: #{$border-radius--l4};
-}
-@mixin box-shadow (
-    $box-shadow--s3: var(--size--025),
-    $box-shadow--s2: var(--size--05),
-    $box-shadow--s1: var(--size--1),
-    $box-shadow--md: var(--size--2),
-    $box-shadow--l1: var(--size--3),
-    $box-shadow--l2: var(--size--4),
-    $box-shadow--l3: var(--size--5),
-    $box-shadow--l4: var(--size--6)
-) {
-    --box-shadow--s3: #{$box-shadow--s3};
-    --box-shadow--s2: #{$box-shadow--s2};
-    --box-shadow--s1: #{$box-shadow--s1};
-    --box-shadow--md: #{$box-shadow--md};
-    --box-shadow--l1: #{$box-shadow--l1};
-    --box-shadow--l2: #{$box-shadow--l2};
-    --box-shadow--l3: #{$box-shadow--l3};
-    --box-shadow--l4: #{$box-shadow--l4};
+@mixin box-shadow () {
+    --box-shadow--s3: var(--size--025);
+    --box-shadow--s2: var(--size--05);
+    --box-shadow--s1: var(--size--1);
+    --box-shadow--md: var(--size--2);
+    --box-shadow--l1: var(--size--3);
+    --box-shadow--l2: var(--size--4);
+    --box-shadow--l3: var(--size--5);
+    --box-shadow--l4: var(--size--6);
 }
 
 @mixin base-colors (
@@ -183,7 +127,7 @@
         @if (($lightness - $lightness-offset) < 0) {
             @error "Разница lightness и lightness-offset не должна быть ниже 0";
         }
-        --#{$prefix}--dark: oklch(#{$lightness - $lightness-offset} #{$chroma} #{$hue});
+        --#{$prefix}--dark: oklch(#{$lightness - $lightness-offset} #{$chroma * .8} #{$hue});
         --#{$prefix}--mute: oklch(#{$lightness} #{$chroma} #{$hue} / #{$alfa});
     }
 }

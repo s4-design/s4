@@ -1,0 +1,33 @@
+@mixin select() {
+    select {
+        position: var(--position);
+        vertical-align: var(--vertical-align);
+        display: var(--display);
+        appearance: var(--appearance);
+        grid-auto-flow: var(--grid-auto-flow);
+        min-width: var(--min-width);
+        min-height: var(--min-height);
+        margin:
+            var(--margin-block-start, var(--margin-block, var(--margin)))
+            var(--margin-inline-end, var(--margin-inline, var(--margin)))
+            var(--margin-block-end, var(--margin-block, var(--margin)))
+            var(--margin-inline-start, var(--margin-inline, var(--margin)));
+        padding: var(--padding-block) var(--padding-inline);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        border-radius: var(--border-radius);
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset);
+        color: var(--color);
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+        line-height: var(--line-height);
+        cursor: var(--cursor);
+        user-select: var(--user-select);
+        overflow: var(--overflow);
+        transition: var(--transition);
+    }
+}

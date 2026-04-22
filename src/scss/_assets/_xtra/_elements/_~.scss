@@ -1,14 +1,28 @@
 @use "_created/[theme]" as *;
-@use "_created/icon" as *;
+@use "_created/e-group" as *;
+@use "_created/e-icon" as *;
+@use "_created/e-line" as *;
+@use "_created/e-truncate" as *;
 
 @use "_mutated/" as *;
 @use "_mutated/[inert]" as *;
 @use "_mutated/a" as *;
 @use "_mutated/abbr" as *;
+@use "_mutated/blockquote" as *;
 @use "_mutated/body" as *;
 @use "_mutated/button" as *;
+@use "_mutated/cite" as *;
+@use "_mutated/code" as *;
+@use "_mutated/details" as *;
+@use "_mutated/dl" as *;
+@use "_mutated/figure" as *;
 @use "_mutated/h" as *;
 @use "_mutated/hr" as *;
+@use "_mutated/input" as *;
+@use "_mutated/label" as *;
+@use "_mutated/menu" as *;
+@use "_mutated/p" as *;
+@use "_mutated/select" as *;
 @use "_mutated/sub" as *;
 @use "_mutated/sup" as *;
 @use "_mutated/table" as *;
@@ -21,16 +35,30 @@
         @include \[inert\];
         @include a;
         @include abbr;
+        @include blockquote;
         @include body;
         @include button;
+        @include cite;
+        @include code;
+        @include details;
+        @include dl;
+        @include figure;
         @include h;
         @include hr;
+        @include input;
+        @include label;
+        @include menu;
+        @include p;
+        @include select;
         @include sub;
         @include sup;
         @include table;
 
         /* created */
         @include \[theme\];
-        @include icon;
+        @include e-group;
+        @include e-icon;
+        @include e-line;
+        @include e-truncate;
     }
 }

@@ -1,49 +1,49 @@
 @mixin button() {
-    button {
-        margin: var(--margin);
+    button,
+    :is([type=button], [type=submit], [type=reset], [type=image]),
+    // :is(::file-selector-button),
+    .element--button {
+        position: var(--position);
         display: var(--display);
         grid-auto-flow: var(--grid-auto-flow);
         grid-gap: var(--grid-gap);
         justify-content: var(--justify-content);
         align-items: var(--align-items);
         vertical-align: var(--vertical-align);
-        text-align: var(--text-align);
-        appearance: var(--appearance);
+
+        margin: var(--margin);
+        padding:
+            var(--padding-block)
+            var(--padding-inline);
+        border: var(--border);
+        border-radius: var(--border-radius);
+        // overflow: var(--overflow);
+
         min-width: var(--min-width);
         min-height: var(--min-height);
+
         font-size: var(--font-size);
         font-weight: var(--font-weight);
         font-family: var(--font-family);
         line-height: var(--line-height);
-        padding-block: var(--padding-block);
-        padding-inline: var(--padding-inline);
-        border-radius: var(--border-radius);
-        border-width: var(--border-width);
-        border-style: var(--border-style);
-        border-color: var(--border-color);
-        color: var(--color);
-        background-color: var(--background-color);
-        cursor: var(--cursor);
+        text-align: var(--text-align);
+        text-decoration-line: var(--text-decoration-line);
         text-transform: var(--text-transform);
         letter-spacing: var(--letter-spacing);
-        outline-style: var(--outline-style);
-        outline-width: var(--outline-width);
-        outline-color: var(--outline-color);
-        outline-offset: var(--outline-offset);
+        white-space: var(--white-space);
 
+        color: var(--color);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-clip: var(--background-clip);
+
+        cursor: var(--cursor);
         transition: var(--transition);
-
-        /* button, input, optgroup, select, textarea {
-            font: inherit;
-        } */
-
-        // > :not(:first-child) {
-        //     margin-left: .5em;
-        // }
- 
-
-        // > text {
-        //     font-size: var(--font-size--s1);
-        // }
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset);
+        
+        appearance: var(--appearance);
+        user-select: var(--user-select);
+        pointer-events: var(--pointer-events);
     }
 }

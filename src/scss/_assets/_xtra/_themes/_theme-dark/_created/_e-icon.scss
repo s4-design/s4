@@ -1,0 +1,20 @@
+@mixin e-icon() {
+    e-icon,
+    .element--image {
+        --display: inline-block;
+        // --width: var(--line-height);
+        // --height: var(--line-height);
+        --width: 1em;
+        --height: 1em;
+        // --vertical-align: bottom;
+        --vertical-align: center;
+        --align-self: center;
+        --background-color: currentColor;
+        --mask-image: var(--image);
+        --mask-repeat: no-repeat;
+        --mask-position: center;
+        --mask-origin: content-box;
+        // --mask-size: 80%;
+        --mask-size: 120%;
+    }
+}

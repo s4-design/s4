@@ -1,42 +1,56 @@
 @mixin a($hover-active) {
     a {
+        --border-radius: var(--border-radius--s3);
+
         --color: var(--negative);
-        --text-decoration-color: var(--negative--light);
         --text-decoration-line: underline;
         --text-decoration-style: solid;
+        --text-decoration-color: var(--negative--light);
         --text-decoration-thickness: auto;
         --text-underline-offset: var(--size--1);
+
         --cursor: pointer;
+        --transition: all var(--transition-duration) var(--transition-timing-function);
+        --outline-style: solid;
+        --outline-width: var(--size--05);
+        --outline-color: transparent;
+        --outline-offset: var(--size--05);
+        &:visited {
+            --color: var(--negative--dark);
+            --text-decoration-color: var(--negative--dark);
+        }
         @if ($hover-active) {
             &:hover {
                 --color: var(--negative--light);
                 --text-decoration-color: var(--negative--light);
             }
         }
-        &:visited {
-            --color: var(--negative--dark);
-            --text-decoration-color: var(--negative--dark);
+        &:focus-visible:not(:hover) {
+            --outline-color: var(--negative--mute);
         }
-    }
-    @each $color in (
-        "prime",
-        "second",
-        "success",
-        "danger"
-    ) {
-        a.#{$color} {
-            --color: var(--#{$color});
-            --text-decoration-color: var(--#{$color}--light);
-        }
-        @if ($hover-active) {
-            a:hover.#{$color} {
-                --color: var(--#{$color}--light);
+        @each $color in (
+            "prime",
+            "second",
+            "success",
+            "danger"
+        ) {
+            &.#{$color} {
+                --color: var(--#{$color});
                 --text-decoration-color: var(--#{$color}--light);
+                &:visited {
+                    --color: var(--#{$color}--dark);
+                    --text-decoration-color: var(--#{$color}--dark);
+                }
+                @if ($hover-active) {
+                    &:hover {
+                        --color: var(--#{$color}--light);
+                        --text-decoration-color: var(--#{$color}--light);
+                    }
+                }
+                &:focus-visible:not(:hover) {
+                    --outline-color: var(--#{$color}--mute);
+                }
             }
-        }
-        a:visited.#{$color} {
-            --color: var(--#{$color}--dark);
-            --text-decoration-color: var(--#{$color}--dark);
         }
     }
 }

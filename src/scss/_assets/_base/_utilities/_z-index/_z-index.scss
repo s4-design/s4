@@ -5,5 +5,17 @@
         .z-index {
             z-index: var(--#{$type}#{$orientation}z-index, var(--z-index));
         }
+        // @each $pseudoClass in (
+        //     "focus",
+        //     "active",
+        //     "hover",
+        //     "checked",
+        //     "enabled",
+        //     "disabled"
+        // ) {
+        //     .z-index\:#{$pseudoClass}:#{$pseudoClass} {
+        //         z-index: var(--#{$type}#{$orientation}z-index\:#{$pseudoClass}, var(--z-index\:#{$pseudoClass}));
+        //     }
+        // }
     }
 }

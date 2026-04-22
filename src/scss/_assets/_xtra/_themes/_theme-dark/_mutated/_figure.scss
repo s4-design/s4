@@ -1,0 +1,41 @@
+@mixin figure() {
+    figure {
+        --border-radius: var(--border-radius--s1);
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --overflow: auto;
+
+        > figcaption,
+        > e-body,
+        > .element--body {
+            &:first-child:not(:last-child) {
+                --border-end-start-radius: var(--border-radius--s3);
+                --border-end-end-radius: var(--border-radius--s3);
+            }
+            &:last-child:not(:first-child) {
+                --border-start-start-radius: var(--border-radius--s3);
+                --border-start-end-radius: var(--border-radius--s3);
+            }
+            &:not(:first-child, :last-child) {
+                --border-radius: var(--border-radius--s3);
+            }
+        }
+
+        > figcaption {
+            --margin: var(--margin--s3);
+            --padding: var(--padding--s2) var(--padding--md);
+            --border-radius: var(--border-radius--s2);
+            --background-clip: padding-box;
+            --color: var(--negative);
+        }
+        > e-body,
+        > .element--body {
+            --display: block;
+            --margin: var(--margin--s3);
+            --padding: var(--padding--md);
+            --border-radius: var(--border-radius--s2);
+            --background-color: var(--positive--light);
+            --overflow: auto;
+        }
+    }
+}

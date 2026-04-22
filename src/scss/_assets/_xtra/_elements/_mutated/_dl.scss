@@ -1,0 +1,12 @@
+@mixin dl() {
+    dl {
+        margin: var(--margin);
+        dt {
+            margin: var(--margin);
+            font-weight: var(--font-weight);
+        }
+        dd {
+            margin: var(--margin);
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@mixin figure() {
+    figure {
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        overflow: var(--overflow);
+
+        > figcaption,
+        > e-body,
+        > .element--body {
+            &:first-child:not(:last-child) {
+                border-end-start-radius: var(--border-end-start-radius);
+                border-end-end-radius: var(--border-end-end-radius);
+            }
+            &:last-child:not(:first-child) {
+                border-start-start-radius: var(--border-start-start-radius);
+                border-start-end-radius: var(--border-start-end-radius);
+            }
+            &:not(:first-child, :last-child) {
+                border-radius: var(--border-radius);
+            }
+        }
+
+        > figcaption {
+            margin: var(--margin);
+            padding: var(--padding);
+            border-radius: var(--border-radius);
+            background-clip: var(--background-clip);
+            color: var(--color);
+        }
+        > e-body,
+        > .element--body {
+            display: var(--display);
+            margin: var(--margin);
+            padding: var(--padding);
+            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+            overflow: var(--overflow);
+        }
+    }
+}

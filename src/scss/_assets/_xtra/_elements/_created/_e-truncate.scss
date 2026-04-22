@@ -1,0 +1,8 @@
+@mixin e-truncate() {
+    e-truncate,
+    .element--truncate {
+        overflow: var(--overflow);
+        text-overflow: var(--text-overflow);
+        white-space: var(--white-space);
+    }
+}

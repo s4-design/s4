@@ -1,8 +1,12 @@
 @mixin assets() {
     // preset: assets
-    .truncate {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+    /*
+        Классы не подлежащие использованию AI:
+        .truncate
+    */ 
+    // .truncate {
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    // }
 }

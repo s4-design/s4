@@ -1,0 +1,65 @@
+@mixin details() {
+    details {
+        position: var(--position);
+        display: var(--display);
+        width: var(--width);
+        
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-clip: var(--background-clip);
+        outline-offset: var(--outline-offset);
+        transition: var(--transition);
+
+        > summary {
+            position: var(--position);
+            display: var(--display);
+            grid-auto-flow: var(--grid-auto-flow);
+            grid-gap: var(--grid-gap);
+            justify-content: var(--justify-content);
+            align-items: var(--align-items);
+            margin: var(--margin);
+            text-align: var(--text-align);
+            appearance: var(--appearance);
+            min-width: var(--min-width);
+            min-height: var(--min-height);
+            font-size: var(--font-size);
+            font-weight: var(--font-weight);
+            font-family: var(--font-family);
+            line-height: var(--line-height);
+            padding:
+                var(--padding-block)
+                var(--padding-inline);
+            border-radius: var(--border-radius);
+            border-width: var(--border-width);
+            border-style: var(--border-style);
+            border-color: var(--border-color);
+            color: var(--color);
+            background-color: var(--background-color);
+            background-clip: var(--background-clip);
+            cursor: var(--cursor);
+            letter-spacing: var(--letter-spacing);
+            outline:
+                var(--outline-color)
+                var(--outline-style)
+                var(--outline-width);            
+            outline-offset: var(--outline-offset);
+            transition: var(--transition);
+            user-select: var(--user-select);
+            e-close,
+            .element--close,
+            e-open,
+            .element--open {
+                display: var(--display);
+            }
+        }
+        > e-body,
+        > .element--body {
+            display: var(--display);
+            margin: var(--margin);
+            padding: var(--padding);
+            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+        }
+    }
+}

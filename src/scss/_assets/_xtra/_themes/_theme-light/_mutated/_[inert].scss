@@ -1,6 +1,8 @@
 @mixin \[inert\]() {
     [inert] {
         --opacity: 50%;
-        --z-index: unset;
+        :where([inert]) {
+            --opacity: initial;
+        }
     }
 }

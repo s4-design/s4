@@ -1,88 +1,166 @@
 @mixin button($hover-active) {
-    button {
+    button,
+    :is([type=button], [type=submit], [type=reset], [type=image]),
+    // :where(::file-selector-button)[type=file],
+    .element--button {
+        --position: relative;
         --display: inline-grid;
         --grid-auto-flow: column;
-        --grid-gap: calc(var(--padding-block) + var(--border-width--min));
+        --grid-gap: var(--gap--s2);
         --justify-content: center;
         --align-items: center;
-        --margin: unset;
         --vertical-align: middle;
-        --text-align: center;
-        --appearance: none;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2 + var(--border-width--min) * 2);
-        --min-height: var(--min-width);
-        --font-size: var(--font-size--md);
-        --font-weight: 500;
-        --font-family: var(--font-family);
-        --line-height: var(--font-size--l2);
+
+        --margin: initial;
         --padding-block: var(--padding--s3);
-        --padding-inline: var(--padding--md);
-        --border-radius: var(--border-radius--md);
-        --border-width: var(--border-width--min);
-        --border-style: solid;
-        --border-color: transparent;
-        --color: currentColor;
-        --background-color: var(--positive);
-        --cursor: pointer;
+        --padding-inline: var(--padding--s1);
+        --border: none;
+        --border-radius: var(--border-radius--s2);
+        // --overflow: visible;
+
+        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-height: var(--min-width);
+
+        --font-size: var(--font-size--md);
+        --font-weight: 600;
+        --line-height: var(--font-size--l2);
+        --text-align: center;
+        --text-decoration-line: none;
         --text-transform: uppercase;
         --letter-spacing: var(--size--025);
+        --white-space: nowrap;
+
+        --color: var(--negative);
+        --background-color: var(--positive);
+        --background-image: none;
+        --background-clip: padding-box;
+
+        --cursor: pointer;
+        --transition: all var(--transition-duration) var(--transition-timing-function);
         --outline-style: solid;
-        --outline-width: medium;
+        --outline-width: var(--size--05);
         --outline-color: transparent;
-        --outline-offset: var(--size--0);
-        --transition: color .15s linear, background-color .15s linear, outline .15s linear;
-        @if ($hover-active) {
-            &:hover {
+        --outline-offset: var(--size--05);
+
+        --appearance: none;
+        --user-select: none;
+        --pointer-events: unset;
+
+        &:hover:not(:disabled) {
+            --color: var(--negative--light);
+            --outline-color: currentColor;
+        }
+        &:active:not(:disabled) {
+            --outline-color: currentColor;
+            --outline-offset: var(--size--0);
+            --color: var(--negative);
+        }
+        &:focus-visible:not(:hover) {
+            --outline-color: currentColor;
+            --color: var(--negative);
+        }
+        &:disabled {
+            --color: var(--negative--mute);
+            --border-color: transparent;
+            --background-color: var(--positive--light);
+            --background-image: linear-gradient(var(--positive--mute));
+            --cursor: not-allowed;
+            --pointer-events: none;
+        }
+        @each $color in (
+            "negative",
+            "prime",
+            "second",
+            "success",
+            "danger"
+        ) {
+            &.#{$color} {
+                --background-color: var(--#{$color});
+                @if ($color == "negative") {
+                    --color: var(--positive);
+                } @else {
+                    --color: var(--negative);
+                }
+                &:hover:not(:disabled) {
+                    @if ($color == "negative") {
+                        --color: var(--positive--dark);
+                        --outline-color: var(--negative--light);
+                    }
+                }
+                &:active:not(:disabled) {
+                    @if ($color == "negative") {
+                        --color: var(--positive);
+                        --outline-color: var(--negative);
+                    }
+                }
+                &:focus-visible:not(:hover) {
+                    @if ($color == "negative") {
+                        --color: var(--positive);
+                        --outline-color: var(--negative);
+                    }
+                }
+                &:disabled {
+                    --background-color: var(--#{$color}--dark);
+                    @if ($color == "negative") {
+                        --color: var(--positive--mute);
+                    } @else {
+                        --color: var(--negative--mute);
+                    }
+                }
+            }
+        }
+
+        &.differ {
+            --background-color: var(--positive--light);
+            &:hover:not(:disabled) {
+                --background-color: var(--positive--light);
+                --color: var(--negative--light);
+                --outline-color: var(--negative--light);
+            }
+            &:active:not(:disabled) {
+                --outline-color: var(--negative--light);
+            }
+            &:focus-visible:not(:hover) {
+                --outline-color: var(--negative);
+            }
+            &:disabled {
                 --background-color: var(--positive--light);
             }
-        }
-    }
-    button:active:not(:focus-visible){
-        --background-color: var(--positive--dark);
-        --outline-color: var(--negative--mute);
-        --outline-offset: var(--size--0);
-    }
-    button:focus-visible:not(:active) {
-        --background-color: var(--positive);
-        --outline-color: var(--negative--mute);
-        --outline-offset: var(--size--05);
-    }
-    button:disabled {
-        --background-color: var(--positive--mute);
-        --color: var(--negative--mute);
-        --cursor: not-allowed;
-    }
-    @each $color in (
-        "prime",
-        "second",
-        "success",
-        "danger"
-    ) {
-        button.#{$color} {
-            --background-color: var(--#{$color});
-        }
-        @if ($hover-active) {
-            button:hover.#{$color} {
-                --background-color: var(--#{$color}--light);
+            @each $color in (
+                "negative",
+                "prime",
+                "second",
+                "success",
+                "danger"
+            ) {
+                &.#{$color} {
+                    @if ($color == "negative") {
+                        --background-color: var(--negative--light);
+                        --color: var(--positive);
+                    }
+                    &:hover:not(:disabled) {
+                        @if ($color == "negative") {
+                            --background-color: var(--negative--light);
+                            --color: var(--positive--light);
+                        } @else {
+                            --color: var(--#{$color}--light);
+                        }
+                    }
+                    &:disabled {
+                        @if ($color == "negative") {
+                            --background-color: var(--negative--dark);
+                            --color: var(--positive--mute);
+                        } @else {
+                            --background-color: var(--#{$color}--dark);
+                            --color: var(--negative--mute);
+                        }
+                    }
+                }
             }
-        };
-        button:active:not(:focus-visible).#{$color} {
-            --background-color: var(--#{$color}--dark);
-            --outline-color: var(--#{$color}--mute);
-            --outline-offset: var(--size--0);
         }
-        button:focus-visible:not(:active).#{$color} {
-            --background-color: var(--#{$color});
-            --outline-color: var(--#{$color}--mute);
-            --outline-offset: var(--size--05);
+
+        &[src] {
+            --overflow: clip;
         }
-        button:disabled.#{$color} {
-            --background-color: var(--#{$color}--mute);
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
-        }
-    }
-    button:has(icon)>icon {
-        --width: 1lh;
     }
 }

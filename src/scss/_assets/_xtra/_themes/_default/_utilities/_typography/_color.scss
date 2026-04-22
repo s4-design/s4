@@ -14,7 +14,7 @@
                 color: var(--#{$color});
             }
             @for $i from 1 through $colorsGradientNumberSteps {
-                &--#{$color}--0#{$i}
+                &--#{$color}--0#{$i},
                 &--#{$color}--0#{$i}\:hover:hover {
                     color: var(--#{$color}--0#{$i});
                 }

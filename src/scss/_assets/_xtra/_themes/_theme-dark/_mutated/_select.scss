@@ -1,0 +1,64 @@
+@mixin select() {
+    select {
+        --position: relative;
+        --vertical-align: middle;
+        --display: inline-grid;
+        --appearance: none;
+        --grid-auto-flow: column;
+        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-height: var(--min-width);
+        --margin: initial;
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s2);
+        --background-color: var(--positive);
+        --background-image: none;
+        --background-clip: padding-box;
+        --border: none;
+        --border-radius: var(--border-radius--s2);
+        --outline-color: var(--negative--mute);
+        --outline-style: solid;
+        --outline-width: var(--size--025);
+        --outline-offset: calc(var(--size--025) * -1);
+        --color: var(--negative);
+        --font-size: var(--font-size--md);
+        --font-weight: 400;
+        --font-family: initial;
+        --line-height: var(--font-size--l2);
+        --cursor: pointer;
+        --user-select: initial;
+        --overflow: auto;
+        --transition: all var(--transition-duration) var(--transition-timing-function);
+
+        &:hover:not(:focus-visible, :disabled) {
+            --color: var(--negative--light);
+            --outline-color: currentColor;
+            --outline-width: var(--size--05);
+            --outline-offset: var(--size--05);
+            &:where([data-validation=immediate]):invalid,
+            &:where([data-validation=user]):user-invalid {
+                --color: var(--danger--light);
+            }
+        }
+        &:focus-visible {
+            --color: var(--negative);
+            --outline-color: currentColor;
+            --outline-width: var(--size--05);
+            --outline-offset: var(--size--05);
+            &:where([data-validation=immediate]):invalid,
+            &:where([data-validation=user]):user-invalid {
+                --color: var(--danger);
+            }
+        }
+        &:disabled {
+            --background-color: var(--positive--light);
+            --background-image: linear-gradient(var(--positive--mute));
+            --color: var(--negative--mute);
+            --cursor: not-allowed;
+        }
+        &:where(:not([data-validation=user])):invalid,
+        &:where([data-validation=user]):user-invalid {
+            --color: var(--danger);
+            --outline-color: var(--danger--mute);
+        }
+    }
+}

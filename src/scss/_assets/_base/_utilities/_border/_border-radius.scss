@@ -29,10 +29,16 @@
     }
     
     @if $enableVariables {
+        .border-radius {
+            border-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
+        }
         @each $corner in $borderRadiusCorner {
-            .border-radius,
+            // .border-radius,
+            // .border-#{$corner}-radius {
+            //     border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
+            // }
             .border-#{$corner}-radius {
-                border-#{$corner}-radius: var(--#{$type}#{$orientation}border-radius, var(--border-radius));
+                border-#{$corner}-radius: var(--#{$type}#{$orientation}border-#{$corner}-radius, var(--border-#{$corner}-radius));
             }
         }
     }

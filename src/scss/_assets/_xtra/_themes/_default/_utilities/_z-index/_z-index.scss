@@ -9,4 +9,12 @@
             z-index: #{$index};
         }
     }
+    // .#{$type}#{$orientation}z-index--1 {
+    //     &,
+    //     &\:hover:hover,
+    //     &\:focus-visible:focus-visible,
+    //     &\:focus-within:focus-within {
+    //         z-index: 1;
+    //     }
+    // }
 }

@@ -1,19 +1,21 @@
 @mixin abbr() {
     abbr {
-        --color: var(--second);
+        --color: var(--second--light);
         --text-decoration-line: underline;
         --text-decoration-style: dotted;
-        --text-underline-offset: var(--margin--s3);
+        --text-decoration-color: var(--color);
+        --text-decoration-thickness: auto;
+        --text-underline-offset: var(--size--1);
         &[title]::after {
-            --display: inline-block;
             --content: 'ℹ';
+            --display: inline-block;
+            --margin-left: var(--size--05);
             --font-size: var(--font-size--s1);
             --line-height: var(--font-size--s1);
             --vertical-align: super;
-            --margin-left: var(--size--05);
         }
         &[title=""]::after {
-            color: var(--danger);
-        }        
+            --color: var(--danger);
+        }
     }
 }

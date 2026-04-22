@@ -1,6 +1,6 @@
 @use "_default/~" as *;
 @use "_theme-dark/~" as *;
-
+    
 @mixin theme(
     $hover-active: true,
     $h_font-size--delta: 1.25
@@ -11,42 +11,77 @@
         @include base-colors("white", 1, 0, 0);
         @include base-colors("black", 0, 0, 0);
         $dark-key: .18;
-        @include accent-colors("positive", $dark-key, .1, .012, 254, .35);
-        @include accent-colors("negative", 1 - $dark-key, .1, .012, 254, .35);
-        @include accent-colors("prime", calc($dark-key * 4), .1, $dark-key, 240, .35);
-        @include accent-colors("second", calc($dark-key * 4), .1, calc($dark-key / 3), 240, .35);
-        @include accent-colors("success", calc($dark-key * 4), .1, $dark-key, 145, .35);
-        @include accent-colors("danger", calc($dark-key * 4), .1, $dark-key, 25, .35);
+        @include accent-colors("positive", $dark-key, .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("negative", 1 - $dark-key, .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("prime", calc($dark-key * 3), .1, $dark-key, 254, .35);
+        @include accent-colors("second", calc($dark-key * 3), .1, calc($dark-key / 3), 254, .35);
+        @include accent-colors("success", calc($dark-key * 3), .1, $dark-key, 145, .35);
+        @include accent-colors("danger", calc($dark-key * 3), .1, $dark-key, 25, .35);
+
+        // --positive--light: oklch(0.245 0.024 254);       // invert as --negative--dark
+        // --positive: oklch(0.18 0.018 254);               // invert as --negative
+        // --positive--dark: oklch(0.115 0.012 254);        // invert as --negative--light
+        // --positive--mute: oklch(0.18 0.018 254 / 0.35);
+
+        // --negative--light: oklch(0.885 0.012 254);
+        // --negative: oklch(0.82 0.018 254);
+        // --negative--dark: oklch(0.755 0.024 254);
+        // --negative--mute: oklch(0.82 0.018 254 / 0.35);
+
+        // --prime--light: oklch(0.76 0.12 254);
+        // --prime: oklch(0.56 0.18 254);
+        // --prime--dark: oklch(0.36 0.12 254);
+        // --prime--mute: oklch(0.56 0.18 254 / 0.35);
+
+        // --second--light: oklch(0.76 0.04 254);
+        // --second: oklch(0.56 0.06 254);
+        // --second--dark: oklch(0.36 0.04 254);
+        // --second--mute: oklch(0.56 0.06 254 / 0.35);
+
 
         /* properties*/
         @include font-size;
         @include margin;
         @include padding;
         @include gap;
-        @include border-width;
+        // @include border-width;
         @include border-radius;
         @include box-shadow;
     }
     
     /* elements */
     // created
-    @include \[theme\]();
-    @include icon;
+    @include \[theme\];
+    @include e-group;
+    @include e-icon;
+    @include e-line;
+    @include e-truncate;
 
     // mutated
-    @include \*();
+    @include \*;
     @include \[inert\];
     @include a($hover-active);
-    @include abbr();
-    @include body();
+    @include abbr;
+    @include blockquote;
+    @include body;
     @include button($hover-active);
-    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
+    @include cite;
+    @include code;
+    @include details($hover-active);
+    @include dl;
+    @include figure;
+    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
-    @include hr();
+    @include hr;
+    @include input;
+    @include label;
+    @include menu;
+    @include p;
+    @include select;
     @include sub;
     @include sup;
     @include table;

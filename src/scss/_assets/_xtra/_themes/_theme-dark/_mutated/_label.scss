@@ -1,0 +1,32 @@
+@mixin label() {
+    label {
+        --cursor: initial;
+
+        // <label>
+        //   <input type=checkbox || type=radio>
+        // </label>
+        &:has([type=checkbox], [type=radio]) {
+            --display: inline-grid;
+            --grid-auto-flow: column;
+            --grid-gap: var(--gap--s2);
+            --align-items: initial;
+            --color: initial;
+            --cursor: pointer;
+            --line-height: var(--size--6);
+            
+            &:has(input:checked) [check] {
+                --display: inherit;
+            }
+            &:has(input:checked) [uncheck] {
+                --display: none;
+            }
+            &:has(input:not(:checked)) [check] {
+                --display: none;
+            }
+            &:has(input:not(:checked)) [uncheck] {
+                --display: inherit;
+            }
+        }
+       
+    }
+}

@@ -1,0 +1,16 @@
+@mixin e-icon() {
+    e-icon,
+    .element--image {
+        display: var(--display);
+        width: var(--width);
+        height: var(--height);
+        vertical-align: var(--vertical-align);
+        align-self: var(--align-self);
+        background-color: var(--background-color);
+        mask-image: var(--mask-image);
+        mask-repeat: var(--mask-repeat);
+        mask-position: var(--mask-position);
+        mask-origin: var(--mask-origin);
+        mask-size: var(--mask-size);
+    }
+}

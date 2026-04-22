@@ -1,0 +1,108 @@
+@mixin input() {
+    input {
+        position: var(--position);
+        vertical-align: var(--vertical-align);
+        display: var(--display);
+        appearance: var(--appearance);
+        min-width: var(--min-width);
+        min-height: var(--min-height);
+        // margin: var(--margin);
+        margin:
+            var(--margin-block-start, var(--margin-block, var(--margin)))
+            var(--margin-inline-end, var(--margin-inline, var(--margin)))
+            var(--margin-block-end, var(--margin-block, var(--margin)))
+            var(--margin-inline-start, var(--margin-inline, var(--margin)));
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        border-radius: var(--border-radius);
+        color: var(--color);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        cursor: var(--cursor);
+        outline-offset: var(--outline-offset);
+        user-select: var(--user-select);
+        transition: var(--transition);
+    }
+
+    /* Выбор */
+    [type=checkbox], [type=radio] {
+        background-repeat: var(--background-repeat);
+        background-position: var(--background-position);
+        background-size: var(--background-size);
+        border: var(--border-width) var(--border-style) var(--border-color);
+        outline: var(--outline-color) var(--outline-style) var(--outline-width);
+        pointer-events: var(--pointer-events);
+    }
+
+    /* Текстовые, числовые, дата и время */
+    :is([type=text], [type=password], [type=email], [type=url], [type=search], [type=tel], [type=number], [type=date], [type=time], [type=datetime-local], [type=month], [type=week]) {
+        grid-auto-flow: var(--grid-auto-flow);
+        padding: var(--padding-block) var(--padding-inline);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+
+        &::placeholder {
+            font-style: var(--font-style, italic);
+            color: var(--color, var(--negative--mute));
+        }
+    }
+
+    :is([type=range]) {
+        grid-auto-flow: var(--grid-auto-flow);
+        padding: var(--padding-block) var(--padding-inline);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        font-weight: var(--font-weight);
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        
+        &::-webkit-slider-thumb {
+            appearance: var(--appearance);
+            height: var(--height);
+            width: var(--width);
+            background: var(--background);
+            border-radius: var(--border-radius);
+            border: var(--border);
+        }
+        &::-moz-range-thumb {
+            appearance: var(--appearance);
+            height: var(--height);
+            width: var(--width);
+            background: var(--background);
+            border-radius: var(--border-radius);
+            border: var(--border);
+        }
+    }
+
+    /* Файл и медиа */
+    :is([type=file], [type=color]) {
+        grid-auto-flow: var(--grid-auto-flow);
+        padding: var(--padding-block) var(--padding-inline);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        font-weight: var(--font-weight);
+        font-family: var(--font-family);
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+    }
+    :is([type=file]) {
+        &::file-selector-button {
+            display: var(--display);
+        }
+    }
+    :is([type=color]) {
+        &::-webkit-color-swatch-wrapper {
+            padding: var(--padding-block) var(--padding-inline);
+        }  
+        &::-webkit-color-swatch {
+            border: var(--border);
+            border-radius: var(--border-radius);
+        }
+        &::-moz-color-swatch {
+            border: var(--border);
+            border-radius: var(--border-radius);
+        }
+    }
+
+}

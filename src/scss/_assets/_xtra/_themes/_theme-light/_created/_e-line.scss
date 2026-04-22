@@ -1,0 +1,7 @@
+@mixin e-line() {
+    e-line {
+        --border-color: var(--negative--mute);
+        --border-width: thin;
+        --border-style: solid solid none none;
+    }
+}

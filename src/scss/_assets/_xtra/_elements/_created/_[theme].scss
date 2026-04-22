@@ -1,7 +1,6 @@
-@mixin \[theme\] () {
+@mixin \[theme\]() {
     [theme] {
         position: var(--position);
-        box-sizing: var(--box-sizing);
         background-color: var(--background-color);
         color: var(--color);
         word-break: var(--word-break);
@@ -11,5 +10,7 @@
         font-weight: var(--font-weight);
         line-height: var(--line-height);
         text-underline-offset: var(--text-underline-offset);
+        overscroll-behavior: var(--overscroll-behavior);
+        hyphens: var(--hyphens);
     }
 }

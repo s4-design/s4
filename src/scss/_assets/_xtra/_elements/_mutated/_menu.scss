@@ -1,0 +1,28 @@
+@mixin menu() {
+    menu {
+        display: var(--display);
+        margin: var(--margin);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        list-style: var(--list-style);
+        > li {
+            display: var(--display);
+            // border-radius: var(--border-radius);
+            // border-radius:
+            //     var(--border-start-start-radius, var(--border-radius))
+            //     var(--border-start-end-radius, var(--border-radius))
+            //     var(--border-end-end-radius, var(--border-radius))
+            //     var(--border-end-start-radius, var(--border-radius));
+            border-start-start-radius: var(--border-start-start-radius, var(--border-radius));
+            border-start-end-radius: var(--border-start-end-radius, var(--border-radius));
+            border-end-end-radius: var(--border-end-end-radius, var(--border-radius));
+            border-end-start-radius: var(--border-end-start-radius, var(--border-radius));
+            background-color: var(--background-color);
+            &:hover {
+                background-color: var(--background-color);
+            }
+        }
+    }
+}

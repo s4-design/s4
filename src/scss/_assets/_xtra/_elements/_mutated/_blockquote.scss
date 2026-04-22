@@ -1,0 +1,36 @@
+@mixin blockquote() {
+    blockquote {
+        position: var(--position);
+        display: var(--display);
+
+        gap: var(--gap);
+        margin: var(--margin);
+        font-size: var(--font-size);
+        > * {
+            margin: var(--margin);
+        }
+        &:where([data-content]) {
+            padding: var(--padding);
+            &::before {
+                content: attr(data-content);
+
+                position: var(--position);
+                display: var(--display);
+                left: var(--left);
+                top: var(--top);
+                bottom: var(--bottom);
+                width: var(--width);
+                color: var(--color);
+                text-align: var(--text-align);
+                border-right: var(--border-right);
+                line-height: var(--line-height);
+            }
+            > footer {
+                text-align: var(--text-align);
+            }
+        }
+        > footer {
+            font-size: var(--font-size);
+        }
+    }
+}

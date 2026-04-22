@@ -1,5 +1,16 @@
 @mixin h() {
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    .element--h1,
+    h2,
+    .element--h2,
+    h3,
+    .element--h3,
+    h4,
+    .element--h4,
+    h5,
+    .element--h5,
+    h6,
+    .element--h6 {
         margin: var(--margin);
         font-size: var(--font-size);
         font-weight: var(--font-weight);

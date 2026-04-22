@@ -1,8 +1,8 @@
 @mixin hr() {
-    hr {
-        min-width: var(--min-width);
-        min-height: var(--min-height);
+    hr,
+    .element--hr {
+        border-color: var(--border-color);
+        border-width: var(--border-width);
         border-style: var(--border-style);
-        background-color: var(--background-color);
     }
 }

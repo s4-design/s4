@@ -1,0 +1,10 @@
+@mixin code() {
+    code {
+        --padding: var(--padding--s3) var(--padding--s2);
+        --background-color: var(--black);
+        --border-radius: var(--border-radius--s2);
+        pre > & {
+            --display: block;
+        }
+    }
+}

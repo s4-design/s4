@@ -1,6 +1,8 @@
 @mixin sub() {
-    sub {
+    :where(sub),
+    .element--sub {
         font-size: var(--font-size);
         line-height: var(--line-height);
+        vertical-align: var(--vertical-align);
     }
 }

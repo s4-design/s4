@@ -1,0 +1,8 @@
+@mixin e-truncate() {
+    e-truncate,
+    .element--truncate {
+        --overflow: hidden;
+        --text-overflow: ellipsis;
+        --white-space: nowrap;
+    }
+}

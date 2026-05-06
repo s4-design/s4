@@ -35,6 +35,8 @@
     @include e-icon;
     @include e-line;
     @include e-truncate;
+    @include e-badge;
+    @include e-message;
 
     // mutated
     @include \*;
@@ -48,6 +50,7 @@
     @include code;
     @include details($hover-active);
     @include dl;
+    @include fieldset;
     @include figure;
     @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
     @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);

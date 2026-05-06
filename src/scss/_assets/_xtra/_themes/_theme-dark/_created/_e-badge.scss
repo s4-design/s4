@@ -1,0 +1,60 @@
+@mixin e-badge() {
+    e-badge,
+    .element--badge {
+        --position: relative;
+        --display: inline-grid;
+        --grid-auto-flow: column;
+        --grid-gap: var(--gap--s2);
+        --justify-content: center;
+        --align-items: center;
+        --vertical-align: middle;
+
+        --margin: initial;
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s1);
+        --border: none;
+        --border-radius: var(--border-radius--md);
+        --overflow: visible;
+
+        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-height: var(--min-width);
+
+        --font-size: var(--font-size--md);
+        --line-height: var(--font-size--l1);
+        --text-align: center;
+        --text-decoration-line: none;
+        --white-space: nowrap;
+
+        --color: var(--positive--light);
+        --background-color: var(--negative--dark);
+        --background-image: linear-gradient(var(--positive--mute));
+
+        --background-clip: padding-box;
+
+        --cursor: default;
+        --outline-style: solid;
+        --outline-width: var(--size--025);
+        --outline-color: var(--positive--mute);
+        --outline-offset: calc(var(--size--025) * -1);
+
+        --appearance: none;
+        --user-select: none;
+        --pointer-events: unset;
+
+        @each $color in (
+            "negative",
+            "prime",
+            "second",
+            "success",
+            "danger"
+        ) {
+            &.#{$color} {
+                --color: var(--#{$color}--light);
+                --background-color: var(--positive--dark);
+                --background-image: linear-gradient(var(--#{$color}--mute));
+                --outline-color: var(--#{$color}--mute);
+            }
+        }
+
+    }
+}

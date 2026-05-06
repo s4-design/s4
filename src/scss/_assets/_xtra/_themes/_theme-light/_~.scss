@@ -3,6 +3,8 @@
 @forward "_created/e-icon";
 @forward "_created/e-line";
 @forward "_created/e-truncate";
+@forward "_created/e-badge";
+@forward "_created/e-message";
 
 @forward "_mutated/";
 @forward "_mutated/[inert]";
@@ -15,6 +17,7 @@
 @forward "_mutated/code";
 @forward "_mutated/details";
 @forward "_mutated/dl";
+@forward "_mutated/fieldset";
 @forward "_mutated/figure";
 @forward "_mutated/h";
 @forward "_mutated/hr";

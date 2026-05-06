@@ -6,7 +6,6 @@
         appearance: var(--appearance);
         min-width: var(--min-width);
         min-height: var(--min-height);
-        // margin: var(--margin);
         margin:
             var(--margin-block-start, var(--margin-block, var(--margin)))
             var(--margin-inline-end, var(--margin-inline, var(--margin)))
@@ -50,6 +49,7 @@
         }
     }
 
+    /* Ползунок диапазона */
     :is([type=range]) {
         grid-auto-flow: var(--grid-auto-flow);
         padding: var(--padding-block) var(--padding-inline);
@@ -92,6 +92,7 @@
         }
     }
     :is([type=color]) {
+        width: var(--width);
         &::-webkit-color-swatch-wrapper {
             padding: var(--padding-block) var(--padding-inline);
         }  
@@ -104,5 +105,4 @@
             border-radius: var(--border-radius);
         }
     }
-
 }

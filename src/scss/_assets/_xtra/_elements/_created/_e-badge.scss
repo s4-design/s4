@@ -1,8 +1,6 @@
-@mixin button() {
-    button,
-    :is([type=button], [type=submit], [type=reset], [type=image]),
-    // :is(::file-selector-button),
-    .element--button {
+@mixin e-badge() {
+    e-badge,
+    .element--badge {
         position: var(--position);
         display: var(--display);
         grid-auto-flow: var(--grid-auto-flow);
@@ -23,13 +21,10 @@
         min-height: var(--min-height);
 
         font-size: var(--font-size);
-        font-weight: var(--font-weight);
         font-family: var(--font-family);
         line-height: var(--line-height);
         text-align: var(--text-align);
         text-decoration-line: var(--text-decoration-line);
-        text-transform: var(--text-transform);
-        letter-spacing: var(--letter-spacing);
         white-space: var(--white-space);
 
         color: var(--color);

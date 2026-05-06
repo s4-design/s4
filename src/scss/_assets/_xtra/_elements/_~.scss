@@ -3,6 +3,8 @@
 @use "_created/e-icon" as *;
 @use "_created/e-line" as *;
 @use "_created/e-truncate" as *;
+@use "_created/e-badge" as *;
+@use "_created/e-message" as *;
 
 @use "_mutated/" as *;
 @use "_mutated/[inert]" as *;
@@ -15,6 +17,7 @@
 @use "_mutated/code" as *;
 @use "_mutated/details" as *;
 @use "_mutated/dl" as *;
+@use "_mutated/fieldset" as *;
 @use "_mutated/figure" as *;
 @use "_mutated/h" as *;
 @use "_mutated/hr" as *;
@@ -42,6 +45,7 @@
         @include code;
         @include details;
         @include dl;
+        @include fieldset;
         @include figure;
         @include h;
         @include hr;
@@ -60,5 +64,7 @@
         @include e-icon;
         @include e-line;
         @include e-truncate;
+        @include e-badge;
+        @include e-message;
     }
 }

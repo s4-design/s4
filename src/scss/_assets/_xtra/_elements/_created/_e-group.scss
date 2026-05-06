@@ -11,7 +11,7 @@
                 var(--border-end-start-radius, var(--border-radius));
         }
 
-        > :is(button, input, select) {
+        > :is(button, input, select, .element--button) {
         //     &:not(:last-child) { // экономим на перерисовке layout
             // &:not(:first-child) {
                 &:hover:not(:disabled),

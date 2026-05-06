@@ -2,7 +2,7 @@
     details {
         --position: relative;
         --display: inline-block;
-        --width: stretch;
+        --width: stretch; // эта поебень в мозиле не работает
         --border-radius: var(--border-radius--s1);
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));

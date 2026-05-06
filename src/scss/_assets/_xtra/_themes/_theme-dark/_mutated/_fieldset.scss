@@ -1,0 +1,27 @@
+@mixin fieldset() {
+    fieldset {
+        --margin: 0;
+        --padding: var(--padding--md);
+        --border-radius: var(--border-radius--s1);
+        --border: var(--margin--s3) solid var(--positive--mute);
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+
+        > legend {
+            --margin: 0;
+            --padding: var(--padding--md);
+            --border-radius: var(--border-radius--s2);
+            // color: var(--negative);
+            --line-height: 0;
+            --background-image:
+                linear-gradient(var(--positive--mute)),
+                linear-gradient(var(--positive--mute));
+        }
+
+        &:disabled {
+            > legend {
+                --color: var(--negative--mute);
+            }
+        }
+    }
+}

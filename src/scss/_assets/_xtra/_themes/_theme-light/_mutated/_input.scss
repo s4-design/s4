@@ -80,15 +80,15 @@
     }
 
     /* Текстовые */
-    :is([type=text], [type=password], [type=email], [type=url], [type=search], [type=tel], [type=number], [type=text], [type=password], [type=email], [type=url], [type=search], [type=tel], [type=number], [type=date], [type=time], [type=datetime-local], [type=month], [type=week]) {
+    :is([type=text], [type=password], [type=email], [type=url], [type=search], [type=tel], [type=number], [type=date], [type=time], [type=datetime-local], [type=month], [type=week]) {
         --position: relative;
         --display: inline-grid;
         --vertical-align: middle;
         --grid-auto-flow: column;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
+        --min-width: var(--min-height);
+        --min-height: calc(var(--line-height) * 2);
         --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
-        --padding-block: var(--padding--s3);
+        --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
         --background-color: var(--positive);
         --background-image: none;
@@ -103,11 +103,14 @@
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
-        --line-height: var(--font-size--l2);
+        --line-height: var(--font-size);
         --appearance: none;
         --user-select: initial;
         --transition: all var(--transition-duration) var(--transition-timing-function);
-
+        
+        &[list] {
+            --appearance: none;    
+        }
         &::placeholder {
             --font-style: italic;
             --color: var(--negative--mute);
@@ -152,15 +155,15 @@
         }
     }
 
-    /* Ползунок */
+    /* Ползунок диапазона */
     :is([type=range]) {
         --position: relative;
         --display: inline-grid;
         --grid-auto-flow: column;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
+        --min-width: var(--min-height);
+        --min-height: calc(var(--line-height) * 2);
         --margin: unset;
-        --padding-block: var(--padding--s3);
+        --padding-block: var(--size--0);
         --padding-inline: var(--padding--s3);
         --background-color: var(--positive);
         --background-image: none;
@@ -173,7 +176,7 @@
         --outline-width: var(--size--025);
         --outline-offset: calc(var(--size--025) * -1);
         --font-size: var(--font-size--md);
-        --line-height: var(--font-size--l2);
+        --line-height: var(--font-size);
         --appearance: none;
         --cursor: ew-resize;
         --transition: all var(--transition-duration) var(--transition-timing-function);
@@ -212,7 +215,7 @@
         
         &::-webkit-slider-thumb {
             --appearance: none;
-            --height: var(--line-height);
+            --height: calc(var(--min-height) - var(--size--2));
             --width: var(--size--2);
             --background: currentColor;
             --border-radius: var(--border-radius--s3);
@@ -220,7 +223,7 @@
         }
         &::-moz-range-thumb {
             --appearance: none;
-            --height: var(--line-height);
+            --height: calc(var(--min-height) - var(--size--2));
             --width: var(--size--2);
             --background: currentColor;
             --border-radius: var(--border-radius--s3);
@@ -234,8 +237,9 @@
         --display: inline-grid;
         --vertical-align: middle;
         --grid-auto-flow: column;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
+        --min-width: var(--min-height);
+        --min-height: calc(var(--font-size) * 2);
+        // --min-height: calc(var(--line-height) * 2);
         --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
         --background-color: var(--positive);
         --background-image: none;
@@ -250,7 +254,8 @@
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
-        --line-height: var(--font-size--l2);
+        --line-height: var(--min-height);
+        // --line-height: var(--font-size);
         --appearance: none;
         --cursor: pointer;
         --user-select: initial;
@@ -290,13 +295,14 @@
     }
 
     :is([type=file]) {
-        --padding-block: var(--padding--s3);
+        --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
         &::file-selector-button {
             display: none;
         }
     }
     :is([type=color]) {
+        --width: max-content;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s3);
         &::-webkit-color-swatch-wrapper {
@@ -312,20 +318,4 @@
             --border-radius: var(--border-radius--s3);
         }
     }
-
-
-
-
-    // [type=file] {
-    //     max-width: 100%;
-    //     font-size: var(--font-size--md);
-    //     // &::file-selector-button {
-    //     //     margin-inline-end: var(--margin--md);
-    //     // }
-    //     // &.element--button {
-    //         &::file-selector-button {
-    //             display: none;
-    //         }
-    //     // }
-    // }
 }

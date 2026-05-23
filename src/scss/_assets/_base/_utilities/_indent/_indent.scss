@@ -1,49 +1,88 @@
-@mixin indent($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin indent($type, $orientation, $enableVariables, $marginSizes, $paddingSizes) {
     /* margin & padding */
-    @each $spacingName in (
-        "margin",
-        "padding"
-    ) {
-        .#{$type}#{$orientation}#{$spacingName} {
-            @each $space in $spacingSizes {
-                @if $spacingName == margin or($spacingName == padding and $space != auto) {
-                    &--#{$space} {
-                        #{$spacingName}: #{$space};
-                    }
-                }
+    @each $space in $marginSizes {
+        .#{$type}#{$orientation}margin {
+            &--#{$space} {
+                margin: #{$space};
             }
-            @each $space in $spacingSizes {
-                @if $spacingName == margin or($spacingName == padding and $space != auto) {
-                    @each $property in (
-                        "block",
-                        "inline",
-                        "top",
-                        "right",
-                        "bottom",
-                        "left"
-                    ) {
-                        &-#{$property}--#{$space} {
-                            #{$spacingName}-#{$property}: #{$space};
-                        }
-                    }
+            @each $property in (
+                "block",
+                "inline",
+                "block-start",
+                "block-end",
+                "inline-start",
+                "inline-end",
+                "top",
+                "right",
+                "bottom",
+                "left"
+            ) {
+                &-#{$property}--#{$space} {
+                    margin-#{$property}: #{$space};
                 }
             }
         }
+    }
+    @each $space in $paddingSizes {
+        .#{$type}#{$orientation}padding {
+            &--#{$space} {
+                padding: #{$space};
+            }
+            @each $property in (
+                "block",
+                "inline",
+                "block-start",
+                "block-end",
+                "inline-start",
+                "inline-end",
+                "top",
+                "right",
+                "bottom",
+                "left"
+            ) {
+                &-#{$property}--#{$space} {
+                    padding-#{$property}: #{$space};
+                }
+            }
+        }
+    }
 
-        @if $enableVariables {
-            .#{$spacingName} {
-                #{$spacingName}: var(--#{$type}#{$orientation}#{$spacingName}, var(--#{$spacingName}));
-                @each $property in (
-                    "block",
-                    "inline",
-                    "top",
-                    "right",
-                    "bottom",
-                    "left"
-                ) {
-                    &-#{$property} {
-                        #{$spacingName}-#{$property}: var(--#{$type}#{$orientation}#{$spacingName}-#{$property}, var(--#{$spacingName}-#{$property}));
-                    }
+    @if $enableVariables {
+        .margin {
+            margin: var(--#{$type}#{$orientation}margin, var(--margin));
+            @each $property in (
+                "block",
+                "inline",
+                "block-start",
+                "block-end",
+                "inline-start",
+                "inline-end",
+                "top",
+                "right",
+                "bottom",
+                "left"
+            ) {
+                &-#{$property} {
+                    margin-#{$property}: var(--#{$type}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
+                }
+            }
+        }
+        .padding {
+            padding: var(--#{$type}#{$orientation}padding, var(--padding));
+            @each $property in (
+                "block",
+                "inline",
+                "block-start",
+                "block-end",
+                "inline-start",
+                "inline-end",
+                "top",
+                "right",
+                "bottom",
+                "left"
+            ) {
+                &-#{$property} {
+                    padding-#{$property}: var(--#{$type}#{$orientation}padding-#{$property}, var(--padding-#{$property}));
                 }
             }
         }

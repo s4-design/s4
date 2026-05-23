@@ -19,6 +19,18 @@
                 }
             }
             @each $space in $spacingSizes {
+                &-block-start--#{$space} {
+                    #{$spacingName}-block-start: var(--#{$spacingName}--#{$space});
+                }
+                &-block-end--#{$space} {
+                    #{$spacingName}-block-end: var(--#{$spacingName}--#{$space});
+                }
+                &-inline-start--#{$space} {
+                    #{$spacingName}-inline-start: var(--#{$spacingName}--#{$space});
+                }
+                &-inline-end--#{$space} {
+                    #{$spacingName}-inline-end: var(--#{$spacingName}--#{$space});
+                }
                 &-top--#{$space} {
                     #{$spacingName}-top: var(--#{$spacingName}--#{$space});
                 }

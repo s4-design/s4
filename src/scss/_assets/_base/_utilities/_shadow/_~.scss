@@ -1,7 +1,7 @@
-@use "box-shadow" as *;
-@use "text-shadow" as *;
+@use "box-shadow" as box-shadow;
+@use "text-shadow" as text-shadow;
 
 @mixin shadow($type, $orientation, $enableVariables) {
-    @include box-shadow($type, $orientation, $enableVariables);
-    @include text-shadow($type, $orientation, $enableVariables);
+    @include box-shadow.box-shadow($type, $orientation, $enableVariables);
+    @include text-shadow.text-shadow($type, $orientation, $enableVariables);
 }

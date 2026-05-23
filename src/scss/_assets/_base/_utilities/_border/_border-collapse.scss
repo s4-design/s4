@@ -1,4 +1,4 @@
-@mixin border-collapse($type, $orientation) {
+@mixin border-collapse() {
     /* border collapse */
     @each $borderCollapse in (
         "collapse",

@@ -5,18 +5,18 @@ $borderSides:(
     "left"
 );
 
-@use "border-collapse" as *;
-@use "border-color" as *;
-@use "border-radius" as *;
-@use "border-spacing" as *;
-@use "border-style" as *;
-@use "border-width" as *;
+@use "border-collapse" as border-collapse;
+@use "border-color" as border-color;
+@use "border-radius" as border-radius;
+@use "border-spacing" as border-spacing;
+@use "border-style" as border-style;
+@use "border-width" as border-width;
 
 @mixin border($type, $orientation, $enableVariables) {
-    @include border-collapse($type, $orientation);
-    @include border-color($type, $orientation, $enableVariables, $borderSides);
-    @include border-radius($type, $orientation, $enableVariables);
-    @include border-spacing($type, $orientation, $enableVariables);
-    @include border-style($type, $orientation, $enableVariables, $borderSides);
-    @include border-width($type, $orientation, $enableVariables, $borderSides);
+    @include border-collapse.border-collapse();
+    @include border-color.border-color($type, $orientation, $enableVariables, $borderSides);
+    @include border-radius.border-radius($type, $orientation, $enableVariables);
+    @include border-spacing.border-spacing($type, $orientation, $enableVariables);
+    @include border-style.border-style($type, $orientation, $enableVariables, $borderSides);
+    @include border-width.border-width($type, $orientation, $enableVariables, $borderSides);
 }

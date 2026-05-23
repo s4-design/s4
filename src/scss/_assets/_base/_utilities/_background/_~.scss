@@ -1,19 +1,19 @@
-@use "background-attachment" as *;
-@use "background-clip" as *;
-@use "background-color" as *;
-@use "background-image" as *;
-@use "background-origin" as *;
-@use "background-position" as *;
-@use "background-repeat" as *;
-@use "background-size" as *;
+@use "background-attachment" as background-attachment;
+@use "background-clip" as background-clip;
+@use "background-color" as background-color;
+@use "background-image" as background-image;
+@use "background-origin" as background-origin;
+@use "background-position" as background-position;
+@use "background-repeat" as background-repeat;
+@use "background-size" as background-size;
 
 @mixin background($type, $orientation, $enableVariables) {
-    @include background-attachment($type, $orientation);
-    @include background-clip($type, $orientation);
-    @include background-color($type, $orientation, $enableVariables);
-    @include background-image($type, $orientation, $enableVariables);
-    @include background-origin ($type, $orientation);
-    @include background-position($type, $orientation, $enableVariables);
-    @include background-repeat($type, $orientation);
-    @include background-size($type, $orientation, $enableVariables);
+    @include background-attachment.background-attachment($type, $orientation);
+    @include background-clip.background-clip($type, $orientation);
+    @include background-color.background-color($type, $orientation, $enableVariables);
+    @include background-image.background-image($type, $orientation, $enableVariables);
+    @include background-origin.background-origin($type, $orientation);
+    @include background-position.background-position($type, $orientation, $enableVariables);
+    @include background-repeat.background-repeat($type, $orientation);
+    @include background-size.background-size($type, $orientation, $enableVariables);
 }

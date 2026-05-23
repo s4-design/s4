@@ -9,10 +9,10 @@ $gapSizes: (
     "unset"
 );
 
-@use "gap" as *;
+@use "gap" as gap;
 @use "indent" as indent;
 
 @mixin indent($type, $orientation, $enableVariables) {
-    @include gap($type, $orientation, $enableVariables, $gapSizes);
+    @include gap.gap($type, $orientation, $enableVariables, $gapSizes);
     @include indent.indent($type, $orientation, $enableVariables, $marginSizes, $paddingSizes);
 }

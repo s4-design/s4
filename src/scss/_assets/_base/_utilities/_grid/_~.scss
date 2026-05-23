@@ -1,15 +1,15 @@
-@use "grid-auto-columns" as *;
-@use "grid-auto-flow" as *;
-@use "grid-auto-rows" as *;
-@use "grid-column" as *;
-@use "grid-row" as *;
-@use "grid-template" as *;
+@use "grid-auto-columns" as grid-auto-columns;
+@use "grid-auto-flow" as grid-auto-flow;
+@use "grid-auto-rows" as grid-auto-rows;
+@use "grid-column" as grid-column;
+@use "grid-row" as grid-row;
+@use "grid-template" as grid-template;
 
 @mixin grid($type, $orientation, $enableVariables) {
-    @include grid-auto-columns($type, $orientation, $enableVariables);
-    @include grid-auto-flow($type, $orientation);
-    @include grid-auto-rows($type, $orientation, $enableVariables);
-    @include grid-column($type, $orientation, $enableVariables);
-    @include grid-row($type, $orientation, $enableVariables);
-    @include grid-template($type, $orientation, $enableVariables);
+    @include grid-auto-columns.grid-auto-columns($type, $orientation, $enableVariables);
+    @include grid-auto-flow.grid-auto-flow($type, $orientation);
+    @include grid-auto-rows.grid-auto-rows($type, $orientation, $enableVariables);
+    @include grid-column.grid-column($type, $orientation, $enableVariables);
+    @include grid-row.grid-row($type, $orientation, $enableVariables);
+    @include grid-template.grid-template($type, $orientation, $enableVariables);
 }

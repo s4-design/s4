@@ -1,17 +1,17 @@
-@use "column-count" as *;
-@use "column-fill" as *;
-@use "column-rule-color" as *;
-@use "column-rule-style" as *;
-@use "column-rule-width" as *;
-@use "column-span" as *;
-@use "column-width" as *;
+@use "column-count" as column-count;
+@use "column-fill" as column-fill;
+@use "column-rule-color" as column-rule-color;
+@use "column-rule-style" as column-rule-style;
+@use "column-rule-width" as column-rule-width;
+@use "column-span" as column-span;
+@use "column-width" as column-width;
 
 @mixin column($type, $orientation, $enableVariables) {
-    @include column-count($type, $orientation, $enableVariables);
-    @include column-fill($type, $orientation);
-    @include column-rule-color($type, $orientation, $enableVariables);
-    @include column-rule-style($type, $orientation, $enableVariables);
-    @include column-rule-width($type, $orientation, $enableVariables);
-    @include column-span($type, $orientation);
-    @include column-width($type, $orientation, $enableVariables);
+    @include column-count.column-count($type, $orientation, $enableVariables);
+    @include column-fill.column-fill($type, $orientation);
+    @include column-rule-color.column-rule-color($type, $orientation, $enableVariables);
+    @include column-rule-style.column-rule-style($type, $orientation, $enableVariables);
+    @include column-rule-width.column-rule-width($type, $orientation, $enableVariables);
+    @include column-span.column-span($type, $orientation);
+    @include column-width.column-width($type, $orientation, $enableVariables);
 }

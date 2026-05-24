@@ -110,27 +110,21 @@ function setThemeBasedOnPreference() {
     // Getting the currently installed theme
     const currentTheme = document.documentElement.getAttribute('theme')
     
-    // Если тема уже установлена и не равна 'dark' или 'light', прерываем выполнение функции
-    // If the theme is already set and is not 'dark' or 'light', abort the function
-    if (currentTheme && currentTheme !== 'dark' && currentTheme !== 'light')
+    // Если тема уже установлена — уважаем выбор автора, ничего не делаем
+    // If the theme is already set — respect the author's choice, do nothing
+    if (currentTheme)
         return;
 
-    // Собираем информацию, предпочитает ли пользователь тёмную тему или светлую
-    // Getting information on whether the user prefers a dark or light theme
+    // Проверяем системные предпочтения пользователя
+    // Check the user's system preferences
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
-    const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)')
   
-    // В зависимости от предпочтений пользователя на корневом элементе <html> устанавливается атрибут [theme=dark] или [theme=light]
-    // Depending on the user's preferences, the [theme=dark] or [theme=light] attribute is set on the root <html> element
+    // Если пользователь предпочитает тёмную тему — ставим dark, иначе светлую по умолчанию
+    // If the user prefers a dark theme — set dark, otherwise default to light
     if (prefersDarkScheme.matches)
         document.documentElement.setAttribute('theme', 'dark')
-    else if (prefersLightScheme.matches)
+    else
         document.documentElement.setAttribute('theme', 'light')
-    else {
-        // Если тема не выбрана, задется значение по умолчанию - light
-        // If the theme is not selected, set the default value - light
-        document.documentElement.setAttribute('theme', 'light')
-    }
 }
 
 // Функция управления загрузкой CSS в зависимости от устройства и ориентации

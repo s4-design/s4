@@ -8,10 +8,40 @@
     <script>S4()</script>
 </head>
 <body>
-    <section class="d_l_min-width--stretch">
-        <h3 class="d_l_margin-bottom--unset">Входные данные</h3>
+    <main class="max-width d_l_margin-inline--auto" style="--max-width: 70em;">
+        <h3 class="d_l_margin-bottom--unset">Тестовая страница</h3>
+        <section>
+            <!-- ссылки якоря на блоки с элементами -->
+            <a href="#e-popover">Всплывающие блоки</a>
+            <a href="#e-menu">Сообщение</a>
+            <a href="#e-message">Сообщение</a>
+            <a href="#e-badge">Значек</a>
+            <a href="#e-group">Группа</a>
+            <a href="#e-icon">Иконка</a>
+            <a href="#e-truncate">Сокращение</a>
+            <a href="#e-line">Линия</a>
+            <a href="#a">Гиперссылка</a>
+            <a href="#abbr">Aббревиатура</a>
+            <a href="#blockquote">Цитата</a>
+            <a href="#button">Кнопка</a>
+            <a href="#cite">Ссылка на источник</a>
+            <a href="#code">Код</a>
+            <a href="#details">Cкрытая информация</a>
+            <a href="#dl">Список описаний</a>
+            <a href="#fieldset">Набор полей</a>
+            <a href="#figure">Элемент иллюстрации</a>
+            <a href="#h">Заголовки</a>
+            <a href="#hr">Тематический разделитель</a>
+            <a href="#inert">Инертность</a>
+            <a href="#input">Получения данных</a>
+            <a href="#checkbox">Флажок</a>
+            <a href="#radio">Переключатель</a>
+            <a href="#select">Список выбора</a>
+            <a href="#sub-sup">Индексные надписи</a>
+            <a href="#table">Таблица</a>
+        </section>
 
-        <div id="e-popover" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-popover" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Всплывающие блоки</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент</h5>
@@ -281,9 +311,9 @@
                     <div></div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="e-message" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-menu" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Сообщение</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Меню - панели инструментов</h5>
@@ -317,9 +347,9 @@
                     <li><button class="d_l_justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Тут тоже</button></li>
                 </menu>
             </div>
-        </div>
+        </section>
 
-        <div id="e-message2" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-message" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Сообщение</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент с заголовком и подвалом</h5>
@@ -405,9 +435,9 @@
                 <e-message class="success" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
                 <e-message class="danger" role="alert"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
             </div>
-        </div>
+        </section>
 
-        <div id="e-badge" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-badge" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Значек</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент</h5>
@@ -441,9 +471,9 @@
                     <e-badge class="d_l_display--block d_l_padding-inline--s3 element--truncate width" style="--width: var(--min-width)" role="status">1234</e-badge>
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div id="e-group" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-group" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Группа</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент</h5>
@@ -489,9 +519,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="e-icon" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-icon" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Иконка</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Иконка как элемент</h5>
@@ -547,9 +577,9 @@
                     <span class="element--icon d_l_background-color--danger" style="--image: url(/test/icons/icon.svg)"></span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="e-truncate" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-truncate" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Сокращение</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент</h5>
@@ -565,9 +595,9 @@
                     <p class="element--truncate" title="Lorem ipsum dolor sit amet consectetur...">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit laudantium magni quo fugiat maiores nisi amet ab, eum vero dolorem eos quis nobis, hic distinctio quia veniam laborum earum expedita.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="e-line" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="e-line" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Линия</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Горизонтальная</h5>
@@ -579,11 +609,11 @@
                 <hr />
                 <e-group class="d_l_display--inline-flex d_l_flex-direction--row d_l_gap--md" role="group"><div>Ячейка</div><e-line role="separator"></e-line><div>Ячейка</div></e-group>
             </div>
-        </div>
+        </section>
 
         <hr class="d_l_margin-top--l4 d_l_margin-inline--auto d_l_max-width--50" />
 
-        <div id="a" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="a" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Гиперссылка</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Цвета и состояния гиперссылки</h5>
@@ -655,9 +685,9 @@
                     <a class="element--button differ danger" href="#a" inert>danger</a>
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div id="abbr" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="abbr" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Aббревиатура</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Без расшифровки</h5><hr />
@@ -671,9 +701,9 @@
                 <h5 class="d_l_margin-top--unset">С пустой расшифровкой</h5><hr />
                 <p><abbr title="">аббревиатура</abbr></p>
             </div>
-        </div>
+        </section>
 
-        <div id="blockquote" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="blockquote" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Цитата</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 30em">
                 <h5 class="d_l_margin-top--unset">Обычная</h5><hr />
@@ -707,9 +737,9 @@
                     </blockquote>
                 </figure>
             </div>
-        </div>
+        </section>
 
-        <div id="button" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="button" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Кнопка</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Кнопка как кнопка</h5><hr />
@@ -847,15 +877,15 @@
                     <button inert class="differ danger">danger</button>
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div id="cite"><h4>Ссылка на источник</h4>
+        <section id="cite"><h4>Ссылка на источник</h4>
             <div class=" d_l_border-radius--md d_l_padding--md">
                 <p>Более подробную информацию можно найти в <cite>[ISO-0000]</cite></p>
             </div>
-        </div>
+        </section>
 
-        <div id="code" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="code" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Код</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Код</h5><hr />
@@ -868,9 +898,9 @@
     style="--flex-basis: 20em"</code>
                 </pre>
             </div>
-        </div>
+        </section>
 
-        <div id="details" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="details" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Cкрытая информация</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Скрытая информация</h5><hr />
@@ -970,9 +1000,9 @@
                     </details>
                 </e-group>
             </div>
-        </div>
+        </section>
 
-        <div id="dl" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="dl" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Список описаний</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Один термин, одно определение</h5><hr />
@@ -990,9 +1020,9 @@
                     <dt>Authors</dt><dt>Editors</dt><dd>Robert Rothman</dd><dd>Daniel Jackson</dd>
                 </dl>
             </div>
-        </div>
+        </section>
 
-        <div id="fieldset" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="fieldset" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Набор полей</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Как элемент</h5><hr />
@@ -1023,9 +1053,9 @@
                     </div>
                 </fieldset>
             </div>
-        </div>
+        </section>
 
-        <div id="figure" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="figure" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Элемент иллюстрации</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">С заголовком</h5><hr />
@@ -1046,9 +1076,9 @@
                     </e-body>
                 </figure>
             </div>
-        </div>
+        </section>
 
-        <div id="h"><h4>Заголовки</h4>
+        <section id="h"><h4>Заголовки</h4>
             <div class=" d_l_border-radius--md d_l_padding--md">
                 <div class="element--h1" role="heading" aria-level="1">h1 - уровень первый</div>
                 <div class="element--h2" role="heading" aria-level="2">h2 - Уровень второй</div>
@@ -1057,25 +1087,25 @@
                 <div class="element--h5" role="heading" aria-level="5">h5 - Уровень пятый</div>
                 <div class="element--h6" role="heading" aria-level="6">h6 - Уровень шестой</div>
             </div>
-        </div>
+        </section>
 
-        <div id="hr" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="hr" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Тематический разделитель</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Горизонтальная</h5><hr />
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p><hr />
                 <p>Illum maiores beatae neque nisi itaque ipsum harum error optio ex?</p>
             </div>
-        </div>
+        </section>
 
-        <div id="inert" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="inert" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Инертность</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis">
                 <p inert>Инертность — это свойство HTML-элемента, которое делает элемент со всем его содержимым инактивным для пользователя.</p>
             </div>
-        </div>
+        </section>
 
-        <div id="input" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="input" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Получения данных</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Однострочный текст</h5><hr />
@@ -1291,9 +1321,9 @@
                     <input type="text" placeholder="Все кроме цифр" pattern="\D+" required data-validation="user" />
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="checkbox" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="checkbox" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Флажок</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Разделенный</h5><hr />
@@ -1330,9 +1360,9 @@
                 <h6>Отключеный</h6><p><label class="element--button"><input class="d_l_display--none" type="checkbox" disabled /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
                 <h6>Инертный</h6><p><label class="element--button" inert><input class="d_l_display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
             </div>
-        </div>
+        </section>
 
-        <div id="radio" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="radio" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Переключатель</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Разделенный</h5><hr />
@@ -1391,9 +1421,9 @@
                     </e-group>
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div id="select" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="select" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Список выбора</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Однострочный выбор</h5><hr />
@@ -1506,9 +1536,9 @@
                     </select>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="sub-sup" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
+        <section id="sub-sup" class="d_l_display--flex d_l_flex-wrap--wrap d_l_gap--md">
             <h4 class="d_l_margin-bottom--unset flex-basis" style="--flex-basis: 100%">Индексные надписи</h4>
             <div class=" d_l_border-radius--md d_l_padding--md d_l_align-self--start d_l_flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="d_l_margin-top--unset">Нижний индекс</h5><hr />
@@ -1518,9 +1548,9 @@
                 <h5 class="d_l_margin-top--unset">Верхний индекс</h5><hr />
                 <p>10<sup>2</sup></p>
             </div>
-        </div>
+        </section>
 
-        <div id="table"><h4>Таблица</h4>
+        <section id="table"><h4>Таблица</h4>
             <div class=" d_l_border-radius--md d_l_padding--md">
                 <table>
                     <caption>Пример таблицы с двухуровневым заголовком и объединением ячеек</caption>
@@ -1542,8 +1572,8 @@
                     </tfoot>
                 </table>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
 </body>
 </html>

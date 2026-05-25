@@ -1,7 +1,7 @@
 import { chromium } from 'playwright'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
-import { spawn } from 'child_process'
+import { spawn, execSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -12,23 +12,44 @@ const ROOT = path.resolve(__dirname, '..')
 const THEMES = ['light', 'dark']
 const SNAPSHOTS_DIR = path.join(__dirname, '__snapshots__')
 const DIFF_DIR = path.join(__dirname, '__diff__')
-const TEST_URL = 'http://localhost:3000/test/'
+const TEST_URL_PREFIX = 'http://localhost:'
 
 const IDs = [
-  'e-popover', 'e-message', 'e-message2', 'e-badge', 'e-group',
+  'e-popover', 'e-menu', 'e-message', 'e-badge', 'e-group',
   'e-icon', 'e-truncate', 'e-line', 'a', 'abbr', 'blockquote',
   'button', 'cite', 'code', 'details', 'dl', 'fieldset', 'figure',
   'h', 'hr', 'inert', 'input',
-  'cars-datalist-input', 'cars-datalist', 'cars-datalist-placeholder',
-  'cars-datalist-inert', 'cars-datalist-disabled', 'cars-datalist-error',
-  'checkbox', 'c1', 'c2', 'c3', 'c4', 'radio',
-  'r1', 'r2', 'r3', 'r4', 'select', 'sub-sup', 'table'
+  'checkbox', 'radio', 'select', 'sub-sup', 'table'
 ]
 
 const update = process.argv.includes('--update')
 
+function killProcessOnPort(port) {
+  try {
+    const stdout = execSync(`netstat -ano | findstr :${port}`, { shell: 'cmd', timeout: 5000 })
+    for (const line of stdout.toString().trim().split('\n')) {
+      const pidMatch = line.match(/(\d+)\s*$/)
+      const pid = pidMatch ? parseInt(pidMatch[1], 10) : 0
+      if (pid > 0) {
+        execSync(`taskkill /PID ${pid} /F`, { shell: 'cmd', timeout: 3000 })
+      }
+    }
+  } catch {}
+}
+
+function killProcessTree(pid) {
+  try {
+    execSync(`taskkill /f /t /pid ${pid}`, { shell: 'cmd', timeout: 5000 })
+  } catch {}
+}
+
+let serverUrl = ''
+
 function startServer() {
   return new Promise((resolve, reject) => {
+    // Убить старый процесс на порту перед запуском
+    killProcessOnPort(3000)
+
     const proc = spawn('pnpx', ['serve', '.'], {
       cwd: ROOT,
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -38,8 +59,13 @@ function startServer() {
     let started = false
 
     const onData = (data) => {
-      const text = data.toString()
-      if (!started && text.includes('Accepting connections')) {
+      const text = data.toString().toLowerCase()
+      // Парсим порт из вывода serve: "Accepting connections at http://localhost:XXXXX"
+      const portMatch = text.match(/http:\/\/localhost:(\d+)/)
+      if (portMatch) {
+        serverUrl = `${TEST_URL_PREFIX}${portMatch[1]}/test/`
+      }
+      if (!started && text.includes('accepting connections')) {
         started = true
         resolve(proc)
       }
@@ -54,7 +80,10 @@ function startServer() {
     })
 
     setTimeout(() => {
-      if (!started) reject(new Error('Server start timeout'))
+      if (!started) {
+        killProcessTree(proc.pid)
+        reject(new Error('Server start timeout'))
+      }
     }, 30000)
   })
 }
@@ -154,19 +183,22 @@ async function testTheme(page, theme) {
 }
 
 async function run() {
-  console.log('=== S4 Snapshot Tests ===')
-  console.log(`Mode: ${update ? 'UPDATE' : 'COMPARE'}\n`)
-
-  console.log('Starting server...')
-  const server = await startServer()
-  console.log('Server ready.\n')
-
+  let server
   let browser
+  let exitCode = 0
+
   try {
+    console.log('=== S4 Snapshot Tests ===')
+    console.log(`Mode: ${update ? 'UPDATE' : 'COMPARE'}\n`)
+
+    console.log('Starting server...')
+    server = await startServer()
+    console.log(`Server ready at ${serverUrl}\n`)
+
     browser = await chromium.launch({ headless: true })
     const page = await browser.newPage({ viewport: { width: 1280, height: 900 } })
 
-    await page.goto(TEST_URL, { waitUntil: 'networkidle' })
+    await page.goto(serverUrl, { waitUntil: 'networkidle' })
     console.log('Page loaded.\n')
 
     let totalPass = 0
@@ -187,14 +219,17 @@ async function run() {
     }).join(', ')
 
     console.log(`\n=== Results: ${totalPass} passed, ${totalFail} failed, ${totalSkip} skipped (${summary}) ===`)
-    process.exit(totalFail > 0 ? 1 : 0)
+
+    if (totalFail > 0) exitCode = 1
 
   } catch (err) {
     console.error('Error:', err)
-    process.exit(1)
+    exitCode = 1
+
   } finally {
     if (browser) await browser.close()
-    server.kill()
+    if (server) killProcessTree(server.pid)
+    process.exit(exitCode)
   }
 }
 

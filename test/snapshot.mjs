@@ -24,19 +24,6 @@ const IDs = [
 
 const update = process.argv.includes('--update')
 
-function killProcessOnPort(port) {
-  try {
-    const stdout = execSync(`netstat -ano | findstr :${port}`, { shell: 'cmd', timeout: 5000 })
-    for (const line of stdout.toString().trim().split('\n')) {
-      const pidMatch = line.match(/(\d+)\s*$/)
-      const pid = pidMatch ? parseInt(pidMatch[1], 10) : 0
-      if (pid > 0) {
-        execSync(`taskkill /PID ${pid} /F`, { shell: 'cmd', timeout: 3000 })
-      }
-    }
-  } catch {}
-}
-
 function killProcessTree(pid) {
   try {
     execSync(`taskkill /f /t /pid ${pid}`, { shell: 'cmd', timeout: 5000 })
@@ -47,9 +34,6 @@ let serverUrl = ''
 
 function startServer() {
   return new Promise((resolve, reject) => {
-    // Убить старый процесс на порту перед запуском
-    killProcessOnPort(3000)
-
     const proc = spawn('pnpx', ['serve', '.'], {
       cwd: ROOT,
       stdio: ['ignore', 'pipe', 'pipe'],

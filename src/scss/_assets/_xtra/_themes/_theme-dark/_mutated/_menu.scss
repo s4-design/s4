@@ -1,29 +1,24 @@
-// как у тайлвиндса, чтобы использовать для выпадающего меню тоже
 @mixin menu() {
-    menu {
-        --display: grid;
-        --margin: var(--margin--s3);
-        --border-radius: var(--border-radius--s1);
-        --background-color: var(--positive--light);
-        --list-style: none;
+    :is([type=toolbar], [type=context]) {
+        --gap: var(--gap--s2);
+        --margin: 0;
+        --padding: var(--padding--s2);
+        --border-radius: var(--border-radius--md);
+        --background-color: var(--positive--dark);
+        --outline-color: var(--negative--mute);
+        --outline-style: solid;
+        --outline-width: var(--size--025);
+        --outline-offset: calc(var(--size--025) * 0);
+        --box-shadow: 0 var(--box-shadow--s1) calc(var(--box-shadow--s1) * 2) calc(var(--box-shadow--s1) * 0.5) var(--black--02);
         > li {
-            --display: grid;
-
-            &:first-child:not(:last-child),
-            &:not(:first-child, :last-child) {
-                --border-end-start-radius: 0;
-                --border-end-end-radius: 0;
-            }
-            &:last-child:not(:first-child),
-            &:not(:first-child, :last-child) {
-                --border-start-start-radius: 0;
-                --border-start-end-radius: 0;
-            }
-            // --background-color: var(--background-color);
-                --background-color: var(--positive);
-            &:hover {
-                --background-color: var(--positive);
-            }
+            --display: contents;
         }
+    }
+    [type=toolbar] {
+        --display: inline-flex;
+    }
+    [type=context] {
+        --display: inline-grid;
+        --align-content: baseline;
     }
 }

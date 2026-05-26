@@ -1,10 +1,15 @@
-// как у тайлвиндса, чтобы использовать для выпадающего меню тоже
 @mixin menu() {
-    menu {
+    :is([type=toolbar], [type=context]) {
         --display: grid;
         --margin: var(--margin--s3);
+        --padding: var(--padding--s2);
         --border-radius: var(--border-radius--s1);
         --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --outline-color: var(--positive--mute);
+        --outline-style: solid;
+        --outline-width: var(--size--025);
+        --outline-offset: calc(var(--size--025) * -1);
         --list-style: none;
         > li {
             --display: grid;
@@ -19,11 +24,17 @@
                 --border-start-start-radius: 0;
                 --border-start-end-radius: 0;
             }
-            // --background-color: var(--background-color);
-                --background-color: var(--positive);
+            --background-color: var(--positive);
             &:hover {
                 --background-color: var(--positive);
             }
         }
+    }
+    [type=toolbar] {
+        --display: inline-flex;
+    }
+    [type=context] {
+        --display: inline-grid;
+        --align-content: baseline;
     }
 }

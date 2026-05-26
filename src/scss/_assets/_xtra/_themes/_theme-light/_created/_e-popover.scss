@@ -1,6 +1,170 @@
 @mixin e-popover() {
     e-popover,
     .element--popover {
-
+        --position: relative;
+        --display: inline-grid;
+        &[position^=left] {
+            > :not(e-body, .element--body)::after {
+                --width: var(--size--05);
+                --left: var(--size--1);
+                --top: calc(50% - var(--font-size) / 2);
+                --bottom: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --right: 100%;
+                --padding-right: var(--padding--s2);
+            }
+            &[position$=top] {
+                > e-body,
+                > .element--body {
+                    --bottom: 0;
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --top: 50%;
+                    --transform: translateY(-50%);
+                }
+            }
+            &[position$=bottom] {
+                > e-body,
+                > .element--body {
+                    --top: 0;
+                }
+            }
+        }
+        &[position^=top] {
+            > :not(e-body, .element--body)::after {
+                --height: var(--size--05);
+                --left: calc(50% - var(--font-size) / 2);
+                --top: var(--size--1);
+                --right: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --bottom: 100%;
+                --padding-bottom: var(--padding--s2);
+            }
+            &[position$=left] {
+                > e-body,
+                > .element--body {
+                    --right: 0;
+                }
+            }
+            &[position$=center]
+                > e-body,
+                > .element--body {
+                    --left: 50%;
+                    --transform: translateX(-50%);
+                }
+            &[position$=right] + .drp-content
+                > e-body,
+                > .element--body {
+                    --left: 0;
+                }
+        }
+        &[position^=right] {
+            > :not(e-body, .element--body)::after {
+                --width: var(--size--05);
+                --top: calc(50% - var(--font-size) / 2);
+                --right: var(--size--1);
+                --bottom: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --left: 100%;
+                --padding-left: var(--padding--s2);
+            }
+            &[position$=top] {
+                > e-body,
+                > .element--body {
+                    --bottom: 0
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --top: 50%;
+                    --transform: translateY(-50%);
+                }
+            }
+            &[position$=bottom] {
+                > e-body,
+                > .element--body {
+                    --top: 0;
+                }
+            }
+        }
+        &[position^=bottom] {
+            > :not(e-body, .element--body)::after {
+                --height: var(--size--05);
+                --left: calc(50% - var(--font-size) / 2);
+                --right: calc(50% - var(--font-size) / 2);
+                --bottom: var(--size--1);
+            }
+            > e-body,
+            > .element--body {
+                --top: 100%;
+                --padding-top: var(--padding--s2);
+            }
+            &[position$=left] {
+                > e-body,
+                > .element--body {
+                    --right: 0;
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --left: 50%;
+                    --transform: translateX(-50%);
+                }
+            }
+            &[position$=right] {
+                > e-body,
+                > .element--body {
+                    --left: 0;
+                }
+            }
+        }
+        &[position=center] {
+            > e-body,
+            > .element--body {
+                --left: 50%;
+                --top: 50%;
+                --transform: translate(-50%, -50%);
+            }
+        }
+        > e-body,
+        > .element--body {
+            --position: absolute;
+            --width: max-content;
+            --font-size: var(--font-size--s1);
+            --transition: initial;
+            --opacity: 0;
+            --visibility: hidden;
+            --pointer-events: none;
+            --z-index: -1;
+        }
+        &:is([mode]) > e-body:hover,
+        &:is([mode]) > .element--body:hover,
+        &:is([mode=hover]):hover > e-body,
+        &:is([mode=hover]):hover > .element--body,
+        &:is([mode=focus]):focus-within > e-body,
+        &:is([mode=focus]):focus-within > .element--body {
+            --visibility: visible;
+            --opacity: 1;
+            --pointer-events: auto;
+            --z-index: 1;
+        }
+        > :not(e-body, .element--body)::after {
+            --content: '';
+            --position: absolute;
+            --border-radius: var(--size--1);
+            --background-color: var(--negative--mute);
+        }
     }
+
 }

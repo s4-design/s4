@@ -1,5 +1,6 @@
 @mixin e-line() {
-    e-line {
+    e-line,
+    .element--line {
         --border-color: var(--negative--mute);
         --border-width: thin;
         --border-style: solid solid none none;

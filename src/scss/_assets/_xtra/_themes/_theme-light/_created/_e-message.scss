@@ -7,13 +7,7 @@
         --margin: var(--margin--md) 0;
         --padding: var(--padding--s3);
         --border-radius: var(--border-radius--s1);
-        --background-color: var(--positive--light);
-        --background-image: linear-gradient(var(--positive--mute));
-        --outline-color: var(--positive--mute);
-        --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
-
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         > header {
             --padding: var(--padding--s3) var(--padding--md);
             --border-radius: var(--border-radius--s2);
@@ -25,7 +19,7 @@
             --display: block;
             --padding: var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --background-color: var(--positive);
+            --background: var(--positive);
         }
         > footer {
             --display: flex;
@@ -59,16 +53,14 @@
             "danger"
         ) {
             &.#{$color} {
-                --background-image: linear-gradient(var(--#{$color}--mute));
-                --outline-color: var(--#{$color}--mute);
-
+                --background: var(--positive--light) linear-gradient(var(--#{$color}--mute));
                 > e-body,
                 > .element--body {
-                    --background-color: var(--#{$color});
+                    --background: var(--#{$color});
                 }
 
                 @if ($color == "negative") {
-                    --background-color: var(--negative--light);
+                    --background: var(--negative--light);
                     > header {
                         --color: var(--positive);
                     }

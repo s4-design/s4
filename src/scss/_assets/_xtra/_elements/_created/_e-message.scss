@@ -7,14 +7,7 @@
         margin: var(--margin);
         padding: var(--padding);
         border-radius: var(--border-radius);
-        background-color: var(--background-color);
-        background-image: var(--background-image);
-        outline:
-            var(--outline-color)
-            var(--outline-style)
-            var(--outline-width);
-        outline-offset: var(--outline-offset);
-
+        background: var(--background);
         > header {
             padding: var(--padding);
             border-radius: var(--border-radius);
@@ -26,7 +19,7 @@
             display: var(--display);
             padding: var(--padding);
             border-radius: var(--border-radius);
-            background-color: var(--background-color);
+            background: var(--background);
             color: var(--color);
         }
         > footer {

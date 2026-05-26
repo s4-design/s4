@@ -1,217 +1,41 @@
 @mixin e-popover() {
     e-popover,
     .element--popover {
-        position: relative;
-        display: inline-grid;
-        // line-height: 0;
-
-        &[position^=left] {
+        position: var(--position);
+        display: var(--display);
+        &[position] {
+            > e-body,
+            > .element--body {
+                position: var(--position);
+                width: var(--width);
+                left: var(--left, initial);
+                top: var(--top, initial);
+                right: var(--right, initial);
+                bottom: var(--bottom, initial);
+                padding-top: var(--padding-top, initial);
+                padding-right: var(--padding-right, initial);
+                padding-bottom: var(--padding-bottom, initial);
+                padding-left: var(--padding-left, initial);
+                font-size: var(--font-size);
+                transform: var(--transform, initial);
+                transition: all var(--transition-duration) var(--transition-timing-function);
+                opacity: var(--opacity);
+                visibility: var(--visibility);
+                pointer-events: var(--pointer-events);
+                z-index: var(--z-index);
+            }
             > :not(e-body, .element--body)::after {
-                width: var(--size--05);
-                left: var(--size--1);
-                top: calc(50% - var(--font-size) / 2);
-                bottom: calc(50% - var(--font-size) / 2);
+                content: var(--content);
+                position: var(--position);
+                width: var(--width, initial);
+                height: var(--height, initial);
+                left: var(--left, initial);
+                top: var(--top, initial);
+                right: var(--right, initial);
+                bottom: var(--bottom, initial);
+                border-radius: var(--border-radius);
+                background-color: var(--background-color);
             }
-            > e-body,
-            > .element--body {
-                right: 100%;
-                padding-right: var(--padding--s3);
-            }
-            &[position$=top] {
-                > e-body,
-                > .element--body {
-                    bottom: 0;
-                }
-            }
-            &[position$=center] {
-                > e-body,
-                > .element--body {
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
-            &[position$=bottom] {
-                > e-body,
-                > .element--body {
-                    top: 0;
-                }
-            }
-        }
-
-        &[position^=top] {
-            > :not(e-body, .element--body)::after {
-                height: var(--size--05);
-                left: calc(50% - var(--font-size) / 2);
-                top: var(--size--1);
-                right: calc(50% - var(--font-size) / 2);
-            }
-            > e-body,
-            > .element--body {
-                bottom: 100%;
-                padding-bottom: var(--padding--s3);
-            }
-            &[position$=left] {
-                > e-body,
-                > .element--body {
-                    right: 0;
-                }
-            }
-            &[position$=center]
-                > e-body,
-                > .element--body {
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-            &[position$=right] + .drp-content
-                > e-body,
-                > .element--body {
-                    left: 0;
-                }
-        }
-
-        &[position^=right] {
-            > :not(e-body, .element--body)::after {
-                width: var(--size--05);
-                top: calc(50% - var(--font-size) / 2);
-                right: var(--size--1);
-                bottom: calc(50% - var(--font-size) / 2);
-            }
-            > e-body,
-            > .element--body {
-                left: 100%;
-                padding-left: var(--padding--s3);
-            }
-            &[position$=top] {
-                > e-body,
-                > .element--body {
-                    bottom: 0
-                }
-            }
-            &[position$=center] {
-                > e-body,
-                > .element--body {
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
-            &[position$=bottom] {
-                > e-body,
-                > .element--body {
-                    top: 0;
-                }
-            }
-        }
-
-        &[position^=bottom] {
-            > :not(e-body, .element--body)::after {
-                height: var(--size--05);
-                left: calc(50% - var(--font-size) / 2);
-                right: calc(50% - var(--font-size) / 2);
-                bottom: var(--size--1);
-            }
-            > e-body,
-            > .element--body {
-                top: 100%;
-                padding-top: var(--padding--s3);
-            }
-            &[position$=left] {
-                > e-body,
-                > .element--body {
-                    right: 0;
-                }
-            }
-            &[position$=center] {
-                > e-body,
-                > .element--body {
-                    left: 50%;
-                    transform: translateX(-50%);
-                }
-            }
-            &[position$=right] {
-                > e-body,
-                > .element--body {
-                    left: 0;
-                }
-            }
-        }
-
-        &[position=center] {
-            > e-body,
-            > .element--body {
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        
-        > e-body,
-        > .element--body {
-            position: absolute;
-            font-size: var(--font-size--s1);
-            width: max-content;
-
-            visibility: hidden;
-            opacity: 0;
-
-            transition: all var(--transition-duration) var(--transition-timing-function);
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        &:is([mode]) {
-            > e-body,
-            > .element--body {
-                &:hover {
-                    visibility: visible;
-                    opacity: 1;
-                    pointer-events: auto;
-                    z-index: 1;
-                }
-            }
-        }
-        &:is([mode=hover]):hover {
-            > e-body,
-            > .element--body {
-                visibility: visible;
-                opacity: 1;
-                pointer-events: auto;
-                z-index: 1;
-            }
-        }
-        &:is([mode=focus]):focus-within {
-            > e-body,
-            > .element--body {
-                visibility: visible;
-                opacity: 1;
-                pointer-events: auto;
-                z-index: 1;
-            }
-        }
-        &:is([mode=focus]):focus-within {
-            // > button {
-            //     pointer-events: none;
-            // }
-        }
-
-        > button::after {
-            content: '';
-            position: absolute;
-            border-radius: var(--size--1);
-            background-color: var(--negative--mute);
         }
     }
-
 }
-
-
-// https://www.linkedin.com/posts/utsavmeena_how-to-create-an-accessible-menu-in-css-share-7437886243197169665-eoQc?utm_source=share&utm_medium=member_desktop&rcm=ACoAABej0q0Bp26GEQ4dVPDJxYs_pFYddYmClMA
-// .dropdown-container:where(.open, :focus-within) .dropdown-menu {
-//    height: 132px;
-// }
-// .dropdown-container:not(.open):not(:focus-within) .dropdown-menu {
-//    height: 0;
-// }
-
-// https://media.licdn.com/dms/image/v2/D4D22AQFq_jnaXErUNg/feedshare-shrink_2048_1536/B4DZziuHnyJsAg-/0/1773330268361?e=1775088000&v=beta&t=RHlr9RStYw5Q5s9AL4ss2HOEiNTHORcFS15X-KWOPAc

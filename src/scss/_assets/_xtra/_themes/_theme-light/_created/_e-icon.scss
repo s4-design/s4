@@ -1,12 +1,9 @@
 @mixin e-icon() {
     e-icon,
-    .element--image {
+    .element--icon {
         --display: inline-block;
-        // --width: var(--line-height);
-        // --height: var(--line-height);
         --width: 1em;
         --height: 1em;
-        // --vertical-align: bottom;
         --vertical-align: middle;
         --align-self: center;
         --background-color: currentColor;
@@ -14,7 +11,6 @@
         --mask-repeat: no-repeat;
         --mask-position: center;
         --mask-origin: content-box;
-        // --mask-size: 80%;
         --mask-size: 120%;
     }
 }

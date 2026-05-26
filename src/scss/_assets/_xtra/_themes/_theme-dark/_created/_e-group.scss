@@ -3,8 +3,8 @@
     .element--group {
         --display: contents;
 
-        &:is([class*=display--grid], [class*=display--inline-grid])[class*=--row],
-        &:is([class*=display--flex], [class*=display--inline-flex])[class*=--column],
+        &:is([class*=display--grid], [class*=display--inline-grid])[class*=-row],
+        &:is([class*=display--flex], [class*=display--inline-flex])[class*=-column],
         &.direction--vertical {
             > :first-child:not(:last-child),
             > :not(:first-child, :last-child) {
@@ -26,8 +26,8 @@
             }
         }
 
-        &:is([class*=display--grid], [class*=display--inline-grid])[class*=--column],
-        &:is([class*=display--flex], [class*=display--inline-flex])[class*=--row],
+        &:is([class*=display--grid], [class*=display--inline-grid])[class*=-column],
+        &:is([class*=display--flex], [class*=display--inline-flex])[class*=-row],
         &.direction--horizontal {
             > :first-child:not(:last-child),
             > :not(:first-child, :last-child) {

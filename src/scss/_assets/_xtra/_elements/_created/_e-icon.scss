@@ -2,10 +2,10 @@
     e-icon,
     .element--icon {
         display: var(--display);
-        width: var(--width);
-        height: var(--height);
         vertical-align: var(--vertical-align);
         align-self: var(--align-self);
+        width: var(--width);
+        height: var(--height);
         background-color: var(--background-color);
         mask-image: var(--mask-image);
         mask-repeat: var(--mask-repeat);

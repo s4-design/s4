@@ -7,11 +7,12 @@
             > e-body,
             > .element--body {
                 position: var(--position);
-                width: var(--width);
+                z-index: var(--z-index);
                 left: var(--left, initial);
                 top: var(--top, initial);
                 right: var(--right, initial);
                 bottom: var(--bottom, initial);
+                width: var(--width);
                 padding-top: var(--padding-top, initial);
                 padding-right: var(--padding-right, initial);
                 padding-bottom: var(--padding-bottom, initial);
@@ -22,17 +23,16 @@
                 opacity: var(--opacity);
                 visibility: var(--visibility);
                 pointer-events: var(--pointer-events);
-                z-index: var(--z-index);
             }
             > :not(e-body, .element--body)::after {
                 content: var(--content);
                 position: var(--position);
-                width: var(--width, initial);
-                height: var(--height, initial);
                 left: var(--left, initial);
                 top: var(--top, initial);
                 right: var(--right, initial);
                 bottom: var(--bottom, initial);
+                width: var(--width, initial);
+                height: var(--height, initial);
                 border-radius: var(--border-radius);
                 background-color: var(--background-color);
             }

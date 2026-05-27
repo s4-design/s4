@@ -1,17 +1,17 @@
 @mixin \[theme\]() {
     :scope {
         --position: relative;
-        --background-color: var(--positive--light);
-        --color: var(--negative--dark);
-        --word-break: normal;
-        --tab-size: 4;
+        --overscroll-behavior: none;
         --font-size: var(--font-size--md);
         --font-weight: normal;
         --line-height: initial;
         --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
-        --text-underline-offset: var(--size--025);
-        --overscroll-behavior: none;
+        --word-break: normal;
         --hyphens: auto;
+        --tab-size: 4;
+        --text-underline-offset: var(--size--025);
+        --color: var(--negative--dark);
+        --background-color: var(--positive--light);
         --transition-duration: .15s;
         --transition-timing-function: linear;
     }

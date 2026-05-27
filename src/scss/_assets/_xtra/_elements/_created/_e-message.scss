@@ -9,10 +9,10 @@
         border-radius: var(--border-radius);
         background: var(--background);
         > header {
+            font-weight: var(--font-weight);
+            color: var(--color);
             padding: var(--padding);
             border-radius: var(--border-radius);
-            color: var(--color);
-            font-weight: var(--font-weight);
         }
         > e-body,
         > .element--body {

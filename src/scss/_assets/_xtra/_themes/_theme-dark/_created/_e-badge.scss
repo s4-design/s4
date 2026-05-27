@@ -8,34 +8,27 @@
         --justify-content: center;
         --align-items: center;
         --vertical-align: middle;
-
+        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-height: var(--min-width);
         --margin: initial;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s1);
         --border: none;
         --border-radius: var(--border-radius--md);
+        --outline-style: solid;
+        --outline-width: var(--size--025);
+        --outline-color: var(--negative--mute);
+        --outline-offset: calc(var(--size--025) * -1);
         --overflow: visible;
-
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
-
         --font-size: var(--font-size--s1);
         --line-height: var(--size--5);
         --text-align: center;
         --text-decoration-line: none;
         --white-space: nowrap;
-
         --color: var(--negative--light);
         --background-color: var(--positive--mute);
-
         --background-clip: padding-box;
-
         --cursor: default;
-        --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-color: var(--negative--mute);
-        --outline-offset: calc(var(--size--025) * -1);
-
         --appearance: none;
         --user-select: none;
         --pointer-events: unset;

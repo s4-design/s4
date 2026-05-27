@@ -8,34 +8,28 @@
         justify-content: var(--justify-content);
         align-items: var(--align-items);
         vertical-align: var(--vertical-align);
-
+        min-width: var(--min-width);
+        min-height: var(--min-height);
         margin: var(--margin);
         padding:
             var(--padding-block)
             var(--padding-inline);
         border: var(--border);
         border-radius: var(--border-radius);
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset);
         overflow: var(--overflow);
-
-        min-width: var(--min-width);
-        min-height: var(--min-height);
-
         font-size: var(--font-size);
         font-family: var(--font-family);
         line-height: var(--line-height);
         text-align: var(--text-align);
         text-decoration-line: var(--text-decoration-line);
         white-space: var(--white-space);
-
         color: var(--color);
         background-color: var(--background-color);
         background-clip: var(--background-clip);
-
-        cursor: var(--cursor);
         transition: var(--transition);
-        outline: var(--outline-width) var(--outline-style) var(--outline-color);
-        outline-offset: var(--outline-offset);
-        
+        cursor: var(--cursor);
         appearance: var(--appearance);
         user-select: var(--user-select);
         pointer-events: var(--pointer-events);

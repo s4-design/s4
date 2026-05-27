@@ -9,10 +9,10 @@
         --border-radius: var(--border-radius--s1);
         --background: var(--positive--light) linear-gradient(var(--positive--mute));
         > header {
+            --font-weight: 500;
+            --color: var(--negative);
             --padding: var(--padding--s3) var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --color: var(--negative);
-            --font-weight: 500;
         }
         > e-body,
         > .element--body {

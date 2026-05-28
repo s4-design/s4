@@ -23,7 +23,7 @@
 
         --font-size: var(--font-size--md);
         --font-weight: 600;
-        --line-height: var(--font-size--l2);
+        --line-height: var(--size--6);
         --text-align: center;
         --text-decoration-line: none;
         --text-transform: uppercase;
@@ -31,8 +31,7 @@
         --white-space: nowrap;
 
         --color: var(--negative);
-        --background-color: var(--positive);
-        --background-image: none;
+        --background: var(--positive);
         --background-clip: padding-box;
 
         --cursor: pointer;
@@ -44,7 +43,6 @@
 
         --appearance: none;
         --user-select: none;
-        --pointer-events: unset;
 
         &:hover:not(:disabled) {
             --color: var(--negative--light);
@@ -62,10 +60,8 @@
         &:disabled {
             --color: var(--negative--mute);
             --border-color: transparent;
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
+            --background: var(--positive--mute);
             --cursor: not-allowed;
-            --pointer-events: none;
         }
         @each $color in (
             "negative",
@@ -75,7 +71,7 @@
             "danger"
         ) {
             &.#{$color} {
-                --background-color: var(--#{$color});
+                --background: var(--#{$color});
                 @if ($color == "negative") {
                     --color: var(--positive);
                 } @else {
@@ -100,7 +96,7 @@
                     }
                 }
                 &:disabled {
-                    --background-color: var(--#{$color}--dark);
+                    --background: var(--#{$color}--mute);
                     @if ($color == "negative") {
                         --color: var(--positive--mute);
                     } @else {
@@ -111,9 +107,8 @@
         }
 
         &.differ {
-            --background-color: var(--positive--light);
+            --background: var(--positive--light);
             &:hover:not(:disabled) {
-                --background-color: var(--positive--light);
                 --color: var(--negative--light);
                 --outline-color: var(--negative--light);
             }
@@ -124,7 +119,7 @@
                 --outline-color: var(--negative);
             }
             &:disabled {
-                --background-color: var(--positive--light);
+                --background: var(--positive--light);
             }
             @each $color in (
                 "negative",
@@ -135,12 +130,13 @@
             ) {
                 &.#{$color} {
                     @if ($color == "negative") {
-                        --background-color: var(--negative--light);
+                        --background: var(--negative--light);
                         --color: var(--positive);
+                    } @else {
+                        --color: var(--#{$color});
                     }
                     &:hover:not(:disabled) {
                         @if ($color == "negative") {
-                            --background-color: var(--negative--light);
                             --color: var(--positive--light);
                         } @else {
                             --color: var(--#{$color}--light);
@@ -148,11 +144,10 @@
                     }
                     &:disabled {
                         @if ($color == "negative") {
-                            --background-color: var(--negative--dark);
+                            --background: var(--negative--mute);
                             --color: var(--positive--mute);
                         } @else {
-                            --background-color: var(--#{$color}--dark);
-                            --color: var(--negative--mute);
+                            --color: var(--#{$color}--mute);
                         }
                     }
                 }

@@ -11,7 +11,7 @@
             --display: inline-block;
             --margin-left: var(--size--05);
             --font-size: var(--font-size--s1);
-            --line-height: var(--font-size--s1);
+            --line-height: var(--size--3);
             --vertical-align: super;
         }
         &[title=""]::after {

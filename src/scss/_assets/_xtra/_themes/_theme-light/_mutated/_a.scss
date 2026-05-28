@@ -5,7 +5,7 @@
         --color: var(--negative);
         --text-decoration-line: underline;
         --text-decoration-style: solid;
-        --text-decoration-color: var(--negative--light);
+        --text-decoration-color: var(--negative--dark);
         --text-decoration-thickness: auto;
         --text-underline-offset: var(--size--1);
 
@@ -16,13 +16,13 @@
         --outline-color: transparent;
         --outline-offset: var(--size--05);
         &:visited {
-            --color: var(--negative--dark);
-            --text-decoration-color: var(--negative--dark);
+            --color: var(--negative--light);
+            --text-decoration-color: var(--negative--light);
         }
         @if ($hover-active) {
             &:hover {
-                --color: var(--negative--light);
-                --text-decoration-color: var(--negative--light);
+                --color: var(--negative--dark);
+                --text-decoration-color: var(--negative--dark);
             }
         }
         &:focus-visible:not(:hover) {
@@ -36,15 +36,15 @@
         ) {
             &.#{$color} {
                 --color: var(--#{$color});
-                --text-decoration-color: var(--#{$color}--light);
+                --text-decoration-color: var(--#{$color}--dark);
                 &:visited {
                     --color: var(--#{$color}--dark);
-                    --text-decoration-color: var(--#{$color}--dark);
+                    --text-decoration-color: var(--#{$color}--light);
                 }
                 @if ($hover-active) {
                     &:hover {
-                        --color: var(--#{$color}--light);
-                        --text-decoration-color: var(--#{$color}--light);
+                        --color: var(--#{$color}--dark);
+                        --text-decoration-color: var(--#{$color}--dark);
                     }
                 }
                 &:focus-visible:not(:hover) {

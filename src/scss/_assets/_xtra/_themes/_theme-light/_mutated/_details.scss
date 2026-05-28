@@ -2,10 +2,9 @@
     details {
         --position: relative;
         --display: inline-block;
-        --width: stretch; // эта поебень в мозиле не работает
+        --width: 100%;
         --border-radius: var(--border-radius--s1);
-        --background-color: var(--positive--light);
-        --background-image: linear-gradient(var(--positive--mute));
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --transition: all var(--transition-duration) var(--transition-timing-function);
         @if ($hover-active) {
@@ -27,8 +26,8 @@
             --min-height: var(--min-width);
             --font-size: var(--font-size--md);
             --font-weight: 600;
-            --font-family: var(--font-family);
-            --line-height: var(--font-size--l2);
+            --font-family: initial;
+            --line-height: var(--size--6);
             --padding-block: var(--padding--s2);
             --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
@@ -36,7 +35,7 @@
             --border-style: solid;
             --border-color: transparent;
             --color: var(--negative);
-            --background-color: var(--positive);
+            --background: var(--positive);
             --background-clip: padding-box;
             --cursor: pointer;
             --letter-spacing: var(--size--025);
@@ -49,7 +48,7 @@
             @if ($hover-active) {
                 &:hover {
                     --outline-color: currentColor;
-                    --color: var(--negative--light);
+                    --color: var(--negative--dark);
                 }
             }
             &:active {
@@ -91,7 +90,7 @@
             --margin: var(--margin--s3);
             --padding: var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --background-color: var(--positive--light);
+            --background: var(--positive--light);
         }
     }
 }

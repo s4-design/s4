@@ -5,8 +5,7 @@
         width: var(--width);
         
         border-radius: var(--border-radius);
-        background-color: var(--background-color);
-        background-image: var(--background-image);
+        background: var(--background);
         background-clip: var(--background-clip);
         outline-offset: var(--outline-offset);
         transition: var(--transition);
@@ -35,7 +34,7 @@
             border-style: var(--border-style);
             border-color: var(--border-color);
             color: var(--color);
-            background-color: var(--background-color);
+            background: var(--background);
             background-clip: var(--background-clip);
             cursor: var(--cursor);
             letter-spacing: var(--letter-spacing);
@@ -59,7 +58,7 @@
             margin: var(--margin);
             padding: var(--padding);
             border-radius: var(--border-radius);
-            background-color: var(--background-color);
+            background: var(--background);
         }
     }
 }

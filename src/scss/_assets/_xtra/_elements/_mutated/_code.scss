@@ -1,5 +1,6 @@
 @mixin code() {
     code {
+        color: var(--color);
         padding: var(--padding);
         background-color: var(--background-color);
         border-radius: var(--border-radius);

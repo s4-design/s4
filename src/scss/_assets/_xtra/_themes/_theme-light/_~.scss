@@ -1,13 +1,15 @@
 @forward "_created/[theme]";
+@forward "_created/e-badge";
 @forward "_created/e-group";
 @forward "_created/e-icon";
 @forward "_created/e-line";
-@forward "_created/e-truncate";
-@forward "_created/e-badge";
 @forward "_created/e-message";
+@forward "_created/e-popover";
+@forward "_created/e-truncate";
 
 @forward "_mutated/";
 @forward "_mutated/[inert]";
+@forward "_mutated/∶disabled";
 @forward "_mutated/a";
 @forward "_mutated/abbr";
 @forward "_mutated/blockquote";

@@ -1,0 +1,7 @@
+@mixin disabled() {
+    :disabled,
+    label:has(:disabled) {
+        opacity: var(--opacity);
+        pointer-events: var(--pointer-events);
+    }
+}

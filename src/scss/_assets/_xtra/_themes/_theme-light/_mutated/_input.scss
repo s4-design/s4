@@ -41,20 +41,6 @@
             --color: var(--negative);
             --outline-color: currentColor;
         }
-        &:disabled {
-            --border-color: currentColor;
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
-            label:has(&),
-            label[role=button]:has(&) {
-                --color: var(--negative--mute);
-                --cursor: not-allowed;
-                --outline-style: none;
-                --pointer-events: none;
-            }
-        }
         &:has(+ label) {
             --margin-inline-end: var(--margin--s3);
         }
@@ -90,8 +76,7 @@
         --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
-        --background-color: var(--positive);
-        --background-image: none;
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -103,7 +88,7 @@
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
-        --line-height: var(--font-size);
+        --line-height: var(--size--4);
         --appearance: none;
         --user-select: initial;
         --transition: all var(--transition-duration) var(--transition-timing-function);
@@ -141,12 +126,6 @@
         &:read-only {
             --cursor: not-allowed;
         }
-        &:disabled {
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
-        }
         // &:where([data-validation=immediate]):invalid,
         &:where(:not([data-validation=user])):invalid,
         &:where([data-validation=user]):user-invalid {
@@ -165,8 +144,7 @@
         --margin: unset;
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s3);
-        --background-color: var(--positive);
-        --background-image: none;
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -176,7 +154,7 @@
         --outline-width: var(--size--025);
         --outline-offset: calc(var(--size--025) * -1);
         --font-size: var(--font-size--md);
-        --line-height: var(--font-size);
+        --line-height: var(--size--4);
         --appearance: none;
         --cursor: ew-resize;
         --transition: all var(--transition-duration) var(--transition-timing-function);
@@ -200,12 +178,6 @@
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);
             }
-        }
-        &:disabled {
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
         }
         &:where([data-validation=immediate]):invalid,
         &:where([data-validation=user]):user-invalid {
@@ -241,8 +213,7 @@
         --min-height: calc(var(--font-size) * 2);
         // --min-height: calc(var(--line-height) * 2);
         --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
-        --background-color: var(--positive);
-        --background-image: none;
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -280,12 +251,6 @@
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);
             }
-        }
-        &:disabled {
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
         }
         &:where(:not([data-validation=user])):invalid,
         &:where([data-validation=user]):user-invalid {

@@ -1,7 +1,9 @@
 @mixin \[inert\]() {
     [inert] {
-        --opacity: 50%;
-        :where([inert]) {
+        --opacity: 35%;
+        [inert],
+        :disabled,
+        label:has(:disabled) {
             --opacity: initial;
         }
     }

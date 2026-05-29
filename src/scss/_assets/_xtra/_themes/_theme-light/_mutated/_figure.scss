@@ -1,8 +1,7 @@
 @mixin figure() {
     figure {
         --border-radius: var(--border-radius--s1);
-        --background-color: var(--positive--light);
-        --background-image: linear-gradient(var(--positive--mute));
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --overflow: auto;
 
         > figcaption,
@@ -34,7 +33,7 @@
             --margin: var(--margin--s3);
             --padding: var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --background-color: var(--positive--light);
+            --background: var(--positive--light);
             --overflow: auto;
         }
     }

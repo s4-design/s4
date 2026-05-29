@@ -10,8 +10,7 @@
         --margin: initial;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s2);
-        --background-color: var(--positive);
-        --background-image: none;
+        --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -23,7 +22,7 @@
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
-        --line-height: var(--font-size--l2);
+        --line-height: var(--size--6);
         --cursor: pointer;
         --user-select: initial;
         --overflow: auto;
@@ -48,12 +47,6 @@
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);
             }
-        }
-        &:disabled {
-            --background-color: var(--positive--light);
-            --background-image: linear-gradient(var(--positive--mute));
-            --color: var(--negative--mute);
-            --cursor: not-allowed;
         }
         &:where(:not([data-validation=user])):invalid,
         &:where([data-validation=user]):user-invalid {

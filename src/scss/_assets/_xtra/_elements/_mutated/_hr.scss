@@ -1,6 +1,5 @@
 @mixin hr() {
-    hr,
-    .element--hr {
+    hr {
         border-color: var(--border-color);
         border-width: var(--border-width);
         border-style: var(--border-style);

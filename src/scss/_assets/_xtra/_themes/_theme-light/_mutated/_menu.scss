@@ -1,33 +1,17 @@
 @mixin menu() {
     :is([type=toolbar], [type=context]) {
-        --display: grid;
-        --margin: var(--margin--s3);
+        --gap: var(--gap--s2);
+        --margin: 0;
         --padding: var(--padding--s2);
-        --border-radius: var(--border-radius--s1);
-        --background-color: var(--positive--light);
-        --background-image: linear-gradient(var(--positive--mute));
-        --outline-color: var(--positive--mute);
+        --border-radius: var(--border-radius--md);
+        --background: var(--positive--light);
+        --outline-color: var(--negative--mute);
         --outline-style: solid;
         --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
-        --list-style: none;
+        --outline-offset: calc(var(--size--025) * 0);
+        --box-shadow: 0 var(--box-shadow--s1) calc(var(--box-shadow--s1) * 2) calc(var(--box-shadow--s1) * 0.5) var(--black--02);
         > li {
-            --display: grid;
-
-            &:first-child:not(:last-child),
-            &:not(:first-child, :last-child) {
-                --border-end-start-radius: 0;
-                --border-end-end-radius: 0;
-            }
-            &:last-child:not(:first-child),
-            &:not(:first-child, :last-child) {
-                --border-start-start-radius: 0;
-                --border-start-end-radius: 0;
-            }
-            --background-color: var(--positive);
-            &:hover {
-                --background-color: var(--positive);
-            }
+            --display: contents;
         }
     }
     [type=toolbar] {

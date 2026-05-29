@@ -1,39 +1,4 @@
 @mixin label() {
-
-    // label {
-    //     cursor: initial;
-
-    //     // <label>
-    //     //   <input type=checkbox || type=radio>
-    //     // </label>
-    //     &:has([type=checkbox], [type=radio]) {
-    //         --grid-gap: var(--gap--s2);
-    //         --line-height: var(--size--6);
-
-    //         input {
-    //             margin: calc((1lh - 1em) / 2 ) 0;
-    //         }
-            
-    //         &:has(input:checked) [check] {
-    //             display: inherit;
-    //         }
-    //         &:has(input:checked) [uncheck],
-    //         &:has(input:not(:checked)) [check] {
-    //             display: none;
-    //         }
-    //         &:has(input:not(:checked)) [uncheck] {
-    //             display: inherit;
-    //         }
-
-    //         display: inline-grid;
-    //         grid-auto-flow: column;
-    //         grid-gap: var(--grid-gap);
-    //         align-items: initial;
-    //         color: initial;
-    //         cursor: pointer;
-    //         line-height: var(--line-height);
-    //     }
-    // }
     label {
         cursor: var(--cursor);
 
@@ -41,26 +6,12 @@
         //   <input type=checkbox || type=radio>
         // </label>
         &:has([type=checkbox], [type=radio]) {
-            // input {
-            //     margin: calc((1lh - 1em) / 2 ) 0;
-            // }
-
             display: var(--display);
             grid-auto-flow: var(--grid-auto-flow);
             grid-gap: var(--grid-gap);
             align-items: var(--align-items);
             color: var(--color);
-            // cursor: var(--cursor);
             line-height: var(--line-height);
         }
-
-        // &:has(+ :is([type=text], [type=password], [type=email], [type=url], [type=search], [type=tel])) {
-        //     display: block;
-        //     font-size: var(--font-size--s1);
-        // }
-
-
     }
 }
-
-// https://www.sliderrevolution.com/resources/styling-radio-buttons/

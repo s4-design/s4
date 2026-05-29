@@ -2,12 +2,15 @@
     label {
         --cursor: initial;
 
+        // <label>
+        //   <input type=checkbox || type=radio>
+        // </label>
         &:has([type=checkbox], [type=radio]) {
             --display: inline-grid;
             --grid-auto-flow: column;
             --grid-gap: var(--gap--s2);
             --align-items: initial;
-            --color: initial;
+            --color: var(--negative);
             --cursor: pointer;
             --line-height: var(--size--6);
             

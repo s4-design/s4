@@ -11,40 +11,18 @@
         @include base-colors("white", 1, 0, 0);
         @include base-colors("black", 0, 0, 0);
         $dark-key: .18;
-        @include accent-colors("positive", $dark-key, .08, calc($dark-key / 10), 254, .35);
-        @include accent-colors("negative", 1 - $dark-key, .08, calc($dark-key / 10), 254, .35);
-        @include accent-colors("prime", calc($dark-key * 3), .1, $dark-key, 254, .35);
-        @include accent-colors("second", calc($dark-key * 3), .1, calc($dark-key / 3), 254, .35);
-        @include accent-colors("success", calc($dark-key * 3), .1, $dark-key, 145, .35);
-        @include accent-colors("danger", calc($dark-key * 3), .1, $dark-key, 25, .35);
-
-        // --positive--light: oklch(0.245 0.024 254);       // invert as --negative--dark
-        // --positive: oklch(0.18 0.018 254);               // invert as --negative
-        // --positive--dark: oklch(0.115 0.012 254);        // invert as --negative--light
-        // --positive--mute: oklch(0.18 0.018 254 / 0.35);
-
-        // --negative--light: oklch(0.885 0.012 254);
-        // --negative: oklch(0.82 0.018 254);
-        // --negative--dark: oklch(0.755 0.024 254);
-        // --negative--mute: oklch(0.82 0.018 254 / 0.35);
-
-        // --prime--light: oklch(0.76 0.12 254);
-        // --prime: oklch(0.56 0.18 254);
-        // --prime--dark: oklch(0.36 0.12 254);
-        // --prime--mute: oklch(0.56 0.18 254 / 0.35);
-
-        // --second--light: oklch(0.76 0.04 254);
-        // --second: oklch(0.56 0.06 254);
-        // --second--dark: oklch(0.36 0.04 254);
-        // --second--mute: oklch(0.56 0.06 254 / 0.35);
-
+        @include accent-colors("positive", $dark-key,           .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("negative", 1 - $dark-key,       .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("prime",    calc($dark-key * 3), .1,  $dark-key,            254, .35);
+        @include accent-colors("second",   calc($dark-key * 3), .1,  calc($dark-key / 3),  254, .35);
+        @include accent-colors("success",  calc($dark-key * 3), .1,  $dark-key,            145, .35);
+        @include accent-colors("danger",   calc($dark-key * 3), .1,  $dark-key,            25,  .35);
 
         /* properties*/
         @include font-size;
         @include margin;
         @include padding;
         @include gap;
-        // @include border-width;
         @include border-radius;
         @include box-shadow;
     }

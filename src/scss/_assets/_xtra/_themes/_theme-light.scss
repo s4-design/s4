@@ -11,19 +11,18 @@
         @include base-colors("white", 1, 0, 0);
         @include base-colors("black", 0, 0, 0);
         $light-key: .18;
-        @include accent-colors("positive", 1 - $light-key, .15, .0,         276, .45);
-        @include accent-colors("negative", $light-key,     .15, .0,         276, .45);
-        @include accent-colors("prime",    .6,             .15, $light-key, 255, .45);
-        @include accent-colors("second",   .6,             .15, .02,        255, .45);
-        @include accent-colors("success",  .6,             .15, $light-key, 145, .45);
-        @include accent-colors("danger",   .6,             .15, $light-key, 25, .45);
-    
+        @include accent-colors("positive", 1 - $light-key,       .14, 0,                      254, .45);
+        @include accent-colors("negative", $light-key,           .14, 0,                      254, .45);
+        @include accent-colors("prime",    calc($light-key * 3), .07,  $light-key,            254, .45);
+        @include accent-colors("second",   calc($light-key * 3), .07,  calc($light-key / 10), 254, .45);
+        @include accent-colors("success",  calc($light-key * 3), .07,  $light-key,            145, .45);
+        @include accent-colors("danger",   calc($light-key * 3), .07,  $light-key,            25,  .45);
+
         /* properties*/
         @include font-size;
         @include margin;
         @include padding;
         @include gap;
-        // @include border-width;
         @include border-radius;
         @include box-shadow;
     }

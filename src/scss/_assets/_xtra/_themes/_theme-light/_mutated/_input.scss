@@ -21,8 +21,8 @@
         --cursor: pointer;
         --outline-color: transparent;
         --outline-style: solid;
-        --outline-width: var(--size--05);
-        --outline-offset: var(--size--05);
+        --outline-width: var(--size--0_5);
+        --outline-offset: var(--size--0_5);
         --appearance: none;
         --user-select: none;
         --pointer-events: none;
@@ -54,7 +54,7 @@
         }
         &:indeterminate {
             --background-image: linear-gradient(currentColor, currentColor);
-            --background-size: calc(100% - var(--size--1)) var(--size--05);
+            --background-size: calc(100% - var(--size--1)) var(--size--0_5);
         }
     }
     [type=radio] {
@@ -73,7 +73,7 @@
         --grid-auto-flow: column;
         --min-width: var(--min-height);
         --min-height: calc(var(--line-height) * 2);
-        --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
+        --margin: initial; /* calc(var(--outline-width, var(--size--0_5)) + var(--outline-offset, var(--size--0_5))); */
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
         --background: var(--positive--light) linear-gradient(var(--positive--mute));
@@ -83,8 +83,8 @@
         --color: var(--negative);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
+        --outline-width: var(--size--0_25);
+        --outline-offset: calc(var(--size--0_25) * -1);
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
@@ -103,8 +103,8 @@
         &:hover:not(:focus-visible, :disabled, :read-only) {
             --color: var(--negative--light);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger--light);
@@ -113,8 +113,8 @@
         &:focus-visible:not(:read-only) {
             --color: var(--negative);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);
@@ -151,8 +151,8 @@
         --color: var(--negative);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
+        --outline-width: var(--size--0_25);
+        --outline-offset: calc(var(--size--0_25) * -1);
         --font-size: var(--font-size--md);
         --line-height: var(--size--4);
         --appearance: none;
@@ -162,8 +162,8 @@
         &:hover:not(:focus-visible, :disabled) {
             --color: var(--negative--light);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger--light);
@@ -172,8 +172,8 @@
         &:focus-visible {
             --color: var(--negative);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);
@@ -212,7 +212,7 @@
         --min-width: var(--min-height);
         --min-height: calc(var(--font-size) * 2);
         // --min-height: calc(var(--line-height) * 2);
-        --margin: initial; /* calc(var(--outline-width, var(--size--05)) + var(--outline-offset, var(--size--05))); */
+        --margin: initial; /* calc(var(--outline-width, var(--size--0_5)) + var(--outline-offset, var(--size--0_5))); */
         --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
@@ -220,8 +220,8 @@
         --color: var(--negative);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
+        --outline-width: var(--size--0_25);
+        --outline-offset: calc(var(--size--0_25) * -1);
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
@@ -235,8 +235,8 @@
         &:hover:not(:focus-visible, :disabled) {
             --color: var(--negative--light);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger--light);
@@ -245,8 +245,8 @@
         &:focus-visible {
             --color: var(--negative);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);

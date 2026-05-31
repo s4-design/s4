@@ -4,7 +4,7 @@
         --height: min-content;
         --table-layout: fixed;
         --border-collapse: separate;
-        --border-spacing: var(--size--025);
+        --border-spacing: var(--size--0_25);
         --background-color: var(--positive--light);
 
         caption {
@@ -86,10 +86,10 @@
             --border-color: var(--negative--mute);
         }
         thead::after {
-            --bottom: calc(var(--size--025) * -1);
+            --bottom: calc(var(--size--0_25) * -1);
         }
         tfoot::before {
-            --top: calc(var(--size--025) * -1);
+            --top: calc(var(--size--0_25) * -1);
         }
     }
 }

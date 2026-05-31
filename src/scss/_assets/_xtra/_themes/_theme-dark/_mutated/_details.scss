@@ -38,11 +38,11 @@
             --background: var(--positive);
             --background-clip: padding-box;
             --cursor: pointer;
-            --letter-spacing: var(--size--025);
+            --letter-spacing: var(--size--0_25);
             --outline-style: solid;
-            --outline-width: var(--size--05);
+            --outline-width: var(--size--0_5);
             --outline-color: transparent;
-            --outline-offset: var(--size--05);
+            --outline-offset: var(--size--0_5);
             --transition: all var(--transition-duration) var(--transition-timing-function);
             --user-select: none;
             @if ($hover-active) {

@@ -16,8 +16,8 @@
         --border-radius: var(--border-radius--s2);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
-        --outline-width: var(--size--025);
-        --outline-offset: calc(var(--size--025) * -1);
+        --outline-width: var(--size--0_25);
+        --outline-offset: calc(var(--size--0_25) * -1);
         --color: var(--negative);
         --font-size: var(--font-size--md);
         --font-weight: 400;
@@ -31,8 +31,8 @@
         &:hover:not(:focus-visible, :disabled) {
             --color: var(--negative--light);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger--light);
@@ -41,8 +41,8 @@
         &:focus-visible {
             --color: var(--negative);
             --outline-color: currentColor;
-            --outline-width: var(--size--05);
-            --outline-offset: var(--size--05);
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
             &:where([data-validation=immediate]):invalid,
             &:where([data-validation=user]):user-invalid {
                 --color: var(--danger);

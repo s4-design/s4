@@ -12,9 +12,9 @@
         --cursor: pointer;
         --transition: all var(--transition-duration) var(--transition-timing-function);
         --outline-style: solid;
-        --outline-width: var(--size--05);
+        --outline-width: var(--size--0_5);
         --outline-color: transparent;
-        --outline-offset: var(--size--05);
+        --outline-offset: var(--size--0_5);
         &:visited {
             --color: var(--negative--dark);
             --text-decoration-color: var(--negative--dark);

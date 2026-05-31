@@ -58,10 +58,12 @@
     @include e-truncate;
     @include e-badge;
     @include e-message;
+    @include e-popover;
 
     // mutated
     @include \*;
     @include \[inert\];
+    @include \:disabled;
     @include a($hover-active);
     @include abbr;
     @include blockquote;

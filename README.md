@@ -96,7 +96,7 @@ AI не нужно управлять каждым размером отдель
 
 ### Установка
 
-Скачайте [текущий релиз](https://github.com/s4-design/s4/releases/download/0.1.0/v0.1.0.zip):
+Скачайте [текущий релиз](https://github.com/s4-design/s4/releases/download/v.0.1.0/v0.1.0.zip):
 
 ```
 s4/

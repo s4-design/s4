@@ -1,3 +1,7 @@
+<p align="right">
+    <a href="README.ru.md">🇷🇺 Русский</a>
+</p>
+
 <div align="center">
     <img src="https://avatars.githubusercontent.com/u/184809488" alt="S4 logo" width="160">
     <h1>Interface System 4</h1>

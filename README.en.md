@@ -8,7 +8,7 @@
 </div>
 
 <p>
-    Code-oriented parametric system for building user interfaces.
+    Code-oriented system for building user interfaces.
 </p>
 <small>
     Interface System 4 (S4) is based on a unified relative size scale, where the visual characteristics of the interface are determined by a set of interconnected rules and inherited dependencies. The system builds from primitives to compositions, and the primary object of control is the scale of the environment, not an individual component.

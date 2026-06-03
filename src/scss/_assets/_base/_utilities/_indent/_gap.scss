@@ -19,12 +19,14 @@
         }
 
         @if $enableVariables {
-            .gap {
-                gap: var(--#{$type}#{$orientation}-gap, var(--gap));
-            }
             .#{$tracksName}-gap {
                 #{$tracksName}-gap: var(--#{$type}#{$orientation}#{$tracksName}-gap, var(--#{$tracksName}-gap));
             }
+        }
+    }
+    @if $enableVariables {
+        .gap {
+            gap: var(--#{$type}#{$orientation}gap, var(--gap));
         }
     }
 }

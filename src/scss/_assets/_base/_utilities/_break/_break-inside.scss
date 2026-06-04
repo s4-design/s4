@@ -1,0 +1,9 @@
+@mixin break-inside($type, $orientation, $enableVariables) {
+    /* break inside */
+
+    @if $enableVariables {
+        .break-inside {
+            break-inside: var(--#{$type}#{$orientation}break-inside, var(--break-inside));
+        }
+    }
+}

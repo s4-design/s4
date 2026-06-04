@@ -1,5 +1,6 @@
 @use "_align/~" as *;
 @use "_background/~" as *;
+@use "_break/~" as *;
 @use "_border/~" as *;
 @use "_column/~" as *;
 @use "_cursor/~" as *;
@@ -27,6 +28,7 @@
 @mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
     @include align($type, $orientation);
     @include background($type, $orientation, $enableVariables);
+    @include break($type, $orientation, $enableVariables);
     @include border($type, $orientation, $enableVariables);
     @include column($type, $orientation, $enableVariables);
     @include cursor($type, $orientation, $enableVariables);

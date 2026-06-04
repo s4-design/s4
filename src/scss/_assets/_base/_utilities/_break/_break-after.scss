@@ -1,0 +1,9 @@
+@mixin break-after($type, $orientation, $enableVariables) {
+    /* break after */
+    
+    @if $enableVariables {
+        .break-after {
+            break-after: var(--#{$type}#{$orientation}break-after, var(--break-after));
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@mixin break-before($type, $orientation, $enableVariables) {
+    /* break before */ 
+
+    @if $enableVariables {
+        .break-before {
+            break-before: var(--#{$type}#{$orientation}break-before, var(--break-before));
+        }
+    }
+}

@@ -6,14 +6,14 @@
         "solid",
         "none"
     ) {
-        .#{$type}#{$orientation}outline-style--#{$columnRuleStyle} {
-            outline-style: #{$columnRuleStyle};
+        .#{$type}#{$orientation}column-rule-style--#{$columnRuleStyle} {
+            column-rule-style: #{$columnRuleStyle};
         }
     }
     
     @if $enableVariables {
-        .outline-style {
-            outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+        .column-style {
+            column-rule-style: var(--#{$type}#{$orientation}column-rule-style, var(--column-rule-style));
         }
     }
 }

@@ -3,7 +3,7 @@
     
     @if $enableVariables {
         .column-rule-color {
-            column-count: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
+            column-rule-color: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
         }
     }
 }

@@ -1,10 +1,7 @@
 @use "color" as color;
 @use "direction" as direction;
 @use "text-align" as text-align;
-@use "text-decoration-color" as text-decoration-color;
-@use "text-decoration-line" as text-decoration-line;
-@use "text-decoration-style" as text-decoration-style;
-@use "text-decoration-thickness" as text-decoration-thickness;
+@use "text-decoration" as text-decoration;
 @use "text-transform" as text-transform;
 @use "text-wrap" as text-wrap;
 @use "font-size" as font-size;
@@ -21,10 +18,7 @@
     @include font-weight.font-weight($type, $orientation, $enableVariables);
     @include line-height.line-height($type, $orientation, $enableVariables);
     @include text-align.text-align($type, $orientation);
-    @include text-decoration-color.text-decoration-color($type, $orientation, $enableVariables);
-    @include text-decoration-line.text-decoration-line($type, $orientation, $enableVariables);
-    @include text-decoration-style.text-decoration-style($type, $orientation, $enableVariables);
-    @include text-decoration-thickness.text-decoration-thickness($type, $orientation, $enableVariables);
+    @include text-decoration.text-decoration($type, $orientation, $enableVariables);
     @include text-transform.text-transform($type, $orientation);
     @include text-wrap.text-wrap($type, $orientation);
     @include white-space.white-space($type, $orientation);

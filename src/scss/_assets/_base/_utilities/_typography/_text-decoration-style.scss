@@ -1,9 +1,0 @@
-@mixin text-decoration-style($type, $orientation, $enableVariables) {
-    /* text decoration style */
-
-    @if $enableVariables {
-        .text-decoration-style {
-            text-decoration-style: var(--#{$type}#{$orientation}text-decoration-style, var(--text-decoration-style));
-        }
-    }
-}

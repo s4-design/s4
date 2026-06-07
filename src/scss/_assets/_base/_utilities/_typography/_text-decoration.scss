@@ -1,0 +1,25 @@
+@mixin text-decoration($type, $orientation, $enableVariables) {
+    /* text decoration */
+    @each $textDecoration in (
+        "none"
+    ) {
+    .#{$type}#{$orientation}text-decoration--#{$textDecoration} {
+            text-decoration: #{$textDecoration};
+        }
+    }
+
+    @if $enableVariables {
+        .text-decoration-line {
+            text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
+        }
+        .text-decoration-style {
+            text-decoration-style: var(--#{$type}#{$orientation}text-decoration-style, var(--text-decoration-style));
+        }
+        .text-decoration-color {
+            text-decoration-color: var(--#{$type}#{$orientation}text-decoration-color, var(--text-decoration-color));
+        }
+        .text-decoration-thickness {
+            text-decoration-thickness: var(--#{$type}#{$orientation}text-decoration-thickness, var(--text-decoration-thickness));
+        }
+    }
+}

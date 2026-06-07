@@ -7,11 +7,13 @@
     <h1>Interface System 4<br><small><small>Source code</small></small></h1>
 </div>
 
+<br>
+
 <p>
-    Code-oriented system for building user interfaces.
+    Code-oriented environment for building user interfaces (design systems).
 </p>
 <small>
-    Interface System 4 (S4) is based on a unified relative size scale, where the visual characteristics of the interface are determined by a set of interconnected rules and inherited dependencies. The system builds from primitives to compositions, and the primary object of control is the scale of the environment, not an individual component.
+    S4 is not a component framework — it's an environment: core (CSS-runtime + class formulas + three-layer cascade) + themes. Each theme is an independent design system with its own metrics, colors, typography, animations. Default themes (light/dark) are a ready-made design system. A custom theme is a new design system on the same core.
 </small>
 
 <br>
@@ -33,9 +35,13 @@
 
 ## Philosophy
 
-S4 is built differently from most UI frameworks (design systems, etc.) that center around components: Button, Card, Modal. Their values are independent: `font-size = 16px`, `padding = 12px`, `radius = 8px`.
+S4 is an **environment for building design systems**, not a framework with a component catalog. The S4 core provides the tooling: a three-layer `@layer` cascade, deterministic class formulas, device-specific loading. Themes define a *design system*: metrics, colors, typography, animations.
+A custom theme is a new design system on the same core.
 
-In S4, the central object is the **scale**, not a component. All metrics are linked through a unified size scale:
+Default themes are built differently from most UI frameworks (design systems, etc.) that revolve around components: Button, Card, Modal. Their values are independent: font-size = 16px, padding = 12px, radius = 8px.
+Light/dark themes are a ready-made design system with an EM-centered parametric model where all metrics derive from a single scale.
+
+The central object of Default themes is **gravity** (relative scale), not a component. All metrics are linked through a unified size scale:
 
 ```css
 --size--4: 1em;                      /* base unit */
@@ -46,7 +52,7 @@ In S4, the central object is the **scale**, not a component. All metrics are lin
 --border-radius--md: var(--size--4); /* = 1em */
 ```
 
-The system describes not values, but **dependencies** between them. Changing `font-size` on `html` changes not just one component, but the entire interface — because all sizes are tied to it via `em`.
+The system describes not values, but **dependencies** between them. Changing `font-size` on `html` doesn't change just one component — it changes the entire interface, because all sizes are tied to it via `em`.
 
 Architectural invariants of S4:
 
@@ -100,7 +106,7 @@ System 4 (S4) is an AI-friendly interface system. This is not AI-powered marketi
 
 ### Installation
 
-Download the [latest release](https://github.com/s4-design/s4/releases/download/0.1.0/v0.1.0.zip):
+Download the [latest release](https://github.com/s4-design/s4/releases/download/v.0.1.0/v0.1.0.zip):
 
 ```
 s4/
@@ -312,16 +318,36 @@ Base HTML is already styled — classes are optional:
 
 ## Themes
 
+An S4 theme is a **design system**. It defines not only metrics and colors, but also typography (`--font-family`, `--font-weight`, `--line-height`), animations (`--transition-duration`, `--transition-timing-function`), behavior (`--overscroll-behavior`, `--word-break`, `--hyphens`), and everything a specific DS requires.
+
+Any variable declared in a theme (`--{name}`) automatically becomes available as a modifier in Formula 1 xtra utilities.
+
 S4 detects the theme via `prefers-color-scheme` and sets the `[theme]` attribute on `<html>`:
 
 ```css
-@scope ([theme=light]) { /* light values */ }
-@scope ([theme=dark])  { /* dark values */ }
+@scope ([theme=light]) { /* light design system */ }
+@scope ([theme=dark])  { /* dark design system */ }
 ```
+
+Each `@scope` block contains everything the DS needs to work: `--size--*` values, colors, fonts, transitions.
 
 **Device-specific themes:** each theme is built separately for each device — `desktop/themes.css`, `mobile/themes.css`, `tablet/themes.css`. `[theme=dark]` values on desktop may differ from `[theme=dark]` on mobile. Equality between devices is not guaranteed.
 
-For device-independent styling, use Formula 2 or explicit values.
+**A custom theme is a new design system.** Set `[theme="my-name"]` on `<html>` before calling `S4()` and write CSS:
+
+```css
+@scope ([theme=my-name]) {
+    :scope {
+        --size--4: 1.25em;
+        --padding--md: 2em;
+        --color: var(--black--07);
+        --font-family: "IBM Plex Sans", system-ui;
+        --transition-duration: 0.2s;
+    }
+}
+```
+
+For device-independent styling, use Formula 2 or explicit values. Themes affect only variables — utility classes from Formula 1 and 2 are theme-independent.
 
 Theme switching at runtime is tracked automatically.
 

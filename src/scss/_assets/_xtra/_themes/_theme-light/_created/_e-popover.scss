@@ -3,137 +3,137 @@
     .element--popover {
         --position: relative;
         --display: inline-grid;
-        &[position^=left] {
+        &[position^=inline-start] {
             > :not(e-body, .element--body)::after {
                 --width: var(--size--0_5);
-                --left: var(--size--1);
-                --top: calc(50% - var(--font-size) / 2);
-                --bottom: calc(50% - var(--font-size) / 2);
+                --inset-inline-start: var(--size--1);
+                --inset-block-start: calc(50% - var(--font-size) / 2);
+                --inset-block-end: calc(50% - var(--font-size) / 2);
             }
             > e-body,
             > .element--body {
-                --right: 100%;
-                --padding-right: var(--padding--s2);
+                --inset-inline-end: 100%;
+                --padding-inline-end: var(--padding--s2);
             }
-            &[position$=top] {
+            &[position$=block-start] {
                 > e-body,
                 > .element--body {
-                    --bottom: 0;
+                    --inset-block-end: 0;
                 }
             }
             &[position$=center] {
                 > e-body,
                 > .element--body {
-                    --top: 50%;
+                    --inset-block-start: 50%;
                     --transform: translateY(-50%);
                 }
             }
-            &[position$=bottom] {
+            &[position$=block-end] {
                 > e-body,
                 > .element--body {
-                    --top: 0;
+                    --inset-block-start: 0;
                 }
             }
         }
-        &[position^=top] {
+        &[position^=block-start] {
             > :not(e-body, .element--body)::after {
                 --height: var(--size--0_5);
-                --top: var(--size--1);
-                --left: calc(50% - var(--font-size) / 2);
-                --right: calc(50% - var(--font-size) / 2);
+                --inset-block-start: var(--size--1);
+                --inset-inline-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: calc(50% - var(--font-size) / 2);
             }
             > e-body,
             > .element--body {
-                --bottom: 100%;
-                --padding-bottom: var(--padding--s2);
+                --inset-block-end: 100%;
+                --padding-block-end: var(--padding--s2);
             }
-            &[position$=left] {
+            &[position$=inline-start] {
                 > e-body,
                 > .element--body {
-                    --right: 0;
+                    --inset-inline-end: 0;
                 }
             }
             &[position$=center]
                 > e-body,
                 > .element--body {
-                    --left: 50%;
+                    --inset-inline-start: 50%;
                     --transform: translateX(-50%);
                 }
-            &[position$=right] + .drp-content
+            &[position$=inline-end] + .drp-content
                 > e-body,
                 > .element--body {
-                    --left: 0;
+                    --inset-inline-start: 0;
                 }
         }
-        &[position^=right] {
+        &[position^=inline-end] {
             > :not(e-body, .element--body)::after {
                 --width: var(--size--0_5);
-                --top: calc(50% - var(--font-size) / 2);
-                --right: var(--size--1);
-                --bottom: calc(50% - var(--font-size) / 2);
+                --inset-block-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: var(--size--1);
+                --inset-block-end: calc(50% - var(--font-size) / 2);
             }
             > e-body,
             > .element--body {
-                --left: 100%;
-                --padding-left: var(--padding--s2);
+                --inset-inline-start: 100%;
+                --padding-inline-start: var(--padding--s2);
             }
-            &[position$=top] {
+            &[position$=block-start] {
                 > e-body,
                 > .element--body {
-                    --bottom: 0
+                    --inset-block-end: 0
                 }
             }
             &[position$=center] {
                 > e-body,
                 > .element--body {
-                    --top: 50%;
+                    --inset-block-start: 50%;
                     --transform: translateY(-50%);
                 }
             }
-            &[position$=bottom] {
+            &[position$=block-end] {
                 > e-body,
                 > .element--body {
-                    --top: 0;
+                    --inset-block-start: 0;
                 }
             }
         }
-        &[position^=bottom] {
+        &[position^=block-end] {
             > :not(e-body, .element--body)::after {
                 --height: var(--size--0_5);
-                --left: calc(50% - var(--font-size) / 2);
-                --right: calc(50% - var(--font-size) / 2);
-                --bottom: var(--size--1);
+                --inset-inline-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: calc(50% - var(--font-size) / 2);
+                --inset-block-end: var(--size--1);
             }
             > e-body,
             > .element--body {
-                --top: 100%;
-                --padding-top: var(--padding--s2);
+                --inset-block-start: 100%;
+                --padding-block-start: var(--padding--s2);
             }
-            &[position$=left] {
+            &[position$=inline-start] {
                 > e-body,
                 > .element--body {
-                    --right: 0;
+                    --inset-inline-end: 0;
                 }
             }
             &[position$=center] {
                 > e-body,
                 > .element--body {
-                    --left: 50%;
+                    --inset-inline-start: 50%;
                     --transform: translateX(-50%);
                 }
             }
-            &[position$=right] {
+            &[position$=inline-end] {
                 > e-body,
                 > .element--body {
-                    --left: 0;
+                    --inset-inline-start: 0;
                 }
             }
         }
         &[position=center] {
             > e-body,
             > .element--body {
-                --left: 50%;
-                --top: 50%;
+                --inset-inline-start: 50%;
+                --inset-block-start: 50%;
                 --transform: translate(-50%, -50%);
             }
         }

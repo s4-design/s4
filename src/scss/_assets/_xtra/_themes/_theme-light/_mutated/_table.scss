@@ -60,18 +60,18 @@
 
         > :is(:first-child, caption + *) > tr:first-child > :is(th, td) {
             &:first-child {
-                border-top-left-radius: var(--border-radius--s2);
+                border-start-start-radius: var(--border-radius--s2);
             }
             &:last-child {
-                border-top-right-radius: var(--border-radius--s2);
+                border-start-end-radius: var(--border-radius--s2);
             }
         }
         > :last-child > tr:last-child > :is(th, td) {
             &:first-child {
-                border-bottom-left-radius: var(--border-radius--s2);
+                border-end-start-radius: var(--border-radius--s2);
             }
             &:last-child {
-                border-bottom-right-radius: var(--border-radius--s2);
+                border-end-end-radius: var(--border-radius--s2);
             }
         }
 
@@ -81,15 +81,15 @@
             --position: absolute;
             --width: 100%;
             --border-width: thin;
-            --border-top-style: solid;
-            --border-bottom-style: solid;
+            --border-block-start-style: solid;
+            --border-block-end-style: solid;
             --border-color: var(--negative--mute);
         }
         thead::after {
-            --bottom: calc(var(--size--0_25) * -1);
+            --inset-block-end: calc(var(--size--0_25) * -1);
         }
         tfoot::before {
-            --top: calc(var(--size--0_25) * -1);
+            --inset-block-start: calc(var(--size--0_25) * -1);
         }
     }
 }

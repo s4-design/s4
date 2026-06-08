@@ -40,15 +40,15 @@
             position: var(--position);
             width: var(--width);
             border-width: var(--border-width);
-            border-top-style: var(--border-top-style);
-            border-bottom-style: var(--border-bottom-style);
+            border-block-start-style: var(--border-block-start-style);
+            border-block-end-style: var(--border-block-end-style);
             border-color: var(--border-color);
         }
         thead::after {
-            bottom: var(--bottom);
+            inset-block-end: var(--inset-block-end);
         }
         tfoot::before {
-            top: var(--top);
+            inset-block-start: var(--inset-block-start);
         }
     }
 }

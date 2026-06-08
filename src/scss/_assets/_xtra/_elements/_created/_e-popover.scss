@@ -8,15 +8,15 @@
             > .element--body {
                 position: var(--position);
                 z-index: var(--z-index);
-                left: var(--left, initial);
-                top: var(--top, initial);
-                right: var(--right, initial);
-                bottom: var(--bottom, initial);
+                inset-inline-start: var(--inset-inline-start, initial);
+                inset-block-start: var(--inset-block-start, initial);
+                inset-inline-end: var(--inset-inline-end, initial);
+                inset-block-end: var(--inset-block-end, initial);
                 width: var(--width);
-                padding-top: var(--padding-top, initial);
-                padding-right: var(--padding-right, initial);
-                padding-bottom: var(--padding-bottom, initial);
-                padding-left: var(--padding-left, initial);
+                padding-block-start: var(--padding-block-start, initial);
+                padding-inline-end: var(--padding-inline-end, initial);
+                padding-block-end: var(--padding-block-end, initial);
+                padding-inline-start: var(--padding-inline-start, initial);
                 font-size: var(--font-size);
                 transform: var(--transform, initial);
                 transition: all var(--transition-duration) var(--transition-timing-function);
@@ -27,10 +27,10 @@
             > :not(e-body, .element--body)::after {
                 content: var(--content);
                 position: var(--position);
-                left: var(--left, initial);
-                top: var(--top, initial);
-                right: var(--right, initial);
-                bottom: var(--bottom, initial);
+                inset-inline-start: var(--inset-inline-start, initial);
+                inset-block-start: var(--inset-block-start, initial);
+                inset-inline-end: var(--inset-inline-end, initial);
+                inset-block-end: var(--inset-block-end, initial);
                 width: var(--width, initial);
                 height: var(--height, initial);
                 border-radius: var(--border-radius);

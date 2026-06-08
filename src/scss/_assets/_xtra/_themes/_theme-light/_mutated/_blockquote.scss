@@ -10,17 +10,17 @@
             --margin: 0;
         }
         &:where([data-content]) {
-            --padding: 0 0 0 var(--padding--l3);
+            --padding-inline-start: var(--padding--l3);
             &::before {
                 --position: absolute;
                 --display: block;
-                --left: 0;
-                --top: 0;
-                --bottom: 0;
+                --inset-inline-start: 0;
+                --inset-block-start: 0;
+                --inset-block-end: 0;
                 --width: var(--size--5);
                 --color: var(--negative--mute);
                 --text-align: center;
-                --border-right: thin solid;
+                --border-inline-end: thin solid;
                 --line-height: 1.25lh;
             }
             > footer {

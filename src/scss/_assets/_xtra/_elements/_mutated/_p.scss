@@ -1,10 +1,10 @@
 @mixin p() {
     p {
         &:first-child:first-of-type {
-            margin-top: var(--margin-top);
+            margin-block-start: var(--margin-block-start);
         }
         &:last-child:last-of-type {
-            margin-bottom: var(--margin-bottom);
+            margin-block-end: var(--margin-block-end);
         }
     }
 }

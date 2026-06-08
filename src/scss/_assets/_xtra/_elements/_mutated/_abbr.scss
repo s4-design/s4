@@ -10,7 +10,7 @@
         &[title]::after {
             content: var(--content);
             display: var(--display);
-            margin-left: var(--margin-left);
+            margin-inline-start: var(--margin-inline-start);
             font-size: var(--font-size);
             line-height: var(--line-height);
             vertical-align: var(--vertical-align);

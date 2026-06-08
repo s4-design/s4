@@ -10,19 +10,19 @@
             margin: var(--margin);
         }
         &:where([data-content]) {
-            padding: var(--padding);
+            padding-inline-start: var(--padding-inline-start);
             &::before {
                 content: attr(data-content);
 
                 position: var(--position);
                 display: var(--display);
-                left: var(--left);
-                top: var(--top);
-                bottom: var(--bottom);
+                inset-inline-start: var(--inset-inline-start);
+                inset-block-start: var(--inset-block-start);
+                inset-block-end: var(--inset-block-end);
                 width: var(--width);
                 color: var(--color);
                 text-align: var(--text-align);
-                border-right: var(--border-right);
+                border-inline-end: var(--border-inline-end);
                 line-height: var(--line-height);
             }
             > footer {

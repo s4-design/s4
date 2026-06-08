@@ -1,0 +1,9 @@
+@mixin grid-template-areas($type, $orientation, $enableVariables) {
+    /* grid template areas */
+    
+    @if $enableVariables {
+        .grid-template-areas {
+            grid-template-areas: var(--#{$type}#{$orientation}grid-template-areas, var(--grid-template-areas));
+        }
+    }
+}

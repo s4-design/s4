@@ -3,6 +3,7 @@
 @use "grid-auto-rows" as grid-auto-rows;
 @use "grid-column" as grid-column;
 @use "grid-row" as grid-row;
+@use "grid-template-areas" as grid-template-areas;
 @use "grid-template" as grid-template;
 
 @mixin grid($type, $orientation, $enableVariables) {
@@ -11,5 +12,6 @@
     @include grid-auto-rows.grid-auto-rows($type, $orientation, $enableVariables);
     @include grid-column.grid-column($type, $orientation, $enableVariables);
     @include grid-row.grid-row($type, $orientation, $enableVariables);
+    @include grid-template-areas.grid-template-areas($type, $orientation, $enableVariables);
     @include grid-template.grid-template($type, $orientation, $enableVariables);
 }

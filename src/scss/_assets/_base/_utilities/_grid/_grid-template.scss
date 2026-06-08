@@ -5,6 +5,15 @@
         "columns",
         "rows"
     ) {
+        @each $value in (
+            "none",
+            "subgrid"
+        ) {
+            .#{$type}#{$orientation}grid-template-#{$gridTemplate}--#{$value} {
+                grid-template-#{$gridTemplate}: #{$value};
+            }
+        }
+        
         @if $enableVariables {
             .grid-template-#{$gridTemplate} {
                 grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));

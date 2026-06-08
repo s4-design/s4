@@ -11,11 +11,7 @@
                 "block-start",
                 "block-end",
                 "inline-start",
-                "inline-end",
-                "top",
-                "right",
-                "bottom",
-                "left"
+                "inline-end"
             ) {
                 &-#{$property}--#{$space} {
                     margin-#{$property}: #{$space};
@@ -34,11 +30,7 @@
                 "block-start",
                 "block-end",
                 "inline-start",
-                "inline-end",
-                "top",
-                "right",
-                "bottom",
-                "left"
+                "inline-end"
             ) {
                 &-#{$property}--#{$space} {
                     padding-#{$property}: #{$space};
@@ -56,11 +48,7 @@
                 "block-start",
                 "block-end",
                 "inline-start",
-                "inline-end",
-                "top",
-                "right",
-                "bottom",
-                "left"
+                "inline-end"
             ) {
                 &-#{$property} {
                     margin-#{$property}: var(--#{$type}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
@@ -75,11 +63,7 @@
                 "block-start",
                 "block-end",
                 "inline-start",
-                "inline-end",
-                "top",
-                "right",
-                "bottom",
-                "left"
+                "inline-end"
             ) {
                 &-#{$property} {
                     padding-#{$property}: var(--#{$type}#{$orientation}padding-#{$property}, var(--padding-#{$property}));

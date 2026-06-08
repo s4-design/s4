@@ -1,8 +1,8 @@
 $borderSides:(
-    "top",
-    "right",
-    "bottom",
-    "left"
+    "block-start",
+    "block-end",
+    "inline-start",
+    "inline-end"
 );
 
 @use "border-collapse" as border-collapse;

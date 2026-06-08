@@ -1,10 +1,10 @@
 @mixin placement($type, $orientation) {
     // preset: placement
     @each $placement in (
-        "left",
-        "top",
-        "right",
-        "bottom"
+        "inset-block-start",
+        "inset-block-end",
+        "inset-inline-start",
+        "inset-inline-end"
     ) {
         @for $i from 0 through 2 {
             .#{$type}#{$orientation}#{$placement}--#{$i * 50} {

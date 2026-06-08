@@ -31,18 +31,7 @@
                 &-inline-end--#{$space} {
                     #{$spacingName}-inline-end: var(--#{$spacingName}--#{$space});
                 }
-                &-top--#{$space} {
-                    #{$spacingName}-top: var(--#{$spacingName}--#{$space});
-                }
-                &-right--#{$space} {
-                    #{$spacingName}-right: var(--#{$spacingName}--#{$space});
-                }
-                &-bottom--#{$space} {
-                    #{$spacingName}-bottom: var(--#{$spacingName}--#{$space});
-                }
-                &-left--#{$space} {
-                    #{$spacingName}-left: var(--#{$spacingName}--#{$space});
-                }
+
             }
         }
     }

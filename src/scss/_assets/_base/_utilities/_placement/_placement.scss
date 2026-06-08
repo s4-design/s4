@@ -2,10 +2,10 @@
     /* placement */
     
     @each $placement in (
-        "inset-block-start",
-        "inset-block-end",
-        "inset-inline-start",
-        "inset-inline-end",
+        "left",
+        "top",
+        "right",
+        "bottom",
         "inset"
     ) {
         @if $enableVariables {

@@ -1,0 +1,28 @@
+@mixin block-size($type, $orientation, $enableVariables) {
+    /* block-size */
+    @each $block-size in (
+        "min-block-size",
+        "block-size",
+        "max-block-size"
+    ) {
+        .#{$type}#{$orientation}#{$block-size} {
+            @each $value in (
+                "fit-content",
+                "min-content",
+                "max-content",
+                "stretch",
+                "unset"
+            ) {
+                &--#{$value} {
+                    #{$block-size}: #{$value};
+                }
+            }
+        }
+    
+        @if $enableVariables {
+            .#{$block-size} {
+                #{$block-size}: var(--#{$type}#{$orientation}#{$block-size}, var(--#{$block-size}));
+            }
+        }
+    }
+}

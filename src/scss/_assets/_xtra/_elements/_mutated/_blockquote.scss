@@ -4,10 +4,12 @@
         display: var(--display);
 
         gap: var(--gap);
-        margin: var(--margin);
+        margin-inline: var(--margin-inline);
+        margin-block: var(--margin-block);
         font-size: var(--font-size);
         > * {
-            margin: var(--margin);
+            margin-inline: var(--margin-inline);
+            margin-block: var(--margin-block);
         }
         &:where([data-content]) {
             padding-inline-start: var(--padding-inline-start);

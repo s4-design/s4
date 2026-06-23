@@ -1,10 +1,12 @@
 @mixin menu() {
     :is([type=toolbar], [type=context]) {
         --gap: var(--gap--s2);
-        --margin: 0;
-        --padding: var(--padding--s2);
+        --margin-block: 0;
+        --margin-inline: 0;
+        --padding-block: var(--padding--s2);
+        --padding-inline: var(--padding--s2);
         --border-radius: var(--border-radius--md);
-        --background: var(--positive--light);
+        --background-color: var(--positive--light);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
         --outline-width: var(--size--0_25);

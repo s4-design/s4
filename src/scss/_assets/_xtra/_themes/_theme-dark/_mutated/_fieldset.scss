@@ -1,17 +1,22 @@
 @mixin fieldset() {
     fieldset {
-        --margin: 0;
-        --padding: var(--padding--s2);
+        --margin-block: 0;
+        --margin-inline: 0;
+        --padding-block: var(--padding--s2);
+        --padding-inline: var(--padding--s2);
         --border-radius: var(--border-radius--s1);
         --border: medium solid var(--positive--mute);
-        --background: var(--positive--light);
+        --background-color: var(--positive--light);
         > legend {
-            --margin: 0 0 0 var(--padding--s1);
-            --padding: var(--padding--md);
+            --margin-block: 0;
+            --margin-inline: var(--padding--s1) 0;
+            --padding-block: var(--padding--md);
+            --padding-inline: var(--padding--md);
             --color: initial;
             --border-radius: var(--border-radius--s2);
             --line-height: 0;
-            --background: var(--positive--light) linear-gradient(var(--positive--mute));
+            --background-color: var(--positive--light);
+            --background-image: linear-gradient(var(--positive--mute));
         }
         > :not(legend) {
             --font-size: var(--font-size--s1);

@@ -2,7 +2,7 @@
     details {
         position: var(--position);
         display: var(--display);
-        width: var(--width);
+        inline-size: var(--inline-size);
         
         border-radius: var(--border-radius);
         background: var(--background);
@@ -14,21 +14,21 @@
             position: var(--position);
             display: var(--display);
             grid-auto-flow: var(--grid-auto-flow);
-            grid-gap: var(--grid-gap);
+            gap: var(--gap);
             justify-content: var(--justify-content);
             align-items: var(--align-items);
-            margin: var(--margin);
+            margin-block: var(--margin-block);
+            margin-inline: var(--margin-inline);
             text-align: var(--text-align);
             appearance: var(--appearance);
-            min-width: var(--min-width);
-            min-height: var(--min-height);
+            min-inline-size: var(--min-inline-size);
+            min-block-size: var(--min-block-size);
             font-size: var(--font-size);
             font-weight: var(--font-weight);
             font-family: var(--font-family);
             line-height: var(--line-height);
-            padding:
-                var(--padding-block)
-                var(--padding-inline);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
             border-width: var(--border-width);
             border-style: var(--border-style);
@@ -55,8 +55,10 @@
         > e-body,
         > .element--body {
             display: var(--display);
-            margin: var(--margin);
-            padding: var(--padding);
+            margin-block: var(--margin-block);
+            margin-inline: var(--margin-inline);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
             background: var(--background);
         }

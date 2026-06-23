@@ -1,7 +1,8 @@
 @mixin figure() {
     figure {
         --border-radius: var(--border-radius--s1);
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         --overflow: auto;
 
         > figcaption,
@@ -21,8 +22,10 @@
         }
 
         > figcaption {
-            --margin: var(--margin--s3);
-            --padding: var(--padding--s2) var(--padding--md);
+            --margin-block: var(--margin--s3);
+            --margin-inline: var(--margin--s3);
+            --padding-block: var(--padding--s2);
+            --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
             --background-clip: padding-box;
             --color: var(--negative);
@@ -30,10 +33,12 @@
         > e-body,
         > .element--body {
             --display: block;
-            --margin: var(--margin--s3);
-            --padding: var(--padding--md);
+            --margin-block: var(--margin--s3);
+            --margin-inline: var(--margin--s3);
+            --padding-block: var(--padding--md);
+            --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --background: var(--positive--light);
+            --background-color: var(--positive--light);
             --overflow: auto;
         }
     }

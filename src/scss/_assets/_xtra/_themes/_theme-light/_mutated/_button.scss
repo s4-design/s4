@@ -11,15 +11,16 @@
         --align-items: center;
         --vertical-align: middle;
 
-        --margin: initial;
+        --margin-block: initial;
+        --margin-inline: initial;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s1);
         --border: none;
         --border-radius: var(--border-radius--s2);
         --overflow: visible;
 
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
+        --min-inline-size: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-block-size: var(--min-inline-size);
 
         --font-size: var(--font-size--md);
         --font-weight: 600;

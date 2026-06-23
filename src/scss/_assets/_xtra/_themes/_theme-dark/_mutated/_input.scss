@@ -4,8 +4,8 @@
         --position: relative;
         --vertical-align: top;
         --display: inline-block;
-        --min-width: var(--size--4);
-        --min-height: var(--size--4);
+        --min-inline-size: var(--size--4);
+        --min-block-size: var(--size--4);
         --margin-inline: 0;
         --margin-block: calc((1lh - 1em) / 2);
         --background-color: var(--positive);
@@ -71,12 +71,14 @@
         --display: inline-grid;
         --vertical-align: middle;
         --grid-auto-flow: column;
-        --min-width: var(--min-height);
-        --min-height: calc(var(--line-height) * 2);
-        --margin: initial; /* calc(var(--outline-width, var(--size--0_5)) + var(--outline-offset, var(--size--0_5))); */
+        --min-inline-size: var(--min-block-size);
+        --min-block-size: calc(var(--line-height) * 2);
+        --margin-block: initial;
+        --margin-inline: initial;
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -139,12 +141,14 @@
         --position: relative;
         --display: inline-grid;
         --grid-auto-flow: column;
-        --min-width: var(--min-height);
-        --min-height: calc(var(--line-height) * 2);
-        --margin: unset;
+        --min-inline-size: var(--min-block-size);
+        --min-block-size: calc(var(--line-height) * 2);
+        --margin-block: unset;
+        --margin-inline: unset;
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s3);
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -187,17 +191,19 @@
         
         &::-webkit-slider-thumb {
             --appearance: none;
-            --height: calc(var(--min-height) - var(--size--2));
-            --width: var(--size--2);
-            --background: currentColor;
+            --block-size: calc(var(--min-block-size) - var(--size--2));
+            --inline-size: var(--size--2);
+            --background-color: currentColor;
+            --background-image: none;
             --border-radius: var(--border-radius--s3);
             --border: none;
         }
         &::-moz-range-thumb {
             --appearance: none;
-            --height: calc(var(--min-height) - var(--size--2));
-            --width: var(--size--2);
-            --background: currentColor;
+            --block-size: calc(var(--min-block-size) - var(--size--2));
+            --inline-size: var(--size--2);
+            --background-color: currentColor;
+            --background-image: none;
             --border-radius: var(--border-radius--s3);
             --border: none;
         }
@@ -209,11 +215,13 @@
         --display: inline-grid;
         --vertical-align: middle;
         --grid-auto-flow: column;
-        --min-width: var(--min-height);
-        --min-height: calc(var(--font-size) * 2);
-        // --min-height: calc(var(--line-height) * 2);
-        --margin: initial; /* calc(var(--outline-width, var(--size--0_5)) + var(--outline-offset, var(--size--0_5))); */
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --min-inline-size: var(--min-block-size);
+        --min-block-size: calc(var(--font-size) * 2);
+        // --min-block-size: calc(var(--line-height) * 2);
+        --margin-block: initial;
+        --margin-inline: initial;
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);
@@ -225,7 +233,7 @@
         --font-size: var(--font-size--md);
         --font-weight: 400;
         --font-family: initial;
-        --line-height: var(--min-height);
+        --line-height: var(--min-block-size);
         // --line-height: var(--font-size);
         --appearance: none;
         --cursor: pointer;
@@ -267,7 +275,7 @@
         }
     }
     :is([type=color]) {
-        --width: max-content;
+        --inline-size: max-content;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s3);
         &::-webkit-color-swatch-wrapper {

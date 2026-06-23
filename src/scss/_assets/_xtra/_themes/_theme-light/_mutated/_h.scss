@@ -12,7 +12,8 @@
         h#{$aria-level},
         .element--h#{$aria-level} {
             $h-delta: math.div(math.ceil(math.pow($font-size--delta, (6 - $aria-level)) * 100), 100);
-            --margin: 1em 0 calc(1em / #{$h-delta}) 0;
+            --margin-block: 1em calc(1em / #{$h-delta});
+            --margin-inline: 0;
             --font-size: calc(#{$font-size} * #{$h-delta});
             --font-weight: #{$font-weight};
             --line-height: #{$line-height};

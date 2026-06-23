@@ -5,12 +5,14 @@
         --display: inline-grid;
         --appearance: none;
         --grid-auto-flow: column;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
-        --margin: initial;
+        --min-inline-size: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-block-size: var(--min-inline-size);
+        --margin-block: initial;
+        --margin-inline: initial;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s2);
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
         --border: none;
         --border-radius: var(--border-radius--s2);

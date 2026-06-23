@@ -2,7 +2,7 @@
     details {
         --position: relative;
         --display: inline-block;
-        --width: 100%;
+        --inline-size: 100%;
         --border-radius: var(--border-radius--s1);
         --background: var(--positive--light) linear-gradient(var(--positive--mute));
         --background-clip: padding-box;
@@ -16,14 +16,15 @@
             --position: relative;
             --display: grid;
             --grid-auto-flow: column;
-            --grid-gap: var(--gap--s2);
+            --gap: var(--gap--s2);
             --justify-content: space-between;
             --align-items: center;
-            --margin: var(--margin--s3);
+            --margin-block: var(--margin--s3);
+            --margin-inline: var(--margin--s3);
             --text-align: center;
             --appearance: none;
-            --min-width: calc(var(--line-height) + var(--padding-block) * 2 + var(--border-width) * 2);
-            --min-height: var(--min-width);
+            --min-inline-size: calc(var(--line-height) + var(--padding-block) * 2 + var(--border-width) * 2);
+            --min-block-size: var(--min-inline-size);
             --font-size: var(--font-size--md);
             --font-weight: 600;
             --font-family: initial;
@@ -87,8 +88,10 @@
         }
         > e-body {
             --display: block;
-            --margin: var(--margin--s3);
-            --padding: var(--padding--md);
+            --margin-block: var(--margin--s3);
+            --margin-inline: var(--margin--s3);
+            --padding-block: var(--padding--md);
+            --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
             --background: var(--positive--light);
         }

@@ -1,0 +1,19 @@
+@use 'sass:math';
+@mixin inline-size($type, $orientation, $defaultSizingStep) {
+    // preset: inline-size
+    @each $inline-size in (
+        "min-inline-size",
+        "inline-size",
+        "max-inline-size"
+    ) {
+        .#{$type}#{$orientation}#{$inline-size} {
+            @for $i from 0 through math.div(100, $defaultSizingStep) {
+                @if $i != 0 {
+                    &--#{$i * $defaultSizingStep} {
+                        #{$inline-size}: #{$i * $defaultSizingStep + '%'};
+                    }
+                }
+            }
+        }
+    }
+}

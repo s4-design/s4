@@ -4,13 +4,14 @@
         --position: relative;
         --display: inline-grid;
         --grid-auto-flow: column;
-        --grid-gap: var(--gap--s2);
+        --gap: var(--gap--s2);
         --justify-content: center;
         --align-items: center;
         --vertical-align: middle;
-        --min-width: calc(var(--line-height) + var(--padding-block) * 2);
-        --min-height: var(--min-width);
-        --margin: initial;
+        --min-inline-size: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-block-size: var(--min-inline-size);
+        --margin-block: 0;
+        --margin-inline: 0;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s1);
         --border: none;

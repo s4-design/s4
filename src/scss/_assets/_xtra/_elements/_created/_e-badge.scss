@@ -4,16 +4,16 @@
         position: var(--position);
         display: var(--display);
         grid-auto-flow: var(--grid-auto-flow);
-        grid-gap: var(--grid-gap);
+        gap: var(--gap);
         justify-content: var(--justify-content);
         align-items: var(--align-items);
         vertical-align: var(--vertical-align);
-        min-width: var(--min-width);
-        min-height: var(--min-height);
-        margin: var(--margin);
-        padding:
-            var(--padding-block)
-            var(--padding-inline);
+        min-inline-size: var(--min-inline-size);
+        min-block-size: var(--min-block-size);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         border: var(--border);
         border-radius: var(--border-radius);
         outline: var(--outline-width) var(--outline-style) var(--outline-color);

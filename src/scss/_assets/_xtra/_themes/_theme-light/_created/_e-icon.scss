@@ -2,10 +2,10 @@
     e-icon,
     .element--icon {
         --display: inline-block;
-        --vertical-align: middle;
+        --vertical-align: center;
         --align-self: center;
-        --width: 1em;
-        --height: 1em;
+        --inline-size: 1em;
+        --block-size: 1em;
         --background-color: currentColor;
         --mask-image: var(--image);
         --mask-repeat: no-repeat;

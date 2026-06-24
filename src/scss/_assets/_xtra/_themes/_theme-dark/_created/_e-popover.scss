@@ -5,7 +5,7 @@
         --display: inline-grid;
         &[position^=inline-start] {
             > :not(e-body, .element--body)::after {
-                --width: var(--size--0_5);
+                --inline-size: var(--size--0_5);
                 --inset-inline-start: var(--size--1);
                 --inset-block-start: calc(50% - var(--font-size) / 2);
                 --inset-block-end: calc(50% - var(--font-size) / 2);
@@ -37,7 +37,7 @@
         }
         &[position^=block-start] {
             > :not(e-body, .element--body)::after {
-                --height: var(--size--0_5);
+                --block-size: var(--size--0_5);
                 --inset-block-start: var(--size--1);
                 --inset-inline-start: calc(50% - var(--font-size) / 2);
                 --inset-inline-end: calc(50% - var(--font-size) / 2);
@@ -67,7 +67,7 @@
         }
         &[position^=inline-end] {
             > :not(e-body, .element--body)::after {
-                --width: var(--size--0_5);
+                --inline-size: var(--size--0_5);
                 --inset-block-start: calc(50% - var(--font-size) / 2);
                 --inset-inline-end: var(--size--1);
                 --inset-block-end: calc(50% - var(--font-size) / 2);
@@ -99,7 +99,7 @@
         }
         &[position^=block-end] {
             > :not(e-body, .element--body)::after {
-                --height: var(--size--0_5);
+                --block-size: var(--size--0_5);
                 --inset-inline-start: calc(50% - var(--font-size) / 2);
                 --inset-inline-end: calc(50% - var(--font-size) / 2);
                 --inset-block-end: var(--size--1);
@@ -141,7 +141,7 @@
         > .element--body {
             --position: absolute;
             --z-index: -1;
-            --width: max-content;
+            --inline-size: max-content;
             --font-size: var(--font-size--s1);
             --transition: all var(--transition-duration) var(--transition-timing-function);
             --opacity: 0;

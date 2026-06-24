@@ -4,28 +4,34 @@
         position: var(--position);
         display: var(--display);
         gap: var(--gap);
-        margin: var(--margin);
-        padding: var(--padding);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         border-radius: var(--border-radius);
-        background: var(--background);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
         > header {
             font-weight: var(--font-weight);
             color: var(--color);
-            padding: var(--padding);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
         }
         > e-body,
         > .element--body {
             display: var(--display);
-            padding: var(--padding);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
-            background: var(--background);
+            background-color: var(--background-color);
             color: var(--color);
         }
         > footer {
             display: var(--display);
             gap: var(--gap);
-            padding: var(--padding);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
         }
         > header,

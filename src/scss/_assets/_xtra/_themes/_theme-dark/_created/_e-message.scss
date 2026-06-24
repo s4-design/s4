@@ -4,27 +4,33 @@
         --position: relative;
         --display: inline-grid;
         --gap: var(--gap--s3);
-        --margin: var(--margin--md) 0;
-        --padding: var(--padding--s3);
+        --margin-block: var(--margin--md);
+        --margin-inline: 0;
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s3);
         --border-radius: var(--border-radius--s1);
-        --background: var(--positive--light) linear-gradient(var(--positive--mute));
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
         > header {
             --font-weight: 500;
             --color: var(--negative);
-            --padding: var(--padding--s3) var(--padding--md);
+            --padding-block: var(--padding--s3);
+            --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
         }
         > e-body,
         > .element--body {
             --display: block;
-            --padding: var(--padding--md);
+            --padding-block: var(--padding--md);
+            --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
-            --background: var(--positive);
+            --background-color: var(--positive);
         }
         > footer {
             --display: flex;
             --gap: var(--gap--s2);
-            --padding: var(--padding--s3);
+            --padding-block: var(--padding--s3);
+            --padding-inline: var(--padding--s3);
             --border-radius: var(--border-radius--s2);
         }
 
@@ -53,14 +59,16 @@
             "danger"
         ) {
             &.#{$color} {
-                --background: var(--positive--light) linear-gradient(var(--#{$color}--mute));
+                --background-color: var(--positive--light);
+                --background-image: linear-gradient(var(--#{$color}--mute));
                 > e-body,
                 > .element--body {
-                    --background: var(--#{$color});
+                    --background-color: var(--#{$color});
                 }
 
                 @if ($color == "negative") {
-                    --background: var(--negative--light);
+                    --background-color: var(--negative--light);
+                    --background-image: none;
                     > header {
                         --color: var(--positive);
                     }

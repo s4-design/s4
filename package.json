@@ -1,0 +1,45 @@
+{
+    "name": "s4",
+    "version": "0.2.0",
+    "description": "The lightweight HTML, CSS and JavaScript framework for developing truly responsive web based projects.",
+    "keywords": [
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "framework"
+    ],
+    "author": {
+        "name": "Arthur A. Selimov",
+        "email": "info@mobitoon.ru",
+        "url": "http://mobitoon.ru"
+    },
+    "license": "CC BY-NC-SA",
+    "homepage": "https://github.com/s4-design/s4",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/s4-design"
+    },
+    "scripts": {
+        "major": "pnpm version major",
+        "_header-update": "node header.update.js",
+        "_dev-patch": "pnpm version patch",
+        "_dev-scss": "sass --watch src/scss:../s4-doc/public/s4/css --no-source-map",
+        "_dev-js": "pnpx nodemon --exec \"pnpx terser src/js/s4.js --output ../s4-doc/public/s4/js/s4.min.js --mangle\" --ignore ../s4-doc/public/s4/js/s4.min.js",
+        "dev": "pnpm _dev-patch && concurrently \"pnpm _dev-scss\" \"pnpm _dev-js\"",
+        "_dev-test": "node test/snapshot.mjs",
+        "_dev-test-update": "node test/snapshot.mjs --update",
+        "_s4-minor": "pnpm version minor",
+        "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed",
+        "_s4-js": "pnpx terser src/js/s4.js --output s4/js/s4.min.js --mangle",
+        "s4": "pnpm _s4-minor && pnpm _s4-scss && pnpm _s4-js && pnpm _header-update"
+    },
+    "devDependencies": {
+        "concurrently": "^9.2.1",
+        "pixelmatch": "^7.2.0",
+        "playwright": "^1.60.0",
+        "pngjs": "^7.0.0",
+        "sass": "^1.99.0",
+        "terser": "^5.46.1"
+    }
+}

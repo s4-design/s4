@@ -76,18 +76,24 @@
                     @if ($color == "negative") {
                         --color: var(--positive--dark);
                         --outline-color: var(--negative--light);
+                    } @else {
+                        --color: var(--negative--light);
                     }
                 }
                 &:active {
                     @if ($color == "negative") {
                         --color: var(--positive);
                         --outline-color: var(--negative);
+                    } @else {
+                        --color: var(--negative);
                     }
                 }
                 &:focus-visible:not(:hover) {
                     @if ($color == "negative") {
                         --color: var(--positive);
                         --outline-color: var(--negative);
+                    } @else {
+                        --color: var(--negative);
                     }
                 }
             }

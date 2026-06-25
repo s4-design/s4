@@ -1,0 +1,170 @@
+@mixin e-popover() {
+    e-popover,
+    .element--popover {
+        --position: relative;
+        --display: inline-grid;
+        &[position^=inline-start] {
+            > :not(e-body, .element--body)::after {
+                --inline-size: var(--size--0_5);
+                --inset-inline-start: var(--size--1);
+                --inset-block-start: calc(50% - var(--font-size) / 2);
+                --inset-block-end: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --inset-inline-end: 100%;
+                --padding-inline-end: var(--padding--s2);
+            }
+            &[position$=block-start] {
+                > e-body,
+                > .element--body {
+                    --inset-block-end: 0;
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --inset-block-start: 50%;
+                    --transform: translateY(-50%);
+                }
+            }
+            &[position$=block-end] {
+                > e-body,
+                > .element--body {
+                    --inset-block-start: 0;
+                }
+            }
+        }
+        &[position^=block-start] {
+            > :not(e-body, .element--body)::after {
+                --block-size: var(--size--0_5);
+                --inset-block-start: var(--size--1);
+                --inset-inline-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --inset-block-end: 100%;
+                --padding-block-end: var(--padding--s2);
+            }
+            &[position$=inline-start] {
+                > e-body,
+                > .element--body {
+                    --inset-inline-end: 0;
+                }
+            }
+            &[position$=center]
+                > e-body,
+                > .element--body {
+                    --inset-inline-start: 50%;
+                    --transform: translateX(-50%);
+                }
+            &[position$=inline-end] + .drp-content
+                > e-body,
+                > .element--body {
+                    --inset-inline-start: 0;
+                }
+        }
+        &[position^=inline-end] {
+            > :not(e-body, .element--body)::after {
+                --inline-size: var(--size--0_5);
+                --inset-block-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: var(--size--1);
+                --inset-block-end: calc(50% - var(--font-size) / 2);
+            }
+            > e-body,
+            > .element--body {
+                --inset-inline-start: 100%;
+                --padding-inline-start: var(--padding--s2);
+            }
+            &[position$=block-start] {
+                > e-body,
+                > .element--body {
+                    --inset-block-end: 0
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --inset-block-start: 50%;
+                    --transform: translateY(-50%);
+                }
+            }
+            &[position$=block-end] {
+                > e-body,
+                > .element--body {
+                    --inset-block-start: 0;
+                }
+            }
+        }
+        &[position^=block-end] {
+            > :not(e-body, .element--body)::after {
+                --block-size: var(--size--0_5);
+                --inset-inline-start: calc(50% - var(--font-size) / 2);
+                --inset-inline-end: calc(50% - var(--font-size) / 2);
+                --inset-block-end: var(--size--1);
+            }
+            > e-body,
+            > .element--body {
+                --inset-block-start: 100%;
+                --padding-block-start: var(--padding--s2);
+            }
+            &[position$=inline-start] {
+                > e-body,
+                > .element--body {
+                    --inset-inline-end: 0;
+                }
+            }
+            &[position$=center] {
+                > e-body,
+                > .element--body {
+                    --inset-inline-start: 50%;
+                    --transform: translateX(-50%);
+                }
+            }
+            &[position$=inline-end] {
+                > e-body,
+                > .element--body {
+                    --inset-inline-start: 0;
+                }
+            }
+        }
+        &[position=center] {
+            > e-body,
+            > .element--body {
+                --inset-inline-start: 50%;
+                --inset-block-start: 50%;
+                --transform: translate(-50%, -50%);
+            }
+        }
+        > e-body,
+        > .element--body {
+            --position: absolute;
+            --z-index: -1;
+            --inline-size: max-content;
+            --font-size: var(--font-size--s1);
+            --transition: all var(--transition-duration) var(--transition-timing-function);
+            --opacity: 0;
+            --visibility: hidden;
+            --pointer-events: none;
+        }
+        &:is([mode]) > e-body:hover,
+        &:is([mode]) > .element--body:hover,
+        &:is([mode=hover]):hover > e-body,
+        &:is([mode=hover]):hover > .element--body,
+        &:is([mode=focus]):focus-within > e-body,
+        &:is([mode=focus]):focus-within > .element--body {
+            --z-index: 1;
+            --opacity: 1;
+            --visibility: visible;
+            --pointer-events: auto;
+        }
+        > :not(e-body, .element--body)::after {
+            --content: '';
+            --position: absolute;
+            --border-radius: var(--size--1);
+            --background-color: var(--negative--mute);
+        }
+    }
+
+}

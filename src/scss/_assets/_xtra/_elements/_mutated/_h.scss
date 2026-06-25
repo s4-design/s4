@@ -11,7 +11,8 @@
     .element--h5,
     h6,
     .element--h6 {
-        margin: var(--margin);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
         font-size: var(--font-size);
         font-weight: var(--font-weight);
         line-height: var(--line-height);

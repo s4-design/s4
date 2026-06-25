@@ -1,0 +1,71 @@
+@use "_default/~" as *;
+@use "_preset-dark/~" as *;
+    
+@mixin theme(
+    $hover-active: true,
+    $h_font-size--delta: 1.25
+) {
+    :scope {
+        /* global */
+        @include sizes;
+        @include base-colors("white", 1, 0, 0);
+        @include base-colors("black", 0, 0, 0);
+        $dark-key: .18;
+        @include accent-colors("positive", $dark-key,           .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("negative", 1 - $dark-key,       .08, calc($dark-key / 10), 254, .35);
+        @include accent-colors("prime",    calc($dark-key * 3), .1,  $dark-key,            254, .35);
+        @include accent-colors("second",   calc($dark-key * 3), .1,  calc($dark-key / 3),  254, .35);
+        @include accent-colors("success",  calc($dark-key * 3), .1,  $dark-key,            145, .35);
+        @include accent-colors("danger",   calc($dark-key * 3), .1,  $dark-key,            25,  .35);
+
+        /* properties*/
+        @include font-size;
+        @include margin;
+        @include padding;
+        @include gap;
+        @include border-radius;
+        @include box-shadow;
+    }
+    
+    /* elements */
+    // created
+    @include \[preset\];
+    @include e-group;
+    @include e-icon;
+    @include e-line;
+    @include e-truncate;
+    @include e-badge;
+    @include e-message;
+    @include e-popover;
+
+    // mutated
+    @include \*;
+    @include \[inert\];
+    @include \:disabled;
+    @include a($hover-active);
+    @include abbr;
+    @include blockquote;
+    @include body;
+    @include button($hover-active);
+    @include cite;
+    @include code;
+    @include details($hover-active);
+    @include dl;
+    @include fieldset;
+    @include figure;
+    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
+    @include hr;
+    @include input;
+    @include label;
+    @include menu;
+    @include p;
+    @include select;
+    @include sub;
+    @include sup;
+    @include table;
+}

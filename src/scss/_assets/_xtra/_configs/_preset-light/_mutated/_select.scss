@@ -1,0 +1,59 @@
+@mixin select() {
+    select {
+        --position: relative;
+        --vertical-align: middle;
+        --display: inline-grid;
+        --appearance: none;
+        --grid-auto-flow: column;
+        --min-inline-size: calc(var(--line-height) + var(--padding-block) * 2);
+        --min-block-size: var(--min-inline-size);
+        --margin-block: initial;
+        --margin-inline: initial;
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s2);
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --background-clip: padding-box;
+        --border: none;
+        --border-radius: var(--border-radius--s2);
+        --outline-color: var(--negative--mute);
+        --outline-style: solid;
+        --outline-width: var(--size--0_25);
+        --outline-offset: calc(var(--size--0_25) * -1);
+        --color: var(--negative);
+        --font-size: var(--font-size--md);
+        --font-weight: 400;
+        --font-family: initial;
+        --line-height: var(--size--6);
+        --cursor: pointer;
+        --user-select: initial;
+        --overflow: auto;
+        --transition: all var(--transition-duration) var(--transition-timing-function);
+
+        &:hover:not(:focus-visible, :disabled) {
+            --color: var(--negative--light);
+            --outline-color: currentColor;
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
+            &:where([data-validation=immediate]):invalid,
+            &:where([data-validation=user]):user-invalid {
+                --color: var(--danger--light);
+            }
+        }
+        &:focus-visible {
+            --color: var(--negative);
+            --outline-color: currentColor;
+            --outline-width: var(--size--0_5);
+            --outline-offset: var(--size--0_5);
+            &:where([data-validation=immediate]):invalid,
+            &:where([data-validation=user]):user-invalid {
+                --color: var(--danger);
+            }
+        }
+        &:where(:not([data-validation=user])):invalid,
+        &:where([data-validation=user]):user-invalid {
+            --color: var(--danger);
+            --outline-color: var(--danger--mute);
+        }
+    }
+}

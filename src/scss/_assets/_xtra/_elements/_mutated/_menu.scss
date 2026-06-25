@@ -2,15 +2,17 @@
     :is([type=toolbar], [type=context]) {        
         display: var(--display);
         gap: var(--gap);
-        margin: var(--margin);
-        padding: var(--padding);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         align-content: var(--align-content);
         border-radius:
             var(--border-start-start-radius, var(--border-radius))
             var(--border-start-end-radius, var(--border-radius))
             var(--border-end-end-radius, var(--border-radius))
             var(--border-end-start-radius, var(--border-radius));
-        background: var(--background);
+        background-color: var(--background-color);
         outline-color: var(--outline-color);
         outline-style: var(--outline-style);
         outline-width: var(--outline-width);

@@ -4,14 +4,12 @@
         vertical-align: var(--vertical-align);
         display: var(--display);
         appearance: var(--appearance);
-        min-width: var(--min-width);
-        min-height: var(--min-height);
-        margin:
-            var(--margin-block-start, var(--margin-block, var(--margin)))
-            var(--margin-inline-end, var(--margin-inline, var(--margin)))
-            var(--margin-block-end, var(--margin-block, var(--margin)))
-            var(--margin-inline-start, var(--margin-inline, var(--margin)));
-        background: var(--background);
+        min-inline-size: var(--min-inline-size);
+        min-block-size: var(--min-block-size);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        background-color: var(--background-color);
+        background-image:var(--background-image);
         border-radius: var(--border-radius);
         color: var(--color);
         font-size: var(--font-size);
@@ -35,7 +33,8 @@
     /* Текстовые, числовые, дата и время */
     :is([type=text], [type=password], [type=email], [type=url], [type=search], [type=tel], [type=number], [type=date], [type=time], [type=datetime-local], [type=month], [type=week]) {
         grid-auto-flow: var(--grid-auto-flow);
-        padding: var(--padding-block) var(--padding-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         background-clip: var(--background-clip);
         border: var(--border);
         font-weight: var(--font-weight);
@@ -51,7 +50,8 @@
     /* Ползунок диапазона */
     :is([type=range]) {
         grid-auto-flow: var(--grid-auto-flow);
-        padding: var(--padding-block) var(--padding-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         background-clip: var(--background-clip);
         border: var(--border);
         font-weight: var(--font-weight);
@@ -59,17 +59,19 @@
         
         &::-webkit-slider-thumb {
             appearance: var(--appearance);
-            height: var(--height);
-            width: var(--width);
-            background: var(--background);
+            block-size: var(--block-size);
+            inline-size: var(--inline-size);
+            background-color: var(--background-color);
+            background-image: var(--background-image);
             border-radius: var(--border-radius);
             border: var(--border);
         }
         &::-moz-range-thumb {
             appearance: var(--appearance);
-            height: var(--height);
-            width: var(--width);
-            background: var(--background);
+            block-size: var(--block-size);
+            inline-size: var(--inline-size);
+            background-color: var(--background-color);
+            background-image: var(--background-image);
             border-radius: var(--border-radius);
             border: var(--border);
         }
@@ -78,7 +80,8 @@
     /* Файл и медиа */
     :is([type=file], [type=color]) {
         grid-auto-flow: var(--grid-auto-flow);
-        padding: var(--padding-block) var(--padding-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         background-clip: var(--background-clip);
         border: var(--border);
         font-weight: var(--font-weight);
@@ -91,9 +94,10 @@
         }
     }
     :is([type=color]) {
-        width: var(--width);
+        inline-size: var(--inline-size);
         &::-webkit-color-swatch-wrapper {
-            padding: var(--padding-block) var(--padding-inline);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
         }  
         &::-webkit-color-swatch {
             border: var(--border);

@@ -1,8 +1,10 @@
 @mixin body() {
     body {
         position: var(--position);
-        margin: var(--margin);
-        padding: var(--padding);
-        min-height: var(--min-height);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
+        min-block-size: var(--min-block-size);
     }
 }

@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+*.scss text diff=css
+*.js text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+*.html text
+
+.gitattributes text
+.gitignore text
+.editorconfig text
+.nvmrc text
+
+pnpm-lock.yaml text -diff

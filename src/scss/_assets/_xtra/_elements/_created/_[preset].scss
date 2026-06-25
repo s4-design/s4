@@ -1,0 +1,16 @@
+@mixin \[preset\]() {
+    [preset] {
+        position: var(--position);
+        background-color: var(--background-color);
+        color: var(--color);
+        word-break: var(--word-break);
+        tab-size: var(--tab-size);
+        font-family: var(--font-family);
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+        line-height: var(--line-height);
+        text-underline-offset: var(--text-underline-offset);
+        overscroll-behavior: var(--overscroll-behavior);
+        hyphens: var(--hyphens);
+    }
+}

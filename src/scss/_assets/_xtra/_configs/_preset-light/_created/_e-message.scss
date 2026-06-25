@@ -1,0 +1,83 @@
+@mixin e-message() {
+    e-message,
+    .element--message {
+        --position: relative;
+        --display: inline-grid;
+        --gap: var(--gap--s3);
+        --margin-block: var(--margin--md);
+        --margin-inline: 0;
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s3);
+        --border-radius: var(--border-radius--s1);
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        > header {
+            --font-weight: 500;
+            --color: var(--negative);
+            --padding-block: var(--padding--s3);
+            --padding-inline: var(--padding--md);
+            --border-radius: var(--border-radius--s2);
+        }
+        > e-body,
+        > .element--body {
+            --display: block;
+            --padding-block: var(--padding--md);
+            --padding-inline: var(--padding--md);
+            --border-radius: var(--border-radius--s2);
+            --background-color: var(--positive);
+        }
+        > footer {
+            --display: flex;
+            --gap: var(--gap--s2);
+            --padding-block: var(--padding--s3);
+            --padding-inline: var(--padding--s3);
+            --border-radius: var(--border-radius--s2);
+        }
+
+        > header,
+        > e-body,
+        > .element--body,
+        > footer {
+            &:first-child:not(:last-child) {
+                --border-end-start-radius: var(--border-radius--s3);
+                --border-end-end-radius: var(--border-radius--s3);
+            }
+            &:last-child:not(:first-child) {
+                --border-start-start-radius: var(--border-radius--s3);
+                --border-start-end-radius: var(--border-radius--s3);
+            }
+            &:not(:first-child, :last-child) {
+                --border-radius: var(--border-radius--s3);
+            }
+        }
+
+        @each $color in (
+            "negative",
+            "prime",
+            "second",
+            "success",
+            "danger"
+        ) {
+            &.#{$color} {
+                --background-color: var(--positive--light);
+                --background-image: linear-gradient(var(--#{$color}--mute));
+                > e-body,
+                > .element--body {
+                    --background-color: var(--#{$color});
+                }
+
+                @if ($color == "negative") {
+                    --background-color: var(--negative--light);
+                    --background-image: none;
+                    > header {
+                        --color: var(--positive);
+                    }
+                    > e-body,
+                    > .element--body {
+                        --color: var(--positive--light);
+                    }
+                }
+            }
+        }
+    }
+}

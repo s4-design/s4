@@ -1,12 +1,15 @@
 @mixin dl() {
     dl {
-        margin: var(--margin);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
         dt {
-            margin: var(--margin);
+            margin-block: var(--margin-block);
+            margin-inline: var(--margin-inline);
             font-weight: var(--font-weight);
         }
         dd {
-            margin: var(--margin);
+            margin-block: var(--margin-block);
+            margin-inline: var(--margin-inline);
         }
     }
 }

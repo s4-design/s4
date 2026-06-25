@@ -1,0 +1,10 @@
+@mixin body() {
+    body {
+        --position: relative;
+        --margin-block: unset;
+        --margin-inline: unset;
+        --padding-block: unset;
+        --padding-inline: unset;
+        --min-block-size: 100dvh;
+    }
+}

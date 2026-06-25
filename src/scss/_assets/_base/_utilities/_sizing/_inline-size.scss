@@ -1,0 +1,28 @@
+@mixin inline-size($type, $orientation, $enableVariables) {
+    /* inline-size */
+    @each $inline-size in (
+        "min-inline-size",
+        "inline-size",
+        "max-inline-size"
+    ) {
+        .#{$type}#{$orientation}#{$inline-size} {
+            @each $value in (
+                "fit-content",
+                "min-content",
+                "max-content",
+                "stretch",
+                "unset"
+            ) {
+                &--#{$value} {
+                    #{$inline-size}: #{$value};
+                }
+            }
+        }
+    
+        @if $enableVariables {
+            .#{$inline-size} {
+                #{$inline-size}: var(--#{$type}#{$orientation}#{$inline-size}, var(--#{$inline-size}));
+            }
+        }
+    }
+}

@@ -11,16 +11,16 @@
         align-items: var(--align-items);
         vertical-align: var(--vertical-align);
 
-        margin: var(--margin);
-        padding:
-            var(--padding-block)
-            var(--padding-inline);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
         border: var(--border);
         border-radius: var(--border-radius);
         overflow: var(--overflow);
 
-        min-width: var(--min-width);
-        min-height: var(--min-height);
+        min-inline-size: var(--min-inline-size);
+        min-block-size: var(--min-block-size);
 
         font-size: var(--font-size);
         font-weight: var(--font-weight);

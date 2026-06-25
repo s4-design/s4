@@ -12,7 +12,7 @@
                 inset-block-start: var(--inset-block-start, initial);
                 inset-inline-end: var(--inset-inline-end, initial);
                 inset-block-end: var(--inset-block-end, initial);
-                width: var(--width);
+                inline-size: var(--inline-size);
                 padding-block-start: var(--padding-block-start, initial);
                 padding-inline-end: var(--padding-inline-end, initial);
                 padding-block-end: var(--padding-block-end, initial);
@@ -31,8 +31,8 @@
                 inset-block-start: var(--inset-block-start, initial);
                 inset-inline-end: var(--inset-inline-end, initial);
                 inset-block-end: var(--inset-block-end, initial);
-                width: var(--width, initial);
-                height: var(--height, initial);
+                inline-size: var(--inline-size, initial);
+                block-size: var(--block-size, initial);
                 border-radius: var(--border-radius);
                 background-color: var(--background-color);
             }

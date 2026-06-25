@@ -1,0 +1,98 @@
+@mixin table() {
+    table {
+        --inline-size: 100%;
+        --block-size: min-content;
+        --table-layout: fixed;
+        --border-collapse: separate;
+        --border-spacing: var(--size--0_25);
+        --background-color: var(--positive--light);
+
+        caption {
+            --padding-block: var(--padding--s2);
+            --padding-inline: var(--padding--s2);
+            --text-align: start;
+            --font-weight: 600;
+            --font-size: var(--font-size--l1);
+        }
+
+        :is(thead, tbody, tfoot) {
+            --position: relative;
+            --padding-block: var(--size--2);
+            --padding-inline: var(--size--2);
+            tr {
+                th {
+                    --font-weight: 600;
+                }
+                tr {
+                    --font-weight: 400;
+                }
+                :is(th, td) {
+                    --border-radius: none;
+                }
+            }
+        }
+
+        thead {
+            tr {
+                :is(th, td) {
+                    --padding-block: var(--size--2);
+                    --padding-inline: var(--size--2);
+                    --background-color: var(--positive);
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    --background-color: var(--positive--mute);
+                }
+                th {
+                    --background-color: var(--positive);
+                }
+            }
+        }
+
+        tfoot {
+            tr {
+                :is(th, td) {
+                    --background-color: var(--positive);
+                }
+            }
+        }
+
+        > :is(:first-child, caption + *) > tr:first-child > :is(th, td) {
+            &:first-child {
+                border-start-start-radius: var(--border-radius--s2);
+            }
+            &:last-child {
+                border-start-end-radius: var(--border-radius--s2);
+            }
+        }
+        > :last-child > tr:last-child > :is(th, td) {
+            &:first-child {
+                border-end-start-radius: var(--border-radius--s2);
+            }
+            &:last-child {
+                border-end-end-radius: var(--border-radius--s2);
+            }
+        }
+
+        thead::after,
+        tfoot::before {
+            --content: "";
+            --position: absolute;
+            --inline-size: 100%;
+            --border-width: thin;
+            --border-block-start-style: solid;
+            --border-block-end-style: solid;
+            --border-color: var(--negative--mute);
+        }
+        thead::after {
+            --inset-block-end: calc(var(--size--0_25) * -1);
+        }
+        tfoot::before {
+            --inset-block-start: calc(var(--size--0_25) * -1);
+        }
+    }
+}

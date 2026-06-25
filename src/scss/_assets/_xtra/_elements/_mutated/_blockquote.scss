@@ -4,10 +4,12 @@
         display: var(--display);
 
         gap: var(--gap);
-        margin: var(--margin);
+        margin-inline: var(--margin-inline);
+        margin-block: var(--margin-block);
         font-size: var(--font-size);
         > * {
-            margin: var(--margin);
+            margin-inline: var(--margin-inline);
+            margin-block: var(--margin-block);
         }
         &:where([data-content]) {
             padding-inline-start: var(--padding-inline-start);
@@ -19,7 +21,7 @@
                 inset-inline-start: var(--inset-inline-start);
                 inset-block-start: var(--inset-block-start);
                 inset-block-end: var(--inset-block-end);
-                width: var(--width);
+                inline-size: var(--inline-size);
                 color: var(--color);
                 text-align: var(--text-align);
                 border-inline-end: var(--border-inline-end);

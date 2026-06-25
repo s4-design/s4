@@ -1,0 +1,15 @@
+$defaultSizingStep: 25;
+
+@use "aspect-ratio" as *;
+@use "block-size" as *;
+@use "height" as *;
+@use "inline-size" as *;
+@use "width" as *;
+
+@mixin sizing($type, $orientation) {
+    @include aspect-ratio($type, $orientation);
+    @include block-size($type, $orientation, $defaultSizingStep);
+    @include height($type, $orientation, $defaultSizingStep);
+    @include inline-size($type, $orientation, $defaultSizingStep);
+    @include width($type, $orientation, $defaultSizingStep);
+}

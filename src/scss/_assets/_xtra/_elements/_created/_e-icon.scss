@@ -4,8 +4,8 @@
         display: var(--display);
         vertical-align: var(--vertical-align);
         align-self: var(--align-self);
-        width: var(--width);
-        height: var(--height);
+        inline-size: var(--inline-size);
+        block-size: var(--block-size);
         background-color: var(--background-color);
         mask-image: var(--mask-image);
         mask-repeat: var(--mask-repeat);

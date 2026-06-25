@@ -1,7 +1,7 @@
 @mixin table() {
     table {
-        width: var(--width);
-        height: var(--height);
+        inline-size: var(--inline-size);
+        block-size: var(--block-size);
         table-layout: var(--table-layout);
         border-collapse: var(--border-collapse);
         border-spacing: var(--border-spacing);
@@ -9,7 +9,8 @@
         color: var(--color);
 
         caption {
-            padding: var(--padding);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
             text-align: var(--text-align);
             font-weight: var(--font-weight);
             font-size: var(--font-size);
@@ -19,7 +20,8 @@
             background-color: var(--background-color);
             tr {
                 :is(th, td) {
-                    padding: var(--padding);
+                    padding-block: var(--padding-block);
+                    padding-inline: var(--padding-inline);
                     background-color: var(--background-color);
                     color: var(--color);
                     font-weight: var(--font-weight);
@@ -38,7 +40,7 @@
         tfoot::before {
             content: var(--content);
             position: var(--position);
-            width: var(--width);
+            inline-size: var(--inline-size);
             border-width: var(--border-width);
             border-block-start-style: var(--border-block-start-style);
             border-block-end-style: var(--border-block-end-style);

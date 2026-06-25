@@ -1,0 +1,18 @@
+@mixin dl() {
+    dl {
+        --margin-block: var(--margin--md);
+        --margin-inline: 0;
+        dt {
+            --margin-block: 0;
+            --margin-inline: 0;
+            --font-weight: 600;
+        }
+        dd {
+            --margin-block: 0;
+            --margin-inline: var(--margin--l4) 0;
+            + dt {
+                --margin-block: var(--margin--md) 0;
+            }
+        }
+    }
+}

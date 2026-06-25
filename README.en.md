@@ -13,7 +13,7 @@
     Code-oriented environment for building design systems.
 </p>
 <small>
-    S4 is not a component framework — it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
+    S4 is not a component framework - it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
 </small>
 
 <br>
@@ -24,7 +24,7 @@
 - [AI-friendly](#ai-friendly)
 - [Quick start](#quick-start)
 - [Architecture](#architecture)
-- [Utility classes — 3 formulas](#utility-classes--3-formulas)
+- [Utility classes - 3 formulas](#utility-classes--3-formulas)
 - [Elements](#elements)
 - [Presets](#presets)
 - [Developer](#developer)
@@ -35,12 +35,12 @@
 
 ## Philosophy
 
-S4 is an **environment for building design systems**, not a framework with a component catalog. The S4 core provides the tooling: a three-layer `@layer` cascade, deterministic class formulas, device-specific loading. Presets define an interface configuration — visual identity and behavior. A design system is formed from the S4 core, a preset, and user's components and patterns.
+S4 is an **environment for building design systems**, not a framework with a component catalog. The S4 core provides the tooling: a three-layer `@layer` cascade, deterministic class formulas, device-specific loading. Presets define an interface configuration - visual identity and behavior. A design system is formed from the S4 core, a preset, and user's components and patterns.
 
 Default presets are built differently from most UI frameworks that revolve around components: Button, Card, Modal. Their values are independent: font-size = 16px, padding = 12px, radius = 8px.
 Light/dark presets are ready-made configurations with an EM-centered parametric model where all metrics derive from a single scale.
 
-Each preset is an independent configuration: light and dark may share metrics today, but nothing prevents them from differing entirely.
+Each preset is an independent configuration: light and dark may share metrics today, but nothing prevents them from differing entirely tomorrow.
 
 The central object of default presets is **gravity** (relative scale), not a component. All metrics are linked through a unified size scale:
 
@@ -53,15 +53,15 @@ The central object of default presets is **gravity** (relative scale), not a com
 --border-radius--md: var(--size--4); /* = 1em */
 ```
 
-The system describes not values, but **dependencies** between them. Changing `font-size` on `html` doesn't change just one component — it changes the entire interface, because all sizes are tied to it via `em`.
+The system describes not values, but **dependencies** between them. Changing `font-size` on `html` doesn't change just one component - it changes the entire interface, because all sizes are tied to it via `em`.
 
 Architectural invariants of S4:
 
-1. **Three `@layer` layers** — elements, presets, utilities — with a fixed cascade order.
-2. **Deterministic class formulas** — any class parses into a CSS rule without context.
-3. **Size scale `--size--*`** — 33 named steps.
-4. **Device-specific loading** — each `{device × orientation}` has its own CSS file.
-5. **Presets** — interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
+1. **Three `@layer` layers** - elements, presets, utilities - with a fixed cascade order.
+2. **Deterministic class formulas** - any class parses into a CSS rule without context.
+3. **Size scale `--size--*`** - 3 groups of named steps (variables) with ¼ step.
+4. **Device-specific loading** - each `{device × orientation}` has its own CSS file.
+5. **Presets** - interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
 
 <br>
 
@@ -79,7 +79,7 @@ m_p_position--sticky     → position: sticky
 color                    → var(--d_l_color, var(--color))
 ```
 
-AI recovers CSS from a class without context. The reverse — composing a class from CSS — is also unambiguous.
+AI recovers CSS from a class without context. The reverse - composing a class from CSS - is also unambiguous.
 
 ### 2. Semantic HTML
 
@@ -107,7 +107,7 @@ System 4 (S4) is an AI-friendly interface system. This is not a marketing label 
 
 ### Installation
 
-Download the [latest release](https://github.com/s4-design/s4/releases/download/v.0.1.0/v0.1.0.zip):
+Download the [latest release](https://github.com/s4-design/s4/releases/):
 
 ```
 s4/
@@ -161,9 +161,9 @@ CSS is split into three layers in order of increasing specificity:
 @layer elements, presets, utilities;
 ```
 
-1. **elements** — styling HTML elements and custom tags via `var(--*)`
-2. **presets** — CSS variable values set in the preset (`@scope ([preset=light])`, `@scope ([preset=dark])`)
-3. **utilities** — utility classes (hard values + variables)
+1. **elements** - styling HTML elements and custom tags via `var(--*)`
+2. **presets** - CSS variable values set in the preset (`@scope ([preset=light])`, `@scope ([preset=dark])`)
+3. **utilities** - utility classes (hard values + variables)
 
 <br>
 
@@ -171,7 +171,7 @@ CSS is split into three layers in order of increasing specificity:
 
 ### Size scale
 
-All default preset metrics are built on the `--size--*` scale — 33 variables with a ¼em step:
+All default preset metrics are built on the `--size--*` scale - 3 groups of variables with a ¼em step:
 
 ```
 Whole:     --size--0: 0em … --size--8: 2em
@@ -198,9 +198,9 @@ Each adaptive class and CSS variable is tied to a device + orientation combinati
 
 | Device | Orientation |
 |---|---|
-| `d_` — desktop | `l_` — landscape |
-| `t_` — tablet | `p_` — portrait |
-| `m_` — mobile | |
+| `d_` - desktop | `l_` - landscape |
+| `t_` - tablet | `p_` - portrait |
+| `m_` - mobile | |
 
 Prefix examples: `d_l_` (desktop, landscape), `m_p_` (mobile, portrait), `t_p_` (tablet, portrait).
 
@@ -214,7 +214,7 @@ where the first argument is the value for a specific `{device × orientation}`, 
 
 Additionally, `config.css` is built separately for each device, so `--d_l_color` and `--m_p_color` can have different values within the same preset.
 
-JS framework (Svelte, React, Vue) is connected separately — S4 handles only CSS and environment detection.
+JS framework (Svelte, React, Vue) is connected separately - S4 handles only CSS and environment detection.
 
 ### Colors
 
@@ -227,15 +227,15 @@ Each accent color has four shades:
 | `--{x}` | Base color |
 | `--{x}--light` | Light |
 | `--{x}--dark` | Dark |
-| `--{x}--mute` | Semi-transparent (45%) |
+| `--{x}--mute` | Semi-transparent |
 
 Basics: `--white`, `--black`, `--white--01`…`--white--09`, `--black--01`…`--black--09` (10% transparency steps).
 
 <br>
 
-## Utility classes — 3 formulas
+## Utility classes - 3 formulas
 
-### Formula 1 — adaptive
+### Formula 1 - adaptive
 
 ```
 .{prefix}_{property}--{modifier}
@@ -253,7 +253,7 @@ With pseudo-class: `d_l_background-color--transparent\:hover:hover`
 
 With pseudo-element: `d_l_display--none\:\:before::before`
 
-### Formula 2 — unified
+### Formula 2 - unified
 
 ```
 .{property}--{modifier}
@@ -266,7 +266,7 @@ Style is the same across all devices and orientations.
 | `border--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
-### Formula 3 — variable
+### Formula 3 - variable
 
 ```
 .{property}
@@ -285,13 +285,13 @@ color: var(--d_l_color, var(--color));
 
 With pseudo-class: `.color\:hover:hover`
 
-Without Formula 3 the property value would be hardcoded in CSS. Formula 3 makes it context-dependent — the preset on the device decides its value. The same element can have a different `color` on desktop vs mobile, in light vs dark preset, without changing HTML.
+Without Formula 3 the property value would be hardcoded in CSS. Formula 3 makes it context-dependent - the preset on the device decides its value. The same element can have a different `color` on desktop vs mobile, in light vs dark preset, without changing HTML.
 
 <br>
 
 ## Elements
 
-HTML elements and S4 custom tags are styled via CSS variables — no hardcoded values in `elements.css`. Each custom element `<e-{name}>` has a class-duplicate `.element--{name}` for environments without custom elements (React, legacy).
+HTML elements and S4 custom tags are styled via CSS variables - no hardcoded values in `elements.css`. Each custom element `<e-{name}>` has a class-duplicate `.element--{name}` for environments without custom elements (React, legacy).
 
 | Custom tag | Class duplicate | Description |
 |---|---|---|
@@ -311,9 +311,9 @@ HTML elements and S4 custom tags are styled via CSS variables — no hardcoded v
 **Rules:**
 
 1. **One selector per node.** Use either `<e-{name}>` or `<tag class="element--{name}">`. Never both.
-2. **Specificity.** Class `.element--name` (0,1,0,0) — on par with S4 utilities. Custom tag `<e-name>` (0,0,1,0) — base layer. Any utility class overrides element styles without `!important`.
+2. **Specificity.** Class `.element--name` (0,1,0,0) - on par with S4 utilities. Custom tag `<e-name>` (0,0,1,0) - base layer. Any utility class overrides element styles without `!important`.
 
-Base HTML is already styled — classes are optional:
+Base HTML is already styled - classes are optional:
 
 ```html
 <button>Click</button>
@@ -361,7 +361,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
 }
 ```
 
-**Device-specific presets:** each preset is built separately for each device — `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. `[preset=dark]` values on desktop may differ from `[preset=dark]` on mobile. Equality between devices is not guaranteed.
+**Device-specific presets:** each preset is built separately for each device - `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. `[preset=dark]` values on desktop may differ from `[preset=dark]` on mobile. Equality between devices is not guaranteed.
 
 **A custom preset is a different interface configuration.** Set `[preset="my-name"]` on `<html>` before calling `S4()` and write CSS:
 
@@ -377,7 +377,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
 }
 ```
 
-For device-independent styling, use Formula 2 or explicit values. Presets affect only variables — utility classes from Formula 1 and 2 are preset-independent.
+For device-independent styling, use Formula 2 or explicit values. Presets affect only variables - utility classes from Formula 1 and 2 are preset-independent.
 
 Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
@@ -394,13 +394,13 @@ Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
 ## Acknowledgments
 
-Thanks to [Matthew Hudson](https://github.com/matthewhudson) for [current-device](https://github.com/matthewhudson/current-device) — the tool that lets S4 be truly adaptive.
+Thanks to [Matthew Hudson](https://github.com/matthewhudson) for [current-device](https://github.com/matthewhudson/current-device) - the tool that lets S4 be truly adaptive.
 
 <br>
 
 ## License
 
-CC BY-NC-SA. See the [LICENSE](./LICENSE) file for details (including additional consent for commercial use for citizens of the Russian Federation).
+CC BY-NC-SA. See the [LICENSE](./LICENSE) file for details (including additional consents for commercial use for citizens of the Russian Federation).
 
 <br>
 

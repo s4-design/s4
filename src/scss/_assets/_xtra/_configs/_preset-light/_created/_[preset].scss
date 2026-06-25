@@ -1,4 +1,4 @@
-@mixin \[theme\]() {
+@mixin \[preset\]() {
     :scope {
         --position: relative;
         --background-color: var(--positive--light);

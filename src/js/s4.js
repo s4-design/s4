@@ -86,9 +86,9 @@ function updateLinks(currentDepends, allDependencies) {
         loadLink(`${baseUrl}css/${key}/${obj[key]}.css`, `${key}/${obj[key]}`)
     })
     
-    // Загружаем themes.css для текущего типа устройства
-    // Load themes.css for the current device type
-    loadLink(`${baseUrl}css/${device.type}/themes.css`, `${device.type}/themes`)
+    // Загружаем config.css для текущего типа устройства
+    // Load config.css for the current device type
+    loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
 
     // Удаляем неиспользуемые стили
     // Remove unused styles
@@ -103,47 +103,47 @@ function updateLinks(currentDepends, allDependencies) {
     
 }
 
-// Функция для проверки и установки темы
-// Function for checking and setting the theme
-function setThemeBasedOnPreference() {
-    // Получаем текущую установленную тему
-    // Getting the currently installed theme
-    const currentTheme = document.documentElement.getAttribute('theme')
+// Функция для проверки и установки пресета
+// Function for checking and setting the preset
+function setPresetBasedOnPreference() {
+    // Получаем текущий установленный пресет
+    // Getting the currently installed preset
+    const currentPreset = document.documentElement.getAttribute('preset')
     
-    // Если тема уже установлена — уважаем выбор автора, ничего не делаем
-    // If the theme is already set — respect the author's choice, do nothing
-    if (currentTheme)
+    // Если пресет уже установлен — уважаем выбор автора, ничего не делаем
+    // If the preset is already set — respect the author's choice, do nothing
+    if (currentPreset)
         return;
 
     // Проверяем системные предпочтения пользователя
     // Check the user's system preferences
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
   
-    // Если пользователь предпочитает тёмную тему — ставим dark, иначе светлую по умолчанию
-    // If the user prefers a dark theme — set dark, otherwise default to light
+    // Если пользователь предпочитает тёмную тему — ставим пресет dark, иначе светлую по умолчанию
+    // If the user prefers a dark theme — set preset dark, otherwise default to light
     if (prefersDarkScheme.matches)
-        document.documentElement.setAttribute('theme', 'dark')
+        document.documentElement.setAttribute('preset', 'dark')
     else
-        document.documentElement.setAttribute('theme', 'light')
+        document.documentElement.setAttribute('preset', 'light')
 }
 
 // Функция управления загрузкой CSS в зависимости от устройства и ориентации
 // Function to control CSS loading depending on device and orientation
 async function S4() {
 
-    // Установка темы при загрузке страницы
-    // Set theme on page load
-    setThemeBasedOnPreference()
+    // Установка пресета при загрузке страницы
+    // Set preset on page load
+    setPresetBasedOnPreference()
     
-    // Следить за изменениями предпочтений темы
-    // Track changes in theme preferences
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeBasedOnPreference)
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', setThemeBasedOnPreference)
+    // Следить за изменениями предпочтений пресета
+    // Track changes in preset preferences
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setPresetBasedOnPreference)
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', setPresetBasedOnPreference)
 
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers
     document.head.appendChild(Object.assign(document.createElement('style'), {
-        textContent: `@layer elements, themes, utilities;`
+        textContent: `@layer elements, presets, utilities;`
     }))
 
     try {

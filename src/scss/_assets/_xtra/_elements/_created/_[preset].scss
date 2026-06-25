@@ -1,5 +1,5 @@
-@mixin \[theme\]() {
-    [theme] {
+@mixin \[preset\]() {
+    [preset] {
         position: var(--position);
         background-color: var(--background-color);
         color: var(--color);

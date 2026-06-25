@@ -1,22 +1,22 @@
 @use "_default/~" as *;
-@use "_theme-dark/~" as *;
-    
+@use "_preset-light/~" as *;
+
 @mixin theme(
     $hover-active: true,
     $h_font-size--delta: 1.25
 ) {
     :scope {
         /* global */
-        @include sizes;
+        @include sizes;    
         @include base-colors("white", 1, 0, 0);
         @include base-colors("black", 0, 0, 0);
-        $dark-key: .18;
-        @include accent-colors("positive", $dark-key,           .08, calc($dark-key / 10), 254, .35);
-        @include accent-colors("negative", 1 - $dark-key,       .08, calc($dark-key / 10), 254, .35);
-        @include accent-colors("prime",    calc($dark-key * 3), .1,  $dark-key,            254, .35);
-        @include accent-colors("second",   calc($dark-key * 3), .1,  calc($dark-key / 3),  254, .35);
-        @include accent-colors("success",  calc($dark-key * 3), .1,  $dark-key,            145, .35);
-        @include accent-colors("danger",   calc($dark-key * 3), .1,  $dark-key,            25,  .35);
+        $light-key: .18;
+        @include accent-colors("positive", 1 - $light-key,       .14, 0,                      254, .45);
+        @include accent-colors("negative", $light-key,           .14, 0,                      254, .45);
+        @include accent-colors("prime",    calc($light-key * 3), .07,  $light-key,            254, .45);
+        @include accent-colors("second",   calc($light-key * 3), .07,  calc($light-key / 10), 254, .45);
+        @include accent-colors("success",  calc($light-key * 3), .07,  $light-key,            145, .45);
+        @include accent-colors("danger",   calc($light-key * 3), .07,  $light-key,            25,  .45);
 
         /* properties*/
         @include font-size;
@@ -26,10 +26,10 @@
         @include border-radius;
         @include box-shadow;
     }
-    
+
     /* elements */
     // created
-    @include \[theme\];
+    @include \[preset\];
     @include e-group;
     @include e-icon;
     @include e-line;
@@ -53,7 +53,7 @@
     @include dl;
     @include fieldset;
     @include figure;
-    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta);
+    @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);
     @include h($aria-level: 2, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 3, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 4, $font-size--delta: $h_font-size--delta);

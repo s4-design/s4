@@ -1,4 +1,4 @@
-@use "_created/[theme]" as *;
+@use "_created/[preset]" as *;
 @use "_created/e-group" as *;
 @use "_created/e-icon" as *;
 @use "_created/e-line" as *;
@@ -62,7 +62,7 @@
         @include table;
 
         /* created */
-        @include \[theme\];
+        @include \[preset\];
         @include e-group;
         @include e-icon;
         @include e-line;

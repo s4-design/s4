@@ -1,14 +1,14 @@
-@use "../_assets/_xtra/_themes/theme-light" as light;
-@use "../_assets/_xtra/_themes/theme-dark" as dark;
+@use "../_assets/_xtra/_configs/preset-light" as light;
+@use "../_assets/_xtra/_configs/preset-dark" as dark;
 
-@layer themes {
-    @scope ([theme=light]) {
+@layer presets {
+    @scope ([preset=light]) {
         @include light.theme(
             $hover-active: false,
             $h_font-size--delta: 1.1
         );
     }
-    @scope ([theme=dark]) {
+    @scope ([preset=dark]) {
         @include dark.theme(
             $hover-active: false,
             $h_font-size--delta: 1.1

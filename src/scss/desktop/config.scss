@@ -1,0 +1,11 @@
+@use "../_assets/_xtra/_configs/preset-light" as light;
+@use "../_assets/_xtra/_configs/preset-dark" as dark;
+
+@layer presets {
+    @scope ([preset=light]) {
+        @include light.theme();
+    }
+    @scope ([preset=dark]) {
+        @include dark.theme();
+    }
+}

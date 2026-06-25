@@ -2,7 +2,7 @@
 
 @use "../_settings" as settings;
 @use "../_assets/_base/_utilities/~" as base;
-@use "../_assets/_xtra/_themes/_default/_utilities/~" as xtra;
+@use "../_assets/_xtra/_configs/_default/_utilities/~" as xtra;
 
 @layer utilities {
     @include base.utilities(

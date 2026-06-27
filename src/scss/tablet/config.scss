@@ -3,13 +3,13 @@
 
 @layer presets {
     @scope ([preset=light]) {
-        @include light.theme(
+        @include light.preset(
             $hover-active: false,
             $h_font-size--delta: 1.1
         );
     }
     @scope ([preset=dark]) {
-        @include dark.theme(
+        @include dark.preset(
             $hover-active: false,
             $h_font-size--delta: 1.1
         );

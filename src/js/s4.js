@@ -87,7 +87,7 @@ function updateLinks(currentDepends, allDependencies) {
     })
     
     // Загружаем config.css для текущего типа устройства
-    // Load config.css for the current device type
+    // Load config.css for the device type
     loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
 
     // Удаляем неиспользуемые стили
@@ -120,7 +120,7 @@ function setPresetBasedOnPreference() {
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
   
     // Если пользователь предпочитает тёмную тему — ставим пресет dark, иначе светлую по умолчанию
-    // If the user prefers a dark theme — set preset dark, otherwise default to light
+    // If the user prefers a dark preset — set preset dark, otherwise default to light
     if (prefersDarkScheme.matches)
         document.documentElement.setAttribute('preset', 'dark')
     else
@@ -147,10 +147,10 @@ async function S4() {
     }))
 
     try {
-        // Загружаем ключевой скрипт current-device
-        // Load the current-device key script
-        await loadScript(`${baseUrl}js/current-device.min.js`)
-        console.info(`Скрипт current-device загружен успешно | The current-device script loaded successfully`)
+        // Загружаем ключевой скрипт device-state
+        // Load the device-state key script
+        await loadScript(`${baseUrl}js/device-state.min.js`)
+        console.info(`Скрипт device-state загружен успешно | The device-state script loaded successfully`)
 
         // Загрузка dependencyMap из JSON с обработкой ошибок
         const dependencyMap = await loadDependencyMap(`${baseUrl}dependency-map.json`)

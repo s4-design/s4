@@ -3,9 +3,9 @@
 
 @layer presets {
     @scope ([preset=light]) {
-        @include light.theme();
+        @include light.preset();
     }
     @scope ([preset=dark]) {
-        @include dark.theme();
+        @include dark.preset();
     }
 }

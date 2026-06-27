@@ -1,7 +1,7 @@
 @use "_default/~" as *;
 @use "_preset-light/~" as *;
 
-@mixin theme(
+@mixin preset(
     $hover-active: true,
     $h_font-size--delta: 1.25
 ) {

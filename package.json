@@ -1,16 +1,20 @@
 {
     "name": "s4",
-    "version": "0.2.0",
-    "description": "The lightweight HTML, CSS and JavaScript framework for developing truly responsive web based projects.",
+    "version": "0.2.1",
+    "description": "Кодо-ориентированная среда для построения дизайн-систем",
     "keywords": [
-        "html",
-        "css",
+        "s4",
+        "design-system",
+        "css-framework",
+        "utility-classes",
+        "preset",
+        "css-logical-properties",
         "scss",
-        "javascript",
-        "framework"
+        "device-specific",
+        "ai-friendly"
     ],
     "author": {
-        "name": "Arthur A. Selimov",
+        "name": "Артур А. Селимов",
         "email": "info@mobitoon.ru",
         "url": "http://mobitoon.ru"
     },

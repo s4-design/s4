@@ -28,7 +28,6 @@
 - [Elements](#elements)
 - [Presets](#presets)
 - [Developer](#developer)
-- [Acknowledgments](#acknowledgments)
 - [License](#license)
 
 <br>

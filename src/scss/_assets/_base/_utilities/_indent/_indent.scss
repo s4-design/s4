@@ -2,9 +2,6 @@
     /* margin & padding */
     @each $space in $marginSizes {
         .#{$type}#{$orientation}margin {
-            &--#{$space} {
-                margin: #{$space};
-            }
             @each $property in (
                 "block",
                 "inline",
@@ -21,9 +18,6 @@
     }
     @each $space in $paddingSizes {
         .#{$type}#{$orientation}padding {
-            &--#{$space} {
-                padding: #{$space};
-            }
             @each $property in (
                 "block",
                 "inline",
@@ -41,7 +35,6 @@
 
     @if $enableVariables {
         .margin {
-            margin: var(--#{$type}#{$orientation}margin, var(--margin));
             @each $property in (
                 "block",
                 "inline",
@@ -56,7 +49,6 @@
             }
         }
         .padding {
-            padding: var(--#{$type}#{$orientation}padding, var(--padding));
             @each $property in (
                 "block",
                 "inline",

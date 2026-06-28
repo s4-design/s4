@@ -1,17 +1,13 @@
 @use "aspect-ratio" as aspect-ratio;
 @use "block-size" as block-size;
 @use "box-sizing" as box-sizing;
-@use "height" as height;
 @use "inline-size" as inline-size;
 @use "resize" as resize;
-@use "width" as width;
 
 @mixin sizing($type, $orientation, $enableVariables) {
     @include aspect-ratio.aspect-ratio($type, $orientation, $enableVariables);
     @include block-size.block-size($type, $orientation, $enableVariables);
     @include box-sizing.box-sizing($type, $orientation, $enableVariables);
-    @include height.height($type, $orientation, $enableVariables);
     @include inline-size.inline-size($type, $orientation, $enableVariables);
     @include resize.resize($type, $orientation, $enableVariables);
-    @include width.width($type, $orientation, $enableVariables);
 }

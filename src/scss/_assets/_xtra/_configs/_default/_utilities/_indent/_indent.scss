@@ -6,11 +6,6 @@
     ) {
         .#{$type}#{$orientation}#{$spacingName} {
             @each $space in $spacingSizes {
-                &--#{$space} {
-                    #{$spacingName}: var(--#{$spacingName}--#{$space});
-                }
-            }
-            @each $space in $spacingSizes {
                 &-block--#{$space} {
                     #{$spacingName}-block: var(--#{$spacingName}--#{$space});
                 }
@@ -31,7 +26,6 @@
                 &-inline-end--#{$space} {
                     #{$spacingName}-inline-end: var(--#{$spacingName}--#{$space});
                 }
-
             }
         }
     }

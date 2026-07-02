@@ -9,8 +9,8 @@
         --background-color: var(--positive--light);
         --outline-color: var(--negative--mute);
         --outline-style: solid;
-        --outline-width: var(--size--0_25);
-        --outline-offset: calc(var(--size--0_25) * 0);
+        --outline-width: var(--size--quantum);
+        --outline-offset: calc(var(--size--quantum) * 0);
         --box-shadow: 0 var(--box-shadow--s1) calc(var(--box-shadow--s1) * 2) calc(var(--box-shadow--s1) * 0.5) var(--black--02);
         > li {
             --display: contents;

@@ -4,7 +4,7 @@
         --block-size: min-content;
         --table-layout: fixed;
         --border-collapse: separate;
-        --border-spacing: var(--size--0_25);
+        --border-spacing: var(--size--quantum);
         --background-color: var(--positive--light);
 
         caption {
@@ -89,10 +89,10 @@
             --border-color: var(--negative--mute);
         }
         thead::after {
-            --inset-block-end: calc(var(--size--0_25) * -1);
+            --inset-block-end: calc(var(--size--quantum) * -1);
         }
         tfoot::before {
-            --inset-block-start: calc(var(--size--0_25) * -1);
+            --inset-block-start: calc(var(--size--quantum) * -1);
         }
     }
 }

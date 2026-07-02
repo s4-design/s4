@@ -28,7 +28,7 @@
         --text-align: center;
         --text-decoration-line: none;
         --text-transform: uppercase;
-        --letter-spacing: var(--size--0_25);
+        --letter-spacing: var(--size--quantum);
         --white-space: nowrap;
 
         --color: var(--negative);
@@ -38,9 +38,9 @@
         --cursor: pointer;
         --transition: all var(--transition-duration) var(--transition-timing-function);
         --outline-style: solid;
-        --outline-width: var(--size--0_5);
+        --outline-width: var(--size--0p5);
         --outline-color: transparent;
-        --outline-offset: var(--size--0_5);
+        --outline-offset: var(--size--0p5);
 
         --appearance: none;
         --user-select: none;

@@ -58,7 +58,7 @@ Architectural invariants of S4:
 
 1. **Three `@layer` layers** - elements, presets, utilities - with a fixed cascade order.
 2. **Deterministic class formulas** - any class parses into a CSS rule without context.
-3. **Size scale `--size--*`** - 3 groups of named steps (variables) with ¼ step.
+3. **Size scale `--size--*`** — 18 variables (17 steps + utility `--size--quantum`), linear-parametric. Step = `--size--4 / 4`.
 4. **Device-specific loading** - each `{device × orientation}` has its own CSS file.
 5. **Presets** - interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
 
@@ -170,24 +170,26 @@ CSS is split into three layers in order of increasing specificity:
 
 ### Size scale
 
-All default preset metrics are built on the `--size--*` scale - 3 groups of variables with a ¼em step:
+All default preset metrics are built on a linear-parametric `--size--*` scale.  
+The anchor point is `--size--4`, the step is computed as `step = --size--4 / 4`.
 
 ```
-Whole:     --size--0: 0em … --size--8: 2em
-Halves:    --size--0_5: 0.125em … --size--7_5: 1.875em
-Quarters:  --size--0_25: 0.0625em … --size--7_75: 1.9375em
+--size--quantum  = --size--4 / 16   (minimum quantum)
+--size--0        = step × 0
+--size--0p5      = step × 0.5 ... --size--7p5 = step × 7.5
+--size--1        = step × 1   ... --size--8   = step × 8
 ```
 
-From this scale via `var()` all groups are derived:
+Semantic groups — the public API for markup — are derived from the scale via `var()`:
 
-| Group | Example |
-|---|---|
-| `--font-size--*` | `--font-size--md: var(--size--4)` |
-| `--padding--*` | `--padding--md: var(--size--4)` |
-| `--margin--*` | `--margin--md: var(--size--4)` |
-| `--gap--*` | `--gap--md: var(--size--4)` |
-| `--border-radius--*` | `--border-radius--md: var(--size--4)` |
-| `--box-shadow--*` | `--box-shadow--s1: var(--size--1)` |
+| Group | Modifiers | Example |
+|--------|-------------|--------|
+| `--font-size--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--font-size--md: var(--size--4)` |
+| `--padding--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--padding--md: var(--size--4)` |
+| `--margin--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--margin--md: var(--size--4)` |
+| `--gap--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--gap--md: var(--size--4)` |
+| `--border-radius--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--border-radius--md: var(--size--4)` |
+| `--box-shadow--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--box-shadow--md: var(--size--2)` |
 
 Units (em, rem, px, etc.) are set in the preset. Default presets use `em`. A custom preset can use arbitrary values.
 
@@ -292,20 +294,36 @@ Without Formula 3 the property value would be hardcoded in CSS. Formula 3 makes 
 
 HTML elements and S4 custom tags are styled via CSS variables - no hardcoded values in `elements.css`. Each custom element `<e-{name}>` has a class-duplicate `.element--{name}` for environments without custom elements (React, legacy).
 
-| Custom tag | Class duplicate | Description |
+| Tag | Class duplicate | Description |
 |---|---|---|
+| | **Custom** | |
 | `<e-badge>` | `.element--badge` | Badge |
 | `<e-icon>` | `.element--icon` | Icon |
-| `<e-popover>` | `.element--popover` | Popover |
+| `<e-popover>` | `.element--popover` | Popover with body |
 | `<e-message>` | `.element--message` | Message |
 | `<e-truncate>` | `.element--truncate` | Text truncation |
 | `<e-group>` | `.element--group` | Grouping |
 | `<e-line>` | `.element--line` | Divider |
+| | **HTML tags** | |
+| `<a>` | — | Link |
+| `<abbr>` | — | Abbreviation |
+| `<blockquote>` | — | Blockquote |
 | `<button>` | `.element--button` | Button |
-| `<input>` | `.element--input` | Input field |
-| `<select>` | `.element--select` | Select |
-| `<details>` | `.element--details` | Details |
-| `<menu>` | `.element--menu` | Menu |
+| `<cite>` | — | Citation |
+| `<code>` | — | Code fragment |
+| `<details>` | — | Disclosure widget |
+| `<dl>` | — | Description list |
+| `<fieldset>` | — | Fieldset |
+| `<figure>` | — | Figure |
+| `<h1>`–`<h6>` | `.element--h1` … `.element--h6` | Headings |
+| `<hr>` | — | Horizontal rule |
+| `<input>` | — | Input field |
+| `<label>` | — | Label |
+| `<menu>` | — | Menu |
+| `<p>` | — | Paragraph |
+| `<select>` | — | Select |
+| `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Subscript/Superscript |
+| `<table>` | — | Table |
 
 **Rules:**
 
@@ -351,7 +369,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
     --font-weight: normal;
     --line-height: var(--size--6);
-    --text-underline-offset: var(--size--0_25);
+    --text-underline-offset: var(--size--quantum);
     --overscroll-behavior: none;
     --word-break: normal;
     --hyphens: auto;
@@ -384,10 +402,9 @@ Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
 ## Developer
 
-**Artur Selimov**
+**Artur A. Selimov**
 
 - GitHub: [@am35a](https://github.com/am35a)
-- Dribbble: [@am35a](https://dribbble.com/am35a)
 
 <br>
 

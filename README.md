@@ -58,7 +58,7 @@ Default-пресеты построены иначе, чем большинст�
 
 1. **Три слоя `@layer`** - elements, presets, utilities - с фиксированным порядком каскада.
 2. **Детерминированные формулы классов** - любой класс парсится в CSS-правило без контекста.
-3. **Размерная шкала `--size--*`** - 3 группы именованных ступеней (переменных) с шагом ¼.
+3. **Размерная шкала `--size--*`** — 18 переменных (17 ступеней + служебная `--size--quantum`), линейно-параметрическая. Шаг = `--size--4 / 4`.
 4. **Device-специфичная загрузка** - каждый `{device × orientation}` имеет свой CSS-файл.
 5. **Пресеты** - конфигурации интерфейса, изолированные через `@scope ([preset=...])`, с раздельной сборкой для каждого устройства.
 
@@ -170,24 +170,26 @@ CSS разделён на три слоя в порядке увеличения
 
 ### Размерная шкала
 
-Все метрики default-пресетов построены на шкале `--size--*` - 3 группы переменных с шагом ¼em:
+Все метрики default-пресетов построены на линейно-параметрической шкале `--size--*`.  
+Опорная точка — `--size--4`, шаг вычисляется как `step = --size--4 / 4`.
 
 ```
-Целые:    --size--0: 0em … --size--8: 2em
-Половины: --size--0_5: 0.125em … --size--7_5: 1.875em
-Четверти: --size--0_25: 0.0625em … --size--7_75: 1.9375em
+--size--quantum  = --size--4 / 16   (минимальный квант)
+--size--0        = step × 0
+--size--0p5      = step × 0.5 ... --size--7p5 = step × 7.5
+--size--1        = step × 1   ... --size--8   = step × 8
 ```
 
-От этой шкалы через `var()` выведены все группы:
+От шкалы через `var()` выведены семантические группы — публичный API для вёрстки:
 
-| Группа | Пример |
-|---|---|
-| `--font-size--*` | `--font-size--md: var(--size--4)` |
-| `--padding--*` | `--padding--md: var(--size--4)` |
-| `--margin--*` | `--margin--md: var(--size--4)` |
-| `--gap--*` | `--gap--md: var(--size--4)` |
-| `--border-radius--*` | `--border-radius--md: var(--size--4)` |
-| `--box-shadow--*` | `--box-shadow--s1: var(--size--1)` |
+| Группа | Модификаторы | Пример |
+|--------|-------------|--------|
+| `--font-size--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--font-size--md: var(--size--4)` |
+| `--padding--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--padding--md: var(--size--4)` |
+| `--margin--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--margin--md: var(--size--4)` |
+| `--gap--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--gap--md: var(--size--4)` |
+| `--border-radius--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--border-radius--md: var(--size--4)` |
+| `--box-shadow--*` | s3, s2, s1, md, l1, l2, l3, l4 | `--box-shadow--md: var(--size--2)` |
 
 Единицы измерения (em, rem, px и т.д.) задаются в пресете. Default-пресеты используют `em`. Кастомный пресет может задать произвольные значения.
 
@@ -228,7 +230,7 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 | `--{x}--dark` | Тёмный |
 | `--{x}--mute` | Полупрозрачный |
 
-Базовые: `--white`, `--black`, `--white--01`…`--white--09`, `--black--01`…`--black--09` (шаг 10% прозрачности).
+Базовые: `--white`, `--black`, `--white--01`...`--white--09`, `--black--01`...`--black--09` (шаг 10% прозрачности).
 
 <br>
 
@@ -292,20 +294,36 @@ color: var(--d_l_color, var(--color));
 
 HTML-элементы и кастомные теги С4 стилизуются через CSS-переменные - ни одного жёсткого значения в `elements.css`. Каждый кастомный элемент `<e-{name}>` имеет класс-дубликат `.element--{name}` для сред без кастомных элементов (React, legacy).
 
-| Кастомный тег | Класс-дубликат | Описание |
+| Тег | Класс-дубликат | Описание |
 |---|---|---|
+| | **Кастомные** | |
 | `<e-badge>` | `.element--badge` | Бейдж |
 | `<e-icon>` | `.element--icon` | Иконка |
-| `<e-popover>` | `.element--popover` | Поповер |
+| `<e-popover>` | `.element--popover` | Поповер с телом |
 | `<e-message>` | `.element--message` | Сообщение |
 | `<e-truncate>` | `.element--truncate` | Усечение текста |
 | `<e-group>` | `.element--group` | Группировка |
 | `<e-line>` | `.element--line` | Разделитель |
+| | **HTML-теги** | |
+| `<a>` | — | Ссылка |
+| `<abbr>` | — | Аббревиатура |
+| `<blockquote>` | — | Цитата |
 | `<button>` | `.element--button` | Кнопка |
-| `<input>` | `.element--input` | Поле ввода |
-| `<select>` | `.element--select` | Выбор |
-| `<details>` | `.element--details` | Детали |
-| `<menu>` | `.element--menu` | Меню |
+| `<cite>` | — | Цитирование |
+| `<code>` | — | Фрагмент кода |
+| `<details>` | — | Раскрывающийся блок |
+| `<dl>` | — | Список определений |
+| `<fieldset>` | — | Группа полей |
+| `<figure>` | — | Иллюстрация |
+| `<h1>`–`<h6>` | `.element--h1` ... `.element--h6` | Заголовки |
+| `<hr>` | — | Разделитель |
+| `<input>` | — | Поле ввода |
+| `<label>` | — | Подпись |
+| `<menu>` | — | Меню |
+| `<p>` | — | Абзац |
+| `<select>` | — | Выбор |
+| `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Индексы |
+| `<table>` | — | Таблица |
 
 **Правила:**
 
@@ -351,7 +369,7 @@ HTML-элементы и кастомные теги С4 стилизуются 
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
     --font-weight: normal;
     --line-height: var(--size--6);
-    --text-underline-offset: var(--size--0_25);
+    --text-underline-offset: var(--size--quantum);
     --overscroll-behavior: none;
     --word-break: normal;
     --hyphens: auto;
@@ -384,10 +402,9 @@ HTML-элементы и кастомные теги С4 стилизуются 
 
 ## Разработчик
 
-**Артур Селимов**
+**Артур А. Селимов**
 
 - GitHub: [@am35a](https://github.com/am35a)
-- Dribbble: [@am35a](https://dribbble.com/am35a)
 
 <br>
 

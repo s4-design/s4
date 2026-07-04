@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [master, dev_*]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm _s4-scss
+
+      - run: pnpm _s4-js
+
+      - run: pnpm _header-update
+
+      - uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/master'
+        with:
+          name: s4-build
+          path: s4/
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm _s4-scss
+
+      - run: pnpm _s4-js
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: node test/snapshot.mjs

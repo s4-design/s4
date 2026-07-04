@@ -34,7 +34,7 @@
         "_dev-test": "node test/snapshot.mjs",
         "_dev-test-update": "node test/snapshot.mjs --update",
         "_s4-minor": "pnpm version minor",
-        "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed",
+        "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed --no-charset",
         "_s4-js": "terser src/js/s4.js --output s4/js/s4.min.js --mangle",
         "s4": "pnpm _s4-minor && pnpm _s4-scss && pnpm _s4-js && pnpm _header-update"
     },

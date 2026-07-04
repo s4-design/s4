@@ -4,16 +4,13 @@
 
 <div align="center">
     <img src="https://avatars.githubusercontent.com/u/184809488" alt="S4 logo" width="160">
-    <h1>System 4<br><small><small>Source code</small></small></h1>
+    <h1>System 4 (S4) · Source code<br><small><small>code-centric environment for building interfaces</small></small></h1>
 </div>
 
 <br>
 
-<p>
-    Code-oriented environment for building design systems.
-</p>
 <small>
-    S4 is not a component framework - it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
+    S4 is not a component framework — it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
 </small>
 
 <br>

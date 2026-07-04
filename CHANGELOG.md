@@ -27,7 +27,6 @@
 ### Changed
 - device-state заменил current-device
 - Замена `С4()` → `S4()` во всех вызовах
-- Пресеты: `_preset-light/` → `_preset-light/`, `_preset-dark/` → `_preset-dark/`
 
 ### Removed
 - `current-device.min.js`
@@ -42,3 +41,21 @@
 ### Changed
 - Архитектура: `_themes/` → `_configs/`, `_theme-light/` → `_preset-light/`, `_theme-dark/` → `_preset-dark/`
 - Атрибут `[theme]` → `[preset]`, слой `@layer themes` → `@layer presets`
+
+## [0.1.0] — 2026-06-01
+
+### Added
+- Первая публичная версия S4
+- Три слоя `@layer`: ядро, темы/утилиты, элементы
+- Три формулы утилитарных классов: адаптивная, единая, переменная
+- Пять архитектурных инвариантов
+- Размерная шкала `--size--*` (underscore-нотация, бисекционная, 33 переменных)
+- Определение устройства через current-device
+- Device-specific темы (mobile/tablet/desktop + portrait/landscape)
+- Элементы: полный набор HTML-тегов + кастомные `_elements/_created/`
+- Миксин `sizes()` с параметрическим масштабированием
+- Акцентные цвета (accent-colors) через формулы (светлая/тёмная тема)
+- CSS Logical Properties (базовый набор)
+- S4.md — описание для AI-агентов
+- README.md, README.en.md — двуязычная документация
+- AGENTS.md — правило синхронизации переводов

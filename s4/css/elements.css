@@ -1,8 +1,8 @@
 /*!
- * S4 v0.2.1 - https://github.com/s4-design/s4
+ * S4 v0.3.0 - https://github.com/s4-design/s4
  *
  * Авторское право © 2026 Артур А. Селимов
- * Copyright © 2026 Arthur A. Selimov
+ * Copyright © 2026 Артур А. Селимов
  *
  * Выпущен по лицензии CC BY-NC-SA
  * Released under the CC BY-NC-SA License

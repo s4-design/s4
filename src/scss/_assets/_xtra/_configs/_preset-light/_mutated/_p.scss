@@ -7,5 +7,8 @@
         &:last-child:last-of-type {
             --margin-block: var(--margin--md) 0;
         }
+        &:first-child:first-of-type:last-child:last-of-type {
+            --margin-block: 0;
+        }
     }
 }

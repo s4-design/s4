@@ -4,13 +4,13 @@
 
 <div align="center">
     <img src="https://avatars.githubusercontent.com/u/184809488" alt="S4 logo" width="160">
-    <h1>System 4 (S4) · Source code<br><small><small>code-centric environment for building interfaces</small></small></h1>
+    <h1>System 4 (S4) · Source code<br><small><small>Code-centric environment for building interfaces</small></small></h1>
 </div>
 
 <br>
 
 <small>
-    S4 is not a component framework — it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
+    S4 is not a component framework - it's an environment: core (three-layer cascade + class formulas + device-specific loading) + presets. A preset is an interface configuration: metrics, colors, typography, animations, behavior. Default presets (light/dark) are ready-made configurations with an EM-centered model. A custom preset is a different configuration upon which a new design system is built. Design system = S4 + preset + components and patterns.
 </small>
 
 <br>
@@ -55,7 +55,7 @@ Architectural invariants of S4:
 
 1. **Three `@layer` layers** - elements, presets, utilities - with a fixed cascade order.
 2. **Deterministic class formulas** - any class parses into a CSS rule without context.
-3. **Size scale `--size--*`** — 18 variables (17 steps + utility `--size--quantum`), linear-parametric. Step = `--size--4 / 4`.
+3. **Size scale `--size--*`** - 18 variables (17 steps + utility `--size--quantum`), linear-parametric. Step = `--size--4 / 4`.
 4. **Device-specific loading** - each `{device × orientation}` has its own CSS file.
 5. **Presets** - interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
 
@@ -177,7 +177,7 @@ The anchor point is `--size--4`, the step is computed as `step = --size--4 / 4`.
 --size--1        = step × 1   ... --size--8   = step × 8
 ```
 
-Semantic groups — the public API for markup — are derived from the scale via `var()`:
+Semantic groups - the public API for markup - are derived from the scale via `var()`:
 
 | Group | Modifiers | Example |
 |--------|-------------|--------|
@@ -302,25 +302,25 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<e-group>` | `.element--group` | Grouping |
 | `<e-line>` | `.element--line` | Divider |
 | | **HTML tags** | |
-| `<a>` | — | Link |
-| `<abbr>` | — | Abbreviation |
-| `<blockquote>` | — | Blockquote |
+| `<a>` | - | Link |
+| `<abbr>` | - | Abbreviation |
+| `<blockquote>` | - | Blockquote |
 | `<button>` | `.element--button` | Button |
-| `<cite>` | — | Citation |
-| `<code>` | — | Code fragment |
-| `<details>` | — | Disclosure widget |
-| `<dl>` | — | Description list |
-| `<fieldset>` | — | Fieldset |
-| `<figure>` | — | Figure |
+| `<cite>` | - | Citation |
+| `<code>` | - | Code fragment |
+| `<details>` | - | Disclosure widget |
+| `<dl>` | - | Description list |
+| `<fieldset>` | - | Fieldset |
+| `<figure>` | - | Figure |
 | `<h1>`–`<h6>` | `.element--h1` … `.element--h6` | Headings |
-| `<hr>` | — | Horizontal rule |
-| `<input>` | — | Input field |
-| `<label>` | — | Label |
-| `<menu>` | — | Menu |
-| `<p>` | — | Paragraph |
-| `<select>` | — | Select |
+| `<hr>` | - | Horizontal rule |
+| `<input>` | - | Input field |
+| `<label>` | - | Label |
+| `<menu>` | - | Menu |
+| `<p>` | - | Paragraph |
+| `<select>` | - | Select |
 | `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Subscript/Superscript |
-| `<table>` | — | Table |
+| `<table>` | - | Table |
 
 **Rules:**
 

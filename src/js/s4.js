@@ -79,25 +79,25 @@ function areDependenciesEqual(dep1, dep2) {
 // Объединенная функция для загрузки и удаления CSS файлов
 // Combined function for loading and removing CSS files
 function updateLinks(currentDepends, allDependencies) {
-    // Загружаем стили зависимостей
-    // Load dependency styles
-    currentDepends.forEach(obj => {
-        const [key] = Object.keys(obj)
-        loadLink(`${baseUrl}css/${key}/${obj[key]}.css`, `${key}/${obj[key]}`)
-    })
-    
     // Загружаем конфигурацию для текущего типа устройства
     // Load configuration for the current device type
     loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
 
+    // Загружаем стили зависимостей
+    // Load dependency styles
+    currentDepends.forEach(obj => {
+        const [key] = Object.keys(obj)
+        loadLink(`${baseUrl}css/${key}/${obj[key]}-utilities.css`, `${key}/${obj[key]}-utilities`)
+    })
+    
     // Удаляем неиспользуемые стили
     // Remove unused styles
     allDependencies.forEach(obj => {
         const [key] = Object.keys(obj)
-        const element = document.getElementById(`${key}/${obj[key]}`)
+        const element = document.getElementById(`${key}/${obj[key]}-utilities`)
         if (element && !currentDepends.some(dep => areDependenciesEqual(dep, obj))) {
             element.remove()
-            loadedLinks.delete(`${baseUrl}css/${key}/${obj[key]}.css`)
+            loadedLinks.delete(`${baseUrl}css/${key}/${obj[key]}-utilities.css`)
         }
     })
     
@@ -170,8 +170,8 @@ async function S4() {
         // Load base utilities (always, before device-specific)
         loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
-        // Применяем стили
-        // Apply styles
+        // Загружаем device-специфичны файлы стилей (конфигурации и утилиты)
+        // Load device-specific css files (configuration and utilities)
         updateLinks(currentDepends, Object.values(dependencyMap).flatMap(device => Object.values(device).flat()))
 
         loadLink(`${baseUrl}css/elements.css`, 'css/elements')

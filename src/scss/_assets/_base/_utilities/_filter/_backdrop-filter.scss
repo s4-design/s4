@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .backdrop-filter {
-            backdrop-filter: var(--#{$type}#{$orientation}backdrop-filter, var(--backdrop-filter));
+            @if $type == "" and $orientation == "" {
+                backdrop-filter: var(--backdrop-filter);
+            } @else {
+                backdrop-filter: var(--#{$type}#{$orientation}backdrop-filter, var(--backdrop-filter));
+            }
         }
     }
 }

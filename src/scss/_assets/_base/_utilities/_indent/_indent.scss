@@ -44,7 +44,11 @@
                 "inline-end"
             ) {
                 &-#{$property} {
-                    margin-#{$property}: var(--#{$type}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
+                    @if $type == "" and $orientation == "" {
+                        margin-#{$property}: var(--margin-#{$property});
+                    } @else {
+                        margin-#{$property}: var(--#{$type}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
+                    }
                 }
             }
         }
@@ -58,7 +62,11 @@
                 "inline-end"
             ) {
                 &-#{$property} {
-                    padding-#{$property}: var(--#{$type}#{$orientation}padding-#{$property}, var(--padding-#{$property}));
+                    @if $type == "" and $orientation == "" {
+                        padding-#{$property}: var(--padding-#{$property});
+                    } @else {
+                        padding-#{$property}: var(--#{$type}#{$orientation}padding-#{$property}, var(--padding-#{$property}));
+                    }
                 }
             }
         }

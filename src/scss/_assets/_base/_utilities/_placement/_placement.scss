@@ -10,7 +10,11 @@
     ) {
         @if $enableVariables {
             .#{$placement} {
-                #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}));
+                @if $type == "" and $orientation == "" {
+                    #{$placement}: var(--#{$placement});
+                } @else {
+                    #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}));
+                }
             }
         }
     }

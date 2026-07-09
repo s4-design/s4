@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .outline-offset {
-            outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
+            @if $type == "" and $orientation == "" {
+                outline-offset: var(--outline-offset);
+            } @else {
+                outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
+            }
         }
     }
 }

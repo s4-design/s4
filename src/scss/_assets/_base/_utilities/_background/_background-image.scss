@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .background-image {
-            background-image: var(--#{$type}#{$orientation}background-image, var(--background-image));
+            @if $type == "" and $orientation == "" {
+                background-image: var(--background-image);
+            } @else {
+                background-image: var(--#{$type}#{$orientation}background-image, var(--background-image));
+            }
         }
     }
 }

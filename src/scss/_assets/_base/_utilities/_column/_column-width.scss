@@ -2,7 +2,11 @@
     /* column width */    
     @if $enableVariables {
         .column-width {
-            column-width: var(--#{$type}#{$orientation}column-width, var(--column-width));
+            @if $type == "" and $orientation == "" {
+                column-width: var(--column-width);
+            } @else {
+                column-width: var(--#{$type}#{$orientation}column-width, var(--column-width));
+            }
         }
     }
 }

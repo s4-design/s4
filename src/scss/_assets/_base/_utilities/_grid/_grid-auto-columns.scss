@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .grid-auto-columns {
-            grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
+            @if $type == "" and $orientation == "" {
+                grid-auto-columns: var(--grid-auto-columns);
+            } @else {
+                grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
+            }
         }
     }
 }

@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .rotate {
-            rotate: var(--#{$type}#{$orientation}rotate, var(--rotate));
+            @if $type == "" and $orientation == "" {
+                rotate: var(--rotate);
+            } @else {
+                rotate: var(--#{$type}#{$orientation}rotate, var(--rotate));
+            }
         }
     }
 }

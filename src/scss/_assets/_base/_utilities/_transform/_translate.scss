@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .translate {
-            translate: var(--#{$type}#{$orientation}translate, var(--translate));
+            @if $type == "" and $orientation == "" {
+                translate: var(--translate);
+            } @else {
+                translate: var(--#{$type}#{$orientation}translate, var(--translate));
+            }
         }
     }
 }

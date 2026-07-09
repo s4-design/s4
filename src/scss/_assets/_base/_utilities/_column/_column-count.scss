@@ -6,7 +6,11 @@
     
     @if $enableVariables {
         .column-count {
-            column-count: var(--#{$type}#{$orientation}column-count, var(--column-count));
+            @if $type == "" and $orientation == "" {
+                column-count: var(--column-count);
+            } @else {
+                column-count: var(--#{$type}#{$orientation}column-count, var(--column-count));
+            }
         }
     }
 }

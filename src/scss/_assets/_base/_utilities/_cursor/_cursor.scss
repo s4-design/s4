@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .cursor {
-            cursor: var(--#{$type}#{$orientation}cursor, var(--cursor));
+            @if $type == "" and $orientation == "" {
+                cursor: var(--cursor);
+            } @else {
+                cursor: var(--#{$type}#{$orientation}cursor, var(--cursor));
+            }
         }
     }
 }

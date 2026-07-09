@@ -14,7 +14,11 @@
     
     @if $enableVariables {
         .object-position {
-            object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
+            @if $type == "" and $orientation == "" {
+                object-position: var(--object-position);
+            } @else {
+                object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
+            }
         }
     }
 }

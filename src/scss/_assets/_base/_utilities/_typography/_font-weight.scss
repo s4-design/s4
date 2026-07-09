@@ -13,7 +13,11 @@
     
     @if $enableVariables {
         .font-weight {
-            font-weight: var(--#{$type}#{$orientation}font-weight, var(--font-weight));
+            @if $type == "" and $orientation == "" {
+                font-weight: var(--font-weight);
+            } @else {
+                font-weight: var(--#{$type}#{$orientation}font-weight, var(--font-weight));
+            }
         }
     }
 }

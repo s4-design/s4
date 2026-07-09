@@ -25,7 +25,7 @@
 @use "_z-index/~" as *;
 @use "_zoom/~" as *;
 
-@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_", $enableVariables: false) {
+@mixin utilities($type: "", $orientation: "", $enableVariables: false) {
     @include align($type, $orientation);
     @include background($type, $orientation, $enableVariables);
     @include break($type, $orientation, $enableVariables);

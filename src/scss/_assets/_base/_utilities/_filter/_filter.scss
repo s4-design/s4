@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .filter {
-            filter: var(--#{$type}#{$orientation}filter, var(--filter));
+            @if $type == "" and $orientation == "" {
+                filter: var(--filter);
+            } @else {
+                filter: var(--#{$type}#{$orientation}filter, var(--filter));
+            }
         }
     }
 }

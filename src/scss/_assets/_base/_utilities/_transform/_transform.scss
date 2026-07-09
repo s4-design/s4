@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .transform {
-            transform: var(--#{$type}#{$orientation}transform, var(--transform));
+            @if $type == "" and $orientation == "" {
+                transform: var(--transform);
+            } @else {
+                transform: var(--#{$type}#{$orientation}transform, var(--transform));
+            }
         }
     }
 }

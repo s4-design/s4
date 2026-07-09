@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .flex-shrink {
-            flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink));
+            @if $type == "" and $orientation == "" {
+                flex-shrink: var(--flex-shrink);
+            } @else {
+                flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink));
+            }
         }
     }
 }

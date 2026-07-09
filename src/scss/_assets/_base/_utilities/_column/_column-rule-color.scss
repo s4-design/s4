@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .column-rule-color {
-            column-rule-color: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
+            @if $type == "" and $orientation == "" {
+                column-rule-color: var(--column-rule-color);
+            } @else {
+                column-rule-color: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
+            }
         }
     }
 }

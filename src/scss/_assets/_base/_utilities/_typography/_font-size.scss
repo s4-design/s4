@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .font-size {
-            font-size: var(--#{$type}#{$orientation}font-size, var(--font-size));
+            @if $type == "" and $orientation == "" {
+                font-size: var(--font-size);
+            } @else {
+                font-size: var(--#{$type}#{$orientation}font-size, var(--font-size));
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
 @use "_typography/~" as *;
 @use "_z-index/~" as *;
 
-@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_") {
+@mixin utilities($type: "", $orientation: "") {
     // :is([preset="light"], [preset="dark"]) {
         @include background($type, $orientation);
         @include border($type, $orientation);

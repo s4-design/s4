@@ -11,7 +11,11 @@
     
     @if $enableVariables {
         .background-size {
-            background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
+            @if $type == "" and $orientation == "" {
+                background-size: var(--background-size);
+            } @else {
+                background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
+            }
         }
     }
 }

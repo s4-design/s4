@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .border-spacing {
-            border-spacing: var(--#{$type}#{$orientation}border-spacing, var(--border-spacing));
+            @if $type == "" and $orientation == "" {
+                border-spacing: var(--border-spacing);
+            } @else {
+                border-spacing: var(--#{$type}#{$orientation}border-spacing, var(--border-spacing));
+            }
         }
     }
 }

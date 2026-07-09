@@ -17,7 +17,11 @@
     
     @if $enableVariables {
         .outline-style {
-            outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+            @if $type == "" and $orientation == "" {
+                outline-style: var(--outline-style);
+            } @else {
+                outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+            }
         }
     }
 }

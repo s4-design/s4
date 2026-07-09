@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .break-after {
-            break-after: var(--#{$type}#{$orientation}break-after, var(--break-after));
+            @if $type == "" and $orientation == "" {
+                break-after: var(--break-after);
+            } @else {
+                break-after: var(--#{$type}#{$orientation}break-after, var(--break-after));
+            }
         }
     }
 }

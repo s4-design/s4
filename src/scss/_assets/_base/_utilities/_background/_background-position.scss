@@ -36,7 +36,11 @@
     
     @if $enableVariables {
         .background-position {
-            background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
+            @if $type == "" and $orientation == "" {
+                background-position: var(--background-position);
+            } @else {
+                background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
+            }
         }
     }
 }

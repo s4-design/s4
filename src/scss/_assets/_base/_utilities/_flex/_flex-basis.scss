@@ -12,7 +12,11 @@
     
     @if $enableVariables {
         .flex-basis {
-            flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
+            @if $type == "" and $orientation == "" {
+                flex-basis: var(--flex-basis);
+            } @else {
+                flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
+            }
         }
     }
 }

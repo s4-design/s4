@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .grid-auto-rows {
-            grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
+            @if $type == "" and $orientation == "" {
+                grid-auto-rows: var(--grid-auto-rows);
+            } @else {
+                grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
+            }
         }
     }
 }

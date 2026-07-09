@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .break-inside {
-            break-inside: var(--#{$type}#{$orientation}break-inside, var(--break-inside));
+            @if $type == "" and $orientation == "" {
+                break-inside: var(--break-inside);
+            } @else {
+                break-inside: var(--#{$type}#{$orientation}break-inside, var(--break-inside));
+            }
         }
     }
 }

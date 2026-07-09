@@ -21,7 +21,11 @@
     
         @if $enableVariables {
             .#{$block-size} {
-                #{$block-size}: var(--#{$type}#{$orientation}#{$block-size}, var(--#{$block-size}));
+                @if $type == "" and $orientation == "" {
+                    #{$block-size}: var(--#{$block-size});
+                } @else {
+                    #{$block-size}: var(--#{$type}#{$orientation}#{$block-size}, var(--#{$block-size}));
+                }
             }
         }
     }

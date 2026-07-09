@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .aspect-ratio {
-            aspect-ratio: var(--#{$type}#{$orientation}aspect-ratio, var(--aspect-ratio));
+            @if $type == "" and $orientation == "" {
+                aspect-ratio: var(--aspect-ratio);
+            } @else {
+                aspect-ratio: var(--#{$type}#{$orientation}aspect-ratio, var(--aspect-ratio));
+            }
         }
     }
 }

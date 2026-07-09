@@ -8,7 +8,11 @@
     
     @if $enableVariables {
         .text-shadow {
-            text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow));
+            @if $type == "" and $orientation == "" {
+                text-shadow: var(--text-shadow);
+            } @else {
+                text-shadow: var(--#{$type}#{$orientation}text-shadow, var(--text-shadow));
+            }
         }
     }
 }

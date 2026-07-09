@@ -13,7 +13,11 @@
     
     @if $enableVariables {
         .column-style {
-            column-rule-style: var(--#{$type}#{$orientation}column-rule-style, var(--column-rule-style));
+            @if $type == "" and $orientation == "" {
+                column-rule-style: var(--column-rule-style);
+            } @else {
+                column-rule-style: var(--#{$type}#{$orientation}column-rule-style, var(--column-rule-style));
+            }
         }
     }
 }

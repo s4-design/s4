@@ -10,16 +10,32 @@
 
     @if $enableVariables {
         .text-decoration-line {
-            text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
+            @if $type == "" and $orientation == "" {
+                text-decoration-line: var(--text-decoration-line);
+            } @else {
+                text-decoration-line: var(--#{$type}#{$orientation}text-decoration-line, var(--text-decoration-line));
+            }
         }
         .text-decoration-style {
-            text-decoration-style: var(--#{$type}#{$orientation}text-decoration-style, var(--text-decoration-style));
+            @if $type == "" and $orientation == "" {
+                text-decoration-style: var(--text-decoration-style);
+            } @else {
+                text-decoration-style: var(--#{$type}#{$orientation}text-decoration-style, var(--text-decoration-style));
+            }
         }
         .text-decoration-color {
-            text-decoration-color: var(--#{$type}#{$orientation}text-decoration-color, var(--text-decoration-color));
+            @if $type == "" and $orientation == "" {
+                text-decoration-color: var(--text-decoration-color);
+            } @else {
+                text-decoration-color: var(--#{$type}#{$orientation}text-decoration-color, var(--text-decoration-color));
+            }
         }
         .text-decoration-thickness {
-            text-decoration-thickness: var(--#{$type}#{$orientation}text-decoration-thickness, var(--text-decoration-thickness));
+            @if $type == "" and $orientation == "" {
+                text-decoration-thickness: var(--text-decoration-thickness);
+            } @else {
+                text-decoration-thickness: var(--#{$type}#{$orientation}text-decoration-thickness, var(--text-decoration-thickness));
+            }
         }
     }
 }

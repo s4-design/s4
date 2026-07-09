@@ -9,13 +9,21 @@
     
     @if $enableVariables {
         .box-shadow {
-            box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
+            @if $type == "" and $orientation == "" {
+                box-shadow: var(--box-shadow);
+            } @else {
+                box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
+            }
         }
         @each $pseudoClass in (
             "hover"
         ) {
             .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
-                box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+                @if $type == "" and $orientation == "" {
+                    box-shadow: var(--box-shadow\:#{$pseudoClass});
+                } @else {
+                    box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+                }
             }
         }
     }

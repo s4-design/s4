@@ -9,7 +9,11 @@
     
     @if $enableVariables {
         .color {
-            color: var(--#{$type}#{$orientation}color, var(--color));
+            @if $type == "" and $orientation == "" {
+                color: var(--color);
+            } @else {
+                color: var(--#{$type}#{$orientation}color, var(--color));
+            }
         }
         @each $pseudoClass in (
             // "focus",
@@ -20,7 +24,11 @@
             // "disabled"
         ) {
             .color\:#{$pseudoClass}:#{$pseudoClass} {
-                color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}));
+                @if $type == "" and $orientation == "" {
+                    color: var(--color\:#{$pseudoClass});
+                } @else {
+                    color: var(--#{$type}#{$orientation}color\:#{$pseudoClass}, var(--color\:#{$pseudoClass}));
+                }
             }
         }
     }

@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .grid-template-areas {
-            grid-template-areas: var(--#{$type}#{$orientation}grid-template-areas, var(--grid-template-areas));
+            @if $type == "" and $orientation == "" {
+                grid-template-areas: var(--grid-template-areas);
+            } @else {
+                grid-template-areas: var(--#{$type}#{$orientation}grid-template-areas, var(--grid-template-areas));
+            }
         }
     }
 }

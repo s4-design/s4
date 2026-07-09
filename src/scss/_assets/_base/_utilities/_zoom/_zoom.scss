@@ -3,7 +3,11 @@
 
     @if $enableVariables {
         .zoom {
-            zoom: var(--#{$type}#{$orientation}zoom, var(--zoom));
+            @if $type == "" and $orientation == "" {
+                zoom: var(--zoom);
+            } @else {
+                zoom: var(--#{$type}#{$orientation}zoom, var(--zoom));
+            }
         }
     }
 }

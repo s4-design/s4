@@ -27,11 +27,19 @@
     
     @if $enableVariables {
         .border-style {
-            border-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
+            @if $type == "" and $orientation == "" {
+                border-style: var(--border-style);
+            } @else {
+                border-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
+            }
         }
         @each $side in $borderSides {
             .border-#{$side}-style {
-                border-#{$side}-style: var(--#{$type}#{$orientation}border-#{$side}-style, var(--border-#{$side}-style));
+                @if $type == "" and $orientation == "" {
+                    border-#{$side}-style: var(--border-#{$side}-style);
+                } @else {
+                    border-#{$side}-style: var(--#{$type}#{$orientation}border-#{$side}-style, var(--border-#{$side}-style));
+                }
             }
         }
     }

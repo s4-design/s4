@@ -20,13 +20,21 @@
 
         @if $enableVariables {
             .#{$tracksName}-gap {
-                #{$tracksName}-gap: var(--#{$type}#{$orientation}#{$tracksName}-gap, var(--#{$tracksName}-gap));
+                @if $type == "" and $orientation == "" {
+                    #{$tracksName}-gap: var(--#{$tracksName}-gap);
+                } @else {
+                    #{$tracksName}-gap: var(--#{$type}#{$orientation}#{$tracksName}-gap, var(--#{$tracksName}-gap));
+                }
             }
         }
     }
     @if $enableVariables {
         .gap {
-            gap: var(--#{$type}#{$orientation}gap, var(--gap));
+            @if $type == "" and $orientation == "" {
+                gap: var(--gap);
+            } @else {
+                gap: var(--#{$type}#{$orientation}gap, var(--gap));
+            }
         }
     }
 }

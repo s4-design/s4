@@ -3,7 +3,11 @@
     
     @if $enableVariables {
         .flex-grow {
-            flex-grow: var(--#{$type}#{$orientation}flex-grow, var(--flex-grow));
+            @if $type == "" and $orientation == "" {
+                flex-grow: var(--flex-grow);
+            } @else {
+                flex-grow: var(--#{$type}#{$orientation}flex-grow, var(--flex-grow));
+            }
         }
     }
 }

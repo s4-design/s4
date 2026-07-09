@@ -16,7 +16,11 @@
         
         @if $enableVariables {
             .grid-template-#{$gridTemplate} {
-                grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
+                @if $type == "" and $orientation == "" {
+                    grid-template-#{$gridTemplate}: var(--grid-template-#{$gridTemplate});
+                } @else {
+                    grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
+                }
             }
         }
     }

@@ -6,7 +6,11 @@
     
     @if $enableVariables {
         .order {
-            order: var(--#{$type}#{$orientation}order, var(--order));
+            @if $type == "" and $orientation == "" {
+                order: var(--order);
+            } @else {
+                order: var(--#{$type}#{$orientation}order, var(--order));
+            }
         }
     }
 }

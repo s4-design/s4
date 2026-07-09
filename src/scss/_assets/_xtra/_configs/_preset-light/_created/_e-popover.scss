@@ -59,7 +59,7 @@
                     --inset-inline-start: 50%;
                     --transform: translateX(-50%);
                 }
-            &[position$=inline-end] + .drp-content
+            &[position$=inline-end]
                 > e-body,
                 > .element--body {
                     --inset-inline-start: 0;

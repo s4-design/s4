@@ -86,8 +86,8 @@ function updateLinks(currentDepends, allDependencies) {
         loadLink(`${baseUrl}css/${key}/${obj[key]}.css`, `${key}/${obj[key]}`)
     })
     
-    // Загружаем config.css для текущего типа устройства
-    // Load config.css for the device type
+    // Загружаем конфигурацию для текущего типа устройства
+    // Load configuration for the current device type
     loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
 
     // Удаляем неиспользуемые стили
@@ -113,7 +113,7 @@ function setPresetBasedOnPreference() {
     // Если пресет уже установлен — уважаем выбор автора, ничего не делаем
     // If the preset is already set — respect the author's choice, do nothing
     if (currentPreset)
-        return;
+        return
 
     // Проверяем системные предпочтения пользователя
     // Check the user's system preferences
@@ -165,6 +165,10 @@ async function S4() {
         let type = device.type,
             orientation = device.orientation,
             currentDepends = dependencyMap[type]?.[orientation] || []
+
+        // Загружаем базовые утилиты (всегда, до device-специфичных)
+        // Load base utilities (always, before device-specific)
+        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
         // Применяем стили
         // Apply styles

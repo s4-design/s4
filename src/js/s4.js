@@ -92,7 +92,10 @@ function loadLink(href, id = '') {
         link.id = id
         link.href = href
         link.rel = 'stylesheet'
-        link.type = 'text/css'
+        link.onerror = () => {
+            console.warn(`Ошибка загрузки CSS: "${href}" | Error loading CSS: "${href}"`)
+            loadedLinks.delete(href)
+        }
         document.head.appendChild(link)
     
         // Добавление href в кэш
@@ -161,9 +164,9 @@ async function S4() {
 
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers
-    document.head.appendChild(Object.assign(document.createElement('style'), {
-        textContent: `@layer elements, presets, utilities;`
-    }))
+    const style = document.createElement('style')
+    style.textContent = '@layer elements, presets, utilities;'
+    document.head.appendChild(style)
 
     try {
         // Загружаем ключевой скрипт device-state

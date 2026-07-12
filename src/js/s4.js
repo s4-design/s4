@@ -32,6 +32,15 @@ function loadScript(url) {
 const loadedLinks = new Set()
 let _s4PresetIsAuto = false
 
+// Допустимые ключи и значения карты зависимостей (защита от опечаток в JSON)
+// Allowed dependency map keys and values (protection against typos in JSON)
+function isAllowedKey(key) {
+    return ['desktop', 'tablet', 'mobile'].includes(key)
+}
+function isAllowedValue(val) {
+    return ['landscape', 'portrait'].includes(val)
+}
+
 // Загрузка карты зависимостей из JSON
 // Load dependency map from JSON
 async function loadDependencyMap(url) {
@@ -40,6 +49,15 @@ async function loadDependencyMap(url) {
         if (!response.ok)
             throw new Error(`Ошибка загрузки JSON | Loading error JSON: ${response.statusText}`)
         const data = await response.json()
+
+        // Проверяем все ключи и значения через whitelist
+        // Validate all keys and values through whitelist
+        for (const device of Object.keys(data))
+            for (const orientation of Object.keys(data[device]))
+                for (const dep of data[device][orientation])
+                    if (!isAllowedKey(Object.keys(dep)[0]) || !isAllowedValue(Object.values(dep)[0]))
+                        throw new Error('Некорректная структура dependency-map | Invalid dependency-map structure')
+
         return data
     } catch (error) {
         console.error('Ошибка при загрузке или парсинге dependencyMap | Error loading or parsing dependencyMap:', error)
@@ -140,7 +158,6 @@ async function S4() {
     // Следить за изменениями предпочтений пресета
     // Track changes in preset preferences
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', setPresetBasedOnPreference)
-    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setPresetBasedOnPreference)
 
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers

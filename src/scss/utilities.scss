@@ -8,7 +8,7 @@
     @include base.utilities(
         "",
         "",
-        true
+        settings.$enableVariables
     );
     @include xtra.utilities(
         "",

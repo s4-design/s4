@@ -1,4 +1,4 @@
-@mixin grid-auto-flow($type, $orientation) {
+@mixin grid-auto-flow($type, $orientation, $enableVariables) {
     /* grid auto flow */
     @each $alias, $gridAutoFlow in (
         "column": "column",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}grid-auto-flow--#{$alias} {
             grid-auto-flow: #{$gridAutoFlow};
+        }
+    }
+
+    @if $enableVariables {
+        .grid-auto-flow {
+            @if $type == "" and $orientation == "" {
+                grid-auto-flow: var(--grid-auto-flow);
+            } @else {
+                grid-auto-flow: var(--#{$type}#{$orientation}grid-auto-flow, var(--grid-auto-flow));
+            }
         }
     }
 }

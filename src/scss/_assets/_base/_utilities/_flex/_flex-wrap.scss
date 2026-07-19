@@ -1,4 +1,4 @@
-@mixin flex-wrap($type, $orientation) {
+@mixin flex-wrap($type, $orientation, $enableVariables) {
     /* flex wrap */
     @each $flexWrap in (
         "wrap",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}flex-wrap--#{$flexWrap} {
             flex-wrap: #{$flexWrap};
+        }
+    }
+
+    @if $enableVariables {
+        .flex-wrap {
+            @if $type == "" and $orientation == "" {
+                flex-wrap: var(--flex-wrap);
+            } @else {
+                flex-wrap: var(--#{$type}#{$orientation}flex-wrap, var(--flex-wrap));
+            }
         }
     }
 }

@@ -10,4 +10,14 @@
             user-select: #{$userSelect};
         }
     }
+
+    @if $enableVariables {
+        .user-select {
+            @if $type == "" and $orientation == "" {
+                user-select: var(--user-select);
+            } @else {
+                user-select: var(--#{$type}#{$orientation}user-select, var(--user-select));
+            }
+        }
+    }
 }

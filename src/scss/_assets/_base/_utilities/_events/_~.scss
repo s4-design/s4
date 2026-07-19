@@ -2,6 +2,6 @@
 @use "user-select" as user-select;
 
 @mixin events($type, $orientation, $enableVariables) {
-    @include pointer-events.pointer-events($type, $orientation);
+    @include pointer-events.pointer-events($type, $orientation, $enableVariables);
     @include user-select.user-select($type, $orientation, $enableVariables);
 }

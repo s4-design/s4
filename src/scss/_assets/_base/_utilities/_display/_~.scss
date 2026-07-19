@@ -1,5 +1,5 @@
 @use "display" as display;
 
-@mixin display($type, $orientation) {
-    @include display.display($type, $orientation);
+@mixin display($type, $orientation, $enableVariables) {
+    @include display.display($type, $orientation, $enableVariables);
 }

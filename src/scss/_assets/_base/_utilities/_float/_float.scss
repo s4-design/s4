@@ -1,4 +1,4 @@
-@mixin float($type, $orientation) {
+@mixin float($type, $orientation, $enableVariables) {
     /* float */
     @each $float in (
         "inline-start",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}float--#{$float} {
             float: #{$float};
+        }
+    }
+
+    @if $enableVariables {
+        .float {
+            @if $type == "" and $orientation == "" {
+                float: var(--float);
+            } @else {
+                float: var(--#{$type}#{$orientation}float, var(--float));
+            }
         }
     }
 }

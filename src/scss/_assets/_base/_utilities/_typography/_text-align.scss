@@ -1,4 +1,4 @@
-@mixin text-align($type, $orientation) {
+@mixin text-align($type, $orientation, $enableVariables) {
     /* text align */
     @each $textAlign in (
         "start",
@@ -8,6 +8,16 @@
     ) {
     .#{$type}#{$orientation}text-align--#{$textAlign} {
             text-align: #{$textAlign};
+        }
+    }
+
+    @if $enableVariables {
+        .text-align {
+            @if $type == "" and $orientation == "" {
+                text-align: var(--text-align);
+            } @else {
+                text-align: var(--#{$type}#{$orientation}text-align, var(--text-align));
+            }
         }
     }
 }

@@ -10,4 +10,14 @@
             resize: #{$resize};
         }
     }
+
+    @if $enableVariables {
+        .resize {
+            @if $type == "" and $orientation == "" {
+                resize: var(--resize);
+            } @else {
+                resize: var(--#{$type}#{$orientation}resize, var(--resize));
+            }
+        }
+    }
 }

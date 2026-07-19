@@ -7,9 +7,9 @@
 
 @mixin flex($type, $orientation, $enableVariables) {
     @include flex-basis.flex-basis($type, $orientation, $enableVariables);
-    @include flex-direction.flex-direction($type, $orientation);
+    @include flex-direction.flex-direction($type, $orientation, $enableVariables);
     @include flex-grow.flex-grow($type, $orientation, $enableVariables);
     @include flex-shrink.flex-shrink($type, $orientation, $enableVariables);
-    @include flex-wrap.flex-wrap($type, $orientation);
-    @include flex.flex($type, $orientation);
+    @include flex-wrap.flex-wrap($type, $orientation, $enableVariables);
+    @include flex.flex($type, $orientation, $enableVariables);
 }

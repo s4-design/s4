@@ -1,4 +1,4 @@
-@mixin background-clip($type, $orientation) {
+@mixin background-clip($type, $orientation, $enableVariables) {
     /* background clip */
     @each $backgroundClip in (
         "border-box",
@@ -11,6 +11,16 @@
             // @if $backgroundClip == text {
             //     color: #{transparent};
             // }
+        }
+    }
+
+    @if $enableVariables {
+        .background-clip {
+            @if $type == "" and $orientation == "" {
+                background-clip: var(--background-clip);
+            } @else {
+                background-clip: var(--#{$type}#{$orientation}background-clip, var(--background-clip));
+            }
         }
     }
 }

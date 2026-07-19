@@ -1,4 +1,4 @@
-@mixin vertical-align($type, $orientation) {
+@mixin vertical-align($type, $orientation, $enableVariables) {
     /* vertical align */
     @each $verticalAlign in (
         "baseline",
@@ -12,6 +12,16 @@
     ) {
         .#{$type}#{$orientation}vertical-align--#{$verticalAlign} {
             vertical-align: #{$verticalAlign};
+        }
+    }
+
+    @if $enableVariables {
+        .vertical-align {
+            @if $type == "" and $orientation == "" {
+                vertical-align: var(--vertical-align);
+            } @else {
+                vertical-align: var(--#{$type}#{$orientation}vertical-align, var(--vertical-align));
+            }
         }
     }
 }

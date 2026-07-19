@@ -1,4 +1,4 @@
-@mixin display($type, $orientation) {
+@mixin display($type, $orientation, $enableVariables) {
     /* display */
     @each $display in (
         "inline",
@@ -20,5 +20,15 @@
     .#{$type}#{$orientation}display--none\:\:before::before,
     .#{$type}#{$orientation}display--none\:\:after::after {
         display: none;
+    }
+
+    @if $enableVariables {
+        .display {
+            @if $type == "" and $orientation == "" {
+                display: var(--display);
+            } @else {
+                display: var(--#{$type}#{$orientation}display, var(--display));
+            }
+        }
     }
 }

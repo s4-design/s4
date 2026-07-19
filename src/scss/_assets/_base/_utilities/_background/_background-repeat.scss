@@ -1,4 +1,4 @@
-@mixin background-repeat($type, $orientation) {
+@mixin background-repeat($type, $orientation, $enableVariables) {
     /* background repeat */
     @each $backgroundRepeat in (
         "repeat-x",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}background-repeat--#{$backgroundRepeat} {
             background-repeat: #{$backgroundRepeat};
+        }
+    }
+
+    @if $enableVariables {
+        .background-repeat {
+            @if $type == "" and $orientation == "" {
+                background-repeat: var(--background-repeat);
+            } @else {
+                background-repeat: var(--#{$type}#{$orientation}background-repeat, var(--background-repeat));
+            }
         }
     }
 }

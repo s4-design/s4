@@ -1,4 +1,4 @@
-@mixin writing-mode($type, $orientation) {
+@mixin writing-mode($type, $orientation, $enableVariables) {
     /* writing mode */
     @each $writingMode in (
         "vertical-rl",
@@ -6,6 +6,16 @@
     ) {
         .#{$type}#{$orientation}writing-mode--#{$writingMode} {
             writing-mode: #{$writingMode};
+        }
+    }
+
+    @if $enableVariables {
+        .writing-mode {
+            @if $type == "" and $orientation == "" {
+                writing-mode: var(--writing-mode);
+            } @else {
+                writing-mode: var(--#{$type}#{$orientation}writing-mode, var(--writing-mode));
+            }
         }
     }
 }

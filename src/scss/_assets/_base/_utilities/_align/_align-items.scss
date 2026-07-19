@@ -1,4 +1,4 @@
-@mixin align-items($type, $orientation) {
+@mixin align-items($type, $orientation, $enableVariables) {
     /* align items */
     @each $alignItems in (
         "baseline",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}align-items--#{$alignItems} {
             align-items: #{$alignItems};
+        }
+    }
+
+    @if $enableVariables {
+        .align-items {
+            @if $type == "" and $orientation == "" {
+                align-items: var(--align-items);
+            } @else {
+                align-items: var(--#{$type}#{$orientation}align-items, var(--align-items));
+            }
         }
     }
 }

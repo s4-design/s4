@@ -26,26 +26,26 @@
 @use "_zoom/~" as *;
 
 @mixin utilities($type: "", $orientation: "", $enableVariables: false) {
-    @include align($type, $orientation);
+    @include align($type, $orientation, $enableVariables);
     @include background($type, $orientation, $enableVariables);
     @include break($type, $orientation, $enableVariables);
     @include border($type, $orientation, $enableVariables);
     @include column($type, $orientation, $enableVariables);
     @include cursor($type, $orientation, $enableVariables);
-    @include display($type, $orientation);
+    @include display($type, $orientation, $enableVariables);
     @include filter($type, $orientation, $enableVariables);
     @include flex($type, $orientation, $enableVariables);
-    @include float($type, $orientation);
+    @include float($type, $orientation, $enableVariables);
     @include grid($type, $orientation, $enableVariables);
     @include indent($type, $orientation, $enableVariables);
-    @include justify($type, $orientation);
+    @include justify($type, $orientation, $enableVariables);
     @include object($type, $orientation, $enableVariables);
     @include order($type, $orientation, $enableVariables);
     @include outline($type, $orientation, $enableVariables);
-    @include overflow($type, $orientation);
+    @include overflow($type, $orientation, $enableVariables);
     @include placement($type, $orientation, $enableVariables);
     @include events($type, $orientation, $enableVariables);
-    @include position($type, $orientation);
+    @include position($type, $orientation, $enableVariables);
     @include shadow($type, $orientation, $enableVariables);
     @include sizing($type, $orientation, $enableVariables);
     @include transform($type, $orientation, $enableVariables);

@@ -3,9 +3,9 @@
 @use "align-self" as align-self;
 @use "vertical-align" as vertical-align;
 
-@mixin align($type, $orientation) {
-    @include align-content.align-content($type, $orientation);
-    @include align-items.align-items($type, $orientation);
-    @include align-self.align-self($type, $orientation);
-    @include vertical-align.vertical-align($type, $orientation);
+@mixin align($type, $orientation, $enableVariables) {
+    @include align-content.align-content($type, $orientation, $enableVariables);
+    @include align-items.align-items($type, $orientation, $enableVariables);
+    @include align-self.align-self($type, $orientation, $enableVariables);
+    @include vertical-align.vertical-align($type, $orientation, $enableVariables);
 }

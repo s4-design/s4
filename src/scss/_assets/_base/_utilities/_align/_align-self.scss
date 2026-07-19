@@ -1,4 +1,4 @@
-@mixin align-self($type, $orientation) {
+@mixin align-self($type, $orientation, $enableVariables) {
     /* align self */
     @each $alignSelf in (
         "baseline",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}align-self--#{$alignSelf} {
             align-self: #{$alignSelf};
+        }
+    }
+
+    @if $enableVariables {
+        .align-self {
+            @if $type == "" and $orientation == "" {
+                align-self: var(--align-self);
+            } @else {
+                align-self: var(--#{$type}#{$orientation}align-self, var(--align-self));
+            }
         }
     }
 }

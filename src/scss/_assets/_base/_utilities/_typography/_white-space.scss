@@ -1,4 +1,4 @@
-@mixin white-space($type, $orientation) {
+@mixin white-space($type, $orientation, $enableVariables) {
     /* white space */
     @each $whiteSpace in (
         "normal",
@@ -12,6 +12,16 @@
     ) {
         .#{$type}#{$orientation}white-space--#{$whiteSpace} {
             white-space: #{$whiteSpace};
+        }
+    }
+
+    @if $enableVariables {
+        .white-space {
+            @if $type == "" and $orientation == "" {
+                white-space: var(--white-space);
+            } @else {
+                white-space: var(--#{$type}#{$orientation}white-space, var(--white-space));
+            }
         }
     }
 }

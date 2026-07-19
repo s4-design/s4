@@ -7,7 +7,7 @@
         "right",
         "center"
     ) {
-        .object-position--#{$objectPosition} {
+        .#{$type}#{$orientation}object-position--#{$objectPosition} {
             object-position: #{$objectPosition};
         }    
     }

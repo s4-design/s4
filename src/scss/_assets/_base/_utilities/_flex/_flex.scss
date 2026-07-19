@@ -1,12 +1,22 @@
-@mixin flex($type, $orientation) {
+@mixin flex($type, $orientation, $enableVariables) {
     /* flex */
     @each $flex in (
-        "none", // 0 0 auto
-        "initial", // 0 1 auto
-        "auto" // 1 1 auto
+        "none",
+        "initial",
+        "auto"
     ) {
         .#{$type}#{$orientation}flex--#{$flex} {
             flex: #{$flex};
+        }
+    }
+
+    @if $enableVariables {
+        .flex {
+            @if $type == "" and $orientation == "" {
+                flex: var(--flex);
+            } @else {
+                flex: var(--#{$type}#{$orientation}flex, var(--flex));
+            }
         }
     }
 }

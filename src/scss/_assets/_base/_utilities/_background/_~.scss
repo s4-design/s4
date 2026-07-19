@@ -8,12 +8,12 @@
 @use "background-size" as background-size;
 
 @mixin background($type, $orientation, $enableVariables) {
-    @include background-attachment.background-attachment($type, $orientation);
-    @include background-clip.background-clip($type, $orientation);
+    @include background-attachment.background-attachment($type, $orientation, $enableVariables);
+    @include background-clip.background-clip($type, $orientation, $enableVariables);
     @include background-color.background-color($type, $orientation, $enableVariables);
     @include background-image.background-image($type, $orientation, $enableVariables);
-    @include background-origin.background-origin($type, $orientation);
+    @include background-origin.background-origin($type, $orientation, $enableVariables);
     @include background-position.background-position($type, $orientation, $enableVariables);
-    @include background-repeat.background-repeat($type, $orientation);
+    @include background-repeat.background-repeat($type, $orientation, $enableVariables);
     @include background-size.background-size($type, $orientation, $enableVariables);
 }

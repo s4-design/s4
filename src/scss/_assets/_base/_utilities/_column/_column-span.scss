@@ -1,4 +1,4 @@
-@mixin column-span($type, $orientation) {
+@mixin column-span($type, $orientation, $enableVariables) {
     /* column span */
     @each $columnSpan in (
         "auto",
@@ -6,6 +6,16 @@
     ) {
         .#{$type}#{$orientation}column-span--#{$columnSpan} {
             column-span: #{$columnSpan};
+        }
+    }
+
+    @if $enableVariables {
+        .column-span {
+            @if $type == "" and $orientation == "" {
+                column-span: var(--column-span);
+            } @else {
+                column-span: var(--#{$type}#{$orientation}column-span, var(--column-span));
+            }
         }
     }
 }

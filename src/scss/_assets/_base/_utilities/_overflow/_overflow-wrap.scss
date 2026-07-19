@@ -1,4 +1,4 @@
-@mixin overflow-wrap($type, $orientation) {
+@mixin overflow-wrap($type, $orientation, $enableVariables) {
     /* overflow wrap */
     @each $overflowWrap in (
         "normal",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}overflow-wrap--#{$overflowWrap} {
             overflow-wrap: #{$overflowWrap};
+        }
+    }
+
+    @if $enableVariables {
+        .overflow-wrap {
+            @if $type == "" and $orientation == "" {
+                overflow-wrap: var(--overflow-wrap);
+            } @else {
+                overflow-wrap: var(--#{$type}#{$orientation}overflow-wrap, var(--overflow-wrap));
+            }
         }
     }
 }

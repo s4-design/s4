@@ -13,7 +13,7 @@ $borderSides:(
 @use "border-width" as border-width;
 
 @mixin border($type, $orientation, $enableVariables) {
-    @include border-collapse.border-collapse();
+    @include border-collapse.border-collapse($type, $orientation, $enableVariables);
     @include border-color.border-color($type, $orientation, $enableVariables, $borderSides);
     @include border-radius.border-radius($type, $orientation, $enableVariables);
     @include border-spacing.border-spacing($type, $orientation, $enableVariables);

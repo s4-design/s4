@@ -1,4 +1,4 @@
-@mixin text-wrap($type, $orientation) {
+@mixin text-wrap($type, $orientation, $enableVariables) {
     /* text wrap */
     @each $textWrap in (
         "wrap",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}text-wrap--#{$textWrap} {
             text-wrap: #{$textWrap};
+        }
+    }
+
+    @if $enableVariables {
+        .text-wrap {
+            @if $type == "" and $orientation == "" {
+                text-wrap: var(--text-wrap);
+            } @else {
+                text-wrap: var(--#{$type}#{$orientation}text-wrap, var(--text-wrap));
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-@mixin text-transform($type, $orientation) {
+@mixin text-transform($type, $orientation, $enableVariables) {
     /* text transform */
     @each $textTransform in (
         "lowercase",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}text-transform--#{$textTransform} {
             text-transform: #{$textTransform};
+        }
+    }
+
+    @if $enableVariables {
+        .text-transform {
+            @if $type == "" and $orientation == "" {
+                text-transform: var(--text-transform);
+            } @else {
+                text-transform: var(--#{$type}#{$orientation}text-transform, var(--text-transform));
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-@mixin align-content($type, $orientation) {
+@mixin align-content($type, $orientation, $enableVariables) {
     /* align content */
     @each $alignContent in (
         "baseline",
@@ -14,4 +14,14 @@
             align-content: #{$alignContent};
         }
     }
+
+    @if $enableVariables {
+        .align-content {
+            @if $type == "" and $orientation == "" {
+                align-content: var(--align-content);
+            } @else {
+                align-content: var(--#{$type}#{$orientation}align-content, var(--align-content));
+            }
+        }
+    }    
 }

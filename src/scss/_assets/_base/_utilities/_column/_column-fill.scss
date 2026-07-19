@@ -1,4 +1,4 @@
-@mixin column-fill($type, $orientation) {
+@mixin column-fill($type, $orientation, $enableVariables) {
     /* column fill */
     @each $columnFill in (
         "auto",
@@ -6,6 +6,16 @@
     ) {
         .#{$type}#{$orientation}column-fill--#{$columnFill} {
             column-fill: #{$columnFill};
+        }
+    }
+
+    @if $enableVariables {
+        .column-fill {
+            @if $type == "" and $orientation == "" {
+                column-fill: var(--column-fill);
+            } @else {
+                column-fill: var(--#{$type}#{$orientation}column-fill, var(--column-fill));
+            }
         }
     }
 }

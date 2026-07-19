@@ -1,4 +1,4 @@
-@mixin overflow($type, $orientation) {
+@mixin overflow($type, $orientation, $enableVariables) {
     /* overflow */
     @each $overflow in (
         "auto",
@@ -13,6 +13,16 @@
         @each $axis in ( "x", "y" ) {
             .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
                 overflow-#{$axis}: #{$overflow};
+            }
+        }
+    }
+
+    @if $enableVariables {
+        .overflow {
+            @if $type == "" and $orientation == "" {
+                overflow: var(--overflow);
+            } @else {
+                overflow: var(--#{$type}#{$orientation}overflow, var(--overflow));
             }
         }
     }

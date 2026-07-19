@@ -1,4 +1,4 @@
-@mixin word-break($type, $orientation) {
+@mixin word-break($type, $orientation, $enableVariables) {
     /* word break */
     @each $wordBreak in (
         "normal",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}word-break--#{$wordBreak} {
             word-break: #{$wordBreak};
+        }
+    }
+
+    @if $enableVariables {
+        .word-break {
+            @if $type == "" and $orientation == "" {
+                word-break: var(--word-break);
+            } @else {
+                word-break: var(--#{$type}#{$orientation}word-break, var(--word-break));
+            }
         }
     }
 }

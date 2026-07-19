@@ -1,4 +1,4 @@
-@mixin position($type, $orientation) {
+@mixin position($type, $orientation, $enableVariables) {
     /* position */
     @each $position in (
         "static",
@@ -9,6 +9,16 @@
     ) {
         .#{$type}#{$orientation}position--#{$position} {
             position: #{$position};
+        }
+    }
+
+    @if $enableVariables {
+        .position {
+            @if $type == "" and $orientation == "" {
+                position: var(--position);
+            } @else {
+                position: var(--#{$type}#{$orientation}position, var(--position));
+            }
         }
     }
 }

@@ -13,15 +13,15 @@
 
 @mixin typography($type, $orientation, $enableVariables) {
     @include color.color($type, $orientation, $enableVariables);
-    @include direction.direction($type, $orientation);
+    @include direction.direction($type, $orientation, $enableVariables);
     @include font-size.font-size($type, $orientation, $enableVariables);
     @include font-weight.font-weight($type, $orientation, $enableVariables);
     @include line-height.line-height($type, $orientation, $enableVariables);
-    @include text-align.text-align($type, $orientation);
+    @include text-align.text-align($type, $orientation, $enableVariables);
     @include text-decoration.text-decoration($type, $orientation, $enableVariables);
-    @include text-transform.text-transform($type, $orientation);
-    @include text-wrap.text-wrap($type, $orientation);
-    @include white-space.white-space($type, $orientation);
-    @include word-break.word-break($type, $orientation);
-    @include writing-mode.writing-mode($type, $orientation);
+    @include text-transform.text-transform($type, $orientation, $enableVariables);
+    @include text-wrap.text-wrap($type, $orientation, $enableVariables);
+    @include white-space.white-space($type, $orientation, $enableVariables);
+    @include word-break.word-break($type, $orientation, $enableVariables);
+    @include writing-mode.writing-mode($type, $orientation, $enableVariables);
 }

@@ -1,4 +1,4 @@
-@mixin background-attachment($type, $orientation) {
+@mixin background-attachment($type, $orientation, $enableVariables) {
     /* background attachment */
     @each $backgroundAttachment in (
         "scroll",
@@ -7,6 +7,16 @@
     ) {
         .#{$type}#{$orientation}background-attachment--#{$backgroundAttachment} {
             background-attachment: #{$backgroundAttachment};
+        }
+    }
+
+    @if $enableVariables {
+        .background-attachment {
+            @if $type == "" and $orientation == "" {
+                background-attachment: var(--background-attachment);
+            } @else {
+                background-attachment: var(--#{$type}#{$orientation}background-attachment, var(--background-attachment));
+            }
         }
     }
 }

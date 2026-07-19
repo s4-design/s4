@@ -1,4 +1,4 @@
-@mixin justify-self($type, $orientation) {
+@mixin justify-self($type, $orientation, $enableVariables) {
     /* justify self */
     @each $justifySelf in (
         "center",
@@ -8,6 +8,16 @@
     ) {
         .#{$type}#{$orientation}justify-self--#{$justifySelf} {        
             justify-self: #{$justifySelf};
+        }
+    }
+
+    @if $enableVariables {
+        .justify-self {
+            @if $type == "" and $orientation == "" {
+                justify-self: var(--justify-self);
+            } @else {
+                justify-self: var(--#{$type}#{$orientation}justify-self, var(--justify-self));
+            }
         }
     }
 }

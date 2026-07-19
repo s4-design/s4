@@ -1,4 +1,4 @@
-@mixin flex-direction($type, $orientation) {
+@mixin flex-direction($type, $orientation, $enableVariables) {
     /* flex direction */
     @each $flexDirection in (
         "row",
@@ -8,6 +8,16 @@
     ) {
         .#{$type}#{$orientation}flex-direction--#{$flexDirection} {
             flex-direction: #{$flexDirection};
+        }
+    }
+
+    @if $enableVariables {
+        .flex-direction {
+            @if $type == "" and $orientation == "" {
+                flex-direction: var(--flex-direction);
+            } @else {
+                flex-direction: var(--#{$type}#{$orientation}flex-direction, var(--flex-direction));
+            }
         }
     }
 }

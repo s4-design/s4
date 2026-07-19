@@ -1,4 +1,4 @@
-@mixin justify-content($type, $orientation) {
+@mixin justify-content($type, $orientation, $enableVariables) {
     /* justify content */
     @each $justifyContent in (
         "space-around",
@@ -11,6 +11,16 @@
     ) {
         .#{$type}#{$orientation}justify-content--#{$justifyContent} {
             justify-content: #{$justifyContent};
+        }
+    }
+
+    @if $enableVariables {
+        .justify-content {
+            @if $type == "" and $orientation == "" {
+                justify-content: var(--justify-content);
+            } @else {
+                justify-content: var(--#{$type}#{$orientation}justify-content, var(--justify-content));
+            }
         }
     }
 }

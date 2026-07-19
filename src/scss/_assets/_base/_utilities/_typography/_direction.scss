@@ -1,4 +1,4 @@
-@mixin direction($type, $orientation) {
+@mixin direction($type, $orientation, $enableVariables) {
     /* directions */
     @each $directions in (
         "ltr",
@@ -6,6 +6,16 @@
     ) {
         .#{$type}#{$orientation}direction--#{$directions} {
             direction: #{$directions};
+        }
+    }
+
+    @if $enableVariables {
+        .direction {
+            @if $type == "" and $orientation == "" {
+                direction: var(--direction);
+            } @else {
+                direction: var(--#{$type}#{$orientation}direction, var(--direction));
+            }
         }
     }
 }

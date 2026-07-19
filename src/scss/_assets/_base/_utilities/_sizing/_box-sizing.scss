@@ -4,8 +4,18 @@
         "border-box",
         "content-box"
     ) {
-        .box-sizing--#{$boxSizing} {
+        .#{$type}#{$orientation}box-sizing--#{$boxSizing} {
             box-sizing: #{$boxSizing};
         }    
+    }
+
+    @if $enableVariables {
+        .box-sizing {
+            @if $type == "" and $orientation == "" {
+                box-sizing: var(--box-sizing);
+            } @else {
+                box-sizing: var(--#{$type}#{$orientation}box-sizing, var(--box-sizing));
+            }
+        }
     }
 }

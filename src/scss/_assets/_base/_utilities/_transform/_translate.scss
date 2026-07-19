@@ -1,12 +1,12 @@
-@mixin translate($type, $orientation, $enableVariables) {
+@mixin translate($device, $orientation, $enableVariables) {
     /* translate */
 
     @if $enableVariables {
         .translate {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 translate: var(--translate);
             } @else {
-                translate: var(--#{$type}#{$orientation}translate, var(--translate));
+                translate: var(--#{$device}#{$orientation}translate, var(--translate));
             }
         }
     }

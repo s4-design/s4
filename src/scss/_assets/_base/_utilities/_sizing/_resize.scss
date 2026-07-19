@@ -1,4 +1,4 @@
-@mixin resize($type, $orientation, $enableVariables) {
+@mixin resize($device, $orientation, $enableVariables) {
     /* resize */
     @each $resize in (
         "both",
@@ -6,17 +6,17 @@
         "vertical",
         "none"
     ) {
-        .#{$type}#{$orientation}resize--#{$resize} {
+        .#{$device}#{$orientation}resize--#{$resize} {
             resize: #{$resize};
         }
     }
 
     @if $enableVariables {
         .resize {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 resize: var(--resize);
             } @else {
-                resize: var(--#{$type}#{$orientation}resize, var(--resize));
+                resize: var(--#{$device}#{$orientation}resize, var(--resize));
             }
         }
     }

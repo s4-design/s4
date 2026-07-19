@@ -4,10 +4,10 @@
 @use "inline-size" as inline-size;
 @use "resize" as resize;
 
-@mixin sizing($type, $orientation, $enableVariables) {
-    @include aspect-ratio.aspect-ratio($type, $orientation, $enableVariables);
-    @include block-size.block-size($type, $orientation, $enableVariables);
-    @include box-sizing.box-sizing($type, $orientation, $enableVariables);
-    @include inline-size.inline-size($type, $orientation, $enableVariables);
-    @include resize.resize($type, $orientation, $enableVariables);
+@mixin sizing($device, $orientation, $enableVariables) {
+    @include aspect-ratio.aspect-ratio($device, $orientation, $enableVariables);
+    @include block-size.block-size($device, $orientation, $enableVariables);
+    @include box-sizing.box-sizing($device, $orientation, $enableVariables);
+    @include inline-size.inline-size($device, $orientation, $enableVariables);
+    @include resize.resize($device, $orientation, $enableVariables);
 }

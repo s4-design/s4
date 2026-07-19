@@ -1,21 +1,21 @@
-@mixin flex($type, $orientation, $enableVariables) {
+@mixin flex($device, $orientation, $enableVariables) {
     /* flex */
     @each $flex in (
         "none",
         "initial",
         "auto"
     ) {
-        .#{$type}#{$orientation}flex--#{$flex} {
+        .#{$device}#{$orientation}flex--#{$flex} {
             flex: #{$flex};
         }
     }
 
     @if $enableVariables {
         .flex {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 flex: var(--flex);
             } @else {
-                flex: var(--#{$type}#{$orientation}flex, var(--flex));
+                flex: var(--#{$device}#{$orientation}flex, var(--flex));
             }
         }
     }

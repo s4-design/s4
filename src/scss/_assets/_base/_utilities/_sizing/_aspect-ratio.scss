@@ -1,12 +1,12 @@
-@mixin aspect-ratio($type, $orientation, $enableVariables) {
+@mixin aspect-ratio($device, $orientation, $enableVariables) {
     /* aspect ratio */
 
     @if $enableVariables {
         .aspect-ratio {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 aspect-ratio: var(--aspect-ratio);
             } @else {
-                aspect-ratio: var(--#{$type}#{$orientation}aspect-ratio, var(--aspect-ratio));
+                aspect-ratio: var(--#{$device}#{$orientation}aspect-ratio, var(--aspect-ratio));
             }
         }
     }

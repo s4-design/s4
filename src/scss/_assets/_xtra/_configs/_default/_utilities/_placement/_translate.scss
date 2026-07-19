@@ -1,6 +1,6 @@
-@mixin translate($type, $orientation) {
+@mixin translate($device, $orientation) {
     // preset: translate
-    .#{$type}#{$orientation}translate {
+    .#{$device}#{$orientation}translate {
         &--middle {
             transform: translate(-50%, -50%);
         }

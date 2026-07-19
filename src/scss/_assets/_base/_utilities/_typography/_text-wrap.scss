@@ -1,21 +1,21 @@
-@mixin text-wrap($type, $orientation, $enableVariables) {
+@mixin text-wrap($device, $orientation, $enableVariables) {
     /* text wrap */
     @each $textWrap in (
         "wrap",
         "nowrap",
         "balance"
     ) {
-        .#{$type}#{$orientation}text-wrap--#{$textWrap} {
+        .#{$device}#{$orientation}text-wrap--#{$textWrap} {
             text-wrap: #{$textWrap};
         }
     }
 
     @if $enableVariables {
         .text-wrap {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 text-wrap: var(--text-wrap);
             } @else {
-                text-wrap: var(--#{$type}#{$orientation}text-wrap, var(--text-wrap));
+                text-wrap: var(--#{$device}#{$orientation}text-wrap, var(--text-wrap));
             }
         }
     }

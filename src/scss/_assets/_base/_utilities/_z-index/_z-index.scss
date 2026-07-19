@@ -1,12 +1,12 @@
-@mixin z-index($type, $orientation, $enableVariables) {
+@mixin z-index($device, $orientation, $enableVariables) {
     /* z-index */
 
     @if $enableVariables {
         .z-index {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 z-index: var(--z-index);
             } @else {
-                z-index: var(--#{$type}#{$orientation}z-index, var(--z-index));
+                z-index: var(--#{$device}#{$orientation}z-index, var(--z-index));
             }
         }
         // @each $pseudoClass in (
@@ -18,7 +18,7 @@
         //     "disabled"
         // ) {
         //     .z-index\:#{$pseudoClass}:#{$pseudoClass} {
-        //         z-index: var(--#{$type}#{$orientation}z-index\:#{$pseudoClass}, var(--z-index\:#{$pseudoClass}));
+        //         z-index: var(--#{$device}#{$orientation}z-index\:#{$pseudoClass}, var(--z-index\:#{$pseudoClass}));
         //     }
         // }
     }

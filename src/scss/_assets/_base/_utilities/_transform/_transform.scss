@@ -1,12 +1,12 @@
-@mixin transform($type, $orientation, $enableVariables) {
+@mixin transform($device, $orientation, $enableVariables) {
     /* transform */
 
     @if $enableVariables {
         .transform {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 transform: var(--transform);
             } @else {
-                transform: var(--#{$type}#{$orientation}transform, var(--transform));
+                transform: var(--#{$device}#{$orientation}transform, var(--transform));
             }
         }
     }

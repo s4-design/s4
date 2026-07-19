@@ -1,15 +1,15 @@
-@mixin order($type, $orientation, $enableVariables) {
+@mixin order($device, $orientation, $enableVariables) {
     /* order */
-    .#{$type}#{$orientation}order--unset {
+    .#{$device}#{$orientation}order--unset {
         order: unset;
     }
     
     @if $enableVariables {
         .order {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 order: var(--order);
             } @else {
-                order: var(--#{$type}#{$orientation}order, var(--order));
+                order: var(--#{$device}#{$orientation}order, var(--order));
             }
         }
     }

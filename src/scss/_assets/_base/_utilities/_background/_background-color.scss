@@ -1,6 +1,6 @@
-@mixin background-color($type, $orientation, $enableVariables) {
+@mixin background-color($device, $orientation, $enableVariables) {
     /* background color */
-    .#{$type}#{$orientation}background-color {
+    .#{$device}#{$orientation}background-color {
         &--transparent,
         &--transparent\:hover:hover {
             background-color: #{transparent};
@@ -9,10 +9,10 @@
     
     @if $enableVariables {
         .background-color {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-color: var(--background-color);
             } @else {
-                background-color: var(--#{$type}#{$orientation}background-color, var(--background-color));
+                background-color: var(--#{$device}#{$orientation}background-color, var(--background-color));
             }
         }
         @each $pseudoClass in (
@@ -24,10 +24,10 @@
             // "disabled"
         ) {
             .background-color\:#{$pseudoClass}:#{$pseudoClass} {
-                @if $type == "" and $orientation == "" {
+                @if $device == "" and $orientation == "" {
                     background-color: var(--background-color\:#{$pseudoClass});
                 } @else {
-                    background-color: var(--#{$type}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
+                    background-color: var(--#{$device}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
                 }
             }
         }

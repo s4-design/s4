@@ -1,11 +1,11 @@
-@mixin column-width($type, $orientation, $enableVariables) {
+@mixin column-width($device, $orientation, $enableVariables) {
     /* column width */    
     @if $enableVariables {
         .column-width {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 column-width: var(--column-width);
             } @else {
-                column-width: var(--#{$type}#{$orientation}column-width, var(--column-width));
+                column-width: var(--#{$device}#{$orientation}column-width, var(--column-width));
             }
         }
     }

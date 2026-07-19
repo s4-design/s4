@@ -6,12 +6,12 @@
 
 @layer utilities {
     @include base.utilities(
-        map.get(settings.$tabletLandscape, type),
+        map.get(settings.$tabletLandscape, device),
         map.get(settings.$tabletLandscape, orientation),
         settings.$enableVariables
     );
     @include xtra.utilities(
-        map.get(settings.$tabletLandscape, type),
+        map.get(settings.$tabletLandscape, device),
         map.get(settings.$tabletLandscape, orientation)
     );
 }

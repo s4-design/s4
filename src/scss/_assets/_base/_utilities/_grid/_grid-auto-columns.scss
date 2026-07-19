@@ -1,12 +1,12 @@
-@mixin grid-auto-columns($type, $orientation, $enableVariables) {
+@mixin grid-auto-columns($device, $orientation, $enableVariables) {
     /* grid auto columns */
     
     @if $enableVariables {
         .grid-auto-columns {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 grid-auto-columns: var(--grid-auto-columns);
             } @else {
-                grid-auto-columns: var(--#{$type}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
+                grid-auto-columns: var(--#{$device}#{$orientation}grid-auto-columns, var(--grid-auto-columns));
             }
         }
     }

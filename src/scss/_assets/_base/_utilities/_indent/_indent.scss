@@ -1,7 +1,7 @@
-@mixin indent($type, $orientation, $enableVariables, $marginSizes, $paddingSizes) {
+@mixin indent($device, $orientation, $enableVariables, $marginSizes, $paddingSizes) {
     /* margin & padding */
     @each $space in $marginSizes {
-        .#{$type}#{$orientation}margin {
+        .#{$device}#{$orientation}margin {
             @each $property in (
                 "block",
                 "inline",
@@ -17,7 +17,7 @@
         }
     }
     @each $space in $paddingSizes {
-        .#{$type}#{$orientation}padding {
+        .#{$device}#{$orientation}padding {
             @each $property in (
                 "block",
                 "inline",
@@ -44,10 +44,10 @@
                 "inline-end"
             ) {
                 &-#{$property} {
-                    @if $type == "" and $orientation == "" {
+                    @if $device == "" and $orientation == "" {
                         margin-#{$property}: var(--margin-#{$property});
                     } @else {
-                        margin-#{$property}: var(--#{$type}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
+                        margin-#{$property}: var(--#{$device}#{$orientation}margin-#{$property}, var(--margin-#{$property}));
                     }
                 }
             }
@@ -62,10 +62,10 @@
                 "inline-end"
             ) {
                 &-#{$property} {
-                    @if $type == "" and $orientation == "" {
+                    @if $device == "" and $orientation == "" {
                         padding-#{$property}: var(--padding-#{$property});
                     } @else {
-                        padding-#{$property}: var(--#{$type}#{$orientation}padding-#{$property}, var(--padding-#{$property}));
+                        padding-#{$property}: var(--#{$device}#{$orientation}padding-#{$property}, var(--padding-#{$property}));
                     }
                 }
             }

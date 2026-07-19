@@ -1,20 +1,20 @@
-@mixin box-sizing($type, $orientation, $enableVariables) {
+@mixin box-sizing($device, $orientation, $enableVariables) {
     /* box sizing */
     @each $boxSizing in (
         "border-box",
         "content-box"
     ) {
-        .#{$type}#{$orientation}box-sizing--#{$boxSizing} {
+        .#{$device}#{$orientation}box-sizing--#{$boxSizing} {
             box-sizing: #{$boxSizing};
         }    
     }
 
     @if $enableVariables {
         .box-sizing {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 box-sizing: var(--box-sizing);
             } @else {
-                box-sizing: var(--#{$type}#{$orientation}box-sizing, var(--box-sizing));
+                box-sizing: var(--#{$device}#{$orientation}box-sizing, var(--box-sizing));
             }
         }
     }

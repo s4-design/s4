@@ -7,13 +7,13 @@
 @use "background-repeat" as background-repeat;
 @use "background-size" as background-size;
 
-@mixin background($type, $orientation, $enableVariables) {
-    @include background-attachment.background-attachment($type, $orientation, $enableVariables);
-    @include background-clip.background-clip($type, $orientation, $enableVariables);
-    @include background-color.background-color($type, $orientation, $enableVariables);
-    @include background-image.background-image($type, $orientation, $enableVariables);
-    @include background-origin.background-origin($type, $orientation, $enableVariables);
-    @include background-position.background-position($type, $orientation, $enableVariables);
-    @include background-repeat.background-repeat($type, $orientation, $enableVariables);
-    @include background-size.background-size($type, $orientation, $enableVariables);
+@mixin background($device, $orientation, $enableVariables) {
+    @include background-attachment.background-attachment($device, $orientation, $enableVariables);
+    @include background-clip.background-clip($device, $orientation, $enableVariables);
+    @include background-color.background-color($device, $orientation, $enableVariables);
+    @include background-image.background-image($device, $orientation, $enableVariables);
+    @include background-origin.background-origin($device, $orientation, $enableVariables);
+    @include background-position.background-position($device, $orientation, $enableVariables);
+    @include background-repeat.background-repeat($device, $orientation, $enableVariables);
+    @include background-size.background-size($device, $orientation, $enableVariables);
 }

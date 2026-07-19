@@ -1,6 +1,6 @@
-@mixin background-position($type, $orientation, $enableVariables) {
+@mixin background-position($device, $orientation, $enableVariables) {
     /* background-position */
-    .#{$type}#{$orientation}background-position {
+    .#{$device}#{$orientation}background-position {
         &--left {
             background-position: left center;
         }
@@ -36,10 +36,10 @@
     
     @if $enableVariables {
         .background-position {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-position: var(--background-position);
             } @else {
-                background-position: var(--#{$type}#{$orientation}background-position, var(--background-position));
+                background-position: var(--#{$device}#{$orientation}background-position, var(--background-position));
             }
         }
     }

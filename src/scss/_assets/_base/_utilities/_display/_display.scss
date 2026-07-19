@@ -1,4 +1,4 @@
-@mixin display($type, $orientation, $enableVariables) {
+@mixin display($device, $orientation, $enableVariables) {
     /* display */
     @each $display in (
         "inline",
@@ -11,23 +11,23 @@
         "inline-grid",
         "contents"
     ) {
-        .#{$type}#{$orientation}display--#{$display} {
+        .#{$device}#{$orientation}display--#{$display} {
             display: #{$display};
         }
     }
-    .#{$type}#{$orientation}display--none,
-    .#{$type}#{$orientation}display--none\:empty:empty,
-    .#{$type}#{$orientation}display--none\:\:before::before,
-    .#{$type}#{$orientation}display--none\:\:after::after {
+    .#{$device}#{$orientation}display--none,
+    .#{$device}#{$orientation}display--none\:empty:empty,
+    .#{$device}#{$orientation}display--none\:\:before::before,
+    .#{$device}#{$orientation}display--none\:\:after::after {
         display: none;
     }
 
     @if $enableVariables {
         .display {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 display: var(--display);
             } @else {
-                display: var(--#{$type}#{$orientation}display, var(--display));
+                display: var(--#{$device}#{$orientation}display, var(--display));
             }
         }
     }

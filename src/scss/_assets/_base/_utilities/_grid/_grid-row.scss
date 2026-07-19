@@ -1,12 +1,12 @@
-@mixin grid-row($type, $orientation, $enableVariables) {
+@mixin grid-row($device, $orientation, $enableVariables) {
     /* grid row */
     
     @if $enableVariables {
         .grid-row {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 grid-row: var(--grid-row-start) / var(--grid-row-end);
             } @else {
-                grid-row: var(--#{$type}#{$orientation}grid-row-start, var(--grid-row-start)) / var(--#{$type}#{$orientation}grid-row-end, var(--grid-row-end));
+                grid-row: var(--#{$device}#{$orientation}grid-row-start, var(--grid-row-start)) / var(--#{$device}#{$orientation}grid-row-end, var(--grid-row-end));
             }
         }
     }

@@ -1,21 +1,21 @@
-@mixin background-origin ($type, $orientation, $enableVariables) {
+@mixin background-origin ($device, $orientation, $enableVariables) {
     /* background origin */
     @each $backgroundOrigin in (
         "border-box",
         "padding-box",
         "content-box"
     ) {
-        .#{$type}#{$orientation}background-origin--#{$backgroundOrigin} {
+        .#{$device}#{$orientation}background-origin--#{$backgroundOrigin} {
             background-origin: #{$backgroundOrigin};
         }
     }
 
     @if $enableVariables {
         .background-origin {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-origin: var(--background-origin);
             } @else {
-                background-origin: var(--#{$type}#{$orientation}background-origin, var(--background-origin));
+                background-origin: var(--#{$device}#{$orientation}background-origin, var(--background-origin));
             }
         }
     }

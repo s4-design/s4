@@ -1,20 +1,20 @@
-@mixin border-collapse($type, $orientation, $enableVariables) {
+@mixin border-collapse($device, $orientation, $enableVariables) {
     /* border collapse */
     @each $borderCollapse in (
         "collapse",
         "separate"
     ) {
-        .#{$type}#{$orientation}border--#{$borderCollapse} {
+        .#{$device}#{$orientation}border--#{$borderCollapse} {
             border-collapse: #{$borderCollapse};
         }
     }
 
     @if $enableVariables {
         .border-collapse {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 border-collapse: var(--border-collapse);
             } @else {
-                border-collapse: var(--#{$type}#{$orientation}border-collapse, var(--border-collapse));
+                border-collapse: var(--#{$device}#{$orientation}border-collapse, var(--border-collapse));
             }
         }
     }

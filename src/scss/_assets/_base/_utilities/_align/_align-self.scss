@@ -1,4 +1,4 @@
-@mixin align-self($type, $orientation, $enableVariables) {
+@mixin align-self($device, $orientation, $enableVariables) {
     /* align self */
     @each $alignSelf in (
         "baseline",
@@ -7,17 +7,17 @@
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}align-self--#{$alignSelf} {
+        .#{$device}#{$orientation}align-self--#{$alignSelf} {
             align-self: #{$alignSelf};
         }
     }
 
     @if $enableVariables {
         .align-self {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 align-self: var(--align-self);
             } @else {
-                align-self: var(--#{$type}#{$orientation}align-self, var(--align-self));
+                align-self: var(--#{$device}#{$orientation}align-self, var(--align-self));
             }
         }
     }

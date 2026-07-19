@@ -2,8 +2,8 @@
 @use "break-before" as break-before;
 @use "break-inside" as break-inside;
 
-@mixin break($type, $orientation, $enableVariables) {
-    @include break-after.break-after($type, $orientation, $enableVariables);
-    @include break-before.break-before($type, $orientation, $enableVariables);
-    @include break-inside.break-inside($type, $orientation, $enableVariables);
+@mixin break($device, $orientation, $enableVariables) {
+    @include break-after.break-after($device, $orientation, $enableVariables);
+    @include break-before.break-before($device, $orientation, $enableVariables);
+    @include break-inside.break-inside($device, $orientation, $enableVariables);
 }

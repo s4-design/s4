@@ -1,6 +1,6 @@
-@mixin box-shadow($type, $orientation, $shadowSize, $shadowColor) {
+@mixin box-shadow($device, $orientation, $shadowSize, $shadowColor) {
     // preset: box shadow
-    .#{$type}#{$orientation}box-shadow {
+    .#{$device}#{$orientation}box-shadow {
         @each $size in $shadowSize {
             &--#{$size},
             &--#{$size}\:hover:hover {

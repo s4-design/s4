@@ -1,20 +1,20 @@
-@mixin background-size($type, $orientation, $enableVariables) {
+@mixin background-size($device, $orientation, $enableVariables) {
     /* background-size */
     @each $backgroundSize in (
         "cover",
         "contain"
     ) {
-        .#{$type}#{$orientation}background-size--#{$backgroundSize} {
+        .#{$device}#{$orientation}background-size--#{$backgroundSize} {
             background-size: #{$backgroundSize};
         }
     }
     
     @if $enableVariables {
         .background-size {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-size: var(--background-size);
             } @else {
-                background-size: var(--#{$type}#{$orientation}background-size, var(--background-size));
+                background-size: var(--#{$device}#{$orientation}background-size, var(--background-size));
             }
         }
     }

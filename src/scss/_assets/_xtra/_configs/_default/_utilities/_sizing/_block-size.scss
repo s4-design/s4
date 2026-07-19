@@ -1,12 +1,12 @@
 @use 'sass:math';
-@mixin block-size($type, $orientation, $defaultSizingStep) {
+@mixin block-size($device, $orientation, $defaultSizingStep) {
     // preset: block-size
     @each $block-size in (
         "min-block-size",
         "block-size",
         "max-block-size"
     ) {
-        .#{$type}#{$orientation}#{$block-size} {
+        .#{$device}#{$orientation}#{$block-size} {
             @for $i from 0 through math.div(100, $defaultSizingStep) {
                 @if $i != 0 {
                     &--#{$i * $defaultSizingStep} {

@@ -1,6 +1,6 @@
-@mixin font-weight($type, $orientation, $enableVariables) {
+@mixin font-weight($device, $orientation, $enableVariables) {
     /* font weight */
-    .#{$type}#{$orientation}font-weight {
+    .#{$device}#{$orientation}font-weight {
         @for $i from 1 through 9 {
             &--#{$i * 100} {
                 font-weight: #{$i * 100};
@@ -13,10 +13,10 @@
     
     @if $enableVariables {
         .font-weight {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 font-weight: var(--font-weight);
             } @else {
-                font-weight: var(--#{$type}#{$orientation}font-weight, var(--font-weight));
+                font-weight: var(--#{$device}#{$orientation}font-weight, var(--font-weight));
             }
         }
     }

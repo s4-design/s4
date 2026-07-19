@@ -1,4 +1,4 @@
-@mixin align-content($type, $orientation, $enableVariables) {
+@mixin align-content($device, $orientation, $enableVariables) {
     /* align content */
     @each $alignContent in (
         "baseline",
@@ -10,17 +10,17 @@
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}align-content--#{$alignContent} {
+        .#{$device}#{$orientation}align-content--#{$alignContent} {
             align-content: #{$alignContent};
         }
     }
 
     @if $enableVariables {
         .align-content {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 align-content: var(--align-content);
             } @else {
-                align-content: var(--#{$type}#{$orientation}align-content, var(--align-content));
+                align-content: var(--#{$device}#{$orientation}align-content, var(--align-content));
             }
         }
     }    

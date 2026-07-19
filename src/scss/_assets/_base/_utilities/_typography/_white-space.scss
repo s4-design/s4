@@ -1,4 +1,4 @@
-@mixin white-space($type, $orientation, $enableVariables) {
+@mixin white-space($device, $orientation, $enableVariables) {
     /* white space */
     @each $whiteSpace in (
         "normal",
@@ -10,17 +10,17 @@
         "break-spaces",
         "unset"
     ) {
-        .#{$type}#{$orientation}white-space--#{$whiteSpace} {
+        .#{$device}#{$orientation}white-space--#{$whiteSpace} {
             white-space: #{$whiteSpace};
         }
     }
 
     @if $enableVariables {
         .white-space {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 white-space: var(--white-space);
             } @else {
-                white-space: var(--#{$type}#{$orientation}white-space, var(--white-space));
+                white-space: var(--#{$device}#{$orientation}white-space, var(--white-space));
             }
         }
     }

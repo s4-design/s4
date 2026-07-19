@@ -1,12 +1,12 @@
-@mixin border-spacing($type, $orientation, $enableVariables) {
+@mixin border-spacing($device, $orientation, $enableVariables) {
     /* border spacing */
     
     @if $enableVariables {
         .border-spacing {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 border-spacing: var(--border-spacing);
             } @else {
-                border-spacing: var(--#{$type}#{$orientation}border-spacing, var(--border-spacing));
+                border-spacing: var(--#{$device}#{$orientation}border-spacing, var(--border-spacing));
             }
         }
     }

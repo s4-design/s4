@@ -1,17 +1,17 @@
-@mixin border-width($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-width($device, $orientation, $enableVariables, $borderSides) {
     /* border width */
     @each $width in (
         "thin",
         "medium",
         "thick"
     ) {
-        .#{$type}#{$orientation}border-width--#{$width} {
+        .#{$device}#{$orientation}border-width--#{$width} {
             // --border-width: var(--border-width--#{$width}, #{$width});
             // border-width: var(--border-width);
             border-width: var(--border-width--#{$width}, #{$width});
         }
         // @each $side in $borderSides {
-        //     .#{$type}#{$orientation}border-#{$side}-width--#{$width} {
+        //     .#{$device}#{$orientation}border-#{$side}-width--#{$width} {
         //         border-#{$side}-width: var(--border-width--#{$width}, #{$width});
         //     }
         // }
@@ -19,18 +19,18 @@
     
     @if $enableVariables {
         .border-width {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 border-width: var(--border-width);
             } @else {
-                border-width: var(--#{$type}#{$orientation}border-width, var(--border-width));
+                border-width: var(--#{$device}#{$orientation}border-width, var(--border-width));
             }
         }
         @each $side in $borderSides {
             .border-#{$side}-width {
-                @if $type == "" and $orientation == "" {
+                @if $device == "" and $orientation == "" {
                     border-#{$side}-width: var(--border-#{$side}-width);
                 } @else {
-                    border-#{$side}-width: var(--#{$type}#{$orientation}border-#{$side}-width, var(--border-#{$side}-width));
+                    border-#{$side}-width: var(--#{$device}#{$orientation}border-#{$side}-width, var(--border-#{$side}-width));
                 }
             }
         }

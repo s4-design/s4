@@ -5,11 +5,11 @@
 @use "flex-wrap" as flex-wrap;
 @use "flex" as flex;
 
-@mixin flex($type, $orientation, $enableVariables) {
-    @include flex-basis.flex-basis($type, $orientation, $enableVariables);
-    @include flex-direction.flex-direction($type, $orientation, $enableVariables);
-    @include flex-grow.flex-grow($type, $orientation, $enableVariables);
-    @include flex-shrink.flex-shrink($type, $orientation, $enableVariables);
-    @include flex-wrap.flex-wrap($type, $orientation, $enableVariables);
-    @include flex.flex($type, $orientation, $enableVariables);
+@mixin flex($device, $orientation, $enableVariables) {
+    @include flex-basis.flex-basis($device, $orientation, $enableVariables);
+    @include flex-direction.flex-direction($device, $orientation, $enableVariables);
+    @include flex-grow.flex-grow($device, $orientation, $enableVariables);
+    @include flex-shrink.flex-shrink($device, $orientation, $enableVariables);
+    @include flex-wrap.flex-wrap($device, $orientation, $enableVariables);
+    @include flex.flex($device, $orientation, $enableVariables);
 }

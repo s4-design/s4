@@ -1,11 +1,11 @@
-@mixin gap($type, $orientation, $enableVariables, $spacingSizes) {
+@mixin gap($device, $orientation, $enableVariables, $spacingSizes) {
     /* gap */
     @each $tracksName in (
         "row",
         "column"
     ) {
-        .#{$type}#{$orientation}gap,
-        .#{$type}#{$orientation}#{$tracksName}-gap {
+        .#{$device}#{$orientation}gap,
+        .#{$device}#{$orientation}#{$tracksName}-gap {
             @each $space in $spacingSizes {
                 &--#{$space} {
                     #{$tracksName}-gap: #{$space};
@@ -20,20 +20,20 @@
 
         @if $enableVariables {
             .#{$tracksName}-gap {
-                @if $type == "" and $orientation == "" {
+                @if $device == "" and $orientation == "" {
                     #{$tracksName}-gap: var(--#{$tracksName}-gap);
                 } @else {
-                    #{$tracksName}-gap: var(--#{$type}#{$orientation}#{$tracksName}-gap, var(--#{$tracksName}-gap));
+                    #{$tracksName}-gap: var(--#{$device}#{$orientation}#{$tracksName}-gap, var(--#{$tracksName}-gap));
                 }
             }
         }
     }
     @if $enableVariables {
         .gap {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 gap: var(--gap);
             } @else {
-                gap: var(--#{$type}#{$orientation}gap, var(--gap));
+                gap: var(--#{$device}#{$orientation}gap, var(--gap));
             }
         }
     }

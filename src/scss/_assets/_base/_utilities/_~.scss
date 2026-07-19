@@ -25,31 +25,31 @@
 @use "_z-index/~" as *;
 @use "_zoom/~" as *;
 
-@mixin utilities($type: "", $orientation: "", $enableVariables: false) {
-    @include align($type, $orientation, $enableVariables);
-    @include background($type, $orientation, $enableVariables);
-    @include break($type, $orientation, $enableVariables);
-    @include border($type, $orientation, $enableVariables);
-    @include column($type, $orientation, $enableVariables);
-    @include cursor($type, $orientation, $enableVariables);
-    @include display($type, $orientation, $enableVariables);
-    @include filter($type, $orientation, $enableVariables);
-    @include flex($type, $orientation, $enableVariables);
-    @include float($type, $orientation, $enableVariables);
-    @include grid($type, $orientation, $enableVariables);
-    @include indent($type, $orientation, $enableVariables);
-    @include justify($type, $orientation, $enableVariables);
-    @include object($type, $orientation, $enableVariables);
-    @include order($type, $orientation, $enableVariables);
-    @include outline($type, $orientation, $enableVariables);
-    @include overflow($type, $orientation, $enableVariables);
-    @include placement($type, $orientation, $enableVariables);
-    @include events($type, $orientation, $enableVariables);
-    @include position($type, $orientation, $enableVariables);
-    @include shadow($type, $orientation, $enableVariables);
-    @include sizing($type, $orientation, $enableVariables);
-    @include transform($type, $orientation, $enableVariables);
-    @include typography($type, $orientation, $enableVariables);
-    @include z-index($type, $orientation, $enableVariables);
-    @include zoom($type, $orientation, $enableVariables);
+@mixin utilities($device: "", $orientation: "", $enableVariables: false) {
+    @include align($device, $orientation, $enableVariables);
+    @include background($device, $orientation, $enableVariables);
+    @include break($device, $orientation, $enableVariables);
+    @include border($device, $orientation, $enableVariables);
+    @include column($device, $orientation, $enableVariables);
+    @include cursor($device, $orientation, $enableVariables);
+    @include display($device, $orientation, $enableVariables);
+    @include filter($device, $orientation, $enableVariables);
+    @include flex($device, $orientation, $enableVariables);
+    @include float($device, $orientation, $enableVariables);
+    @include grid($device, $orientation, $enableVariables);
+    @include indent($device, $orientation, $enableVariables);
+    @include justify($device, $orientation, $enableVariables);
+    @include object($device, $orientation, $enableVariables);
+    @include order($device, $orientation, $enableVariables);
+    @include outline($device, $orientation, $enableVariables);
+    @include overflow($device, $orientation, $enableVariables);
+    @include placement($device, $orientation, $enableVariables);
+    @include events($device, $orientation, $enableVariables);
+    @include position($device, $orientation, $enableVariables);
+    @include shadow($device, $orientation, $enableVariables);
+    @include sizing($device, $orientation, $enableVariables);
+    @include transform($device, $orientation, $enableVariables);
+    @include typography($device, $orientation, $enableVariables);
+    @include z-index($device, $orientation, $enableVariables);
+    @include zoom($device, $orientation, $enableVariables);
 }

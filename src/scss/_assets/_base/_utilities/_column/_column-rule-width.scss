@@ -1,21 +1,21 @@
-@mixin column-rule-width($type, $orientation, $enableVariables) {
+@mixin column-rule-width($device, $orientation, $enableVariables) {
     /* column-rule width */
     @each $width in (
         "thin",
         "medium",
         "thick"
     ) {
-        .#{$type}#{$orientation}column-rule-width--#{$width} {
+        .#{$device}#{$orientation}column-rule-width--#{$width} {
             column-rule-width: var(--column-rule-width--#{$width}, #{$width});
         }
     }
     
     @if $enableVariables {
         .column-rule-width {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 column-rule-width: var(--column-rule-width);
             } @else {
-                column-rule-width: var(--#{$type}#{$orientation}column-rule-width, var(--column-rule-width));
+                column-rule-width: var(--#{$device}#{$orientation}column-rule-width, var(--column-rule-width));
             }
         }
     }

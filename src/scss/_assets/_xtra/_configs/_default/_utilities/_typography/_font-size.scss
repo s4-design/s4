@@ -1,4 +1,4 @@
-@mixin font-size($type, $orientation) {
+@mixin font-size($device, $orientation) {
     // preset: font size
     @each $size in (
         "s3",
@@ -10,7 +10,7 @@
         "l3",
         "l4"
     ) {
-        .#{$type}#{$orientation}font-size--#{$size} {
+        .#{$device}#{$orientation}font-size--#{$size} {
             font-size: var(--font-size--#{$size});
         }
     }

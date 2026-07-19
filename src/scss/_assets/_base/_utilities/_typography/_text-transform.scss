@@ -1,21 +1,21 @@
-@mixin text-transform($type, $orientation, $enableVariables) {
+@mixin text-transform($device, $orientation, $enableVariables) {
     /* text transform */
     @each $textTransform in (
         "lowercase",
         "uppercase",
         "capitalize"
     ) {
-        .#{$type}#{$orientation}text-transform--#{$textTransform} {
+        .#{$device}#{$orientation}text-transform--#{$textTransform} {
             text-transform: #{$textTransform};
         }
     }
 
     @if $enableVariables {
         .text-transform {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 text-transform: var(--text-transform);
             } @else {
-                text-transform: var(--#{$type}#{$orientation}text-transform, var(--text-transform));
+                text-transform: var(--#{$device}#{$orientation}text-transform, var(--text-transform));
             }
         }
     }

@@ -1,4 +1,4 @@
-@mixin text-align($type, $orientation, $enableVariables) {
+@mixin text-align($device, $orientation, $enableVariables) {
     /* text align */
     @each $textAlign in (
         "start",
@@ -6,17 +6,17 @@
         "end",
         "justify"
     ) {
-    .#{$type}#{$orientation}text-align--#{$textAlign} {
+    .#{$device}#{$orientation}text-align--#{$textAlign} {
             text-align: #{$textAlign};
         }
     }
 
     @if $enableVariables {
         .text-align {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 text-align: var(--text-align);
             } @else {
-                text-align: var(--#{$type}#{$orientation}text-align, var(--text-align));
+                text-align: var(--#{$device}#{$orientation}text-align, var(--text-align));
             }
         }
     }

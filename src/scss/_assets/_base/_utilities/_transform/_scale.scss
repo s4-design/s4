@@ -1,12 +1,12 @@
-@mixin scale($type, $orientation, $enableVariables) {
+@mixin scale($device, $orientation, $enableVariables) {
     /* scale */
 
     @if $enableVariables {
         .scale {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 scale: var(--scale);
             } @else {
-                scale: var(--#{$type}#{$orientation}scale, var(--scale));
+                scale: var(--#{$device}#{$orientation}scale, var(--scale));
             }
         }
     }

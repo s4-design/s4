@@ -1,4 +1,4 @@
-@mixin outline-style($type, $orientation, $enableVariables) {
+@mixin outline-style($device, $orientation, $enableVariables) {
     /* outline style */
     @each $outlineStyle in (
         "dotted",
@@ -6,8 +6,8 @@
         "solid",
         "none"
     ) {
-        .#{$type}#{$orientation}outline-style--#{$outlineStyle} {
-        // .#{$type}#{$orientation}outline-style--#{$outlineStyle}\:hover:hover {
+        .#{$device}#{$orientation}outline-style--#{$outlineStyle} {
+        // .#{$device}#{$orientation}outline-style--#{$outlineStyle}\:hover:hover {
             outline-style: #{$outlineStyle};
             // @if $outlineStyle != none {
             //     outline-width: var(--outline-width--min);
@@ -17,10 +17,10 @@
     
     @if $enableVariables {
         .outline-style {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 outline-style: var(--outline-style);
             } @else {
-                outline-style: var(--#{$type}#{$orientation}outline-style, var(--outline-style));
+                outline-style: var(--#{$device}#{$orientation}outline-style, var(--outline-style));
             }
         }
     }

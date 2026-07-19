@@ -1,12 +1,12 @@
-@mixin break-before($type, $orientation, $enableVariables) {
+@mixin break-before($device, $orientation, $enableVariables) {
     /* break before */ 
 
     @if $enableVariables {
         .break-before {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 break-before: var(--break-before);
             } @else {
-                break-before: var(--#{$type}#{$orientation}break-before, var(--break-before));
+                break-before: var(--#{$device}#{$orientation}break-before, var(--break-before));
             }
         }
     }

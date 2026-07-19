@@ -1,4 +1,4 @@
-@mixin placement($type, $orientation) {
+@mixin placement($device, $orientation) {
     // preset: placement
     @each $placement in (
         "inset-block-start",
@@ -7,7 +7,7 @@
         "inset-inline-end"
     ) {
         @for $i from 0 through 2 {
-            .#{$type}#{$orientation}#{$placement}--#{$i * 50} {
+            .#{$device}#{$orientation}#{$placement}--#{$i * 50} {
                 #{$placement}: $i * 50%;
             }
         }

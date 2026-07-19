@@ -11,17 +11,17 @@
 @use "word-break" as word-break;
 @use "writing-mode" as writing-mode;
 
-@mixin typography($type, $orientation, $enableVariables) {
-    @include color.color($type, $orientation, $enableVariables);
-    @include direction.direction($type, $orientation, $enableVariables);
-    @include font-size.font-size($type, $orientation, $enableVariables);
-    @include font-weight.font-weight($type, $orientation, $enableVariables);
-    @include line-height.line-height($type, $orientation, $enableVariables);
-    @include text-align.text-align($type, $orientation, $enableVariables);
-    @include text-decoration.text-decoration($type, $orientation, $enableVariables);
-    @include text-transform.text-transform($type, $orientation, $enableVariables);
-    @include text-wrap.text-wrap($type, $orientation, $enableVariables);
-    @include white-space.white-space($type, $orientation, $enableVariables);
-    @include word-break.word-break($type, $orientation, $enableVariables);
-    @include writing-mode.writing-mode($type, $orientation, $enableVariables);
+@mixin typography($device, $orientation, $enableVariables) {
+    @include color.color($device, $orientation, $enableVariables);
+    @include direction.direction($device, $orientation, $enableVariables);
+    @include font-size.font-size($device, $orientation, $enableVariables);
+    @include font-weight.font-weight($device, $orientation, $enableVariables);
+    @include line-height.line-height($device, $orientation, $enableVariables);
+    @include text-align.text-align($device, $orientation, $enableVariables);
+    @include text-decoration.text-decoration($device, $orientation, $enableVariables);
+    @include text-transform.text-transform($device, $orientation, $enableVariables);
+    @include text-wrap.text-wrap($device, $orientation, $enableVariables);
+    @include white-space.white-space($device, $orientation, $enableVariables);
+    @include word-break.word-break($device, $orientation, $enableVariables);
+    @include writing-mode.writing-mode($device, $orientation, $enableVariables);
 }

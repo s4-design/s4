@@ -1,11 +1,11 @@
-@mixin inline-size($type, $orientation, $enableVariables) {
+@mixin inline-size($device, $orientation, $enableVariables) {
     /* inline-size */
     @each $inline-size in (
         "min-inline-size",
         "inline-size",
         "max-inline-size"
     ) {
-        .#{$type}#{$orientation}#{$inline-size} {
+        .#{$device}#{$orientation}#{$inline-size} {
             @each $value in (
                 "fit-content",
                 "min-content",
@@ -21,10 +21,10 @@
     
         @if $enableVariables {
             .#{$inline-size} {
-                @if $type == "" and $orientation == "" {
+                @if $device == "" and $orientation == "" {
                     #{$inline-size}: var(--#{$inline-size});
                 } @else {
-                    #{$inline-size}: var(--#{$type}#{$orientation}#{$inline-size}, var(--#{$inline-size}));
+                    #{$inline-size}: var(--#{$device}#{$orientation}#{$inline-size}, var(--#{$inline-size}));
                 }
             }
         }

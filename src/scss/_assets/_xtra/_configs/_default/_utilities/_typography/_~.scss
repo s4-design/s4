@@ -4,15 +4,15 @@
 @use "font-size" as *;
 @use "line-height" as *;
 
-@mixin typography($type, $orientation) {
+@mixin typography($device, $orientation) {
     @include color(
-        $type,
+        $device,
         $orientation,
         $defaultColors,
         $accentColors,
         $colorsGradientNumberSteps,
         $accentColorsPostfixes
     );
-    @include font-size($type, $orientation);
-    @include line-height($type, $orientation);
+    @include font-size($device, $orientation);
+    @include line-height($device, $orientation);
 }

@@ -1,6 +1,6 @@
-@mixin outline-color($type, $orientation, $enableVariables) {
+@mixin outline-color($device, $orientation, $enableVariables) {
     /* outline color */
-    .#{$type}#{$orientation}outline-color {
+    .#{$device}#{$orientation}outline-color {
         &--transparent,
         &--transparent\:hover:hover {
             outline-color: #{transparent};
@@ -9,10 +9,10 @@
     
     @if $enableVariables {
         .outline-color {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 outline-color: var(--outline-color);
             } @else {
-                outline-color: var(--#{$type}#{$orientation}outline-color, var(--outline-color));
+                outline-color: var(--#{$device}#{$orientation}outline-color, var(--outline-color));
             }
         }
     }

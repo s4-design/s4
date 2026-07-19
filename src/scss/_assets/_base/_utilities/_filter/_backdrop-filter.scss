@@ -1,12 +1,12 @@
-@mixin backdrop-filter($type, $orientation, $enableVariables) {
+@mixin backdrop-filter($device, $orientation, $enableVariables) {
     /* backdrop filter */
 
     @if $enableVariables {
         .backdrop-filter {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 backdrop-filter: var(--backdrop-filter);
             } @else {
-                backdrop-filter: var(--#{$type}#{$orientation}backdrop-filter, var(--backdrop-filter));
+                backdrop-filter: var(--#{$device}#{$orientation}backdrop-filter, var(--backdrop-filter));
             }
         }
     }

@@ -1,21 +1,21 @@
-@mixin background-attachment($type, $orientation, $enableVariables) {
+@mixin background-attachment($device, $orientation, $enableVariables) {
     /* background attachment */
     @each $backgroundAttachment in (
         "scroll",
         "fixed",
         "local"
     ) {
-        .#{$type}#{$orientation}background-attachment--#{$backgroundAttachment} {
+        .#{$device}#{$orientation}background-attachment--#{$backgroundAttachment} {
             background-attachment: #{$backgroundAttachment};
         }
     }
 
     @if $enableVariables {
         .background-attachment {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-attachment: var(--background-attachment);
             } @else {
-                background-attachment: var(--#{$type}#{$orientation}background-attachment, var(--background-attachment));
+                background-attachment: var(--#{$device}#{$orientation}background-attachment, var(--background-attachment));
             }
         }
     }

@@ -1,20 +1,20 @@
-@mixin writing-mode($type, $orientation, $enableVariables) {
+@mixin writing-mode($device, $orientation, $enableVariables) {
     /* writing mode */
     @each $writingMode in (
         "vertical-rl",
         "vertical-lr"
     ) {
-        .#{$type}#{$orientation}writing-mode--#{$writingMode} {
+        .#{$device}#{$orientation}writing-mode--#{$writingMode} {
             writing-mode: #{$writingMode};
         }
     }
 
     @if $enableVariables {
         .writing-mode {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 writing-mode: var(--writing-mode);
             } @else {
-                writing-mode: var(--#{$type}#{$orientation}writing-mode, var(--writing-mode));
+                writing-mode: var(--#{$device}#{$orientation}writing-mode, var(--writing-mode));
             }
         }
     }

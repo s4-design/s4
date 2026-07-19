@@ -1,4 +1,4 @@
-@mixin background-clip($type, $orientation, $enableVariables) {
+@mixin background-clip($device, $orientation, $enableVariables) {
     /* background clip */
     @each $backgroundClip in (
         "border-box",
@@ -6,7 +6,7 @@
         "content-box",
         "text"
     ) {
-        .#{$type}#{$orientation}background-clip--#{$backgroundClip} {
+        .#{$device}#{$orientation}background-clip--#{$backgroundClip} {
             background-clip: #{$backgroundClip};
             // @if $backgroundClip == text {
             //     color: #{transparent};
@@ -16,10 +16,10 @@
 
     @if $enableVariables {
         .background-clip {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-clip: var(--background-clip);
             } @else {
-                background-clip: var(--#{$type}#{$orientation}background-clip, var(--background-clip));
+                background-clip: var(--#{$device}#{$orientation}background-clip, var(--background-clip));
             }
         }
     }

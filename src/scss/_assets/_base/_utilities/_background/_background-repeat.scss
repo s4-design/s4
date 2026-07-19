@@ -1,4 +1,4 @@
-@mixin background-repeat($type, $orientation, $enableVariables) {
+@mixin background-repeat($device, $orientation, $enableVariables) {
     /* background repeat */
     @each $backgroundRepeat in (
         "repeat-x",
@@ -7,17 +7,17 @@
         "round",
         "no-repeat"
     ) {
-        .#{$type}#{$orientation}background-repeat--#{$backgroundRepeat} {
+        .#{$device}#{$orientation}background-repeat--#{$backgroundRepeat} {
             background-repeat: #{$backgroundRepeat};
         }
     }
 
     @if $enableVariables {
         .background-repeat {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 background-repeat: var(--background-repeat);
             } @else {
-                background-repeat: var(--#{$type}#{$orientation}background-repeat, var(--background-repeat));
+                background-repeat: var(--#{$device}#{$orientation}background-repeat, var(--background-repeat));
             }
         }
     }

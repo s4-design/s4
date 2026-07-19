@@ -1,10 +1,10 @@
-@mixin indent($type, $orientation, $spacingSizes) {
+@mixin indent($device, $orientation, $spacingSizes) {
     // preset: margin & padding
     @each $spacingName in (
         "margin",
         "padding"
     ) {
-        .#{$type}#{$orientation}#{$spacingName} {
+        .#{$device}#{$orientation}#{$spacingName} {
             @each $space in $spacingSizes {
                 &-block--#{$space} {
                     #{$spacingName}-block: var(--#{$spacingName}--#{$space});

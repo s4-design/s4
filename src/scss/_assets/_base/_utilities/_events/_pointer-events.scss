@@ -1,15 +1,15 @@
-@mixin pointer-events($type, $orientation, $enableVariables) {
+@mixin pointer-events($device, $orientation, $enableVariables) {
     /* pointer events */
-    .#{$type}#{$orientation}pointer-events--none {
+    .#{$device}#{$orientation}pointer-events--none {
         pointer-events: none;
     }
 
     @if $enableVariables {
         .pointer-events {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 pointer-events: var(--pointer-events);
             } @else {
-                pointer-events: var(--#{$type}#{$orientation}pointer-events, var(--pointer-events));
+                pointer-events: var(--#{$device}#{$orientation}pointer-events, var(--pointer-events));
             }
         }
     }

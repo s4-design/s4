@@ -1,12 +1,12 @@
-@mixin grid-template-areas($type, $orientation, $enableVariables) {
+@mixin grid-template-areas($device, $orientation, $enableVariables) {
     /* grid template areas */
     
     @if $enableVariables {
         .grid-template-areas {
-            @if $type == "" and $orientation == "" {
+            @if $device == "" and $orientation == "" {
                 grid-template-areas: var(--grid-template-areas);
             } @else {
-                grid-template-areas: var(--#{$type}#{$orientation}grid-template-areas, var(--grid-template-areas));
+                grid-template-areas: var(--#{$device}#{$orientation}grid-template-areas, var(--grid-template-areas));
             }
         }
     }

@@ -149,6 +149,15 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
+Once connected, all utility classes are available in HTML. Full list of properties and modifiers — see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).
+
+**Example:**
+```html
+<div class="d_l_display--flex m_p_display--grid">
+  Flex on desktop (landscape), grid on mobile (portrait)
+</div>
+```
+
 ### Styles structure
 
 CSS is split into three layers in order of increasing specificity:
@@ -231,12 +240,28 @@ Basics: `--white`, `--black`, `--white--01`…`--white--09`, `--black--01`…`--
 
 <br>
 
-## Utility classes - 3 formulas
+## Utility classes — 3 formulas
 
-### Formula 1 - adaptive
+> Full alphabetical list of properties with ready classes — see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).  
+> System architecture — [s4/S4.md](s4/S4.md).
+
+### Formula 1 — unified
 
 ```
-.{prefix}_{property}--{modifier}
+.{property}--{modifier}
+```
+
+Style is the same across all devices and orientations.
+
+| Class | CSS |
+|---|---|
+| `border--collapse` | `border-collapse: collapse` |
+| `box-sizing--border-box` | `box-sizing: border-box` |
+
+### Formula 2 — adaptive
+
+```
+.{device}_{orientation}_{property}--{modifier}
 ```
 
 Style is tied to device and orientation.
@@ -251,20 +276,7 @@ With pseudo-class: `d_l_background-color--transparent\:hover:hover`
 
 With pseudo-element: `d_l_display--none\:\:before::before`
 
-### Formula 2 - unified
-
-```
-.{property}--{modifier}
-```
-
-Style is the same across all devices and orientations.
-
-| Class | CSS |
-|---|---|
-| `border--collapse` | `border-collapse: collapse` |
-| `box-sizing--border-box` | `box-sizing: border-box` |
-
-### Formula 3 - variable
+### Formula 3 — variable
 
 ```
 .{property}
@@ -346,7 +358,7 @@ An S4 preset is an **interface configuration** defining its visual identity and 
 
 A preset is a layer of a design system, not the whole system. Design system = S4 (core: cascade, formulas, device-loading) + preset (interface configuration) + components and patterns.
 
-Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in Formula 1 xtra utilities. For example, if a preset defines `--brand-gradient: linear-gradient(...)`, the class `d_l_background--brand-gradient` will work.
+Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in Formula 2 xtra utilities. For example, if a preset defines `--brand-gradient: linear-gradient(...)`, the class `d_l_background--brand-gradient` will work.
 
 S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribute on `<html>`:
 
@@ -391,7 +403,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
 }
 ```
 
-For device-independent styling, use Formula 2 or explicit values. Presets affect only variables - utility classes from Formula 1 and 2 are preset-independent.
+For device-independent styling, use Formula 1 or explicit values. Presets affect only variables — utility classes from Formula 1 and 2 are preset-independent.
 
 Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 

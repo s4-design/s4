@@ -9,21 +9,21 @@
 | `align-content` | `baseline`, `space-around`, `space-between`, `center`, `end`, `space-evenly`, `start`, `stretch` |
 | `align-items` | `baseline`, `center`, `end`, `start`, `stretch` |
 | `align-self` | `baseline`, `center`, `end`, `start`, `stretch` |
-| `aspect-ratio` | |
+| `aspect-ratio` | `1/1`, `4/3`, `3/4`, `16/9`, `9/16`, `16/10`, `10/16`, `21/9`, `9/21`, `32/9`, `9/32` |
 | `backdrop-filter` | |
 | `background-attachment` | `scroll`, `fixed`, `local` |
 | `background-clip` | `border-box`, `padding-box`, `content-box`, `text` |
-| `background-color` | `transparent` |
+| `background-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `background-image` | |
 | `background-origin` | `border-box`, `content-box`, `padding-box` |
 | `background-position` | `left`, `top-left`, `left-top`, `top`, `top-right`, `right-top`, `right`, `bottom-right`, `right-bottom`, `bottom`, `bottom-left`, `left-bottom`, `center` |
 | `background-repeat` | `repeat-x`, `repeat-y`, `space`, `round`, `no-repeat` |
 | `background-size` | `cover`, `contain` |
-| `block-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `block-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
 | `border-block-end-style` | `dotted`, `dashed`, `solid`, `none` |
 | `border-block-start-style` | `dotted`, `dashed`, `solid`, `none` |
 | `border-collapse` | `collapse`, `separate` |
-| `border-color` | `transparent` |
+| `border-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `border-end-end-radius` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `oval`, `pill`, `unset` |
 | `border-end-start-radius` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `oval`, `pill`, `unset` |
 | `border-inline-end-style` | `dotted`, `dashed`, `solid`, `none` |
@@ -34,19 +34,20 @@
 | `border-start-start-radius` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `oval`, `pill`, `unset` |
 | `border-style` | `dotted`, `dashed`, `solid`, `none` |
 | `border-width` | `thin`, `medium`, `thick` |
-| `box-shadow` | `unset` |
+| `box-shadow` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `box-sizing` | `border-box`, `content-box` |
 | `break-after` | |
 | `break-before` | |
 | `break-inside` | |
-| `color` | `transparent` |
+| `color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `column-count` | `auto` |
 | `column-fill` | `auto`, `balance` |
-| `column-gap` | `unset` |
+| `column-gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `column-rule-color` | |
 | `column-rule-style` | `dotted`, `dashed`, `solid`, `none` |
 | `column-rule-width` | `thin`, `medium`, `thick` |
 | `column-span` | `auto`, `none` |
+| `column-style` | (алиас column-rule-style, только Formula 3) |
 | `column-width` | |
 | `cursor` | |
 | `direction` | `ltr`, `rtl` |
@@ -55,45 +56,49 @@
 | `flex` | `none`, `initial`, `auto` |
 | `flex-basis` | `max-content`, `min-content`, `fit-content` |
 | `flex-direction` | `row`, `row-reverse`, `column`, `column-reverse` |
-| `flex-grow` | |
-| `flex-shrink` | |
+| `flex-grow` | `0`, `1` |
+| `flex-shrink` | `0`, `1` |
 | `flex-wrap` | `wrap`, `wrap-reverse`, `nowrap` |
 | `float` | `inline-start`, `inline-end`, `none` |
-| `font-size` | |
+| `font-size` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4` |
 | `font-weight` | `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `unset` |
-| `gap` | `unset` |
+| `gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `grid-auto-columns` | |
 | `grid-auto-flow` | `column`, `row`, `dense`, `row-dense`, `column-dense` |
 | `grid-auto-rows` | |
-| `grid-column` | |
-| `grid-row` | |
+| `grid-column` | `span-1`…`span-12`, `full` |
+| `grid-column-end` | `1`…`12` |
+| `grid-column-start` | `1`…`12` |
+| `grid-row` | `span-1`…`span-12`, `full` |
+| `grid-row-end` | `1`…`12` |
+| `grid-row-start` | `1`…`12` |
 | `grid-template-areas` | |
-| `grid-template-columns` | |
-| `grid-template-rows` | |
-| `inline-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `grid-template-columns` | `1`…`12`, `none`, `subgrid` |
+| `grid-template-rows` | `1`…`12`, `none`, `subgrid` |
+| `inline-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
 | `inset` | |
-| `inset-block-end` | |
-| `inset-block-start` | |
-| `inset-inline-end` | |
-| `inset-inline-start` | |
+| `inset-block-end` | `0`, `50`, `100` |
+| `inset-block-start` | `0`, `50`, `100` |
+| `inset-inline-end` | `0`, `50`, `100` |
+| `inset-inline-start` | `0`, `50`, `100` |
 | `justify-content` | `space-around`, `space-between`, `center`, `end`, `space-evenly`, `start`, `stretch` |
 | `justify-items` | `center`, `end`, `start`, `stretch` |
 | `justify-self` | `center`, `end`, `start`, `stretch` |
-| `line-height` | `unset` |
-| `margin-block` | `auto`, `unset` |
-| `margin-block-end` | `auto`, `unset` |
-| `margin-block-start` | `auto`, `unset` |
-| `margin-inline` | `auto`, `unset` |
-| `margin-inline-end` | `auto`, `unset` |
-| `margin-inline-start` | `auto`, `unset` |
-| `max-block-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
-| `max-inline-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
-| `min-block-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
-| `min-inline-size` | `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `line-height` | `0`, `1`, `unset` |
+| `margin-block` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `margin-block-end` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `margin-block-start` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `margin-inline` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `margin-inline-end` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `margin-inline-start` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `auto`, `unset` |
+| `max-block-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `max-inline-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `min-block-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
+| `min-inline-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
 | `object-fit` | `contain`, `cover`, `fill`, `none` |
 | `object-position` | `top`, `bottom`, `left`, `right`, `center` |
-| `order` | `unset` |
-| `outline-color` | `transparent` |
+| `order` | `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `unset` |
+| `outline-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `outline-offset` | |
 | `outline-style` | `dotted`, `dashed`, `solid`, `none` |
 | `outline-width` | `thin`, `medium`, `thick` |
@@ -101,17 +106,17 @@
 | `overflow-wrap` | `normal`, `break-word`, `anywhere` |
 | `overflow-x` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
 | `overflow-y` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
-| `padding-block` | `unset` |
-| `padding-block-end` | `unset` |
-| `padding-block-start` | `unset` |
-| `padding-inline` | `unset` |
-| `padding-inline-end` | `unset` |
-| `padding-inline-start` | `unset` |
+| `padding-block` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `padding-block-end` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `padding-block-start` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `padding-inline` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `padding-inline-end` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `padding-inline-start` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `pointer-events` | `none` |
 | `position` | `static`, `relative`, `absolute`, `fixed`, `sticky` |
 | `resize` | `both`, `horizontal`, `vertical`, `none` |
 | `rotate` | |
-| `row-gap` | `unset` |
+| `row-gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `scale` | |
 | `text-align` | `start`, `center`, `end`, `justify` |
 | `text-decoration` | `none` |
@@ -119,7 +124,7 @@
 | `text-decoration-line` | |
 | `text-decoration-style` | |
 | `text-decoration-thickness` | |
-| `text-shadow` | `unset` |
+| `text-shadow` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `text-transform` | `lowercase`, `uppercase`, `capitalize` |
 | `text-wrap` | `wrap`, `nowrap`, `balance` |
 | `transform` | |
@@ -129,7 +134,7 @@
 | `white-space` | `normal`, `nowrap`, `pre`, `pre-wrap`, `pre-line`, `preserve`, `break-spaces`, `unset` |
 | `word-break` | `normal`, `break-all`, `keep-all`, `auto-phrase`, `unset` |
 | `writing-mode` | `vertical-rl`, `vertical-lr` |
-| `z-index` | |
+| `z-index` | `-1`, `0`, `1` |
 | `zoom` | |
 
 ## Формула 1 — базовый слой (base)

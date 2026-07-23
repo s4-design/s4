@@ -1,0 +1,5 @@
+@use "table-layout" as table-layout;
+
+@mixin table-layout($device, $orientation, $enableVariables) {
+    @include table-layout.table-layout($device, $orientation, $enableVariables);
+}

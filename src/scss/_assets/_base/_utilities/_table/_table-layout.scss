@@ -1,0 +1,21 @@
+@mixin table-layout($device, $orientation, $enableVariables) {
+    /* table-layout */
+    @each $table-layout in (
+        "auto",
+        "fixed"
+    ) {
+        .#{$device}#{$orientation}table-layout--#{$table-layout} {
+            table-layout: #{$table-layout};
+        }
+    }
+
+    @if $enableVariables {
+        .table-layout {
+            @if $device == "" and $orientation == "" {
+                table-layout: var(--table-layout);
+            } @else {
+                table-layout: var(--#{$device}#{$orientation}table-layout, var(--table-layout));
+            }
+        }
+    }
+}

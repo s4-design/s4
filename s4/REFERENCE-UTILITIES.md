@@ -118,6 +118,7 @@
 | `rotate` | |
 | `row-gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `scale` | |
+| `table-layout` | `auto`, `fixed` |
 | `text-align` | `start`, `center`, `end`, `justify` |
 | `text-decoration` | `none` |
 | `text-decoration-color` | |

@@ -19,6 +19,7 @@
 @use "_events/~" as *;
 @use "_position/~" as *;
 @use "_shadow/~" as *;
+@use "_table/~" as *;
 @use "_sizing/~" as *;
 @use "_transform/~" as *;
 @use "_typography/~" as *;
@@ -47,6 +48,7 @@
     @include events($device, $orientation, $enableVariables);
     @include position($device, $orientation, $enableVariables);
     @include shadow($device, $orientation, $enableVariables);
+    @include table-layout($device, $orientation, $enableVariables);
     @include sizing($device, $orientation, $enableVariables);
     @include transform($device, $orientation, $enableVariables);
     @include typography($device, $orientation, $enableVariables);

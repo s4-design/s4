@@ -61,6 +61,15 @@
             padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
             background: var(--background);
+            > * {
+                margin-inline: var(--margin-inline);
+                &:first-child {
+                    margin-block-start: var(--margin-block-start);
+                }
+                &:last-child {
+                    margin-block-end: var(--margin-block-end);
+                }
+            }
         }
     }
 }

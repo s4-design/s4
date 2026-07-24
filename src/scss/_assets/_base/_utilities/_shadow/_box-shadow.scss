@@ -15,16 +15,16 @@
                 box-shadow: var(--#{$device}#{$orientation}box-shadow, var(--box-shadow));
             }
         }
-        @each $pseudoClass in (
-            "hover"
-        ) {
-            .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
-                @if $device == "" and $orientation == "" {
-                    box-shadow: var(--box-shadow\:#{$pseudoClass});
-                } @else {
-                    box-shadow: var(--#{$device}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
-                }
-            }
-        }
+        // @each $pseudoClass in (
+        //     "hover"
+        // ) {
+        //     .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
+        //         @if $device == "" and $orientation == "" {
+        //             box-shadow: var(--box-shadow\:#{$pseudoClass});
+        //         } @else {
+        //             box-shadow: var(--#{$device}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+        //         }
+        //     }
+        // }
     }
 }

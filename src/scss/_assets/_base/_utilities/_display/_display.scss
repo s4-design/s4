@@ -15,12 +15,12 @@
             display: #{$display};
         }
     }
-    .#{$device}#{$orientation}display--none,
-    .#{$device}#{$orientation}display--none\:empty:empty,
-    .#{$device}#{$orientation}display--none\:\:before::before,
-    .#{$device}#{$orientation}display--none\:\:after::after {
-        display: none;
-    }
+    // .#{$device}#{$orientation}display--none,
+    // .#{$device}#{$orientation}display--none\:empty:empty,
+    // .#{$device}#{$orientation}display--none\:\:before::before,
+    // .#{$device}#{$orientation}display--none\:\:after::after {
+    //     display: none;
+    // }
 
     @if $enableVariables {
         .display {

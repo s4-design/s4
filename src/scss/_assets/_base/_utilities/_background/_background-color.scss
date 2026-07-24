@@ -15,21 +15,21 @@
                 background-color: var(--#{$device}#{$orientation}background-color, var(--background-color));
             }
         }
-        @each $pseudoClass in (
-            // "focus",
-            // "active",
-            "hover",
-            // "checked",
-            // "enabled",
-            // "disabled"
-        ) {
-            .background-color\:#{$pseudoClass}:#{$pseudoClass} {
-                @if $device == "" and $orientation == "" {
-                    background-color: var(--background-color\:#{$pseudoClass});
-                } @else {
-                    background-color: var(--#{$device}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
-                }
-            }
-        }
+        // @each $pseudoClass in (
+        //     // "focus",
+        //     // "active",
+        //     "hover",
+        //     // "checked",
+        //     // "enabled",
+        //     // "disabled"
+        // ) {
+        //     .background-color\:#{$pseudoClass}:#{$pseudoClass} {
+        //         @if $device == "" and $orientation == "" {
+        //             background-color: var(--background-color\:#{$pseudoClass});
+        //         } @else {
+        //             background-color: var(--#{$device}#{$orientation}background-color\:#{$pseudoClass}, var(--background-color\:#{$pseudoClass}));
+        //         }
+        //     }
+        // }
     }
 }

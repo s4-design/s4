@@ -1,0 +1,19 @@
+@mixin e-tag() {
+    e-tag,
+    .element--tag {
+        &:is(button, .element--button) {
+            --outline-style: none;
+        }
+        &:has(> button:last-child, > .element--button:last-child) {
+            --padding-inline-end: var(--padding-block);
+        }
+        > :is(button:last-child, .element--button:last-child) {
+            --padding-inline: var(--padding-block);
+            --font-size: var(--font-size--s2);
+            --border-radius: var(--border-radius--l2);
+            > e-icon {
+                --mask-size: 150%;
+            }
+        }
+    }
+}

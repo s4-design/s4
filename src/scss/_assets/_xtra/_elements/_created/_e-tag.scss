@@ -1,0 +1,8 @@
+@mixin e-tag() {
+    e-tag,
+    .element--tag {
+        &:has(> button:last-child, > .element--button:last-child) {
+            padding-inline-end: var(--padding-inline-end);
+        }
+    }
+}

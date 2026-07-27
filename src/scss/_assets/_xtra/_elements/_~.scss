@@ -4,6 +4,7 @@
 @use "_created/e-line" as *;
 @use "_created/e-truncate" as *;
 @use "_created/e-badge" as *;
+@use "_created/e-tag" as *;
 @use "_created/e-message" as *;
 @use "_created/e-popover" as *;
 
@@ -70,6 +71,7 @@
         @include e-line;
         @include e-truncate;
         @include e-badge;
+        @include e-tag;
         @include e-message;
         @include e-popover;
     }

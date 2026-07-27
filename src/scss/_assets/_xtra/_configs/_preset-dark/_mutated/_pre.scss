@@ -1,0 +1,14 @@
+@mixin pre() {
+    pre {
+        --margin-block: var(--margin--md);
+        &:first-child:first-of-type {
+            --margin-block: 0 var(--margin--md);
+        }
+        &:last-child:last-of-type {
+            --margin-block: var(--margin--md) 0;
+        }
+        &:first-child:first-of-type:last-child:last-of-type {
+            --margin-block: 0;
+        }
+    }
+}

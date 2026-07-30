@@ -1,0 +1,5 @@
+@mixin small() {
+    small {
+        --font-size: var(--font-size--s1);
+    }
+}

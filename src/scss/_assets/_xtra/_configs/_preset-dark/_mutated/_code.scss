@@ -5,6 +5,7 @@
         --padding-inline: var(--padding--s2);
         --background-color: var(--black);
         --border-radius: var(--border-radius--s2);
+        --line-height: inherit;
         pre > & {
             --display: block;
             --overflow: auto;

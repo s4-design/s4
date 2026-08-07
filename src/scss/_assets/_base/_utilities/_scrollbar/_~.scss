@@ -1,0 +1,7 @@
+@use "scrollbar-color" as scrollbar-color;
+@use "scrollbar-width" as scrollbar-width;
+
+@mixin scrollbar($device, $orientation, $enableVariables) {
+    @include scrollbar-color.scrollbar-color($device, $orientation, $enableVariables);
+    @include scrollbar-width.scrollbar-width($device, $orientation, $enableVariables);
+}

@@ -1,0 +1,20 @@
+@mixin scrollbar-color($device, $orientation, $enableVariables) {
+    /* scrollbar color */
+    @each $scrollbarColor in (
+        "auto"
+    ) {
+        .#{$device}#{$orientation}scrollbar-color--#{$scrollbarColor} {
+            scrollbar-color: #{$scrollbarColor};
+        }
+    }
+
+    @if $enableVariables {
+        .scrollbar-color {
+            @if $device == "" and $orientation == "" {
+                scrollbar-color: var(--scrollbar-color);
+            } @else {
+                scrollbar-color: var(--#{$device}#{$orientation}scrollbar-color, var(--scrollbar-color));
+            }
+        }
+    }
+}

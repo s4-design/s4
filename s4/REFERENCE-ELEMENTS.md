@@ -319,7 +319,7 @@
 ```
 
 **Правила:**
-- Триггер — `<button>` первым ребёнком (текст оборачивают `<e-truncate>`).
+- Триггер — `<button>` первым ребёнком.
 - Содержимое — `<e-body role="region">` вторым ребёнком.
 - `position` — пара «блок × инлайн» из таблицы выше.
 
@@ -367,4 +367,502 @@
 
 ## Mutated-элементы
 
-*Будут добавлены по мере создания страниц.*
+Мутированные HTML-элементы С4. Группы: секционные и заголовки, группирующие, текстовая семантика, интерактив, формы.
+
+### Состояния (общий принцип)
+
+Почти все интерактивные элементы С4 поддерживают стандартный набор состояний:
+
+| Состояние | Описание |
+|-----------|----------|
+| обычное | активный элемент по умолчанию |
+| `disabled` | отключённый элемент (недоступен) |
+| `inert` | элемент со всем содержимым неактивен для пользователя (не выделяется искл.) |
+| `negative`/`prime`/`second`/`success`/`danger` | цветовая схема (6 акцентных) |
+| `differ` | альтернативный внешний вид кнопки/ссылки |
+
+Состояния применяются одинаково ко всем интерактивным mutated-элементам: `a`, `button`, `input`, `checkbox`, `radio`, `select`.
+
+---
+
+### Секционные и заголовки
+
+#### `<h1>`…`<h6>`
+
+**Класс-аналоги:** `.element--h1`…`.element--h6` (на `<div>`).
+
+**Назначение:** заголовки уровней 1-6.
+
+**Правила:**
+- Нативные `<h1>`…`<h6>` — семантика и стиль задаются самим тегом.
+- Класс-аналоги `.element--h1`…`.element--h6` применяются на `<div>`, когда нужно изменить визуальный уровень; семантический уровень — через `role="heading"` + `aria-level`.
+
+**Пример:**
+
+```html
+<h1>h1 — уровень первый</h1>
+<h2>h2 — уровень второй</h2>
+<h3>h3 — уровень третий</h3>
+<h4>h4 — уровень четвёртый</h4>
+<h5>h5 — уровень пятый</h5>
+<h6>h6 — уровень шестой</h6>
+```
+
+```html
+<div class="element--h1" role="heading" aria-level="1">h1 — как класс</div>
+<div class="element--h2" role="heading" aria-level="2">h2 — как класс</div>
+<div class="element--h3" role="heading" aria-level="3">h3 — как класс</div>
+<div class="element--h4" role="heading" aria-level="4">h4 — как класс</div>
+<div class="element--h5" role="heading" aria-level="5">h5 — как класс</div>
+<div class="element--h6" role="heading" aria-level="6">h6 — как класс</div>
+```
+
+#### `<address>`
+
+**Назначение:** контактная информация (адрес, автор, контакты).
+
+**Правила:**
+- Обычно в `<footer>` или рядом с автором.
+- Для контактов сайта/организации.
+
+**Пример:**
+
+```html
+<address>
+    Автор: <a href="mailto:author@example.com">author@example.com</a>
+</address>
+```
+
+---
+
+## Группирующие
+
+### `<blockquote>`
+
+**Назначение:** цитата.
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `cite` | URL источника |
+| `data-content` | декоративный символ (опционально); какой указан, такой и подставляется |
+
+**Структура:**
+
+```html
+<blockquote cite="...">
+    <p>Текст цитаты.</p>
+    <footer>Автор, <cite>Произведение</cite></footer>
+</blockquote>
+```
+
+**Правила:**
+- Цитируемый текст — в `<p>`.
+- Автор — в `<footer>` с `<cite>`.
+- Декор — через `data-content`: при указании символа внешне добавляются вертикальная черта и сам символ перед цитатой; какой символ указан, такой и будет (например `🙶`).
+- Может быть помещена в любой контейнер: `<figure>`, `<e-message>`, `<div>` и т.п.
+
+**Примеры:**
+
+```html
+<blockquote data-content="🙶" cite="...">
+    <p>Текст цитаты.</p>
+    <footer>Автор, <cite>Источник</cite></footer>
+</blockquote>
+```
+
+```html
+<figure>
+    <blockquote>...</blockquote>
+</figure>
+```
+
+```html
+<e-message class="second" role="status">
+    <e-body>
+        <blockquote>...</blockquote>
+    </e-body>
+</e-message>
+```
+
+### `<figure>` / `<figcaption>`
+
+**Назначение:** семантический контейнер для самодостаточного контента, который может быть перемещён или изъят из основного потока документа без потери смысла.
+
+**Что можно помещать:** иллюстрацию, диаграмму, цитату, блок кода, таблицу, медиа, форму — любую логически завершённую единицу. Идеальная замена `<div>` для карточки товара, профиля пользователя, виджета, превью статьи.
+
+**Структура:**
+
+```html
+<figure>
+    <figcaption>Подпись</figcaption>
+    <e-body role="region">
+        …
+        <img class="display--block max-inline-size--100" src="..." alt="..." />
+    </e-body>
+</figure>
+```
+
+**Правила:**
+- Подпись `figcaption` — опциональна; порядок не важен (до или после содержимого). Если подпись не нужна — опускается.
+- Контент — в `<e-body role="region">` (чисто визуальном контейнере без семантики и ARIA). Внутри одного `<figure>` может быть несколько `<e-body>` — например, превью + блок кода.
+- `<e-body>` служит для единообразного отступа и фона тела.
+- Изображения: `class="display--block max-inline-size--100"`.
+- В С4 `<figure>` используется во всех страницах документации как универсальная обёртка примеров (превью + код), заменяя безликие `<div>`. Вместо `<div>` — всегда `<figure>`, если блок логически завершён.
+- Сценарии «карточек» (`card`): `<figure>` закрывает статичные (превью, иллюстрация, код, витрина); если карточка интерактивна (кнопки, ссылки, форма) — используется контейнер с семантикой содержимого (например `<article>`).
+
+**Назначение:** семантическая обёртка для пар «термин — определение».
+
+**Структура:** `dl` → `dt` + `dd`.
+
+**Правила:**
+- `dt` — термин; **только фразовые** элементы (`span`, `strong`, `em`, `a`…).
+- `dd` — определение; любые фразовые и блочные элементы (`p`, `ul`, `ol`, `img`…).
+- Допустимы множественные `dt` и `dd`, если это семантически оправдано (один `dt` — много `dd`, много `dt` — один `dd`).
+- **Не использовать `dl` как замену `ul` или `ol`.**
+
+**Пример:**
+
+```html
+<dl>
+    <dt>HTML</dt>
+    <dd>Язык разметки гипертекста</dd>
+    <dt>Авторы</dt>
+    <dd>Ian Hickson</dd>
+    <dd>John Resig</dd>
+</dl>
+```
+
+### `<hr>`
+
+**Назначение:** тематический разделитель.
+
+**Пример:**
+
+```html
+<p>…</p>
+<hr />
+<p>…</p>
+```
+
+### `<table>`
+
+**Назначение:** таблица.
+
+**Структура:**
+
+```html
+<table>
+    <caption>…</caption>
+    <thead>
+        <tr>
+            <th rowspan="2" scope="col">Категория</th>
+            <th colspan="2" scope="colgroup">2025 год</th>
+        </tr>
+        <tr><th scope="col">Q1</th><th scope="col">Q2</th></tr>
+    </thead>
+    <tbody>
+        <tr><th scope="row">Отдел А</th><td>1 200</td><td>1 500</td></tr>
+    </tbody>
+    <tfoot>
+        <tr><th scope="row">Итого</th><td colspan="2">Сумма</td></tr>
+    </tfoot>
+</table>
+```
+
+**Правила:**
+- Заголовки — через `th` с `scope="col"`/`scope="row"`/`scope="colgroup"`.
+- Объединение ячеек — `colspan`/`rowspan`.
+- Структурные части: `caption`, `thead`, `tbody`, `tfoot`.
+
+---
+
+## Текстовая семантика
+
+### `<a>`
+
+**Класс-аналоги:** `.element--button` (как кнопка), `.element--button differ` (альтернативная кнопка).
+
+**Назначение:** гиперссылка; может выглядеть как кнопка.
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `href` | URL перехода |
+| `class` | цвета `negative`/`prime`/`second`/`success`/`danger`, `element--button`, `differ` |
+| `inert` | состояние (недоступна) |
+
+**Пример:**
+
+```html
+<a href="#a">Гиперссылка</a>
+<a class="prime" href="#a">Цвет prime</a>
+<a class="element--button" href="#a">Как кнопка</a>
+<a class="element--button differ danger" href="#a">Альтернативная danger</a>
+```
+
+### `<abbr>`
+
+**Назначение:** аббревиатура.
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `title` | расшифровка (опционально, пустой title допустим) |
+
+**Примеры:**
+
+```html
+<abbr>CSS</abbr>
+<abbr title="Каскадные таблицы стилей">CSS</abbr>
+```
+
+### `<cite>`
+
+**Назначение:** ссылка на источник (название произведения).
+
+**Пример:**
+
+```html
+<p>Подробнее см. в <cite>[ISO-0000]</cite></p>
+```
+
+### `<code>` / `<pre>`
+
+**Назначение:** фрагмент кода.
+
+**Правила:**
+- `<code>` — инлайн-код в тексте.
+- `<pre>` — преформатированный многострочный код (переносы и отступы сохраняются).
+
+**Примеры:**
+
+```html
+<p>Код <code>class="flex-basis"</code> в тексте.</p>
+<pre><code>class="flex-basis"
+style="--flex-basis: 20em"
+</code></pre>
+```
+
+### `<sub>` / `<sup>`
+
+**Назначение:** нижний/верхний индекс.
+
+**Примеры:**
+
+```html
+<p>H<sub>2</sub>O</p>
+<p>10<sup>2</sup></p>
+```
+
+---
+
+## Интерактив
+
+### `<button>`
+
+**Назначение:** кнопка (действие).
+
+**Варианты:**
+- Кнопка как кнопка `<button>`.
+- Только иконка: `<button title="..."><e-icon …></e-icon></button>`.
+- Изображение как кнопка: `<input type="image" src="…" alt="…">`.
+- Переключатель/флажок как кнопка: `<label class="element--button"><input type="radio">…</label>`.
+- Гиперссылка как кнопка: `<a class="element--button">`.
+- Группа кнопок: см. `<e-group>`.
+
+**Размер:** через «гравитацию» — `font-size--*`.
+
+**Пример:**
+
+```html
+<button>Кнопка</button>
+<button><e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>Кнопка</button>
+<button title="Кнопка"><e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon></button>
+```
+
+### `<details>`
+
+**Назначение:** скрытая (раскрываемая) информация.
+
+**Структура:**
+
+```html
+<details open>
+    <summary>
+        <e-truncate><e-open role="none">Скрытая</e-open><e-close role="none">Раскрытая</e-close> информация</e-truncate>
+        <e-icon class="element--close" style="--image:url(/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
+        <e-icon class="element--open" style="--image:url(/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
+    </summary>
+    <e-body role="region">
+        <p>Содержимое</p>
+    </e-body>
+</details>
+```
+
+**Правила:**
+- Триггер — `<summary>`.
+- Текст-переключатель статуса — `e-open` («скрыто») и `e-close` («раскрыто»), обе с `role="none"`; переключение показывает/скрывает пресет.
+- Стрелка — две иконки `element--close` (вверх) и `element--open` (вниз) с `aria-hidden="true"`.
+- Содержимое — `<e-body role="region">`.
+- Вложенные `details` допустимы; можно группировать через `<e-group>`.
+
+### `<menu>`
+
+**Назначение:** меню (панель инструментов / контекстное).
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `type` | `toolbar` (горизонтальная панель), `context` (вертикальное/контекстное меню) |
+
+**Структура:**
+
+```html
+<menu type="context">
+    <li>
+        <button class="justify-content--start"><e-icon…></e-icon> Пункт</button>
+    </li>
+    <e-line role="separator"></e-line>
+    <li>
+        <button class="justify-content--start" disabled>Отключено</button>
+    </li>
+</menu>
+```
+
+**Правила:**
+- `type="toolbar"` — горизонтально; `type="context"` — вертикально.
+- Элементы — `<li>` с `<button>`; для контекстного меню кнопки `class="justify-content--start"`.
+- Разделитель групп — `<e-line role="separator">`.
+
+---
+
+## Формы и получение данных
+
+### `<input>`
+
+**Назначение:** поле ввода данных.
+
+**Типы** (`type`): `text`, `password`, `email`, `url`, `search`, `file`, `color`, `date`, `time`, `datetime-local`, `month`, `week`, `image`, `button`, `submit`, `reset`, `radio`, `checkbox`.
+
+**Подсказки-списки:** `<input list="...">` + `<datalist id="...">` с `<option>`.
+
+**Атрибуты валидации:** `required`, `minlength`/`maxlength`, `pattern`, `min`/`max`, `data-validation="user"` (валидация только после взаимодействия с пользователем, без — сразу).
+
+**Пример:**
+
+```html
+<input type="text" placeholder="Текст формы" required />
+<input type="password" placeholder="Пароль" required pattern="(?=.*d)(?=.*[A-Z]).{8,}" />
+<input type="date" min="2024-01-01" max="2024-12-31" required />
+<input type="text" placeholder="Всё кроме цифр" pattern="\D+" data-validation="user" />
+```
+
+### `<input type="checkbox">` (флажок)
+
+**Назначение:** флажок (переключение да/нет).
+
+**Макеты:**
+- **Разделённый:** `<input>` и `<label>` отдельно, связь через `for`/`id`.
+- **Вложенный:** `<label><input>…</label>`.
+- **Вложенный с иконкой:** `<input class="display--none">` + пары `<e-icon uncheck>`/`<e-icon check>`.
+- **Как кнопка:** `<label class="element--button">`.
+
+**Состояния:** обычное/отмечен (`checked`)/отключ (`disabled`)/инертно (`inert`).
+
+**Пример (с иконкой):**
+
+```html
+<label>
+    <input class="display--none" type="checkbox" />
+    <e-icon style="--image:url(/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon>
+    <e-icon style="--image:url(/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon>
+    Флажок
+</label>
+```
+
+### `<input type="radio">` (переключатель)
+
+**Назначение:** переключатель (выбор одного из группы).
+
+**Макеты:** разделённый, вложенный, с иконкой, как кнопка (аналогично флажку).
+
+**Группировка:** связать через общий `name`; вертикальная/горизонтальная группа — через `<e-group>`.
+
+**Пример (группа как кнопка):**
+
+```html
+<e-group class="element--group display--inline-grid grid-auto-flow--row" role="group">
+    <label class="element--button"><input type="radio" name="radio" checked /> Переключатель</label>
+    <e-line role="separator"></e-line>
+    <label class="element--button"><input type="radio" name="radio" /> Переключатель</label>
+</e-group>
+```
+
+### `<select>` (список выбора)
+
+**Назначение:** выбор из списка.
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `multiple` | многострочный (множественный) выбор |
+| `disabled`/`inert` | состояние |
+| `selected` (на `option`) | выбранный вариант |
+
+**Группы вариантов:** `<optgroup label="...">` (опционально `disabled`).
+
+**Пример:**
+
+```html
+<select name="cars" multiple>
+    <option value="s4" selected>Delta S4</option>
+    <option value="ecv" disabled>ECV</option>
+</select>
+
+<select name="cars2">
+    <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option></optgroup>
+    <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
+</select>
+```
+
+### `<fieldset>` / `<legend>`
+
+**Назначение:** набор полей (группа полей формы).
+
+**Структура:**
+
+```html
+<fieldset>
+    <legend>Текст заголовка</legend>
+    <div class="display--flex flex-direction--column align-items--start gap--s2">
+        <label class="element--button"><input type="radio" checked /> Фулвиа</label>
+        <label class="element--button"><input type="radio" /> Стратос</label>
+    </div>
+</fieldset>
+```
+
+**Состояния:** `disabled` (отключено всё поле), `inert` (недоступно).
+
+---
+
+## Инертность (`inert`)
+
+**Назначение:** HTML-механизм делать элемент со всем содержимым неактивным для пользователя.
+
+**Правила:**
+- `inert` действует на весь поддерев контейнера.
+- Вложенный `inert` в инертном родителе не выделяется дополнительно (обычное состояние в инертном родителе не «включает» дочерний).
+- Отключённые (`disabled`) элементы внутри инертного родителя теряются до значения инертности.
+
+**Пример:**
+
+```html
+<p inert>Инертное содержимое.</p>
+<button inert>Инертная кнопка</button>
+```

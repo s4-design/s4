@@ -10,7 +10,7 @@
         .#{$device}#{$orientation}overflow--#{$overflow} {
             overflow: #{$overflow};
         }
-        @each $axis in ( "x", "y" ) {
+        @each $axis in ( "inline", "block" ) {
             .#{$device}#{$orientation}overflow-#{$axis}--#{$overflow} {
                 overflow-#{$axis}: #{$overflow};
             }

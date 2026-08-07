@@ -27,12 +27,12 @@
             > :not(e-body, .element--body)::after {
                 content: var(--content);
                 position: var(--position);
-                inset-inline-start: var(--inset-inline-start, initial);
-                inset-block-start: var(--inset-block-start, initial);
-                inset-inline-end: var(--inset-inline-end, initial);
-                inset-block-end: var(--inset-block-end, initial);
-                inline-size: var(--inline-size, initial);
-                block-size: var(--block-size, initial);
+                inset-inline-start: var(--inset-inline-start);
+                inset-block-start: var(--inset-block-start);
+                inset-inline-end: var(--inset-inline-end);
+                inset-block-end: var(--inset-block-end);
+                inline-size: var(--inline-size);
+                block-size: var(--block-size);
                 border-radius: var(--border-radius);
                 background-color: var(--background-color);
             }

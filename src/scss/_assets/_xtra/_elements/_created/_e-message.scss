@@ -13,10 +13,10 @@
         background-image: var(--background-image);
         > header {
             font-weight: var(--font-weight);
-            color: var(--color);
             padding-block: var(--padding-block);
             padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
+            color: var(--color);
         }
         > e-body,
         > .element--body {

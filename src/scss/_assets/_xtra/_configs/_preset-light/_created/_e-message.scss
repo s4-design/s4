@@ -2,7 +2,7 @@
     e-message,
     .element--message {
         --position: relative;
-        --display: inline-grid;
+        --display: grid;
         --gap: var(--gap--s3);
         --margin-block: var(--margin--md);
         --margin-inline: 0;
@@ -11,12 +11,21 @@
         --border-radius: var(--border-radius--s1);
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));
+        &:where(:first-child:first-of-type) {
+            --margin-block: 0 var(--margin--md);
+        }
+        &:where(:last-child:last-of-type) {
+            --margin-block: var(--margin--md) 0;
+        }
+        &:where(:first-child:first-of-type:last-child:last-of-type) {
+            --margin-block: 0;
+        }
         > header {
-            --font-weight: 500;
-            --color: var(--negative);
+            --font-weight: 600;
             --padding-block: var(--padding--s3);
             --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
+            --color: var(--negative);
         }
         > e-body,
         > .element--body {
@@ -25,6 +34,7 @@
             --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
             --background-color: var(--positive);
+            --color: var(--negative);
         }
         > footer {
             --display: flex;
@@ -61,8 +71,12 @@
             &.#{$color} {
                 --background-color: var(--positive--light);
                 --background-image: linear-gradient(var(--#{$color}--mute));
+                // > header {
+                //     --color: var(--positive);
+                // }
                 > e-body,
                 > .element--body {
+                    --color: var(--positive--light);
                     --background-color: var(--#{$color});
                 }
 
@@ -72,10 +86,10 @@
                     > header {
                         --color: var(--positive);
                     }
-                    > e-body,
-                    > .element--body {
-                        --color: var(--positive--light);
-                    }
+                    // > e-body,
+                    // > .element--body {
+                    //     --color: var(--positive--light);
+                    // }
                 }
             }
         }

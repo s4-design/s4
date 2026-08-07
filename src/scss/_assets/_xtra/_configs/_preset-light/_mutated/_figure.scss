@@ -1,5 +1,7 @@
 @mixin figure() {
     figure {
+        --margin-block: var(--margin--md);
+        --margin-inline: var(--margin--l4);
         --border-radius: var(--border-radius--s1);
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));
@@ -39,7 +41,7 @@
             --padding-inline: var(--padding--md);
             --border-radius: var(--border-radius--s2);
             --background-color: var(--positive--light);
-            --overflow: auto;
+            // --overflow: auto;
         }
     }
 }

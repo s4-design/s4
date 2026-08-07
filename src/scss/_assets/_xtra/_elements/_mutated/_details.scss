@@ -4,10 +4,11 @@
         display: var(--display);
         inline-size: var(--inline-size);
         
+        margin-block: var(--margin-block);
         border-radius: var(--border-radius);
         background: var(--background);
         background-clip: var(--background-clip);
-        outline-offset: var(--outline-offset);
+        // outline-offset: var(--outline-offset);
         transition: var(--transition);
 
         > summary {

@@ -36,11 +36,14 @@
 @use "_mutated/select" as *;
 @use "_mutated/sub" as *;
 @use "_mutated/sup" as *;
+@use "_mutated/strong" as *;
 @use "_mutated/table" as *;
 
 
 @mixin elements() {
     @layer elements {
+        @include \[preset\];
+
         /* mutated */
         @include \*;
         @include \[inert\];
@@ -70,17 +73,19 @@
         @include select;
         @include sub;
         @include sup;
+        @include strong;
         @include table;
 
         /* created */
-        @include \[preset\];
-        @include e-group;
-        @include e-icon;
-        @include e-line;
-        @include e-truncate;
         @include e-badge;
         @include e-tag;
+        @include e-icon;
+
+        @include e-line;
         @include e-message;
         @include e-popover;
+        @include e-truncate;
+
+        @include e-group;
     }
 }

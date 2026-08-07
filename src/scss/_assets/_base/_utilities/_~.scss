@@ -17,6 +17,7 @@
 @use "_overflow/~" as *;
 @use "_placement/~" as *;
 @use "_events/~" as *;
+@use "_scrollbar/~" as *;
 @use "_position/~" as *;
 @use "_shadow/~" as *;
 @use "_table/~" as *;
@@ -47,6 +48,7 @@
     @include placement($device, $orientation, $enableVariables);
     @include events($device, $orientation, $enableVariables);
     @include position($device, $orientation, $enableVariables);
+    @include scrollbar($device, $orientation, $enableVariables);
     @include shadow($device, $orientation, $enableVariables);
     @include table-layout($device, $orientation, $enableVariables);
     @include sizing($device, $orientation, $enableVariables);

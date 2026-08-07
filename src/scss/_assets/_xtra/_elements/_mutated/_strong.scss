@@ -1,0 +1,5 @@
+@mixin strong() {
+    strong {
+        font-weight: var(--font-weight);
+    }
+}

@@ -103,9 +103,9 @@
 | `outline-style` | `dotted`, `dashed`, `solid`, `none` |
 | `outline-width` | `thin`, `medium`, `thick` |
 | `overflow` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
+| `overflow-block` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
+| `overflow-inline` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
 | `overflow-wrap` | `normal`, `break-word`, `anywhere` |
-| `overflow-x` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
-| `overflow-y` | `auto`, `hidden`, `visible`, `scroll`, `clip` |
 | `padding-block` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `padding-block-end` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
 | `padding-block-start` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
@@ -117,6 +117,8 @@
 | `resize` | `both`, `horizontal`, `vertical`, `none` |
 | `rotate` | |
 | `row-gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
+| `scrollbar-color` | `auto` |
+| `scrollbar-width` | `auto`, `thin`, `none` |
 | `scale` | |
 | `table-layout` | `auto`, `fixed` |
 | `text-align` | `start`, `center`, `end`, `justify` |

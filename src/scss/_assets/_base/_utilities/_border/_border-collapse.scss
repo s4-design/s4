@@ -4,7 +4,7 @@
         "collapse",
         "separate"
     ) {
-        .#{$device}#{$orientation}border--#{$borderCollapse} {
+        .#{$device}#{$orientation}border-collapse--#{$borderCollapse} {
             border-collapse: #{$borderCollapse};
         }
     }

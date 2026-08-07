@@ -13,7 +13,7 @@
         .#{$device}#{$orientation}grid-row-start--#{$i} {
             grid-row-start: $i
         }
-        .#{$device}#{$orientation}grid-row-end-#{$i} {
+        .#{$device}#{$orientation}grid-row-end--#{$i} {
             grid-row-end: $i
         }
     }

@@ -6,7 +6,18 @@
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));
         --overflow: auto;
-
+        :is(e-body, element--body) > & {
+            --margin-inline: 0;
+        }
+        &:where(:first-child:first-of-type) {
+            --margin-block: 0 var(--margin--md);
+        }
+        &:where(:last-child:last-of-type) {
+            --margin-block: var(--margin--md) 0;
+        }
+        &:where(:first-child:first-of-type:last-child:last-of-type) {
+            --margin-block: 0;
+        }
         > figcaption,
         > e-body,
         > .element--body {

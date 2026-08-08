@@ -1,9 +1,7 @@
 @mixin blockquote() {
     blockquote {
         position: var(--position);
-        display: var(--display);
 
-        gap: var(--gap);
         margin-inline: var(--margin-inline);
         margin-block: var(--margin-block);
         font-size: var(--font-size);

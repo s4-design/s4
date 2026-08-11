@@ -18,6 +18,7 @@
     - [`<e-icon>`](#e-icon)
     - [`<e-line>`](#e-line)
     - [`<e-popover>`](#e-popover)
+    - [`<e-tag>`](#e-tag)
     - [`<e-truncate>`](#e-truncate)
 - [Mutated-элементы](#mutated-элементы)
     - [Состояния (общий принцип)](#состояния-общий-принцип)
@@ -409,6 +410,56 @@
         </menu>
     </e-body>
 </e-popover>
+```
+
+### `<e-tag>`
+
+**Класс-дубликат:** `.element--tag` (на `<span>`).
+
+**Назначение:** интерактивная метка для классификации и фильтрации. В отличие от `<e-badge>` — кликабельна: добавляет или исключает фильтр, переходит на страницу метки.
+
+Применяется для:
+- фильтрации по категориям и меткам
+- списков тегов у записи или товара
+- выбора вариантов в компактной форме
+- навигации по связанным разделам
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `class` | `element--button` (вид кнопки), `negative`, `prime`, `second`, `success`, `danger` (цвета), `font-size--s3`...`font-size--l4` (размер) |
+| `role` | `button` (интерактив) |
+
+**Структура:**
+
+```
+<e-tag class="element--button" role="button">
+    Метка
+    <button class="differ" aria-label="Удалить метку">  опционально (закрытие)
+        <e-icon aria-hidden="true" style="--image: url(/icons/x.svg);"></e-icon>
+    </button>
+</e-tag>
+```
+
+**Правила:**
+- Внешний вид — через класс-дубликат `element--button`; собственный вид метки даёт `role="button"`.
+- Кнопка закрытия — нативный `<button class="differ">` с `aria-label`; иконка в ней — с `aria-hidden="true"`.
+- При наличии кнопки последним ребёнком применяется `padding-inline-end` (SCSS: `&:has(> button:last-child)`).
+
+**Пример:**
+
+```html
+<e-tag class="element--button" role="button">Метка</e-tag>
+```
+
+```html
+<e-tag class="element--button prime" role="button">
+    Метка с закрытием
+    <button class="differ" aria-label="Удалить метку">
+        <e-icon aria-hidden="true" style="--image: url(/icons/x.svg);"></e-icon>
+    </button>
+</e-tag>
 ```
 
 ### `<e-truncate>`

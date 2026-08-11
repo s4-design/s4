@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" stroke="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path d="M512 0L512 0L512 512L0 512L0 0L512 0Z" style="mix-blend-mode:normal;" />
+    <path d="M0 432.001L432.001 0L432.001 32L32 432.001L0 432.001Z" style="fill:#002855;" transform="translate(80 80)" />
+    <path d="M0 352.001L352.001 0L352.001 32L32 352.001L0 352.001Z" style="fill:#002855;" transform="translate(160 160)" />
+    <path d="M0 400.001L400.001 0L400 48L48.0001 400.001L0 400.001Z" style="fill:#71C5E8;" transform="translate(112 112)" />
+    <path d="M512 0L512 80L80 512L0 512L0 431.41L432 0L512 0Z" style="fill:#E4002B;" />
+    <path d="M0 400.001L400.001 0L432 0L0 432.001L0 400.001Z" style="fill:#002855;" />
+    <path d="M0 352L352.001 0L399.999 0L0 400.001L0 352Z" style="fill:#71C5E8;" />
+    <path d="M0 320L320.001 0L352 0L0 352.001L0 320Z" style="fill:#002855;" />
+    <path d="M0 320.001L320.001 0L320 48L48.0001 320.001L0 320.001Z" style="fill:#71C5E8;" transform="translate(192 192)" />
+    <path d="M0 272L272.001 0L320 0L0 320.002L0 272Z" style="fill:#71C5E8;" />
+    <path d="M0 272.001L272.001 0L272.001 32L32 272.001L0 272.001Z" style="fill:#002855;" transform="translate(240 240)" />
+    <path d="M0 240L240.001 0L272 0L0 272.001L0 240Z" style="fill:#002855;" />
+</svg>

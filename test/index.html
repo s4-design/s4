@@ -12,19 +12,22 @@
         <h3 class="margin-block-end--unset">Тестовая страница</h3>
         <section class="display--flex row-gap--s2 column-gap--s1 flex-wrap--wrap">
             <!-- ссылки якоря на блоки с элементами -->
-            <a href="#e-popover">Всплывающие блоки</a>
-            <a href="#e-menu">Меню</a>
-            <a href="#e-message">Сообщение</a>
+            <h5 class="margin-block-start--unset flex-basis" style="--flex-basis: 100%">Созданные элементы</h5>
             <a href="#e-badge">Значек</a>
-            <a href="#e-tag">Метка</a>
             <a href="#e-group">Группа</a>
             <a href="#e-icon">Иконка</a>
-            <a href="#e-truncate">Сокращение</a>
             <a href="#e-line">Линия</a>
+            <a href="#e-message">Сообщение</a>
+            <a href="#e-popover">Всплывающие блоки</a>
+            <a href="#e-tag">Метка</a>
+            <a href="#e-truncate">Сокращение</a>
+            <h5 class="margin-block-start--unset flex-basis" style="--flex-basis: 100%">Модифицированные</h5>
             <a href="#a">Гиперссылка</a>
             <a href="#abbr">Aббревиатура</a>
+            <a href="#address">Контактная информация</a>
             <a href="#blockquote">Цитата</a>
             <a href="#button">Кнопка</a>
+            <a href="#checkbox">Флажок</a>
             <a href="#cite">Ссылка на источник</a>
             <a href="#code">Код</a>
             <a href="#details">Cкрытая информация</a>
@@ -32,13 +35,19 @@
             <a href="#fieldset">Набор полей</a>
             <a href="#figure">Элемент иллюстрации</a>
             <a href="#h">Заголовки</a>
-            <a href="#address">Контактная информация</a>
             <a href="#hr">Тематический разделитель</a>
             <a href="#inert">Инертность</a>
             <a href="#input">Получения данных</a>
-            <a href="#checkbox">Флажок</a>
+            <a href="#label">Подпись</a>
+            <a href="#mark">Выделение</a>
+            <a href="#menu">Меню</a>
+            <a href="#p">Абзац</a>
+            <a href="#pre">Преформатированный код</a>
+            <a href="#q">Строчная цитата</a>
             <a href="#radio">Переключатель</a>
             <a href="#select">Список выбора</a>
+            <a href="#small">Малый текст</a>
+            <a href="#strong">Сильное выделение</a>
             <a href="#sub-sup">Индексные надписи</a>
             <a href="#table">Таблица</a>
         </section>
@@ -54,7 +63,6 @@
                     <div>
                         <e-popover mode="focus" position="block-end inline-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -78,7 +86,6 @@
                     <div>
                         <e-popover mode="focus" position="block-end center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -102,7 +109,6 @@
                     <div>
                         <e-popover mode="focus" position="block-end inline-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -127,7 +133,6 @@
                     <div>
                         <e-popover mode="focus" position="inline-end block-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -154,7 +159,6 @@
                     <div>
                         <e-popover mode="focus" position="inline-start block-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -175,11 +179,9 @@
                             </e-body>
                         </e-popover>
                     </div>
-                    <div></div>
                     <div>
                         <e-popover mode="focus" position="inline-end center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -204,7 +206,6 @@
                     <div>
                         <e-popover mode="focus" position="center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -229,7 +230,6 @@
                     <div>
                         <e-popover mode="focus" position="inline-start center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -253,7 +253,6 @@
                     <div>
                         <e-popover mode="focus" position="inline-end block-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -280,7 +279,6 @@
                     <div>
                         <e-popover mode="focus" position="inline-start block-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -305,7 +303,6 @@
                     <div>
                         <e-popover mode="focus" position="block-start inline-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -329,7 +326,6 @@
                     <div>
                         <e-popover mode="focus" position="block-start center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -353,7 +349,6 @@
                     <div>
                         <e-popover mode="focus" position="block-start inline-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -382,7 +377,6 @@
                     <div>
                         <e-popover mode="hover" position="block-end inline-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -406,7 +400,6 @@
                     <div>
                         <e-popover mode="hover" position="block-end center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -430,7 +423,6 @@
                     <div>
                         <e-popover mode="hover" position="block-end inline-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -455,7 +447,6 @@
                     <div>
                         <e-popover mode="hover" position="inline-end block-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -482,7 +473,6 @@
                     <div>
                         <e-popover mode="hover" position="inline-start block-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -503,11 +493,9 @@
                             </e-body>
                         </e-popover>
                     </div>
-                    <div></div>
                     <div>
                         <e-popover mode="hover" position="inline-end center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -532,7 +520,6 @@
                     <div>
                         <e-popover mode="hover" position="center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -557,7 +544,6 @@
                     <div>
                         <e-popover mode="hover" position="inline-start center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -581,7 +567,6 @@
                     <div>
                         <e-popover mode="hover" position="inline-end block-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -608,7 +593,6 @@
                     <div>
                         <e-popover mode="hover" position="inline-start block-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -633,7 +617,6 @@
                     <div>
                         <e-popover mode="hover" position="block-start inline-end">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
                             <e-body role="region">
@@ -657,7 +640,6 @@
                     <div>
                         <e-popover mode="hover" position="block-start center">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start center</e-truncate>
                             </button>
                             <e-body role="region">
@@ -681,7 +663,6 @@
                     <div>
                         <e-popover mode="hover" position="block-start inline-start">
                             <button title="Кнопка">
-                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
                             <e-body role="region">
@@ -707,7 +688,7 @@
             </div>
         </section>
 
-        <section id="e-menu" class="display--flex flex-wrap--wrap gap--md">
+        <section id="menu" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Меню</h4>
             <!-- <p>type="context" → контекстные меню (вызов правой кнопкой)</p>
             <p>type="toolbar" → панели инструментов</p> -->
@@ -1194,6 +1175,15 @@
             </div>
         </section>
 
+        <section id="p" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Абзац</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Абзац</h5><hr />
+                <p>Первый абзац текста. Абзац — блочный элемент, поэтому отступы задаются только по вертикали (ось block).</p>
+                <p>Второй абзац. Вертикальный отступ между абзацами управляется переменной <code>--margin-block</code>.</p>
+            </div>
+        </section>
+
         <section id="button" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Кнопка</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -1340,12 +1330,48 @@
             </div>
         </section>
 
+        <section id="q" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Строчная цитата</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Строчная цитата</h5><hr />
+                <p>Как говорил классик, <q cite="https://rusneb.ru/">«краткость — сестра таланта»</q>, и это до сих пор актуально.</p>
+            </div>
+        </section>
+
+        <section id="mark" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Выделение</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Выделение</h5><hr />
+                <p>Текст с <mark>выделенным фрагментом</mark> для акцента на важной информации.</p>
+            </div>
+        </section>
+
+        <section id="small" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Малый текст</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Малый текст</h5><hr />
+                <p>Основной текст и <small>дополнительный малый текст</small> (примечания, дисклеймеры).</p>
+            </div>
+        </section>
+
+        <section id="strong" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сильное выделение</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Сильное выделение</h5><hr />
+                <p>Важная информация с <strong>сильным выделением</strong> (жирное начертание).</p>
+            </div>
+        </section>
+
         <section id="code" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Код</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Код</h5><hr />
                 <p>Код <code class="display--inline-flex flex-wrap--wrap padding-block--unset">class="flex-basis" style="--flex-basis: 20em"</code> в тексте...</p>
             </div>
+        </section>
+
+        <section id="pre" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Преформатированный код</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Преформатированный код</h5><hr />
                 <pre class="display--flex flex-wrap--wrap gap--s2">
@@ -1788,6 +1814,26 @@
                     <input type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required data-validation="user" />
                     <h6>Шаблон</h6>
                     <input type="text" placeholder="Все кроме цифр" pattern="\D+" required data-validation="user" />
+                </div>
+            </div>
+        </section>
+
+        <section id="label" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Подпись</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Подпись поля ввода</h5><hr />
+                <div class="display--grid">
+                    <label for="lbl-text">Подпись</label>
+                    <input id="lbl-text" type="text" placeholder="Текст формы" />
+                    <h6>Отключено</h6><label for="lbl-disabled">Подпись</label><input id="lbl-disabled" type="text" placeholder="Текст формы" disabled />
+                    <h6>Инертно</h6><label for="lbl-inert">Подпись</label><input id="lbl-inert" type="text" placeholder="Текст формы" inert />
+                </div>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вложенная подпись</h5><hr />
+                <div class="display--grid">
+                    <label><input type="checkbox" /> Флажок</label>
+                    <label><input type="radio" name="label-radio" /> Переключатель</label>
                 </div>
             </div>
         </section>

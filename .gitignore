@@ -11,8 +11,6 @@ tmp
 #files
 *.log
 
-#test
-test/
 .gitignore
 
 AGENTS.md

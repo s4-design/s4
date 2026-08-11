@@ -7,6 +7,7 @@ dev_old
 sandbox
 releases
 tmp
+test/__diff__/
 
 #files
 *.log

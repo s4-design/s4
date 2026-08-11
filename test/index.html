@@ -56,6 +56,252 @@
             </p>
         </section>
 
+        <hr class="margin-block-start--l4 margin-inline--auto inline-size" style="--inline-size: 40%">
+
+        <section id="e-badge" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Значек</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как элемент</h5>
+                <hr />
+                <p class="display--flex flex-wrap--wrap gap--s2">
+                    <e-badge role="status">значек</e-badge>
+                    <e-badge class="negative" href="#a" role="status">negative</e-badge>
+                    <e-badge class="prime" href="#a" role="status">prime</e-badge>
+                    <e-badge class="second" href="#a" role="status">second</e-badge>
+                    <e-badge class="success" href="#a" role="status">success</e-badge>
+                    <e-badge class="danger" href="#a" role="status">danger</e-badge>
+                </p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как класс</h5>
+                <hr />
+                <p class="display--flex flex-wrap--wrap gap--s2">
+                    <span class="element--badge" role="status">значек</span>
+                    <span class="element--badge negative" role="status">negative</span>
+                    <span class="element--badge prime" role="status">prime</span>
+                    <span class="element--badge second" role="status">second</span>
+                    <span class="element--badge success" role="status">success</span>
+                    <span class="element--badge danger" role="status">danger</span>
+                </p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Разное</h5>
+                <hr />
+                <p class="display--flex flex-wrap--wrap gap--s2">
+                    <e-badge class="padding-inline--s3" role="status"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></e-badge>
+                    <e-badge class="display--block padding-inline--s3 element--truncate inline-size" style="--inline-size: var(--min-inline-size)" role="status">1234</e-badge>
+                </p>
+            </div>
+        </section>
+
+        <section id="e-group" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Группа</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как элемент</h5>
+                <hr />
+                <div><h6>Горизонтальная</h6>
+                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                    </e-group>
+                </div>
+                <div><h6>Вертикальная</h6>
+                    <e-group class="display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                    </e-group>
+                </div>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как класс</h5>
+                <hr />
+                <div><h6>Горизонтальная</h6>
+                    <div class="element--group display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                    </div>
+                </div>
+                <div><h6>Вертикальная</h6>
+                    <div class="element--group display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="e-icon" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Иконка</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Иконка как элемент</h5>
+                <hr />
+                <div>
+                    <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <h6>Размеры иконки через размер шрифта</h6>
+                    <e-icon class="font-size--s3" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--s2" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--s1" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--md" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--l1" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--l2" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--l3" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="font-size--l4" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <h6>Цвет иконки через цвета шрифта</h6>
+                    <e-icon class="color--prime" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="color--second" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="color--success" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="color--danger" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <h6>Цвет иконки через цвета фона</h6>
+                    <e-icon class="background-color--prime" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="background-color--second" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="background-color--success" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <e-icon class="background-color--danger" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <h6>В тексте</h6>
+                    <p>Lorem ipsum, dolor sit amet consectetur <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon> adipisicing elit.</p>
+                </div>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Иконка как класс</h5>
+                <hr />
+                <div>
+                    <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
+                    <h6>Размеры иконки через размер шрифта</h6>
+                    <span class="element--icon font-size--s3" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--s2" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--s1" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--md" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--l1" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--l2" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--l3" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon font-size--l4" style="--image: url(/test/icons/icon.svg)"></span>
+                    <h6>Цвет иконки через цвета шрифта</h6>
+                    <span class="element--icon color--prime" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon color--second" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon color--success" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon color--danger" style="--image: url(/test/icons/icon.svg)"></span>
+                    <h6>Цвет иконки через цвета фона</h6>
+                    <span class="element--icon background-color--prime" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon background-color--second" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon background-color--success" style="--image: url(/test/icons/icon.svg)"></span>
+                    <span class="element--icon background-color--danger" style="--image: url(/test/icons/icon.svg)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="e-line" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Линия</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Горизонтальная</h5>
+                <hr />
+                <e-group class="display--inline-grid grid-auto-flow--row gap--md" role="group"><div>Ячейка</div><e-line role="separator"></e-line><div>Ячейка</div></e-group>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вертикальная</h5>
+                <hr />
+                <e-group class="display--inline-flex flex-direction--row gap--md" role="group"><div>Ячейка</div><e-line role="separator"></e-line><div>Ячейка</div></e-group>
+            </div>
+        </section>
+
+        <section id="e-message" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сообщение</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как элемент с заголовком и подвалом</h5>
+                <hr />
+                <e-message role="status">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+                <e-message class="negative" role="status">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="negative background-color--transparent differ margin-inline-start--auto">Кнопка</button>
+                            <button>Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+                <e-message class="prime" role="status">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+                <e-message class="second" role="status">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+                <e-message class="success" role="status">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+                <e-message class="danger" role="alert">
+                    <header class="margin-block-end--unset">Заголовок сообщения</header>
+                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </e-message>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как элемент с заголовком без подвала</h5>
+                <hr />
+                <e-message role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="negative" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="prime" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="second" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="success" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="danger" role="alert"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Как элемент без заголовком и подвала</h5>
+                <hr />
+                <e-message role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="negative" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="prime" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="second" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="success" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+                <e-message class="danger" role="alert"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
+            </div>
+        </section>
+
         <section id="e-popover" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Всплывающие блоки</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -692,169 +938,6 @@
             </div>
         </section>
 
-        <section id="menu" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Меню</h4>
-            <!-- <p>type="context" → контекстные меню (вызов правой кнопкой)</p>
-            <p>type="toolbar" → панели инструментов</p> -->
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Меню - горизонтальная панель инструментов</h5>
-                <hr />
-                <menu type="toolbar">
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <e-line></e-line>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                </menu>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Меню - вертикальная панель инструментов</h5>
-                <hr />
-                <menu type="context">
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <e-line></e-line>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                </menu>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Меню - контекстное</h5>
-                <hr />
-                <menu type="context">
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button></li>
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Еще одно меню</button></li>
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Еще меню</button></li>
-                    <e-line></e-line>
-                    <li><button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button></li>
-                </menu>
-            </div>
-        </section>
-
-        <section id="e-message" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сообщение</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент с заголовком и подвалом</h5>
-                <hr />
-                <e-message role="status">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
-                            <button class="negative">Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-                <e-message class="negative" role="status">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="negative background-color--transparent differ margin-inline-start--auto">Кнопка</button>
-                            <button>Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-                <e-message class="prime" role="status">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
-                            <button class="negative">Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-                <e-message class="second" role="status">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
-                            <button class="negative">Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-                <e-message class="success" role="status">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
-                            <button class="negative">Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-                <e-message class="danger" role="alert">
-                    <header class="margin-block-end--unset">Заголовок сообщения</header>
-                    <e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body>
-                    <footer class="margin-block-start--unset">
-                        <div class="display--contents font-size--s1">
-                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
-                            <button class="negative">Кнопка</button>
-                        </div>
-                    </footer>
-                </e-message>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент с заголовком без подвала</h5>
-                <hr />
-                <e-message role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="negative" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="prime" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="second" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="success" role="status"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="danger" role="alert"><header class="margin-block-end--unset">Заголовок</header><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент без заголовком и подвала</h5>
-                <hr />
-                <e-message role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="negative" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="prime" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="second" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="success" role="status"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-                <e-message class="danger" role="alert"><e-body>В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.</e-body></e-message>
-            </div>
-        </section>
-
-        <section id="e-badge" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Значек</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент</h5>
-                <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2">
-                    <e-badge role="status">значек</e-badge>
-                    <e-badge class="negative" href="#a" role="status">negative</e-badge>
-                    <e-badge class="prime" href="#a" role="status">prime</e-badge>
-                    <e-badge class="second" href="#a" role="status">second</e-badge>
-                    <e-badge class="success" href="#a" role="status">success</e-badge>
-                    <e-badge class="danger" href="#a" role="status">danger</e-badge>
-                </p>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как класс</h5>
-                <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2">
-                    <span class="element--badge" role="status">значек</span>
-                    <span class="element--badge negative" role="status">negative</span>
-                    <span class="element--badge prime" role="status">prime</span>
-                    <span class="element--badge second" role="status">second</span>
-                    <span class="element--badge success" role="status">success</span>
-                    <span class="element--badge danger" role="status">danger</span>
-                </p>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Разное</h5>
-                <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2">
-                    <e-badge class="padding-inline--s3" role="status"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></e-badge>
-                    <e-badge class="display--block padding-inline--s3 element--truncate inline-size" style="--inline-size: var(--min-inline-size)" role="status">1234</e-badge>
-                </p>
-            </div>
-        </section>
-
         <section id="e-tag" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Метка</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -913,112 +996,6 @@
             </div>
         </section>
 
-        <section id="e-group" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Группа</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент</h5>
-                <hr />
-                <div><h6>Горизонтальная</h6>
-                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </e-group>
-                </div>
-                <div><h6>Вертикальная</h6>
-                    <e-group class="display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </e-group>
-                </div>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как класс</h5>
-                <hr />
-                <div><h6>Горизонтальная</h6>
-                    <div class="element--group display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </div>
-                </div>
-                <div><h6>Вертикальная</h6>
-                    <div class="element--group display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="e-icon" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Иконка</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Иконка как элемент</h5>
-                <hr />
-                <div>
-                    <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <h6>Размеры иконки через размер шрифта</h6>
-                    <e-icon class="font-size--s3" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--s2" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--s1" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--md" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--l1" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--l2" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--l3" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="font-size--l4" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <h6>Цвет иконки через цвета шрифта</h6>
-                    <e-icon class="color--prime" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="color--second" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="color--success" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="color--danger" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <h6>Цвет иконки через цвета фона</h6>
-                    <e-icon class="background-color--prime" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="background-color--second" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="background-color--success" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <e-icon class="background-color--danger" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <h6>В тексте</h6>
-                    <p>Lorem ipsum, dolor sit amet consectetur <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon> adipisicing elit.</p>
-                </div>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Иконка как класс</h5>
-                <hr />
-                <div>
-                    <e-icon style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></e-icon>
-                    <h6>Размеры иконки через размер шрифта</h6>
-                    <span class="element--icon font-size--s3" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--s2" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--s1" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--md" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--l1" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--l2" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--l3" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon font-size--l4" style="--image: url(/test/icons/icon.svg)"></span>
-                    <h6>Цвет иконки через цвета шрифта</h6>
-                    <span class="element--icon color--prime" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon color--second" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon color--success" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon color--danger" style="--image: url(/test/icons/icon.svg)"></span>
-                    <h6>Цвет иконки через цвета фона</h6>
-                    <span class="element--icon background-color--prime" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon background-color--second" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon background-color--success" style="--image: url(/test/icons/icon.svg)"></span>
-                    <span class="element--icon background-color--danger" style="--image: url(/test/icons/icon.svg)"></span>
-                </div>
-            </div>
-        </section>
-
         <section id="e-truncate" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сокращение</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -1034,20 +1011,6 @@
                 <div class="display--grid">
                     <p class="element--truncate" title="Lorem ipsum dolor sit amet consectetur...">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit laudantium magni quo fugiat maiores nisi amet ab, eum vero dolorem eos quis nobis, hic distinctio quia veniam laborum earum expedita.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="e-line" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Линия</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Горизонтальная</h5>
-                <hr />
-                <e-group class="display--inline-grid grid-auto-flow--row gap--md" role="group"><div>Ячейка</div><e-line role="separator"></e-line><div>Ячейка</div></e-group>
-            </div>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вертикальная</h5>
-                <hr />
-                <e-group class="display--inline-flex flex-direction--row gap--md" role="group"><div>Ячейка</div><e-line role="separator"></e-line><div>Ячейка</div></e-group>
             </div>
         </section>
 
@@ -1143,6 +1106,18 @@
             </div>
         </section>
 
+        <section id="address"><h4>Контактная информация</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md">
+                <address>
+                    Автор: <a href="mailto:author@example.com">author@example.com</a>
+                </address>
+                <h6>Инертно</h6>
+                <address inert>
+                    Автор: <a href="mailto:author@example.com">author@example.com</a>
+                </address>
+            </div>
+        </section>
+
         <section id="blockquote" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Цитата</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 30em">
@@ -1176,15 +1151,6 @@
                         <footer>Чехов, Антон Павлович, <cite>Дом с мезонином</cite></footer>
                     </blockquote>
                 </figure>
-            </div>
-        </section>
-
-        <section id="p" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Абзац</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Абзац</h5><hr />
-                <p>Первый абзац текста. Абзац — блочный элемент, поэтому отступы задаются только по вертикали (ось block).</p>
-                <p>Второй абзац. Вертикальный отступ между абзацами управляется переменной <code>--margin-block</code>.</p>
             </div>
         </section>
 
@@ -1328,41 +1294,48 @@
             </div>
         </section>
 
+        <section id="checkbox" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Флажок</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Разделенный</h5><hr />
+                <p><input id="c1" type="checkbox" /> <label for="c1">Флажок</label></p>
+                <h6>Отмечен</h6><p><input id="c2" type="checkbox" checked /> <label for="c2">Флажок</label></p>
+                <h6>Отключен</h6><p><input id="c3" type="checkbox" disabled /> <label for="c3">Флажок</label></p>
+                <h6>Инертный</h6><p><input id="c4" type="checkbox" inert /> <label for="c4">Флажок</label></p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вложенный</h5><hr />
+                <p><label><input type="checkbox" /> Флажок</label></p>
+                <h6>Отмеченый</h6><p><label><input type="checkbox" checked /> Флажок</label></p>
+                <h6>Отключеный</h6><p><label><input type="checkbox" disabled /> Флажок</label></p>
+                <h6>Инертный</h6><p><label inert><input type="checkbox" /> Флажок</label></p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вложенный c иконкой</h5><hr />
+                <p><label><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Отмеченый</h6><p><label><input class="display--none" type="checkbox" checked /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Отключеный</h6><p><label><input class="display--none" type="checkbox" disabled /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Инертный</h6><p><label inert><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вложенный как кнопка</h5><hr />
+                <p><label class="element--button"><input type="checkbox" /> Флажок</label></p>
+                <h6>Отмеченый</h6><p><label class="element--button"><input type="checkbox" checked /> Флажок</label></p>
+                <h6>Отключеный</h6><p><label class="element--button"><input type="checkbox" disabled /> Флажок</label></p>
+                <h6>Инертный</h6><p><label class="element--button" inert><input type="checkbox" /> Флажок</label></p>
+            </div>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Вложенный с иконкой как кнопка</h5><hr />
+                <p><label class="element--button"><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Отмеченый</h6><p><label class="element--button"><input class="display--none" type="checkbox" checked /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Отключеный</h6><p><label class="element--button"><input class="display--none" type="checkbox" disabled /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h6>Инертный</h6><p><label class="element--button" inert><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+            </div>
+        </section>
+
         <section id="cite"><h4>Ссылка на источник</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md">
                 <p>Более подробную информацию можно найти в <cite>[ISO-0000]</cite></p>
-            </div>
-        </section>
-
-        <section id="q" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Строчная цитата</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Строчная цитата</h5><hr />
-                <p>Как говорил классик, <q cite="https://rusneb.ru/">«краткость — сестра таланта»</q>, и это до сих пор актуально.</p>
-            </div>
-        </section>
-
-        <section id="mark" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Выделение</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Выделение</h5><hr />
-                <p>Текст с <mark>выделенным фрагментом</mark> для акцента на важной информации.</p>
-            </div>
-        </section>
-
-        <section id="small" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Малый текст</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Малый текст</h5><hr />
-                <p>Основной текст и <small>дополнительный малый текст</small> (примечания, дисклеймеры).</p>
-            </div>
-        </section>
-
-        <section id="strong" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сильное выделение</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Сильное выделение</h5><hr />
-                <p>Важная информация с <strong>сильным выделением</strong> (жирное начертание).</p>
             </div>
         </section>
 
@@ -1371,17 +1344,6 @@
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Код</h5><hr />
                 <p>Код <code class="display--inline-flex flex-wrap--wrap padding-block--unset">class="flex-basis" style="--flex-basis: 20em"</code> в тексте...</p>
-            </div>
-        </section>
-
-        <section id="pre" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Преформатированный код</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Преформатированный код</h5><hr />
-                <pre class="display--flex flex-wrap--wrap gap--s2">
-                    <code>    class="flex-basis"
-    style="--flex-basis: 20em"</code>
-                </pre>
             </div>
         </section>
 
@@ -1571,18 +1533,6 @@
                 <div class="element--h4" role="heading" aria-level="4">h4 - Уровень четвертый</div>
                 <div class="element--h5" role="heading" aria-level="5">h5 - Уровень пятый</div>
                 <div class="element--h6" role="heading" aria-level="6">h6 - Уровень шестой</div>
-            </div>
-        </section>
-
-        <section id="address"><h4>Контактная информация</h4>
-            <div class=" border-radius--md padding-inline--md padding-block--md">
-                <address>
-                    Автор: <a href="mailto:author@example.com">author@example.com</a>
-                </address>
-                <h6>Инертно</h6>
-                <address inert>
-                    Автор: <a href="mailto:author@example.com">author@example.com</a>
-                </address>
             </div>
         </section>
 
@@ -1842,42 +1792,78 @@
             </div>
         </section>
 
-        <section id="checkbox" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Флажок</h4>
+        <section id="mark" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Выделение</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Разделенный</h5><hr />
-                <p><input id="c1" type="checkbox" /> <label for="c1">Флажок</label></p>
-                <h6>Отмечен</h6><p><input id="c2" type="checkbox" checked /> <label for="c2">Флажок</label></p>
-                <h6>Отключен</h6><p><input id="c3" type="checkbox" disabled /> <label for="c3">Флажок</label></p>
-                <h6>Инертный</h6><p><input id="c4" type="checkbox" inert /> <label for="c4">Флажок</label></p>
+                <h5 class="margin-block-start--unset">Выделение</h5><hr />
+                <p>Текст с <mark>выделенным фрагментом</mark> для акцента на важной информации.</p>
+            </div>
+        </section>
+
+        <section id="menu" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Меню</h4>
+            <!-- <p>type="context" → контекстные меню (вызов правой кнопкой)</p>
+            <p>type="toolbar" → панели инструментов</p> -->
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Меню - горизонтальная панель инструментов</h5>
+                <hr />
+                <menu type="toolbar">
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <e-line></e-line>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                </menu>
             </div>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вложенный</h5><hr />
-                <p><label><input type="checkbox" /> Флажок</label></p>
-                <h6>Отмеченый</h6><p><label><input type="checkbox" checked /> Флажок</label></p>
-                <h6>Отключеный</h6><p><label><input type="checkbox" disabled /> Флажок</label></p>
-                <h6>Инертный</h6><p><label inert><input type="checkbox" /> Флажок</label></p>
+                <h5 class="margin-block-start--unset">Меню - вертикальная панель инструментов</h5>
+                <hr />
+                <menu type="context">
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                    <e-line></e-line>
+                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                </menu>
             </div>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вложенный c иконкой</h5><hr />
-                <p><label><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Отмеченый</h6><p><label><input class="display--none" type="checkbox" checked /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Отключеный</h6><p><label><input class="display--none" type="checkbox" disabled /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Инертный</h6><p><label inert><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h5 class="margin-block-start--unset">Меню - контекстное</h5>
+                <hr />
+                <menu type="context">
+                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button></li>
+                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Еще одно меню</button></li>
+                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Еще меню</button></li>
+                    <e-line></e-line>
+                    <li><button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button></li>
+                </menu>
             </div>
+        </section>
+
+        <section id="p" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Абзац</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вложенный как кнопка</h5><hr />
-                <p><label class="element--button"><input type="checkbox" /> Флажок</label></p>
-                <h6>Отмеченый</h6><p><label class="element--button"><input type="checkbox" checked /> Флажок</label></p>
-                <h6>Отключеный</h6><p><label class="element--button"><input type="checkbox" disabled /> Флажок</label></p>
-                <h6>Инертный</h6><p><label class="element--button" inert><input type="checkbox" /> Флажок</label></p>
+                <h5 class="margin-block-start--unset">Абзац</h5><hr />
+                <p>Первый абзац текста. Абзац — блочный элемент, поэтому отступы задаются только по вертикали (ось block).</p>
+                <p>Второй абзац. Вертикальный отступ между абзацами управляется переменной <code>--margin-block</code>.</p>
             </div>
+        </section>
+
+        <section id="pre" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Преформатированный код</h4>
             <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вложенный с иконкой как кнопка</h5><hr />
-                <p><label class="element--button"><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Отмеченый</h6><p><label class="element--button"><input class="display--none" type="checkbox" checked /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Отключеный</h6><p><label class="element--button"><input class="display--none" type="checkbox" disabled /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
-                <h6>Инертный</h6><p><label class="element--button" inert><input class="display--none" type="checkbox" /><e-icon style="--image:url(/test/icons/checkbox-uncheck.svg)" uncheck aria-hidden="true"></e-icon><e-icon style="--image:url(/test/icons/checkbox-check.svg)" check aria-hidden="true"></e-icon> Флажок</label></p>
+                <h5 class="margin-block-start--unset">Преформатированный код</h5><hr />
+                <pre class="display--flex flex-wrap--wrap gap--s2">
+                    <code>    class="flex-basis"
+    style="--flex-basis: 20em"</code>
+                </pre>
+            </div>
+        </section>
+
+        <section id="q" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Строчная цитата</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Строчная цитата</h5><hr />
+                <p>Как говорил классик, <q cite="https://rusneb.ru/">«краткость — сестра таланта»</q>, и это до сих пор актуально.</p>
             </div>
         </section>
 
@@ -2054,6 +2040,22 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </select>
                 </div>
+            </div>
+        </section>
+
+        <section id="small" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Малый текст</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Малый текст</h5><hr />
+                <p>Основной текст и <small>дополнительный малый текст</small> (примечания, дисклеймеры).</p>
+            </div>
+        </section>
+
+        <section id="strong" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Сильное выделение</h4>
+            <div class=" border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Сильное выделение</h5><hr />
+                <p>Важная информация с <strong>сильным выделением</strong> (жирное начертание).</p>
             </div>
         </section>
 

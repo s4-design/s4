@@ -436,7 +436,7 @@
 ```
 <e-tag class="element--button" role="button">
     Метка
-    <button class="differ" aria-label="Удалить метку">  опционально (закрытие)
+    <button class="differ" aria-label="Удалить метку" onclick="event.target.closest('e-tag').remove()">  опционально (закрытие)
         <e-icon aria-hidden="true" style="--image: url(/icons/x.svg);"></e-icon>
     </button>
 </e-tag>
@@ -444,8 +444,7 @@
 
 **Правила:**
 - Внешний вид — через класс-дубликат `element--button`; собственный вид метки даёт `role="button"`.
-- Кнопка закрытия — нативный `<button class="differ">` с `aria-label`; иконка в ней — с `aria-hidden="true"`.
-- При наличии кнопки последним ребёнком применяется `padding-inline-end` (SCSS: `&:has(> button:last-child)`).
+- Кнопка закрытия — нативный `<button class="differ">` с `aria-label` и обработчиком удаления метки `onclick="event.target.closest('e-tag').remove()"`; иконка в ней — с `aria-hidden="true"`.
 
 **Пример:**
 
@@ -456,7 +455,7 @@
 ```html
 <e-tag class="element--button prime" role="button">
     Метка с закрытием
-    <button class="differ" aria-label="Удалить метку">
+    <button class="differ" aria-label="Удалить метку" onclick="event.target.closest('e-tag').remove()">
         <e-icon aria-hidden="true" style="--image: url(/icons/x.svg);"></e-icon>
     </button>
 </e-tag>

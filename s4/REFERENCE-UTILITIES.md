@@ -13,7 +13,7 @@
 | `backdrop-filter` | |
 | `background-attachment` | `scroll`, `fixed`, `local` |
 | `background-clip` | `border-box`, `padding-box`, `content-box`, `text` |
-| `background-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
+| `background-color` | `transparent`, все цвета из пресета (white, black, white--01...09, black--01...09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `background-image` | |
 | `background-origin` | `border-box`, `content-box`, `padding-box` |
 | `background-position` | `left`, `top-left`, `left-top`, `top`, `top-right`, `right-top`, `right`, `bottom-right`, `right-bottom`, `bottom`, `bottom-left`, `left-bottom`, `center` |
@@ -23,7 +23,7 @@
 | `border-block-end-style` | `dotted`, `dashed`, `solid`, `none` |
 | `border-block-start-style` | `dotted`, `dashed`, `solid`, `none` |
 | `border-collapse` | `collapse`, `separate` |
-| `border-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
+| `border-color` | `transparent`, все цвета из пресета (white, black, white--01...09, black--01...09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `border-end-end-radius` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `oval`, `pill`, `unset` |
 | `border-end-start-radius` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `oval`, `pill`, `unset` |
 | `border-inline-end-style` | `dotted`, `dashed`, `solid`, `none` |
@@ -39,7 +39,7 @@
 | `break-after` | |
 | `break-before` | |
 | `break-inside` | |
-| `color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
+| `color` | `transparent`, все цвета из пресета (white, black, white--01...09, black--01...09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `column-count` | `auto` |
 | `column-fill` | `auto`, `balance` |
 | `column-gap` | `s3`, `s2`, `s1`, `md`, `l1`, `l2`, `l3`, `l4`, `unset` |
@@ -66,15 +66,15 @@
 | `grid-auto-columns` | |
 | `grid-auto-flow` | `column`, `row`, `dense`, `row-dense`, `column-dense` |
 | `grid-auto-rows` | |
-| `grid-column` | `span-1`…`span-12`, `full` |
-| `grid-column-end` | `1`…`12` |
-| `grid-column-start` | `1`…`12` |
-| `grid-row` | `span-1`…`span-12`, `full` |
-| `grid-row-end` | `1`…`12` |
-| `grid-row-start` | `1`…`12` |
+| `grid-column` | `span-1`...`span-12`, `full` |
+| `grid-column-end` | `1`...`12` |
+| `grid-column-start` | `1`...`12` |
+| `grid-row` | `span-1`...`span-12`, `full` |
+| `grid-row-end` | `1`...`12` |
+| `grid-row-start` | `1`...`12` |
 | `grid-template-areas` | |
-| `grid-template-columns` | `1`…`12`, `none`, `subgrid` |
-| `grid-template-rows` | `1`…`12`, `none`, `subgrid` |
+| `grid-template-columns` | `1`...`12`, `none`, `subgrid` |
+| `grid-template-rows` | `1`...`12`, `none`, `subgrid` |
 | `inline-size` | `25`, `50`, `75`, `100`, `fit-content`, `min-content`, `max-content`, `stretch`, `unset` |
 | `inset` | |
 | `inset-block-end` | `0`, `50`, `100` |
@@ -98,7 +98,7 @@
 | `object-fit` | `contain`, `cover`, `fill`, `none` |
 | `object-position` | `top`, `bottom`, `left`, `right`, `center` |
 | `order` | `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `unset` |
-| `outline-color` | `transparent`, все цвета из пресета (white, black, white--01…09, black--01…09, positive, negative, prime, second, success, danger + их light/dark/mute) |
+| `outline-color` | `transparent`, все цвета из пресета (white, black, white--01...09, black--01...09, positive, negative, prime, second, success, danger + их light/dark/mute) |
 | `outline-offset` | |
 | `outline-style` | `dotted`, `dashed`, `solid`, `none` |
 | `outline-width` | `thin`, `medium`, `thick` |

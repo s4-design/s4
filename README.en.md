@@ -236,7 +236,7 @@ Each accent color has four shades:
 | `--{x}--dark` | Dark |
 | `--{x}--mute` | Semi-transparent |
 
-Basics: `--white`, `--black`, `--white--01`…`--white--09`, `--black--01`…`--black--09` (10% transparency steps).
+Basics: `--white`, `--black`, `--white--01`...`--white--09`, `--black--01`...`--black--09` (10% transparency steps).
 
 <br>
 
@@ -324,7 +324,7 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<dl>` | - | Description list |
 | `<fieldset>` | - | Fieldset |
 | `<figure>` | - | Figure |
-| `<h1>`–`<h6>` | `.element--h1` … `.element--h6` | Headings |
+| `<h1>`–`<h6>` | `.element--h1` ... `.element--h6` | Headings |
 | `<hr>` | - | Horizontal rule |
 | `<input>` | - | Input field |
 | `<label>` | - | Label |

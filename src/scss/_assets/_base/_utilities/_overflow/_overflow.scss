@@ -1,4 +1,4 @@
-@mixin overflow($type, $orientation) {
+@mixin overflow($device, $orientation, $enableVariables) {
     /* overflow */
     @each $overflow in (
         "auto",
@@ -7,12 +7,22 @@
         "scroll",
         "clip"
     ) {
-        .#{$type}#{$orientation}overflow--#{$overflow} {
+        .#{$device}#{$orientation}overflow--#{$overflow} {
             overflow: #{$overflow};
         }
-        @each $axis in ( "x", "y" ) {
-            .#{$type}#{$orientation}overflow-#{$axis}--#{$overflow} {
+        @each $axis in ( "inline", "block" ) {
+            .#{$device}#{$orientation}overflow-#{$axis}--#{$overflow} {
                 overflow-#{$axis}: #{$overflow};
+            }
+        }
+    }
+
+    @if $enableVariables {
+        .overflow {
+            @if $device == "" and $orientation == "" {
+                overflow: var(--overflow);
+            } @else {
+                overflow: var(--#{$device}#{$orientation}overflow, var(--overflow));
             }
         }
     }

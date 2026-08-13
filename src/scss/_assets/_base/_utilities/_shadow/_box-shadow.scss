@@ -1,6 +1,6 @@
-@mixin box-shadow($type, $orientation, $enableVariables) {
+@mixin box-shadow($device, $orientation, $enableVariables) {
     /* box shadow */
-    .#{$type}#{$orientation}box-shadow {
+    .#{$device}#{$orientation}box-shadow {
         &--unset,
         &--unset\:hover:hover {
             box-shadow: unset;
@@ -9,14 +9,22 @@
     
     @if $enableVariables {
         .box-shadow {
-            box-shadow: var(--#{$type}#{$orientation}box-shadow, var(--box-shadow));
-        }
-        @each $pseudoClass in (
-            "hover"
-        ) {
-            .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
-                box-shadow: var(--#{$type}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+            @if $device == "" and $orientation == "" {
+                box-shadow: var(--box-shadow);
+            } @else {
+                box-shadow: var(--#{$device}#{$orientation}box-shadow, var(--box-shadow));
             }
         }
+        // @each $pseudoClass in (
+        //     "hover"
+        // ) {
+        //     .box-shadow\:#{$pseudoClass}:#{$pseudoClass} {
+        //         @if $device == "" and $orientation == "" {
+        //             box-shadow: var(--box-shadow\:#{$pseudoClass});
+        //         } @else {
+        //             box-shadow: var(--#{$device}#{$orientation}box-shadow\:#{$pseudoClass}, var(--box-shadow\:#{$pseudoClass}));
+        //         }
+        //     }
+        // }
     }
 }

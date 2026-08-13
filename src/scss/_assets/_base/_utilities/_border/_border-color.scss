@@ -1,6 +1,6 @@
-@mixin border-color($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-color($device, $orientation, $enableVariables, $borderSides) {
     /* border-color */
-    .#{$type}#{$orientation}border-color {
+    .#{$device}#{$orientation}border-color {
         &--transparent,
         &--transparent\:hover:hover {
             border-color: #{transparent};
@@ -9,17 +9,33 @@
 
     @if $enableVariables {
         .border-color {
-            border-color: var(--#{$type}#{$orientation}border-color, var(--border-color));
+            @if $device == "" and $orientation == "" {
+                border-color: var(--border-color);
+            } @else {
+                border-color: var(--#{$device}#{$orientation}border-color, var(--border-color));
+            }
         }
         .border-color\:hover:hover {
-            border-color: var(--#{$type}#{$orientation}border-color\:hover, var(--border-color\:hover));
+            @if $device == "" and $orientation == "" {
+                border-color: var(--border-color\:hover);
+            } @else {
+                border-color: var(--#{$device}#{$orientation}border-color\:hover, var(--border-color\:hover));
+            }
         }
         @each $side in $borderSides {
             .border-#{$side}-color {
-                border-#{$side}-color: var(--#{$type}#{$orientation}border-#{$side}-color, var(--border-#{$side}-color));
+                @if $device == "" and $orientation == "" {
+                    border-#{$side}-color: var(--border-#{$side}-color);
+                } @else {
+                    border-#{$side}-color: var(--#{$device}#{$orientation}border-#{$side}-color, var(--border-#{$side}-color));
+                }
             }
             .border-#{$side}-color\:hover:hover {
-                border-#{$side}-color: var(--#{$type}#{$orientation}border-#{$side}-color\:hover, var(--border-#{$side}-color\:hover));
+                @if $device == "" and $orientation == "" {
+                    border-#{$side}-color: var(--border-#{$side}-color\:hover);
+                } @else {
+                    border-#{$side}-color: var(--#{$device}#{$orientation}border-#{$side}-color\:hover, var(--border-#{$side}-color\:hover));
+                }
             }
         }
     }

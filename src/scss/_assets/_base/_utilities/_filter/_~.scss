@@ -1,7 +1,7 @@
 @use "backdrop-filter" as backdrop-filter;
 @use "filter" as filter;
 
-@mixin filter($type, $orientation, $enableVariables) {
-    @include backdrop-filter.backdrop-filter($type, $orientation, $enableVariables);
-    @include filter.filter($type, $orientation, $enableVariables);
+@mixin filter($device, $orientation, $enableVariables) {
+    @include backdrop-filter.backdrop-filter($device, $orientation, $enableVariables);
+    @include filter.filter($device, $orientation, $enableVariables);
 }

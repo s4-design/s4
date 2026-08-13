@@ -1,12 +1,22 @@
-@mixin float($type, $orientation) {
+@mixin float($device, $orientation, $enableVariables) {
     /* float */
     @each $float in (
         "inline-start",
         "inline-end",
         "none"
     ) {
-        .#{$type}#{$orientation}float--#{$float} {
+        .#{$device}#{$orientation}float--#{$float} {
             float: #{$float};
+        }
+    }
+
+    @if $enableVariables {
+        .float {
+            @if $device == "" and $orientation == "" {
+                float: var(--float);
+            } @else {
+                float: var(--#{$device}#{$orientation}float, var(--float));
+            }
         }
     }
 }

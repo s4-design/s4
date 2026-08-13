@@ -1,4 +1,4 @@
-@mixin object-position($type, $orientation, $enableVariables) {
+@mixin object-position($device, $orientation, $enableVariables) {
     /* object position */
     @each $objectPosition in (
         "top",
@@ -7,14 +7,18 @@
         "right",
         "center"
     ) {
-        .object-position--#{$objectPosition} {
+        .#{$device}#{$orientation}object-position--#{$objectPosition} {
             object-position: #{$objectPosition};
         }    
     }
     
     @if $enableVariables {
         .object-position {
-            object-position: var(--#{$type}#{$orientation}object-position, var(--object-position));
+            @if $device == "" and $orientation == "" {
+                object-position: var(--object-position);
+            } @else {
+                object-position: var(--#{$device}#{$orientation}object-position, var(--object-position));
+            }
         }
     }
 }

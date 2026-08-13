@@ -6,12 +6,12 @@
 @use "column-span" as column-span;
 @use "column-width" as column-width;
 
-@mixin column($type, $orientation, $enableVariables) {
-    @include column-count.column-count($type, $orientation, $enableVariables);
-    @include column-fill.column-fill($type, $orientation);
-    @include column-rule-color.column-rule-color($type, $orientation, $enableVariables);
-    @include column-rule-style.column-rule-style($type, $orientation, $enableVariables);
-    @include column-rule-width.column-rule-width($type, $orientation, $enableVariables);
-    @include column-span.column-span($type, $orientation);
-    @include column-width.column-width($type, $orientation, $enableVariables);
+@mixin column($device, $orientation, $enableVariables) {
+    @include column-count.column-count($device, $orientation, $enableVariables);
+    @include column-fill.column-fill($device, $orientation, $enableVariables);
+    @include column-rule-color.column-rule-color($device, $orientation, $enableVariables);
+    @include column-rule-style.column-rule-style($device, $orientation, $enableVariables);
+    @include column-rule-width.column-rule-width($device, $orientation, $enableVariables);
+    @include column-span.column-span($device, $orientation, $enableVariables);
+    @include column-width.column-width($device, $orientation, $enableVariables);
 }

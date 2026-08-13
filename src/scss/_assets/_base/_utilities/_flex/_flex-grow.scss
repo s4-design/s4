@@ -1,9 +1,13 @@
-@mixin flex-grow($type, $orientation, $enableVariables) {
+@mixin flex-grow($device, $orientation, $enableVariables) {
     /* flex grow */
     
     @if $enableVariables {
         .flex-grow {
-            flex-grow: var(--#{$type}#{$orientation}flex-grow, var(--flex-grow));
+            @if $device == "" and $orientation == "" {
+                flex-grow: var(--flex-grow);
+            } @else {
+                flex-grow: var(--#{$device}#{$orientation}flex-grow, var(--flex-grow));
+            }
         }
     }
 }

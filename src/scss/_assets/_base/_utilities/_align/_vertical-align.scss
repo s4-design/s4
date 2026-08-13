@@ -1,4 +1,4 @@
-@mixin vertical-align($type, $orientation) {
+@mixin vertical-align($device, $orientation, $enableVariables) {
     /* vertical align */
     @each $verticalAlign in (
         "baseline",
@@ -10,8 +10,18 @@
         "text-bottom",
         "text-top"
     ) {
-        .#{$type}#{$orientation}vertical-align--#{$verticalAlign} {
+        .#{$device}#{$orientation}vertical-align--#{$verticalAlign} {
             vertical-align: #{$verticalAlign};
+        }
+    }
+
+    @if $enableVariables {
+        .vertical-align {
+            @if $device == "" and $orientation == "" {
+                vertical-align: var(--vertical-align);
+            } @else {
+                vertical-align: var(--#{$device}#{$orientation}vertical-align, var(--vertical-align));
+            }
         }
     }
 }

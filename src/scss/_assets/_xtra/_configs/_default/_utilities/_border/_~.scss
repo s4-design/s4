@@ -3,14 +3,14 @@
 @use "border-color" as *;
 @use "border-radius" as *;
 
-@mixin border($type, $orientation) {
+@mixin border($device, $orientation) {
     @include border-color(
-        $type,
+        $device,
         $orientation,
         $defaultColors,
         $accentColors,
         $colorsGradientNumberSteps,
         $accentColorsPostfixes
     );
-    @include border-radius($type, $orientation);
+    @include border-radius($device, $orientation);
 }

@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.0.0] — 2026-08-12
+
+### Added
+- Элементы: `<e-tag>`, `<mark>`, `<q>`, `<small>`, `<strong>`, `<samp>`, `<pre>` со стилями и пресетами light/dark
+- Утилиты: базовый `utilities.css`, `scrollbar-color`/`scrollbar-width`, `table-layout`, `overflow-inline`/`overflow-block`
+- Class-дубликаты: `<e-{name}>` и `.element--{name}` от единого миксина
+- S4.md: разделы «Публичный API», «Внутренние механизмы (INTERNAL)», «MUST» (9), «MUST NOT» (6), «AI Generation Rules» (10)
+- REFERENCE-ELEMENTS.md — справочник элементов (анатомия, структура, class-дубликаты)
+- Визуальные скриншотные тесты (Playwright): 36 секций × 2 пресета, `_dev-test` / `_dev-test-update`
+- CI workflow (`.github/workflows/ci.yml`): build (SCSS, JS, header)
+- `packageManager: pnpm@11.9.0`
+
+### Changed
+- Архитектура пресетов: `_themes/` → `_configs/`, `_theme-*/` → `_preset-*/`; атрибут `[theme]` → `[preset]`; слой `@layer themes` → `@layer presets`
+- Изоляция пресетов через `@scope ([preset=*])`; сборка пресета отдельно для каждого устройства
+- Утилиты: разделение Formula 1 / Formula 2, переименование в `{orientation}-utilities.css`
+- `overflow-x`/`overflow-y` → логические `overflow-inline`/`overflow-block`
+- `border--collapse` → `border-collapse--collapse`
+- `S4()`: загрузка `utilities.css` до device-специфичных CSS; loadScript идемпотентен; убран `link.type`/`onerror` для CSS
+- `dependency-map.json`: whitelist-валидация структуры
+- Сборка: `--no-charset` (устранение BOM в config.css), header.update.js в репозитории
+- Документация: термин «класс-аналог» → «класс-дубликат», нормализация тире, синхронизация README/S4.md
+
+### Removed
+- Расширенные формулы псевдоклассов/псевдоэлементов из базового слоя и документации
+- Утилиты `landscape.scss`/`portrait.scss` (заменены на `*-utilities.css`)
+- Старые `::before`/`::after` в `display--none`
+
 ## [0.3.0] — 2026-07-03
 
 ### Added

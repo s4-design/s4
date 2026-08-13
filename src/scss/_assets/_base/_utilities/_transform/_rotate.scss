@@ -1,9 +1,13 @@
-@mixin rotate($type, $orientation, $enableVariables) {
+@mixin rotate($device, $orientation, $enableVariables) {
     /* rotate */
 
     @if $enableVariables {
         .rotate {
-            rotate: var(--#{$type}#{$orientation}rotate, var(--rotate));
+            @if $device == "" and $orientation == "" {
+                rotate: var(--rotate);
+            } @else {
+                rotate: var(--#{$device}#{$orientation}rotate, var(--rotate));
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 @use "position" as position;
 
-@mixin position($type, $orientation) {
-    @include position.position($type, $orientation);
+@mixin position($device, $orientation, $enableVariables) {
+    @include position.position($device, $orientation, $enableVariables);
 }

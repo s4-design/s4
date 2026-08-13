@@ -1,0 +1,7 @@
+@mixin mark() {
+    mark {
+        --background: var(--prime);
+        --padding-inline: var(--padding--s3);
+        --color: var(--negative--light);
+    }
+}

@@ -1,9 +1,13 @@
-@mixin background-image($type, $orientation, $enableVariables) {
+@mixin background-image($device, $orientation, $enableVariables) {
     /* background image */
     
     @if $enableVariables {
         .background-image {
-            background-image: var(--#{$type}#{$orientation}background-image, var(--background-image));
+            @if $device == "" and $orientation == "" {
+                background-image: var(--background-image);
+            } @else {
+                background-image: var(--#{$device}#{$orientation}background-image, var(--background-image));
+            }
         }
     }
 }

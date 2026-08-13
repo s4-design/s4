@@ -1,11 +1,21 @@
-@mixin column-span($type, $orientation) {
+@mixin column-span($device, $orientation, $enableVariables) {
     /* column span */
     @each $columnSpan in (
         "auto",
         "none",
     ) {
-        .#{$type}#{$orientation}column-span--#{$columnSpan} {
+        .#{$device}#{$orientation}column-span--#{$columnSpan} {
             column-span: #{$columnSpan};
+        }
+    }
+
+    @if $enableVariables {
+        .column-span {
+            @if $device == "" and $orientation == "" {
+                column-span: var(--column-span);
+            } @else {
+                column-span: var(--#{$device}#{$orientation}column-span, var(--column-span));
+            }
         }
     }
 }

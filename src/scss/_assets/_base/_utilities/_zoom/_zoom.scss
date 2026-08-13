@@ -1,9 +1,13 @@
-@mixin zoom($type, $orientation, $enableVariables) {
+@mixin zoom($device, $orientation, $enableVariables) {
     /* zoom */
 
     @if $enableVariables {
         .zoom {
-            zoom: var(--#{$type}#{$orientation}zoom, var(--zoom));
+            @if $device == "" and $orientation == "" {
+                zoom: var(--zoom);
+            } @else {
+                zoom: var(--#{$device}#{$orientation}zoom, var(--zoom));
+            }
         }
     }
 }

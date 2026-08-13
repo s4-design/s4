@@ -1,4 +1,4 @@
-@mixin border-style($type, $orientation, $enableVariables, $borderSides) {
+@mixin border-style($device, $orientation, $enableVariables, $borderSides) {
     /* border style */
     $borderStyle:(
         "dotted",
@@ -7,7 +7,7 @@
         "none"
     );
     @each $alias in $borderStyle {
-        .#{$type}#{$orientation}border-style--#{$alias} {
+        .#{$device}#{$orientation}border-style--#{$alias} {
             border-style: #{$alias};
             // @if $alias != none {
             //     border-width: var(--border-width--min);
@@ -16,7 +16,7 @@
     }
     @each $alias in $borderStyle {
         @each $side in $borderSides {
-            .#{$type}#{$orientation}border-#{$side}-style--#{$alias} {
+            .#{$device}#{$orientation}border-#{$side}-style--#{$alias} {
                 border-#{$side}-style: #{$alias};
                 // @if $alias != none {
                 //     border-width: var(--border-width--min);
@@ -27,11 +27,19 @@
     
     @if $enableVariables {
         .border-style {
-            border-style: var(--#{$type}#{$orientation}border-style, var(--border-style));
+            @if $device == "" and $orientation == "" {
+                border-style: var(--border-style);
+            } @else {
+                border-style: var(--#{$device}#{$orientation}border-style, var(--border-style));
+            }
         }
         @each $side in $borderSides {
             .border-#{$side}-style {
-                border-#{$side}-style: var(--#{$type}#{$orientation}border-#{$side}-style, var(--border-#{$side}-style));
+                @if $device == "" and $orientation == "" {
+                    border-#{$side}-style: var(--border-#{$side}-style);
+                } @else {
+                    border-#{$side}-style: var(--#{$device}#{$orientation}border-#{$side}-style, var(--border-#{$side}-style));
+                }
             }
         }
     }

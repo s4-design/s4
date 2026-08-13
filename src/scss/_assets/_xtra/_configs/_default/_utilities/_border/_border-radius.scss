@@ -19,9 +19,9 @@ $borderRadiusXtraSize: (
     pill: var(--border-radius--l4)
 );
 
-@mixin border-radius($type, $orientation) {
+@mixin border-radius($device, $orientation) {
     // preset: border radius
-    .#{$type}#{$orientation}border-radius {
+    .#{$device}#{$orientation}border-radius {
         @each $size in $borderRadiusSize {
             &--#{$size} {
                 border-radius: var(--border-radius--#{$size});
@@ -34,7 +34,7 @@ $borderRadiusXtraSize: (
         }
     }
     @each $corner in $borderRadiusCorner {
-        .#{$type}#{$orientation}border-#{$corner}-radius {
+        .#{$device}#{$orientation}border-#{$corner}-radius {
             @each $size in $borderRadiusSize {
                 &--#{$size} {
                     border-#{$corner}-radius: var(--border-radius--#{$size});

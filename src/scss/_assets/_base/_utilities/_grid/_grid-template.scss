@@ -1,4 +1,4 @@
-@mixin grid-template($type, $orientation, $enableVariables) {
+@mixin grid-template($device, $orientation, $enableVariables) {
     /* grid template */
     
     @each $gridTemplate in (
@@ -9,14 +9,18 @@
             "none",
             "subgrid"
         ) {
-            .#{$type}#{$orientation}grid-template-#{$gridTemplate}--#{$value} {
+            .#{$device}#{$orientation}grid-template-#{$gridTemplate}--#{$value} {
                 grid-template-#{$gridTemplate}: #{$value};
             }
         }
         
         @if $enableVariables {
             .grid-template-#{$gridTemplate} {
-                grid-template-#{$gridTemplate}: var(--#{$type}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
+                @if $device == "" and $orientation == "" {
+                    grid-template-#{$gridTemplate}: var(--grid-template-#{$gridTemplate});
+                } @else {
+                    grid-template-#{$gridTemplate}: var(--#{$device}#{$orientation}grid-template-#{$gridTemplate}, var(--grid-template-#{$gridTemplate}));
+                }
             }
         }
     }

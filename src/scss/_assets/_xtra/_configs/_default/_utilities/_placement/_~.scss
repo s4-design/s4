@@ -1,7 +1,7 @@
 @use "placement" as placement;
 // @use "translate" as *;
 
-@mixin placement($type, $orientation) {
-    @include placement.placement($type, $orientation);
-    // @include translate($type, $orientation);
+@mixin placement($device, $orientation) {
+    @include placement.placement($device, $orientation);
+    // @include translate($device, $orientation);
 }

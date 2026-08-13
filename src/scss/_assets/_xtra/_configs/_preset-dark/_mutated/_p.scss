@@ -1,11 +1,14 @@
 @mixin p() {
     p {
         --margin-block: var(--margin--md);
-        &:first-child:first-of-type {
+        &:where(:first-child:first-of-type) {
             --margin-block: 0 var(--margin--md);
         }
-        &:last-child:last-of-type {
+        &:where(:last-child:last-of-type) {
             --margin-block: var(--margin--md) 0;
+        }
+        &:where(:first-child:first-of-type:last-child:last-of-type) {
+            --margin-block: 0;
         }
     }
 }

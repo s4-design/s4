@@ -1,4 +1,4 @@
-@mixin user-select($type, $orientation, $enableVariables) {
+@mixin user-select($device, $orientation, $enableVariables) {
     /* user select */
     @each $userSelect in (
         "none",
@@ -6,8 +6,18 @@
         "text",
         "all"
     ) {
-        .#{$type}#{$orientation}user-select--#{$userSelect} {
+        .#{$device}#{$orientation}user-select--#{$userSelect} {
             user-select: #{$userSelect};
+        }
+    }
+
+    @if $enableVariables {
+        .user-select {
+            @if $device == "" and $orientation == "" {
+                user-select: var(--user-select);
+            } @else {
+                user-select: var(--#{$device}#{$orientation}user-select, var(--user-select));
+            }
         }
     }
 }

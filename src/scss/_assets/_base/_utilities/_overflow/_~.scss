@@ -1,7 +1,7 @@
 @use "overflow-wrap" as overflow-wrap;
 @use "overflow" as overflow;
 
-@mixin overflow($type, $orientation) {
-    @include overflow-wrap.overflow-wrap($type, $orientation);
-    @include overflow.overflow($type, $orientation);
+@mixin overflow($device, $orientation, $enableVariables) {
+    @include overflow-wrap.overflow-wrap($device, $orientation, $enableVariables);
+    @include overflow.overflow($device, $orientation, $enableVariables);
 }

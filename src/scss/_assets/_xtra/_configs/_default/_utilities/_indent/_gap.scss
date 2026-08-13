@@ -1,11 +1,11 @@
-@mixin gap($type, $orientation, $spacingSizes) {
+@mixin gap($device, $orientation, $spacingSizes) {
     // preset: gap
     @each $tracksName in (
         "row",
         "column"
     ) {
-        .#{$type}#{$orientation}gap,
-        .#{$type}#{$orientation}#{$tracksName}-gap {
+        .#{$device}#{$orientation}gap,
+        .#{$device}#{$orientation}#{$tracksName}-gap {
             @each $space in $spacingSizes {
                 &--#{$space} {
                     #{$tracksName}-gap: var(--gap--#{$space});

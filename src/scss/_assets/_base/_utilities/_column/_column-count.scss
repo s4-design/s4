@@ -1,12 +1,16 @@
-@mixin column-count($type, $orientation, $enableVariables) {
+@mixin column-count($device, $orientation, $enableVariables) {
     /* column count */
-    .#{$type}#{$orientation}column-count--auto {
+    .#{$device}#{$orientation}column-count--auto {
         column-count: auto;
     }
     
     @if $enableVariables {
         .column-count {
-            column-count: var(--#{$type}#{$orientation}column-count, var(--column-count));
+            @if $device == "" and $orientation == "" {
+                column-count: var(--column-count);
+            } @else {
+                column-count: var(--#{$device}#{$orientation}column-count, var(--column-count));
+            }
         }
     }
 }

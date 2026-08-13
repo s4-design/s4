@@ -1,12 +1,21 @@
 @mixin blockquote() {
     blockquote {
         --position: relative;
-        --display: grid;
-        
-        --gap: var(--gap--s1);
         --margin-inline: var(--margin--l4);
         --margin-block: var(--margin--md);
         --font-size: var(--font-size--l1);
+        :is(e-body, element--body) > & {
+            --margin-inline: 0;
+        }
+        &:where(:first-child:first-of-type) {
+            --margin-block: 0 var(--margin--md);
+        }
+        &:where(:last-child:last-of-type) {
+            --margin-block: var(--margin--md) 0;
+        }
+        &:where(:first-child:first-of-type:last-child:last-of-type) {
+            --margin-block: 0;
+        }
         > * {
             --margin-inline: 0;
             --margin-block: 0;

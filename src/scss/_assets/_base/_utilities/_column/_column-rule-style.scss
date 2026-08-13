@@ -1,4 +1,4 @@
-@mixin column-rule-style($type, $orientation, $enableVariables) {
+@mixin column-rule-style($device, $orientation, $enableVariables) {
     /* column rule style */
     @each $columnRuleStyle in (
         "dotted",
@@ -6,14 +6,18 @@
         "solid",
         "none"
     ) {
-        .#{$type}#{$orientation}column-rule-style--#{$columnRuleStyle} {
+        .#{$device}#{$orientation}column-rule-style--#{$columnRuleStyle} {
             column-rule-style: #{$columnRuleStyle};
         }
     }
     
     @if $enableVariables {
         .column-style {
-            column-rule-style: var(--#{$type}#{$orientation}column-rule-style, var(--column-rule-style));
+            @if $device == "" and $orientation == "" {
+                column-rule-style: var(--column-rule-style);
+            } @else {
+                column-rule-style: var(--#{$device}#{$orientation}column-rule-style, var(--column-rule-style));
+            }
         }
     }
 }

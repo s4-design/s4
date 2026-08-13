@@ -1,0 +1,22 @@
+@mixin scrollbar-width($device, $orientation, $enableVariables) {
+    /* scrollbar width */
+    @each $scrollbarWidth in (
+        "auto",
+        "thin",
+        "none"
+    ) {
+        .#{$device}#{$orientation}scrollbar-width--#{$scrollbarWidth} {
+            scrollbar-width: #{$scrollbarWidth};
+        }
+    }
+
+    @if $enableVariables {
+        .scrollbar-width {
+            @if $device == "" and $orientation == "" {
+                scrollbar-width: var(--scrollbar-width);
+            } @else {
+                scrollbar-width: var(--#{$device}#{$orientation}scrollbar-width, var(--scrollbar-width));
+            }
+        }
+    }
+}

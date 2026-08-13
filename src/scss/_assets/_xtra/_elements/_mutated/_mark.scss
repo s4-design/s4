@@ -1,0 +1,7 @@
+@mixin mark() {
+    mark {
+        background: var(--background);
+        padding-inline: var(--padding-inline);
+        color: var(--color);
+    }
+}

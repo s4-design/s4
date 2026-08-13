@@ -2,8 +2,8 @@
 @use "justify-items" as justify-items;
 @use "justify-self" as justify-self;
 
-@mixin justify($type, $orientation) {
-    @include justify-content.justify-content($type, $orientation);
-    @include justify-items.justify-items($type, $orientation);
-    @include justify-self.justify-self($type, $orientation);
+@mixin justify($device, $orientation, $enableVariables) {
+    @include justify-content.justify-content($device, $orientation, $enableVariables);
+    @include justify-items.justify-items($device, $orientation, $enableVariables);
+    @include justify-self.justify-self($device, $orientation, $enableVariables);
 }

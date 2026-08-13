@@ -4,8 +4,8 @@ $gridSize: 12;
 @use "grid-row" as *;
 @use "grid-template" as *;
 
-@mixin grid($type, $orientation) {
-    @include grid-column($type, $orientation, $gridSize);
-    @include grid-row($type, $orientation, $gridSize);
-    @include grid-template($type, $orientation, $gridSize);
+@mixin grid($device, $orientation) {
+    @include grid-column($device, $orientation, $gridSize);
+    @include grid-row($device, $orientation, $gridSize);
+    @include grid-template($device, $orientation, $gridSize);
 }

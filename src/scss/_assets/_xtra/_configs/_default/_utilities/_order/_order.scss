@@ -1,6 +1,6 @@
-@mixin order($type, $orientation, $gridSize) {
+@mixin order($device, $orientation, $gridSize) {
     // preset: order
-    .#{$type}#{$orientation}order {
+    .#{$device}#{$orientation}order {
         @for $i from 1 through $gridSize {
             &--#{$i} {
                 order: $i;

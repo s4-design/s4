@@ -1,7 +1,7 @@
-@mixin flex-grow($type, $orientation) {
+@mixin flex-grow($device, $orientation) {
     // preset: flex grow
     @for $i from 0 through 1 {
-        .#{$type}#{$orientation}flex-grow--#{$i} {
+        .#{$device}#{$orientation}flex-grow--#{$i} {
             flex-grow: $i;
         }
     }

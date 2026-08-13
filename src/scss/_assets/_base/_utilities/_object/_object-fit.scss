@@ -1,4 +1,4 @@
-@mixin object-fit($type, $orientation) {
+@mixin object-fit($device, $orientation, $enableVariables) {
     /* object fit */
     @each $objectFit in (
         "contain",
@@ -6,8 +6,18 @@
         "fill",
         "none"
     ) {
-        .object-fit--#{$objectFit} {
+        .#{$device}#{$orientation}object-fit--#{$objectFit} {
             object-fit: #{$objectFit};
         }    
+    }
+
+    @if $enableVariables {
+        .object-fit {
+            @if $device == "" and $orientation == "" {
+                object-fit: var(--object-fit);
+            } @else {
+                object-fit: var(--#{$device}#{$orientation}object-fit, var(--object-fit));
+            }
+        }
     }
 }

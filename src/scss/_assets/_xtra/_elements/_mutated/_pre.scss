@@ -1,0 +1,5 @@
+@mixin pre() {
+    pre {
+        margin-block: var(--margin-block);
+    }
+}

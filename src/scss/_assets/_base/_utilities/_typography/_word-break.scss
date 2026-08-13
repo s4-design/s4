@@ -1,4 +1,4 @@
-@mixin word-break($type, $orientation) {
+@mixin word-break($device, $orientation, $enableVariables) {
     /* word break */
     @each $wordBreak in (
         "normal",
@@ -7,8 +7,18 @@
         "auto-phrase",
         "unset"
     ) {
-        .#{$type}#{$orientation}word-break--#{$wordBreak} {
+        .#{$device}#{$orientation}word-break--#{$wordBreak} {
             word-break: #{$wordBreak};
+        }
+    }
+
+    @if $enableVariables {
+        .word-break {
+            @if $device == "" and $orientation == "" {
+                word-break: var(--word-break);
+            } @else {
+                word-break: var(--#{$device}#{$orientation}word-break, var(--word-break));
+            }
         }
     }
 }

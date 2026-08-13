@@ -2,9 +2,9 @@
 
 @use "outline-color" as *;
 
-@mixin outline($type, $orientation) {
+@mixin outline($device, $orientation) {
     @include outline-color(
-        $type,
+        $device,
         $orientation,
         $defaultColors,
         $accentColors,

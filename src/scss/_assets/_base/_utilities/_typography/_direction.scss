@@ -1,11 +1,21 @@
-@mixin direction($type, $orientation) {
+@mixin direction($device, $orientation, $enableVariables) {
     /* directions */
     @each $directions in (
         "ltr",
         "rtl"
     ) {
-        .#{$type}#{$orientation}direction--#{$directions} {
+        .#{$device}#{$orientation}direction--#{$directions} {
             direction: #{$directions};
+        }
+    }
+
+    @if $enableVariables {
+        .direction {
+            @if $device == "" and $orientation == "" {
+                direction: var(--direction);
+            } @else {
+                direction: var(--#{$device}#{$orientation}direction, var(--direction));
+            }
         }
     }
 }

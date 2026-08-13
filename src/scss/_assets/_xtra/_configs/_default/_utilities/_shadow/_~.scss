@@ -12,7 +12,7 @@ $shadowSize: (
 @use "box-shadow" as *;
 @use "text-shadow" as *;
 
-@mixin shadow($type, $orientation) {
-    @include box-shadow($type, $orientation, $shadowSize, var(--black--02));
-    @include text-shadow($type, $orientation, $shadowSize, var(--black--02));
+@mixin shadow($device, $orientation) {
+    @include box-shadow($device, $orientation, $shadowSize, var(--black--02));
+    @include text-shadow($device, $orientation, $shadowSize, var(--black--02));
 }

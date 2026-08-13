@@ -1,16 +1,20 @@
-@mixin line-height($type, $orientation, $enableVariables) {
+@mixin line-height($device, $orientation, $enableVariables) {
     /* line height */
     @each $lineHeight in (
         "unset"
     ) {
-        .#{$type}#{$orientation}line-height--#{$lineHeight} {
+        .#{$device}#{$orientation}line-height--#{$lineHeight} {
             line-height: #{$lineHeight};
         }
     }
     
     @if $enableVariables {
         .line-height {
-            line-height: var(--#{$type}#{$orientation}line-height, var(--line-height));
+            @if $device == "" and $orientation == "" {
+                line-height: var(--line-height);
+            } @else {
+                line-height: var(--#{$device}#{$orientation}line-height, var(--line-height));
+            }
         }
     }
 }

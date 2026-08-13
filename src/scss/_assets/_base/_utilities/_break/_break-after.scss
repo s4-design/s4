@@ -1,9 +1,13 @@
-@mixin break-after($type, $orientation, $enableVariables) {
+@mixin break-after($device, $orientation, $enableVariables) {
     /* break after */
     
     @if $enableVariables {
         .break-after {
-            break-after: var(--#{$type}#{$orientation}break-after, var(--break-after));
+            @if $device == "" and $orientation == "" {
+                break-after: var(--break-after);
+            } @else {
+                break-after: var(--#{$device}#{$orientation}break-after, var(--break-after));
+            }
         }
     }
 }

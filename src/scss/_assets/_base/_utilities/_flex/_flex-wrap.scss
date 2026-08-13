@@ -1,12 +1,22 @@
-@mixin flex-wrap($type, $orientation) {
+@mixin flex-wrap($device, $orientation, $enableVariables) {
     /* flex wrap */
     @each $flexWrap in (
         "wrap",
         "wrap-reverse",
         "nowrap"
     ) {
-        .#{$type}#{$orientation}flex-wrap--#{$flexWrap} {
+        .#{$device}#{$orientation}flex-wrap--#{$flexWrap} {
             flex-wrap: #{$flexWrap};
+        }
+    }
+
+    @if $enableVariables {
+        .flex-wrap {
+            @if $device == "" and $orientation == "" {
+                flex-wrap: var(--flex-wrap);
+            } @else {
+                flex-wrap: var(--#{$device}#{$orientation}flex-wrap, var(--flex-wrap));
+            }
         }
     }
 }

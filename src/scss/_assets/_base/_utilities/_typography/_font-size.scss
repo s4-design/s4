@@ -1,9 +1,13 @@
-@mixin font-size($type, $orientation, $enableVariables) {
+@mixin font-size($device, $orientation, $enableVariables) {
     /* font size */
 
     @if $enableVariables {
         .font-size {
-            font-size: var(--#{$type}#{$orientation}font-size, var(--font-size));
+            @if $device == "" and $orientation == "" {
+                font-size: var(--font-size);
+            } @else {
+                font-size: var(--#{$device}#{$orientation}font-size, var(--font-size));
+            }
         }
     }
 }

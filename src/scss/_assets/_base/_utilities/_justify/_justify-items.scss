@@ -1,4 +1,4 @@
-@mixin justify-items($type, $orientation) {
+@mixin justify-items($device, $orientation, $enableVariables) {
     /* justify items */
     @each $justifyItems in (
         "center",
@@ -6,8 +6,18 @@
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}justify-items--#{$justifyItems} {
+        .#{$device}#{$orientation}justify-items--#{$justifyItems} {
             justify-items: #{$justifyItems};
+        }
+    }
+
+    @if $enableVariables {
+        .justify-items {
+            @if $device == "" and $orientation == "" {
+                justify-items: var(--justify-items);
+            } @else {
+                justify-items: var(--#{$device}#{$orientation}justify-items, var(--justify-items));
+            }
         }
     }
 }

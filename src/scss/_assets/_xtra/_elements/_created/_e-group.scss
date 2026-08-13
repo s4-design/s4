@@ -4,6 +4,12 @@
         display: var(--display);
 
         > * {
+            margin-inline:
+                var(--margin-inline-start, var(--margin-inline))
+                var(--margin-inline-end, var(--margin-inline));
+            margin-block:
+                var(--margin-block-start, var(--margin-block))
+                var(--margin-block-end, var(--margin-block));
             border-radius:
                 var(--border-start-start-radius, var(--border-radius))
                 var(--border-start-end-radius, var(--border-radius))

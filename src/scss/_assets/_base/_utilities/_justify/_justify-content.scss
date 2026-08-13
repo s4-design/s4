@@ -1,4 +1,4 @@
-@mixin justify-content($type, $orientation) {
+@mixin justify-content($device, $orientation, $enableVariables) {
     /* justify content */
     @each $justifyContent in (
         "space-around",
@@ -9,8 +9,18 @@
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}justify-content--#{$justifyContent} {
+        .#{$device}#{$orientation}justify-content--#{$justifyContent} {
             justify-content: #{$justifyContent};
+        }
+    }
+
+    @if $enableVariables {
+        .justify-content {
+            @if $device == "" and $orientation == "" {
+                justify-content: var(--justify-content);
+            } @else {
+                justify-content: var(--#{$device}#{$orientation}justify-content, var(--justify-content));
+            }
         }
     }
 }

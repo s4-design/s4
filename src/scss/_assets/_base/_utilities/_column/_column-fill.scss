@@ -1,11 +1,21 @@
-@mixin column-fill($type, $orientation) {
+@mixin column-fill($device, $orientation, $enableVariables) {
     /* column fill */
     @each $columnFill in (
         "auto",
         "balance",
     ) {
-        .#{$type}#{$orientation}column-fill--#{$columnFill} {
+        .#{$device}#{$orientation}column-fill--#{$columnFill} {
             column-fill: #{$columnFill};
+        }
+    }
+
+    @if $enableVariables {
+        .column-fill {
+            @if $device == "" and $orientation == "" {
+                column-fill: var(--column-fill);
+            } @else {
+                column-fill: var(--#{$device}#{$orientation}column-fill, var(--column-fill));
+            }
         }
     }
 }

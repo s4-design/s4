@@ -1,4 +1,4 @@
-@mixin placement($type, $orientation, $enableVariables) {
+@mixin placement($device, $orientation, $enableVariables) {
     /* placement */
     
     @each $placement in (
@@ -10,7 +10,11 @@
     ) {
         @if $enableVariables {
             .#{$placement} {
-                #{$placement}: var(--#{$type}#{$orientation}#{$placement}, var(--#{$placement}));
+                @if $device == "" and $orientation == "" {
+                    #{$placement}: var(--#{$placement});
+                } @else {
+                    #{$placement}: var(--#{$device}#{$orientation}#{$placement}, var(--#{$placement}));
+                }
             }
         }
     }

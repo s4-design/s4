@@ -1,15 +1,15 @@
-@mixin outline-width($type, $orientation, $enableVariables) {
+@mixin outline-width($device, $orientation, $enableVariables) {
     /* outline width */
     @each $outlineWidth in (
         "thin",
         "medium",
         "thick"
     ) {
-        .#{$type}#{$orientation}outline-width--#{$outlineWidth} {
+        .#{$device}#{$orientation}outline-width--#{$outlineWidth} {
             outline-width: var(--outline-width--#{$outlineWidth}, #{$outlineWidth});
         }
         // @each $side in $outlineSides {
-        //     .#{$type}#{$orientation}outline-#{$side}-width--#{$outlineWidth} {
+        //     .#{$device}#{$orientation}outline-#{$side}-width--#{$outlineWidth} {
         //         outline-#{$side}-width: var(--outline-width--#{$outlineWidth}, #{$outlineWidth});
         //     }
         // }
@@ -17,7 +17,11 @@
     
     @if $enableVariables {
         .outline-width {
-            outline-width: var(--#{$type}#{$orientation}outline-width, var(--outline-width));
+            @if $device == "" and $orientation == "" {
+                outline-width: var(--outline-width);
+            } @else {
+                outline-width: var(--#{$device}#{$orientation}outline-width, var(--outline-width));
+            }
         }
     }
 }

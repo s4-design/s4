@@ -4,6 +4,7 @@
 @use "_created/e-line" as *;
 @use "_created/e-truncate" as *;
 @use "_created/e-badge" as *;
+@use "_created/e-tag" as *;
 @use "_created/e-message" as *;
 @use "_created/e-popover" as *;
 
@@ -25,16 +26,24 @@
 @use "_mutated/hr" as *;
 @use "_mutated/input" as *;
 @use "_mutated/label" as *;
+@use "_mutated/mark" as *;
 @use "_mutated/menu" as *;
 @use "_mutated/p" as *;
+@use "_mutated/q" as *;
+@use "_mutated/pre" as *;
+@use "_mutated/samp" as *;
+@use "_mutated/small" as *;
 @use "_mutated/select" as *;
 @use "_mutated/sub" as *;
 @use "_mutated/sup" as *;
+@use "_mutated/strong" as *;
 @use "_mutated/table" as *;
 
 
 @mixin elements() {
     @layer elements {
+        @include \[preset\];
+
         /* mutated */
         @include \*;
         @include \[inert\];
@@ -54,21 +63,29 @@
         @include hr;
         @include input;
         @include label;
+        @include mark;
         @include menu;
         @include p;
+        @include q;
+        @include pre;
+        @include samp;
+        @include small;
         @include select;
         @include sub;
         @include sup;
+        @include strong;
         @include table;
 
         /* created */
-        @include \[preset\];
-        @include e-group;
-        @include e-icon;
-        @include e-line;
-        @include e-truncate;
         @include e-badge;
+        @include e-tag;
+        @include e-icon;
+
+        @include e-line;
         @include e-message;
         @include e-popover;
+        @include e-truncate;
+
+        @include e-group;
     }
 }

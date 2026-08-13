@@ -1,11 +1,21 @@
-@mixin border-collapse() {
+@mixin border-collapse($device, $orientation, $enableVariables) {
     /* border collapse */
     @each $borderCollapse in (
         "collapse",
         "separate"
     ) {
-        .border--#{$borderCollapse} {
+        .#{$device}#{$orientation}border-collapse--#{$borderCollapse} {
             border-collapse: #{$borderCollapse};
+        }
+    }
+
+    @if $enableVariables {
+        .border-collapse {
+            @if $device == "" and $orientation == "" {
+                border-collapse: var(--border-collapse);
+            } @else {
+                border-collapse: var(--#{$device}#{$orientation}border-collapse, var(--border-collapse));
+            }
         }
     }
 }

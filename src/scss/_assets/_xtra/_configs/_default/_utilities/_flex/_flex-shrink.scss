@@ -1,7 +1,7 @@
-@mixin flex-shrink($type, $orientation) {
+@mixin flex-shrink($device, $orientation) {
     // preset: flex shrink
     @for $i from 0 through 1 {
-        .#{$type}#{$orientation}flex-shrink--#{$i} {
+        .#{$device}#{$orientation}flex-shrink--#{$i} {
             flex-shrink: $i;
         }
     }

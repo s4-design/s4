@@ -4,10 +4,11 @@
         display: var(--display);
         inline-size: var(--inline-size);
         
+        margin-block: var(--margin-block);
         border-radius: var(--border-radius);
         background: var(--background);
         background-clip: var(--background-clip);
-        outline-offset: var(--outline-offset);
+        // outline-offset: var(--outline-offset);
         transition: var(--transition);
 
         > summary {
@@ -61,6 +62,15 @@
             padding-inline: var(--padding-inline);
             border-radius: var(--border-radius);
             background: var(--background);
+            > * {
+                margin-inline: var(--margin-inline);
+                &:first-child {
+                    margin-block-start: var(--margin-block-start);
+                }
+                &:last-child {
+                    margin-block-end: var(--margin-block-end);
+                }
+            }
         }
     }
 }

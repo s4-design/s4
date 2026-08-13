@@ -1,5 +1,5 @@
 @mixin outline-color(
-    $type,
+    $device,
     $orientation,
     $defaultColors,
     $accentColors,
@@ -8,7 +8,7 @@
 ) {
     // preset: outline color
     @each $color in $defaultColors {
-        .#{$type}#{$orientation}outline-color {
+        .#{$device}#{$orientation}outline-color {
             &--#{$color},
             &--#{$color}\:hover:hover {
                 outline-color: var(--#{$color});
@@ -27,7 +27,7 @@
     }
     
     @each $color in $accentColors {
-        .#{$type}#{$orientation}outline-color {
+        .#{$device}#{$orientation}outline-color {
             &--#{$color},
             &--#{$color}\:hover:hover {
                 outline-color: var(--#{$color});

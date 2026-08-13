@@ -1,9 +1,13 @@
-@mixin cursor($type, $orientation, $enableVariables) {
+@mixin cursor($device, $orientation, $enableVariables) {
     /* cursor */
     
     @if $enableVariables {
         .cursor {
-            cursor: var(--#{$type}#{$orientation}cursor, var(--cursor));
+            @if $device == "" and $orientation == "" {
+                cursor: var(--cursor);
+            } @else {
+                cursor: var(--#{$device}#{$orientation}cursor, var(--cursor));
+            }
         }
     }
 }

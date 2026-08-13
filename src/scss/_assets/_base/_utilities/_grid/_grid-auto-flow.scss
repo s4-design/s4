@@ -1,4 +1,4 @@
-@mixin grid-auto-flow($type, $orientation) {
+@mixin grid-auto-flow($device, $orientation, $enableVariables) {
     /* grid auto flow */
     @each $alias, $gridAutoFlow in (
         "column": "column",
@@ -7,8 +7,18 @@
         "row-dense": "row dense",
         "column-dense": "column dense"
     ) {
-        .#{$type}#{$orientation}grid-auto-flow--#{$alias} {
+        .#{$device}#{$orientation}grid-auto-flow--#{$alias} {
             grid-auto-flow: #{$gridAutoFlow};
+        }
+    }
+
+    @if $enableVariables {
+        .grid-auto-flow {
+            @if $device == "" and $orientation == "" {
+                grid-auto-flow: var(--grid-auto-flow);
+            } @else {
+                grid-auto-flow: var(--#{$device}#{$orientation}grid-auto-flow, var(--grid-auto-flow));
+            }
         }
     }
 }

@@ -25,19 +25,14 @@
         @include gap;
         @include border-radius;
         @include box-shadow;
+
+        --transition-duration: .15s;
+        --transition-timing-function: linear;
+
+        @include \[preset\];
     }
     
     /* elements */
-    // created
-    @include \[preset\];
-    @include e-group;
-    @include e-icon;
-    @include e-line;
-    @include e-truncate;
-    @include e-badge;
-    @include e-message;
-    @include e-popover;
-
     // mutated
     @include \*;
     @include \[inert\];
@@ -62,10 +57,28 @@
     @include hr;
     @include input;
     @include label;
+    @include mark;
     @include menu;
     @include p;
+    @include q;
+    @include pre;
+    @include samp;
+    @include small;
     @include select;
     @include sub;
     @include sup;
+    @include strong;
     @include table;
+    
+    // created
+    @include e-badge;
+    @include e-tag;
+    @include e-icon;
+
+    @include e-line;
+    @include e-message;
+    @include e-popover;
+    @include e-truncate;
+
+    @include e-group;
 }

@@ -1,5 +1,5 @@
 @use "float" as float;
 
-@mixin float($type, $orientation) {
-    @include float.float($type, $orientation);
+@mixin float($device, $orientation, $enableVariables) {
+    @include float.float($device, $orientation, $enableVariables);
 }

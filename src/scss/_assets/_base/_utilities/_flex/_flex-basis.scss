@@ -1,18 +1,22 @@
-@mixin flex-basis($type, $orientation, $enableVariables) {
+@mixin flex-basis($device, $orientation, $enableVariables) {
     /* flex basis */
     @each $flexBasis in (
         "max-content",
         "min-content",
         "fit-content"
     ) {
-        .#{$type}#{$orientation}flex-basis--#{$flexBasis} {
+        .#{$device}#{$orientation}flex-basis--#{$flexBasis} {
             flex-basis: #{$flexBasis};
         }
     }
     
     @if $enableVariables {
         .flex-basis {
-            flex-basis: var(--#{$type}#{$orientation}flex-basis, var(--flex-basis));
+            @if $device == "" and $orientation == "" {
+                flex-basis: var(--flex-basis);
+            } @else {
+                flex-basis: var(--#{$device}#{$orientation}flex-basis, var(--flex-basis));
+            }
         }
     }
 }

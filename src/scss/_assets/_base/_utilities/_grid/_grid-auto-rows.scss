@@ -1,9 +1,13 @@
-@mixin grid-auto-rows($type, $orientation, $enableVariables) {
+@mixin grid-auto-rows($device, $orientation, $enableVariables) {
     /* grid auto rows */
     
     @if $enableVariables {
         .grid-auto-rows {
-            grid-auto-rows: var(--#{$type}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
+            @if $device == "" and $orientation == "" {
+                grid-auto-rows: var(--grid-auto-rows);
+            } @else {
+                grid-auto-rows: var(--#{$device}#{$orientation}grid-auto-rows, var(--grid-auto-rows));
+            }
         }
     }
 }

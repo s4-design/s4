@@ -1,5 +1,5 @@
 @use "z-index" as z-index;
 
-@mixin z-index($type, $orientation) {
-    @include z-index.z-index($type, $orientation);
+@mixin z-index($device, $orientation) {
+    @include z-index.z-index($device, $orientation);
 }

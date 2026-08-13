@@ -1,9 +1,13 @@
-@mixin break-inside($type, $orientation, $enableVariables) {
+@mixin break-inside($device, $orientation, $enableVariables) {
     /* break inside */
 
     @if $enableVariables {
         .break-inside {
-            break-inside: var(--#{$type}#{$orientation}break-inside, var(--break-inside));
+            @if $device == "" and $orientation == "" {
+                break-inside: var(--break-inside);
+            } @else {
+                break-inside: var(--#{$device}#{$orientation}break-inside, var(--break-inside));
+            }
         }
     }
 }

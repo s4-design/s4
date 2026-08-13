@@ -1,9 +1,13 @@
-@mixin column-rule-color($type, $orientation, $enableVariables) {
+@mixin column-rule-color($device, $orientation, $enableVariables) {
     /* column rule color */
     
     @if $enableVariables {
         .column-rule-color {
-            column-rule-color: var(--#{$type}#{$orientation}column-rule-color, var(--column-rule-color));
+            @if $device == "" and $orientation == "" {
+                column-rule-color: var(--column-rule-color);
+            } @else {
+                column-rule-color: var(--#{$device}#{$orientation}column-rule-color, var(--column-rule-color));
+            }
         }
     }
 }

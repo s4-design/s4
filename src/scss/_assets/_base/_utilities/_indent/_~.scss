@@ -12,7 +12,7 @@ $gapSizes: (
 @use "gap" as gap;
 @use "indent" as indent;
 
-@mixin indent($type, $orientation, $enableVariables) {
-    @include gap.gap($type, $orientation, $enableVariables, $gapSizes);
-    @include indent.indent($type, $orientation, $enableVariables, $marginSizes, $paddingSizes);
+@mixin indent($device, $orientation, $enableVariables) {
+    @include gap.gap($device, $orientation, $enableVariables, $gapSizes);
+    @include indent.indent($device, $orientation, $enableVariables, $marginSizes, $paddingSizes);
 }

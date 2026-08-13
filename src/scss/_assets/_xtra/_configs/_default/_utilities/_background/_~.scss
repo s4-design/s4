@@ -1,9 +1,9 @@
 @use "../../_settings" as *;
 @use "background-color" as *;
 
-@mixin background($type, $orientation) {
+@mixin background($device, $orientation) {
     @include background-color(
-        $type,
+        $device,
         $orientation,
         $defaultColors,
         $accentColors,

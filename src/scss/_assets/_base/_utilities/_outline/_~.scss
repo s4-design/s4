@@ -3,9 +3,9 @@
 @use "outline-style" as outline-style;
 @use "outline-width" as outline-width;
 
-@mixin outline($type, $orientation, $enableVariables) {
-    @include outline-color.outline-color($type, $orientation, $enableVariables);
-    @include outline-offset.outline-offset($type, $orientation, $enableVariables);
-    @include outline-style.outline-style($type, $orientation, $enableVariables);
-    @include outline-width.outline-width($type, $orientation, $enableVariables);
+@mixin outline($device, $orientation, $enableVariables) {
+    @include outline-color.outline-color($device, $orientation, $enableVariables);
+    @include outline-offset.outline-offset($device, $orientation, $enableVariables);
+    @include outline-style.outline-style($device, $orientation, $enableVariables);
+    @include outline-width.outline-width($device, $orientation, $enableVariables);
 }

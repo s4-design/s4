@@ -1,9 +1,13 @@
-@mixin outline-offset($type, $orientation, $enableVariables) {
+@mixin outline-offset($device, $orientation, $enableVariables) {
     /* outline offset */
     
     @if $enableVariables {
         .outline-offset {
-            outline-offset: var(--#{$type}#{$orientation}outline-offset, var(--outline-offset));
+            @if $device == "" and $orientation == "" {
+                outline-offset: var(--outline-offset);
+            } @else {
+                outline-offset: var(--#{$device}#{$orientation}outline-offset, var(--outline-offset));
+            }
         }
     }
 }

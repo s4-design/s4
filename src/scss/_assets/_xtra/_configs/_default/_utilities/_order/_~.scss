@@ -2,6 +2,6 @@ $gridSize: 12;
 
 @use "order" as order;
 
-@mixin order($type, $orientation) {
-    @include order.order($type, $orientation, $gridSize);
+@mixin order($device, $orientation) {
+    @include order.order($device, $orientation, $gridSize);
 }

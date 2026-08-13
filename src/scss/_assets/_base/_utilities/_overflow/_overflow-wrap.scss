@@ -1,12 +1,22 @@
-@mixin overflow-wrap($type, $orientation) {
+@mixin overflow-wrap($device, $orientation, $enableVariables) {
     /* overflow wrap */
     @each $overflowWrap in (
         "normal",
         "break-word",
         "anywhere"
     ) {
-        .#{$type}#{$orientation}overflow-wrap--#{$overflowWrap} {
+        .#{$device}#{$orientation}overflow-wrap--#{$overflowWrap} {
             overflow-wrap: #{$overflowWrap};
+        }
+    }
+
+    @if $enableVariables {
+        .overflow-wrap {
+            @if $device == "" and $orientation == "" {
+                overflow-wrap: var(--overflow-wrap);
+            } @else {
+                overflow-wrap: var(--#{$device}#{$orientation}overflow-wrap, var(--overflow-wrap));
+            }
         }
     }
 }

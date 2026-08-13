@@ -1,4 +1,4 @@
-@mixin justify-self($type, $orientation) {
+@mixin justify-self($device, $orientation, $enableVariables) {
     /* justify self */
     @each $justifySelf in (
         "center",
@@ -6,8 +6,18 @@
         "start",
         "stretch"
     ) {
-        .#{$type}#{$orientation}justify-self--#{$justifySelf} {        
+        .#{$device}#{$orientation}justify-self--#{$justifySelf} {        
             justify-self: #{$justifySelf};
+        }
+    }
+
+    @if $enableVariables {
+        .justify-self {
+            @if $device == "" and $orientation == "" {
+                justify-self: var(--justify-self);
+            } @else {
+                justify-self: var(--#{$device}#{$orientation}justify-self, var(--justify-self));
+            }
         }
     }
 }

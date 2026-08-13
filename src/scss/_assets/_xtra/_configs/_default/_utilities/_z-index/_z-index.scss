@@ -1,15 +1,15 @@
-@mixin z-index($type, $orientation) {
+@mixin z-index($device, $orientation) {
     // preset: z-index
     @each $zIndex in (
         -1,
         0,
         1,
     ) {
-        .#{$type}#{$orientation}z-index--#{$zIndex} {
+        .#{$device}#{$orientation}z-index--#{$zIndex} {
             z-index: #{$zIndex};
         }
     }
-    // .#{$type}#{$orientation}z-index--1 {
+    // .#{$device}#{$orientation}z-index--1 {
     //     &,
     //     &\:hover:hover,
     //     &\:focus-visible:focus-visible,

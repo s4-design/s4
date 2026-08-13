@@ -1,11 +1,11 @@
-@mixin block-size($type, $orientation, $enableVariables) {
+@mixin block-size($device, $orientation, $enableVariables) {
     /* block-size */
     @each $block-size in (
         "min-block-size",
         "block-size",
         "max-block-size"
     ) {
-        .#{$type}#{$orientation}#{$block-size} {
+        .#{$device}#{$orientation}#{$block-size} {
             @each $value in (
                 "fit-content",
                 "min-content",
@@ -21,7 +21,11 @@
     
         @if $enableVariables {
             .#{$block-size} {
-                #{$block-size}: var(--#{$type}#{$orientation}#{$block-size}, var(--#{$block-size}));
+                @if $device == "" and $orientation == "" {
+                    #{$block-size}: var(--#{$block-size});
+                } @else {
+                    #{$block-size}: var(--#{$device}#{$orientation}#{$block-size}, var(--#{$block-size}));
+                }
             }
         }
     }

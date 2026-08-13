@@ -1,9 +1,13 @@
-@mixin filter($type, $orientation, $enableVariables) {
+@mixin filter($device, $orientation, $enableVariables) {
     /* filter */
 
     @if $enableVariables {
         .filter {
-            filter: var(--#{$type}#{$orientation}filter, var(--filter));
+            @if $device == "" and $orientation == "" {
+                filter: var(--filter);
+            } @else {
+                filter: var(--#{$device}#{$orientation}filter, var(--filter));
+            }
         }
     }
 }

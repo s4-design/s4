@@ -1,22 +1,45 @@
 // Определение базового URL для папки фреймворка
 // Define base URL for framework folder
-const baseUrl = document.currentScript.src.substring(0, document.currentScript.src.lastIndexOf('js/'))
+// script: .../s4/js/s4.min.js → baseUrl: .../s4/
+const baseUrl = document.currentScript.src.split('/').slice(0, -2).join('/') + '/'
 
-// Асинхронная загрузка скрипта
-// Asynchronous script loading
+// Кэш промисов скриптов для идемпотентной загрузки
+// Script promise cache for idempotent loading
+const scriptPromises = new Map()
+
+// Асинхронная загрузка скрипта (идемпотентно)
+// Asynchronous script loading (idempotent)
 function loadScript(url) {
-    return new Promise((resolve, reject) => {
+    // Возвращаем уже запущенный промис, если скрипт уже загружается
+    // Return the already pending promise if the script is already loading
+    if (scriptPromises.has(url))
+        return scriptPromises.get(url)
+
+    const promise = new Promise((resolve, reject) => {
         const script = document.createElement('script')
         script.src = url
         script.onload = resolve
         script.onerror = reject
         document.head.appendChild(script)
     })
+
+    scriptPromises.set(url, promise)
+    return promise
 }
 
 // Сет для кэширования загруженных CSS файлов
 // Set for caching downloaded CSS files
 const loadedLinks = new Set()
+let _s4PresetIsAuto = false
+
+// Допустимые ключи и значения карты зависимостей (защита от опечаток в JSON)
+// Allowed dependency map keys and values (protection against typos in JSON)
+function isAllowedKey(key) {
+    return ['desktop', 'tablet', 'mobile'].includes(key)
+}
+function isAllowedValue(val) {
+    return ['landscape', 'portrait'].includes(val)
+}
 
 // Загрузка карты зависимостей из JSON
 // Load dependency map from JSON
@@ -26,6 +49,15 @@ async function loadDependencyMap(url) {
         if (!response.ok)
             throw new Error(`Ошибка загрузки JSON | Loading error JSON: ${response.statusText}`)
         const data = await response.json()
+
+        // Проверяем все ключи и значения через whitelist
+        // Validate all keys and values through whitelist
+        for (const device of Object.keys(data))
+            for (const orientation of Object.keys(data[device]))
+                for (const dep of data[device][orientation])
+                    if (!isAllowedKey(Object.keys(dep)[0]) || !isAllowedValue(Object.values(dep)[0]))
+                        throw new Error('Некорректная структура dependency-map | Invalid dependency-map structure')
+
         return data
     } catch (error) {
         console.error('Ошибка при загрузке или парсинге dependencyMap | Error loading or parsing dependencyMap:', error)
@@ -60,7 +92,10 @@ function loadLink(href, id = '') {
         link.id = id
         link.href = href
         link.rel = 'stylesheet'
-        link.type = 'text/css'
+        link.onerror = () => {
+            console.warn(`Ошибка загрузки CSS: "${href}" | Error loading CSS: "${href}"`)
+            loadedLinks.delete(href)
+        }
         document.head.appendChild(link)
     
         // Добавление href в кэш
@@ -72,8 +107,9 @@ function loadLink(href, id = '') {
 // Функция для сравнения зависимостей
 // Function for comparing dependencies
 function areDependenciesEqual(dep1, dep2) {
-    return Object.keys(dep1)[0] === Object.keys(dep2)[0] &&
-           Object.values(dep1)[0] === Object.values(dep2)[0]
+    const keys1 = Object.keys(dep1)
+    const keys2 = Object.keys(dep2)
+    return keys1.length === keys2.length && keys1.every(k => dep1[k] === dep2[k])
 }
 
 // Объединенная функция для загрузки и удаления CSS файлов
@@ -83,48 +119,29 @@ function updateLinks(currentDepends, allDependencies) {
     // Load dependency styles
     currentDepends.forEach(obj => {
         const [key] = Object.keys(obj)
-        loadLink(`${baseUrl}css/${key}/${obj[key]}.css`, `${key}/${obj[key]}`)
+        loadLink(`${baseUrl}css/${key}/${obj[key]}-utilities.css`, `${key}/${obj[key]}-utilities`)
     })
     
-    // Загружаем config.css для текущего типа устройства
-    // Load config.css for the device type
-    loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
-
     // Удаляем неиспользуемые стили
     // Remove unused styles
     allDependencies.forEach(obj => {
         const [key] = Object.keys(obj)
-        const element = document.getElementById(`${key}/${obj[key]}`)
+        const element = document.getElementById(`${key}/${obj[key]}-utilities`)
         if (element && !currentDepends.some(dep => areDependenciesEqual(dep, obj))) {
             element.remove()
-            loadedLinks.delete(`${baseUrl}css/${key}/${obj[key]}.css`)
+            loadedLinks.delete(`${baseUrl}css/${key}/${obj[key]}-utilities.css`)
         }
     })
     
 }
 
-// Функция для проверки и установки пресета
-// Function for checking and setting the preset
+// Функция для установки пресета на основе системных предпочтений
+// Function for setting the preset based on system preferences
 function setPresetBasedOnPreference() {
-    // Получаем текущий установленный пресет
-    // Getting the currently installed preset
-    const currentPreset = document.documentElement.getAttribute('preset')
-    
-    // Если пресет уже установлен — уважаем выбор автора, ничего не делаем
-    // If the preset is already set — respect the author's choice, do nothing
-    if (currentPreset)
-        return;
-
-    // Проверяем системные предпочтения пользователя
-    // Check the user's system preferences
+    if (!_s4PresetIsAuto)
+        return
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
-  
-    // Если пользователь предпочитает тёмную тему — ставим пресет dark, иначе светлую по умолчанию
-    // If the user prefers a dark preset — set preset dark, otherwise default to light
-    if (prefersDarkScheme.matches)
-        document.documentElement.setAttribute('preset', 'dark')
-    else
-        document.documentElement.setAttribute('preset', 'light')
+    document.documentElement.setAttribute('preset', prefersDarkScheme.matches ? 'dark' : 'light')
 }
 
 // Функция управления загрузкой CSS в зависимости от устройства и ориентации
@@ -133,18 +150,23 @@ async function S4() {
 
     // Установка пресета при загрузке страницы
     // Set preset on page load
-    setPresetBasedOnPreference()
+    const userPreset = document.documentElement.getAttribute('preset')
+    if (userPreset)
+        _s4PresetIsAuto = false
+    else {
+        _s4PresetIsAuto = true
+        setPresetBasedOnPreference()
+    }
     
     // Следить за изменениями предпочтений пресета
     // Track changes in preset preferences
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setPresetBasedOnPreference)
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', setPresetBasedOnPreference)
 
     // Добавление тега <style> со списком слоев стилей
     // Adding a <style> tag with a list of style layers
-    document.head.appendChild(Object.assign(document.createElement('style'), {
-        textContent: `@layer elements, presets, utilities;`
-    }))
+    const style = document.createElement('style')
+    style.textContent = '@layer elements, presets, utilities;'
+    document.head.appendChild(style)
 
     try {
         // Загружаем ключевой скрипт device-state
@@ -166,15 +188,25 @@ async function S4() {
             orientation = device.orientation,
             currentDepends = dependencyMap[type]?.[orientation] || []
 
-        // Применяем стили
-        // Apply styles
-        updateLinks(currentDepends, Object.values(dependencyMap).flatMap(device => Object.values(device).flat()))
-
+        // Загружаем слой эдементов - var(--*) стили HTML-элементов и кастомных тегов
+        // Load the elements - var(--*) styles of HTML elements and custom tags
         loadLink(`${baseUrl}css/elements.css`, 'css/elements')
+
+        // Загружаем конфигурацию для текущего типа устройства (один раз, тип не меняется)
+        // Load configuration for the current device type (once, type does not change)
+        loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
+
+        // Загружаем базовые утилиты (всегда, до device-специфичных)
+        // Load base utilities (always, before device-specific)
+        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
+
+        // Загружаем device-специфичны файлы стилей (конфигурации и утилиты)
+        // Load device-specific css files (configuration and utilities)
+        updateLinks(currentDepends, Object.values(dependencyMap).flatMap(device => Object.values(device).flat()))
 
         // Обновление стилей при изменении ориентации устройства
         // Update styles when device orientation changes
-        device.onChangeOrientation(async newOrientation => {
+        device.onChangeOrientation(newOrientation => {
             if (orientation !== newOrientation) {
                 orientation = newOrientation
                 currentDepends = dependencyMap[type]?.[orientation] || []

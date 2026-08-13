@@ -11,19 +11,19 @@
 @use "_typography/~" as *;
 @use "_z-index/~" as *;
 
-@mixin utilities($type: "UNDEFINED_", $orientation: "UNDEFINED_") {
+@mixin utilities($device: "", $orientation: "") {
     // :is([preset="light"], [preset="dark"]) {
-        @include background($type, $orientation);
-        @include border($type, $orientation);
-        @include flex($type, $orientation);
-        @include grid($type, $orientation);
-        @include indent($type, $orientation);
-        @include order($type, $orientation);
-        @include outline($type, $orientation);
-        @include placement($type, $orientation);
-        @include shadow($type, $orientation);
-        @include sizing($type, $orientation);
-        @include typography($type, $orientation);
-        @include z-index($type, $orientation);
+        @include background($device, $orientation);
+        @include border($device, $orientation);
+        @include flex($device, $orientation);
+        @include grid($device, $orientation);
+        @include indent($device, $orientation);
+        @include order($device, $orientation);
+        @include outline($device, $orientation);
+        @include placement($device, $orientation);
+        @include shadow($device, $orientation);
+        @include sizing($device, $orientation);
+        @include typography($device, $orientation);
+        @include z-index($device, $orientation);
     // }
 }

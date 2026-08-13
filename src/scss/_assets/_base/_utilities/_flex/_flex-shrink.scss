@@ -1,9 +1,13 @@
-@mixin flex-shrink($type, $orientation, $enableVariables) {
+@mixin flex-shrink($device, $orientation, $enableVariables) {
     /* flex shrink */
     
     @if $enableVariables {
         .flex-shrink {
-            flex-shrink: var(--#{$type}#{$orientation}flex-shrink, var(--flex-shrink));
+            @if $device == "" and $orientation == "" {
+                flex-shrink: var(--flex-shrink);
+            } @else {
+                flex-shrink: var(--#{$device}#{$orientation}flex-shrink, var(--flex-shrink));
+            }
         }
     }
 }

@@ -6,6 +6,7 @@
 @use "text-wrap" as text-wrap;
 @use "font-size" as font-size;
 @use "font-weight" as font-weight;
+@use "letter-spacing" as letter-spacing;
 @use "line-height" as line-height;
 @use "white-space" as white-space;
 @use "word-break" as word-break;
@@ -16,6 +17,7 @@
     @include direction.direction($device, $orientation, $enableVariables);
     @include font-size.font-size($device, $orientation, $enableVariables);
     @include font-weight.font-weight($device, $orientation, $enableVariables);
+    @include letter-spacing.letter-spacing($device, $orientation, $enableVariables);
     @include line-height.line-height($device, $orientation, $enableVariables);
     @include text-align.text-align($device, $orientation, $enableVariables);
     @include text-decoration.text-decoration($device, $orientation, $enableVariables);

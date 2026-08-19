@@ -3,7 +3,8 @@
     @each $flexWrap in (
         "wrap",
         "wrap-reverse",
-        "nowrap"
+        "nowrap",
+        "balance"
     ) {
         .#{$device}#{$orientation}flex-wrap--#{$flexWrap} {
             flex-wrap: #{$flexWrap};

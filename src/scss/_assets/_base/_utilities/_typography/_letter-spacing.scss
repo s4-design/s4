@@ -1,0 +1,12 @@
+@mixin letter-spacing($device, $orientation, $enableVariables) {
+    /* letter spacing */
+    @if $enableVariables {
+        .letter-spacing {
+            @if $device == "" and $orientation == "" {
+                letter-spacing: var(--letter-spacing);
+            } @else {
+                letter-spacing: var(--#{$device}#{$orientation}letter-spacing, var(--letter-spacing));
+            }
+        }
+    }
+}

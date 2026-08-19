@@ -1,6 +1,7 @@
 @mixin align-items($device, $orientation, $enableVariables) {
     /* align items */
     @each $alignItems in (
+        "anchor-center",
         "baseline",
         "center",
         "end",

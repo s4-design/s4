@@ -101,7 +101,8 @@
                 --display: inherit;
             }
         }
-        > e-body {
+        > e-body,
+        > .element--body {
             --display: block;
             --margin-block: var(--margin--s3);
             --margin-inline: var(--margin--s3);

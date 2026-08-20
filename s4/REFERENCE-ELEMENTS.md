@@ -57,6 +57,7 @@
         - [`<input type="radio">`](#input-type-radio-переключатель)
         - [`<select>`](#select-список-выбора)
         - [`<optgroup>`](#optgroup)
+        - [`<textarea>`](#textarea-многострочное-поле)
         - [`<fieldset>`](#fieldset)
     - [Инертность (`[inert]`)](#инертность-inert)
 
@@ -318,6 +319,27 @@
 - Цвет - через `color--*`; фон - через `background-color--*`.
 - Декоративная иконка (без смысла для ассистивных технологий) - `aria-hidden="true"`.
 - Для визуального состояния флажка/переключателя - `uncheck`/`check` (обе иконки кладутся рядом, видимость переключает пресет).
+
+**Источник иконок:**
+
+- Рекомендуется [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT).
+
+**Рекомендация:**
+
+- Иконки подключай **внешним файлом**: `<e-icon style="--image: url(/icons/имя.svg)">`. НЕ встраивай SVG-код в разметку.
+- Почему:
+    - внешний файл кешируется браузером — загружается один раз, а не при каждом использовании;
+    - разметка не раздувается — повторное использование иконки не дублирует её код;
+    - замена иконки = замена файла, без правки HTML.
+- Минус: каждый файл — отдельный запрос. При чрезмерно большом количестве иконок на странице следует собирать их в сводный спрайт.
+- Исключение: встроенный SVG допустим только для 1–2 уникальных иконок, когда нельзя ждать запрос к файлу.
+
+```html
+<!-- так правильно -->
+<e-icon aria-hidden="true" style="--image: url(/icons/arrow.svg);"></e-icon>
+<!-- так не надо: SVG-код дублируется в разметке и не кешируется -->
+<e-icon aria-hidden="true" style="--image: url('data:image/svg+xml,...');"></e-icon>
+```
 
 **Пример:**
 
@@ -1167,6 +1189,34 @@ style="--flex-basis: 20em"
     <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option></optgroup>
     <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
 </select>
+```
+
+### `<textarea>` (многострочное поле)
+
+**Назначение:** многострочное поле ввода текста.
+
+**Атрибуты:**
+
+| Атрибут | Значения |
+|---------|----------|
+| `rows` | высота в строках |
+| `placeholder` | подсказка при пустом поле |
+| `required` | обязательное поле (пустое - `:invalid`) |
+| `minlength`/`maxlength` | диапазон длины |
+| `disabled`/`inert` | состояние |
+| `readonly` | только для чтения |
+| `data-validation` | `immediate`/`user` - режим валидации |
+
+**Правила:**
+- Текст задаётся содержимым тега, не атрибутом `value`.
+- Валидация - по `:invalid`/`:user-invalid` (аналогично `<input>`); `data-validation="immediate"` проверяет сразу, `"user"` - после ввода.
+- `readonly` - поле только для чтения (`cursor: not-allowed`).
+
+**Пример:**
+
+```html
+<textarea placeholder="Введите текст" rows="4" required></textarea>
+<textarea rows="4" readonly>Текст нельзя изменить</textarea>
 ```
 
 ### `<fieldset>`

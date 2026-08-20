@@ -333,6 +333,9 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<select>` | - | Select |
 | `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Subscript/Superscript |
 | `<table>` | - | Table |
+| `<textarea>` | - | Multiline field |
+
+Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG icons are used via `<e-icon>` with `--image: url(...)`.
 
 **Rules:**
 

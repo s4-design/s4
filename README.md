@@ -333,6 +333,9 @@ HTML-элементы и кастомные теги С4 стилизуются 
 | `<select>` | - | Выбор |
 | `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Индексы |
 | `<table>` | - | Таблица |
+| `<textarea>` | - | Многострочное поле |
+
+Иконки для интерфейсов С4 рекомендуется брать из [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG-иконки используются через `<e-icon>` с `--image: url(...)`.
 
 **Правила:**
 

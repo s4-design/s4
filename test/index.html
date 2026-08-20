@@ -53,6 +53,7 @@
                 <a href="#strong" class="element--button">Сильное выделение</a>
                 <a href="#sub-sup" class="element--button">Индексные надписи</a>
                 <a href="#table" class="element--button">Таблица</a>
+                <a href="#textarea" class="element--button">Многострочное поле</a>
             </p>
         </section>
 
@@ -2205,6 +2206,31 @@
                         <tr><th scope="row">Итого</th><td colspan="2">Сумма за полугодие</td><td>+14%</td></tr>
                     </tfoot>
                 </table>
+            </div>
+        </section>
+
+        <section id="textarea" class="display--flex flex-wrap--wrap gap--md">
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Многострочное поле</h4>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Ввод</h5><hr />
+                <div class="display--grid">
+                    <textarea placeholder="Введите текст" rows="4" required></textarea>
+                    <h6>Заглушка</h6>
+                    <textarea rows="4"></textarea>
+                    <h6>Отключено</h6>
+                    <textarea rows="4" disabled>Недоступно</textarea>
+                    <h6>Инертно</h6>
+                    <textarea rows="4" inert>Недоступно</textarea>
+                    <h6>Ошибка</h6>
+                    <textarea rows="4" minlength="10" required placeholder="Минимум 10 символов"></textarea>
+                    <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
+                </div>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Только для чтения</h5><hr />
+                <div class="display--grid">
+                    <textarea rows="4" readonly>Текст нельзя изменить</textarea>
+                </div>
             </div>
         </section>
     </main>

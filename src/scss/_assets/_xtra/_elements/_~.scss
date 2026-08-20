@@ -38,6 +38,7 @@
 @use "_mutated/sup" as *;
 @use "_mutated/strong" as *;
 @use "_mutated/table" as *;
+@use "_mutated/textarea" as *;
 
 
 @mixin elements() {
@@ -75,6 +76,7 @@
         @include sup;
         @include strong;
         @include table;
+        @include textarea;
 
         /* created */
         @include e-badge;

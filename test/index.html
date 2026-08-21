@@ -1869,6 +1869,8 @@
                         <option value="ecv">ECV</option>
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
+                    <h6>Только для чтения</h6>
+                    <input type="text" value="Chocolate" readonly />
                     <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
@@ -1881,6 +1883,8 @@
                     <input type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required />
                     <h6>Шаблон</h6>
                     <input type="text" placeholder="Все кроме цифр" pattern="\D+" required />
+                    <h6>Только для чтения</h6>
+                    <input type="text" value="Текст только для чтения" readonly />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -1892,6 +1896,8 @@
                     <input type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required data-validation="user" />
                     <h6>Шаблон</h6>
                     <input type="text" placeholder="Все кроме цифр" pattern="\D+" required data-validation="user" />
+                    <h6>Только для чтения</h6>
+                    <input type="text" value="Текст только для чтения" readonly />
                 </div>
             </div>
         </section>
@@ -1905,6 +1911,7 @@
                     <input id="lbl-text" type="text" placeholder="Текст формы" />
                     <h6>Отключено</h6><label for="lbl-disabled">Подпись</label><input id="lbl-disabled" type="text" placeholder="Текст формы" disabled />
                     <h6>Инертно</h6><label for="lbl-inert">Подпись</label><input id="lbl-inert" type="text" placeholder="Текст формы" inert />
+                    <h6>Только для чтения</h6><label for="lbl-readonly">Подпись</label><input id="lbl-readonly" type="text" value="Текст только для чтения" readonly />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">

@@ -240,6 +240,26 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 
 Базовые: `--white`, `--black`, `--white--01`...`--white--09`, `--black--01`...`--black--09` (шаг 10% прозрачности).
 
+### Только логические свойства
+
+С4 использует **только логические CSS-свойства**. Физические (`height`, `width`, `margin-top`, `padding-left`, `top`, `right` и т.д.) не применяются — классов для них не существует.
+
+| Вместо физического | Используй логическое |
+|---|---|
+| `height` | `block-size` |
+| `width` | `inline-size` |
+| `min-height` | `min-block-size` |
+| `min-width` | `min-inline-size` |
+| `margin-top` / `margin-bottom` | `margin-block-start` / `margin-block-end` |
+| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
+| `padding-top` / `padding-bottom` | `padding-block-start` / `padding-block-end` |
+| `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
+| `top` / `bottom` | `inset-block-start` / `inset-block-end` |
+| `left` / `right` | `inset-inline-start` / `inset-inline-end` |
+| `border-top-*-radius` / `border-bottom-*-radius` | `border-start-start-radius` / `border-start-end-radius` / `border-end-start-radius` / `border-end-end-radius` |
+
+Все классы Формул 1, 2 и 3 используют логические имена: `display--grid`, `d_l_margin-block--md`, `padding-inline` и т.д.
+
 <br>
 
 ## Утилитарные классы — 3 формулы
@@ -313,6 +333,7 @@ HTML-элементы и кастомные теги С4 стилизуются 
 | `<e-popover>` | `.element--popover` | Поповер с телом |
 | `<e-message>` | `.element--message` | Сообщение |
 | `<e-truncate>` | `.element--truncate` | Усечение текста |
+| `<e-tag>` | `.element--tag` | Метка |
 | `<e-group>` | `.element--group` | Группировка |
 | `<e-line>` | `.element--line` | Разделитель |
 | | **HTML-теги** | |
@@ -333,7 +354,8 @@ HTML-элементы и кастомные теги С4 стилизуются 
 | `<menu>` | - | Меню |
 | `<p>` | - | Абзац |
 | `<select>` | - | Выбор |
-| `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Индексы |
+| `<sub>` | `.element--sub` | Нижний индекс |
+| `<sup>` | `.element--sup` | Верхний индекс |
 | `<table>` | - | Таблица |
 | `<textarea>` | - | Многострочное поле |
 
@@ -343,6 +365,7 @@ HTML-элементы и кастомные теги С4 стилизуются 
 
 1. **Один селектор на ноду.** Используй либо `<e-{name}>`, либо `<tag class="element--{name}">`. Никогда оба одновременно.
 2. **Специфичность.** Класс `.element--name` (0,1,0,0) - наравне с утилитами С4. Кастомный тег `<e-name>` (0,0,1,0) - базовый слой. Любой утилитарный класс переопределяет стили элемента без `!important`.
+3. **Сбросы не нужны.** С4 самостоятельно нормализует элементы через `elements.css` и пресет. Не добавляйте `margin: 0`, `box-sizing: border-box` и другие сбросы — всё это уже есть.
 
 Базовый HTML уже стилизован - классы не обязательны:
 
@@ -371,6 +394,8 @@ HTML-элементы и кастомные теги С4 стилизуются 
 @scope ([preset=light]) { /* светлый пресет */ }
 @scope ([preset=dark])  { /* тёмный пресет */ }
 ```
+
+**Изоляция пресетов.** Пресет применяется к элементу с соответствующим атрибутом `[preset=...]`, независимо от вложенности. `<div preset="light">` может содержать `<div preset="dark">` — родительский пресет не влияет на дочерний и наоборот. Пресеты можно менять независимо от DOM-иерархии.
 
 Каждый блок `@scope` содержит все переменные пресета для данного устройства. Пример содержимого `:scope`:
 ```css

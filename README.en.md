@@ -240,6 +240,26 @@ Each accent color has four shades:
 
 Basics: `--white`, `--black`, `--white--01`...`--white--09`, `--black--01`...`--black--09` (10% transparency steps).
 
+### Only logical properties
+
+S4 uses **only logical CSS properties**. Physical ones (`height`, `width`, `margin-top`, `padding-left`, `top`, `right`, etc.) are not used — there are no classes for them.
+
+| Instead of physical | Use logical |
+|---|---|
+| `height` | `block-size` |
+| `width` | `inline-size` |
+| `min-height` | `min-block-size` |
+| `min-width` | `min-inline-size` |
+| `margin-top` / `margin-bottom` | `margin-block-start` / `margin-block-end` |
+| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
+| `padding-top` / `padding-bottom` | `padding-block-start` / `padding-block-end` |
+| `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
+| `top` / `bottom` | `inset-block-start` / `inset-block-end` |
+| `left` / `right` | `inset-inline-start` / `inset-inline-end` |
+| `border-top-*-radius` / `border-bottom-*-radius` | `border-start-start-radius` / `border-start-end-radius` / `border-end-start-radius` / `border-end-end-radius` |
+
+All classes of Formulas 1, 2 and 3 use logical names: `display--grid`, `d_l_margin-block--md`, `padding-inline`, etc.
+
 <br>
 
 ## Utility classes — 3 formulas
@@ -313,6 +333,7 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<e-popover>` | `.element--popover` | Popover with body |
 | `<e-message>` | `.element--message` | Message |
 | `<e-truncate>` | `.element--truncate` | Text truncation |
+| `<e-tag>` | `.element--tag` | Tag |
 | `<e-group>` | `.element--group` | Grouping |
 | `<e-line>` | `.element--line` | Divider |
 | | **HTML tags** | |
@@ -333,7 +354,8 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<menu>` | - | Menu |
 | `<p>` | - | Paragraph |
 | `<select>` | - | Select |
-| `<sub>`/`<sup>` | `.element--sub` / `.element--sup` | Subscript/Superscript |
+| `<sub>` | `.element--sub` | Subscript |
+| `<sup>` | `.element--sup` | Superscript |
 | `<table>` | - | Table |
 | `<textarea>` | - | Multiline field |
 
@@ -343,6 +365,7 @@ Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://
 
 1. **One selector per node.** Use either `<e-{name}>` or `<tag class="element--{name}">`. Never both.
 2. **Specificity.** Class `.element--name` (0,1,0,0) - on par with S4 utilities. Custom tag `<e-name>` (0,0,1,0) - base layer. Any utility class overrides element styles without `!important`.
+3. **Resets are not needed.** S4 normalizes elements on its own via `elements.css` and the preset. Do not add `margin: 0`, `box-sizing: border-box` or other resets — they are already present.
 
 Base HTML is already styled - classes are optional:
 
@@ -371,6 +394,8 @@ S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribu
 @scope ([preset=light]) { /* light preset */ }
 @scope ([preset=dark])  { /* dark preset */ }
 ```
+
+**Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` — the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
 
 Each `@scope` block contains all preset variables for the given device. Example `:scope` contents:
 ```css

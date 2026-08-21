@@ -107,23 +107,25 @@ AI не нужно управлять каждым размером отдель
 
 ```
 s4/
+├── S4.md
 ├── css/
+│   ├── elements.css
+│   ├── utilities.css
 │   ├── desktop/
-│   │   ├── landscape.css
-│   │   ├── portrait.css
-│   │   └── config.css
-│   ├── mobile/
-│   │   ├── landscape.css
-│   │   ├── portrait.css
-│   │   └── config.css
+│   │   ├── config.css
+│   │   ├── landscape-utilities.css
+│   │   └── portrait-utilities.css
 │   ├── tablet/
-│   │   ├── landscape.css
-│   │   ├── portrait.css
-│   │   └── config.css
-│   └── elements.css
+│   │   ├── config.css
+│   │   ├── landscape-utilities.css
+│   │   └── portrait-utilities.css
+│   └── mobile/
+│       ├── config.css
+│       ├── landscape-utilities.css
+│       └── portrait-utilities.css
 └── js/
-    ├── device-state.min.js
-    └── s4.min.js
+    ├── s4.min.js
+    └── device-state.min.js
 ```
 
 ### Подключение

@@ -1,4 +1,4 @@
-# Справочник элементов S4 для AI-агента
+# Справочник элементов С4
 
 > См. также: [S4.md](S4.md), [REFERENCE-UTILITIES.md](REFERENCE-UTILITIES.md)
 

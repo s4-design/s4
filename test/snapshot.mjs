@@ -81,6 +81,8 @@ async function testPreset(browser, url, preset, sectionIds) {
     await page.evaluate((p) => {
         document.documentElement.setAttribute('preset', p)
     }, preset)
+    // Скрываем плавающие кнопки навигации (смена пресета / «Вверх»), чтобы не попадали в снимки
+    await page.addStyleTag({ content: '.no-snapshot { display: none !important; }' })
     await page.waitForTimeout(300)
 
     console.log(`\n--- Preset: ${preset} ---`)

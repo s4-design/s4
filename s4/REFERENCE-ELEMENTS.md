@@ -947,7 +947,7 @@ style="--flex-basis: 20em"
 
 **Варианты:**
 - Кнопка как кнопка `<button>`.
-- Только иконка: `<button title="..."><e-icon ...></e-icon></button>`.
+- Только иконка: `<button class="padding-inline--s3" title="..."><e-icon ...></e-icon></button>` — класс выравнивает горизонтальные отступы с вертикальными, формируя квадратную кнопку.
 - Изображение как кнопка: `<input type="image" src="..." alt="...">`.
 - Переключатель/флажок как кнопка: `<label class="element--button"><input type="radio">...</label>`.
 - Гиперссылка как кнопка: `<a class="element--button">`.
@@ -959,8 +959,13 @@ style="--flex-basis: 20em"
 
 ```html
 <button>Кнопка</button>
-<button><e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>Кнопка</button>
-<button title="Кнопка"><e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon></button>
+<button>
+    <e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>
+    Кнопка
+</button>
+<button class="padding-inline--s3" title="Кнопка">
+    <e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>
+</button>
 ```
 
 ### `<details>`

@@ -1256,3 +1256,48 @@ style="--flex-basis: 20em"
 <p inert>Инертное содержимое.</p>
 <button inert>Инертная кнопка</button>
 ```
+
+---
+
+## Паттерны использования (элементы + утилиты + адаптив)
+
+Элементы С4 — готовые кирпичики; утилиты (Ф1/Ф2/Ф3) достраивают раскладку, отступы, цвет и адаптив поверх них. Детальные атрибуты и структуру каждого элемента см. в его разделе выше.
+
+### Общий принцип： элемент + утилиты
+
+- **Гравитация (размер):** любой элемент масштабируется утилитой размера шрифта — `font-size--s3`…`font-size--l4`. Меняет все `em`-метрики элемента (отступы, углы, иконку). Пример: `<e-badge class="font-size--l1">`.
+- **Цвет акцента:** элементы принимают модификаторы `prime` / `negative` / `second` / `success` / `danger` (и `differ` — альтернативный вид кнопки/ссылки). Дополнительно цвет/фон задаётся утилитой напрямую: `color--prime`, `background-color--positive--mute`. Пример: `<e-icon class="color--prime">`.
+- **Отступы и раскладка:** вокруг/внутри элемента — утилитами `padding--*`, `margin--*`, `gap--*`, `display--*`.
+- **Hover:** работает (суффикс `:hover`, см. [LAYOUT.md](LAYOUT.md) §6). `:focus` / `:active` / `:disabled` / `:checked` классами не существуют.
+
+### Адаптив элемента (Ф2)
+
+Рантайм грузит CSS только текущего устройства, поэтому адаптив элемента задаётся Ф2-классами в том же HTML (база — Ф1, переопределение — Ф2 под нужное устройство/ориентацию; см. [LAYOUT.md](LAYOUT.md) §1). Группа, разворачивающаяся из строки в колонку на мобильном портрете:
+
+```html
+<e-group class="display--inline-flex flex-direction--row
+                m_p_flex-direction--column"
+         style="--border-radius: var(--border-radius--md)" role="group">
+  <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+  <e-line role="separator"></e-line>
+  <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+</e-group>
+```
+
+### Композитная карточка
+
+Контейнер на утилитах + элемент внутри (здесь — `e-message` с подвалом-кнопками). Утилиты задают поверхность и отступы, элемент — семантику и акцент:
+
+```html
+<div class="border-radius--md padding-inline--md padding-block--md background-color--positive--mute">
+  <e-message class="success" role="status">
+    <header>Готово</header>
+    <e-body>Действие выполнено успешно.</e-body>
+    <footer class="margin-block-start--unset">
+      <button class="differ background-color--transparent margin-inline-start--auto">OK</button>
+    </footer>
+  </e-message>
+</div>
+```
+
+Аналогично собираются любые блоки: контейнер-утилиты → вложенные элементы (`e-badge`, `e-group`, `e-icon`) + утилиты раскладки. Кнопки в подвале прижимай `margin-inline-start--auto` (вправо) или `justify-content--*` на родителе.

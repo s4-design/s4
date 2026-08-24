@@ -1,6 +1,6 @@
 {
     "name": "s4",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "packageManager": "pnpm@11.9.0",
     "description": "Кодо-ориентированная среда для построения дизайн-систем",
     "keywords": [
@@ -37,7 +37,8 @@
         "_s4-minor": "pnpm version minor",
         "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed --no-charset",
         "_s4-js": "terser src/js/s4.js --output s4/js/s4.min.js --mangle",
-        "s4": "pnpm _s4-minor && pnpm _s4-scss && pnpm _s4-js && pnpm _header-update"
+        "_s4-index": "node s4-index.mjs",
+        "s4": "pnpm _s4-minor && pnpm _s4-scss && pnpm _s4-js && pnpm _s4-index && pnpm _header-update"
     },
     "devDependencies": {
         "concurrently": "^9.2.1",

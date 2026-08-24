@@ -1,6 +1,6 @@
 @mixin \[preset\]() {
     /* [preset] */ 
-    // :scope {
+    [preset] {
         --position: relative;
         --background-color: var(--positive--light);
         --color: var(--negative--light);
@@ -13,5 +13,5 @@
         --text-underline-offset: var(--size--quantum);
         --overscroll-behavior: none;
         --hyphens: auto;
-    // }
+    }
 }

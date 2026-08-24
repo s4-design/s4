@@ -28,11 +28,11 @@
         
         --transition-duration: .15s;
         --transition-timing-function: linear;
-
-        @include \[preset\];
     }
     
     /* elements */
+    @include \[preset\];
+    
     // mutated
     @include \*;
     @include \[inert\];

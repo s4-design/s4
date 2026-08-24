@@ -4,15 +4,9 @@
 
 Источник: `s4/css/<device>/config.css` → `@layer presets { @scope ([preset=light|dark]) { :scope { … } } }`.
 Значения — из `desktop/config.css` (токены совпадают по всем устройствам).
-Всего переменных: 124.
+Всего переменных: 112.
 
 Имена — как в CSS: `--имя`. Используй через `var(--имя)` в Ф3: `style="--property: var(--имя)"`.
-
-## background-color
-
-| Переменная | light | dark |
-|---|---|---|
-| `--background-color` | var(--positive--light) | var(--positive--light) |
 
 ## black
 
@@ -55,12 +49,6 @@
 | `--box-shadow--s2` | var(--size--0p5) | var(--size--0p5) |
 | `--box-shadow--s3` | var(--size--quantum) | var(--size--quantum) |
 
-## color
-
-| Переменная | light | dark |
-|---|---|---|
-| `--color` | var(--negative) | var(--negative--light) |
-
 ## danger
 
 | Переменная | light | dark |
@@ -70,17 +58,10 @@
 | `--danger--light` | oklch(0.61 0.18 25) | oklch(0.64 0.18 25) |
 | `--danger--mute` | oklch(0.54 0.18 25 / 0.45) | oklch(0.54 0.18 25 / 0.35) |
 
-## font-family
-
-| Переменная | light | dark |
-|---|---|---|
-| `--font-family` | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans" | -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans" |
-
 ## font-size
 
 | Переменная | light | dark |
 |---|---|---|
-| `--font-size` | var(--font-size--md) | var(--font-size--md) |
 | `--font-size--l1` | var(--size--4p5) | var(--size--4p5) |
 | `--font-size--l2` | var(--size--5) | var(--size--5) |
 | `--font-size--l3` | var(--size--5p5) | var(--size--5p5) |
@@ -89,12 +70,6 @@
 | `--font-size--s1` | var(--size--3p5) | var(--size--3p5) |
 | `--font-size--s2` | var(--size--3) | var(--size--3) |
 | `--font-size--s3` | var(--size--2p5) | var(--size--2p5) |
-
-## font-weight
-
-| Переменная | light | dark |
-|---|---|---|
-| `--font-weight` | normal | normal |
 
 ## gap
 
@@ -108,18 +83,6 @@
 | `--gap--s1` | var(--size--3) | var(--size--3) |
 | `--gap--s2` | var(--size--2) | var(--size--2) |
 | `--gap--s3` | var(--size--1) | var(--size--1) |
-
-## hyphens
-
-| Переменная | light | dark |
-|---|---|---|
-| `--hyphens` | auto | auto |
-
-## line-height
-
-| Переменная | light | dark |
-|---|---|---|
-| `--line-height` | var(--size--6) | var(--size--6) |
 
 ## margin
 
@@ -143,12 +106,6 @@
 | `--negative--light` | oklch(0.27 0 254) | oklch(0.9 0.018 254) |
 | `--negative--mute` | oklch(0.18 0 254 / 0.45) | oklch(0.82 0.018 254 / 0.35) |
 
-## overscroll-behavior
-
-| Переменная | light | dark |
-|---|---|---|
-| `--overscroll-behavior` | none | none |
-
 ## padding
 
 | Переменная | light | dark |
@@ -161,12 +118,6 @@
 | `--padding--s1` | var(--size--3) | var(--size--3) |
 | `--padding--s2` | var(--size--2) | var(--size--2) |
 | `--padding--s3` | var(--size--1) | var(--size--1) |
-
-## position
-
-| Переменная | light | dark |
-|---|---|---|
-| `--position` | relative | relative |
 
 ## positive
 
@@ -227,18 +178,6 @@
 | `--success--light` | oklch(0.61 0.18 145) | oklch(0.64 0.18 145) |
 | `--success--mute` | oklch(0.54 0.18 145 / 0.45) | oklch(0.54 0.18 145 / 0.35) |
 
-## tab-size
-
-| Переменная | light | dark |
-|---|---|---|
-| `--tab-size` | 4 | 4 |
-
-## text-underline-offset
-
-| Переменная | light | dark |
-|---|---|---|
-| `--text-underline-offset` | var(--size--quantum) | var(--size--quantum) |
-
 ## transition-duration
 
 | Переменная | light | dark |
@@ -265,10 +204,4 @@
 | `--white--07` | oklch(1 0 0 / 0.7) | oklch(1 0 0 / 0.7) |
 | `--white--08` | oklch(1 0 0 / 0.8) | oklch(1 0 0 / 0.8) |
 | `--white--09` | oklch(1 0 0 / 0.9) | oklch(1 0 0 / 0.9) |
-
-## word-break
-
-| Переменная | light | dark |
-|---|---|---|
-| `--word-break` | normal | normal |
 

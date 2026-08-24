@@ -31,7 +31,7 @@
 - `display: none;` → `.display--none` → `<div class="display--none">`
 - `color: var(--prime);` → `.color--prime` → `<div class="color--prime">`
 - `margin-block-start: 1em;` → `.margin-block-start--md` (`md` = `--size--4` = 1em) → `<div class="margin-block-start--md">`
-- `padding-inline: 2em;` → `.padding-inline--l2` → `<div class="padding-inline--l2">`
+- `padding-inline: 2em;` → `.padding-inline--l4` → `<div class="padding-inline--l4">`
 - `d_l_display: flex;` → `.d_l_display--flex` (десктоп, альбомная) → `<div class="d_l_display--flex">`
 - `m_p_position: sticky;` → `.m_p_position--sticky` (мобильный, портретная) → `<div class="m_p_position--sticky">`
 - `color: red;` → `.color` + `style="--color: red"` (Ф3) → `<div class="color" style="--color: red">`

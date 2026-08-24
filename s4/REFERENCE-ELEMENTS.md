@@ -181,7 +181,7 @@
 
 | Атрибут | Значения |
 |---------|----------|
-| `class` | `negative`, `prime`, `second`, `success`, `danger` (без класса - нейтральный) |
+| `class` | `positive`, `negative`, `prime`, `second`, `success`, `danger` (без класса - нейтральный) |
 | `role` | `status` (по умолч.), `alert` (только для danger) |
 
 **Структура:**
@@ -203,6 +203,7 @@
 | Класс | Role |
 |-------|------|
 | _(нет)_ | `status` |
+| `positive` | `status` |
 | `negative` | `status` |
 | `prime` | `status` |
 | `second` | `status` |
@@ -214,7 +215,6 @@
 - Заголовок и подвал опциональны; если есть хотя бы один - сообщение считается составным.
 - `<e-body>` внутри `<e-message>` обязателен. Текст напрямую внутри `<e-message>` - ошибка.
 - `danger` → `role="alert"`, все остальные → `role="status"`.
-- Для ссылок на MDN на страницах других элементов: `<e-message class="second" role="status">`.
 
 **Пример:**
 
@@ -238,7 +238,7 @@
 
 | Атрибут | Значения |
 |---------|----------|
-| `class` | `negative`, `prime`, `second`, `success`, `danger` (без класса - нейтральный) |
+| `class` | `positive`, `negative`, `prime`, `second`, `success`, `danger` (без класса - нейтральный) |
 | `role` | `status` |
 
 **Role:** `status` (всегда).
@@ -459,7 +459,7 @@
 
 | Атрибут | Значения |
 |---------|----------|
-| `class` | `element--button` (вид кнопки), `negative`, `prime`, `second`, `success`, `danger` (цвета), `font-size--s3`...`font-size--l4` (размер) |
+| `class` | `element--button` (вид кнопки), `positive`, `negative`, `prime`, `second`, `success`, `danger` (цвета), `font-size--s3`...`font-size--l4` (размер) |
 | `role` | `button` (интерактив) |
 
 **Структура:**
@@ -535,6 +535,8 @@
 | `differ` | альтернативный внешний вид кнопки/ссылки |
 
 Состояния применяются одинаково ко всем интерактивным mutated-элементам: `a`, `button`, `input`, `checkbox`, `radio`, `select`.
+
+**Важно — что сгенерировано, а что нет.** Единственное состояние, доступное как класс (`…:hover`), — `:hover` (см. AGENT.md, алгоритм шаг 4, и LAYOUT.md §6). `disabled` и `inert` — это HTML-атрибуты; они стилизуются через `[disabled]` / `[inert]` в `elements.css`, а не через utility-классы. Псевдоклассы `:focus` / `:active` / `:checked` классами НЕ генерируются — не выдумывай для них классы.
 
 ---
 
@@ -788,7 +790,7 @@
 | Атрибут | Значения |
 |---------|----------|
 | `href` | URL перехода |
-| `class` | цвета `negative`/`prime`/`second`/`success`/`danger`, `element--button`, `differ` |
+| `class` | цвета `positive`/`negative`/`prime`/`second`/`success`/`danger`, `element--button`, `differ` |
 | `inert` | состояние (недоступна) |
 
 **Пример:**
@@ -947,7 +949,7 @@ style="--flex-basis: 20em"
 
 **Варианты:**
 - Кнопка как кнопка `<button>`.
-- Только иконка: `<button class="padding-inline--s3" title="..."><e-icon ...></e-icon></button>` — класс выравнивает горизонтальные отступы с вертикальными, формируя квадратную кнопку.
+  - Только иконка: `<button class="padding-inline--s3 padding-block--s3" title="..."><e-icon ...></e-icon></button>` — уменьшает горизонтальный отступ; чтобы кнопка стала квадратной, задай и `padding-block--s3` (см. пример ниже).
 - Изображение как кнопка: `<input type="image" src="..." alt="...">`.
 - Переключатель/флажок как кнопка: `<label class="element--button"><input type="radio">...</label>`.
 - Гиперссылка как кнопка: `<a class="element--button">`.
@@ -963,7 +965,7 @@ style="--flex-basis: 20em"
     <e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>
     Кнопка
 </button>
-<button class="padding-inline--s3" title="Кнопка">
+<button class="padding-inline--s3 padding-block--s3" title="Кнопка">
     <e-icon style="--image:url(/icons/icon.svg)" aria-hidden="true"></e-icon>
 </button>
 ```
@@ -1266,7 +1268,7 @@ style="--flex-basis: 20em"
 ### Общий принцип： элемент + утилиты
 
 - **Гравитация (размер):** любой элемент масштабируется утилитой размера шрифта — `font-size--s3`…`font-size--l4`. Меняет все `em`-метрики элемента (отступы, углы, иконку). Пример: `<e-badge class="font-size--l1">`.
-- **Цвет акцента:** элементы принимают модификаторы `prime` / `negative` / `second` / `success` / `danger` (и `differ` — альтернативный вид кнопки/ссылки). Дополнительно цвет/фон задаётся утилитой напрямую: `color--prime`, `background-color--positive--mute`. Пример: `<e-icon class="color--prime">`.
+- **Цвет акцента:** элементы принимают модификаторы `positive` / `prime` / `negative` / `second` / `success` / `danger` (и `differ` — альтернативный вид кнопки/ссылки). Дополнительно цвет/фон задаётся утилитой напрямую: `color--prime`, `background-color--positive--mute`. Пример: `<e-icon class="color--prime">`.
 - **Отступы и раскладка:** вокруг/внутри элемента — утилитами `padding--*`, `margin--*`, `gap--*`, `display--*`.
 - **Hover:** работает (суффикс `:hover`, см. [LAYOUT.md](LAYOUT.md) §6). `:focus` / `:active` / `:disabled` / `:checked` классами не существуют.
 

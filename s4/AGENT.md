@@ -61,4 +61,4 @@
 
 ## Ссылки (локально)
 
-[index.md](index.md) словарь · [LAYOUT.md](LAYOUT.md) гайд вёрстки · [REFERENCE-UTILITIES.md](REFERENCE-UTILITIES.md) · [REFERENCE-ELEMENTS.md](REFERENCE-ELEMENTS.md) · [S4.md](S4.md)
+[index.md](index.md) словарь · [LAYOUT.md](LAYOUT.md) гайд вёрстки · [variables.md](variables.md) переменные · [REFERENCE-UTILITIES.md](REFERENCE-UTILITIES.md) · [REFERENCE-ELEMENTS.md](REFERENCE-ELEMENTS.md) · [S4.md](S4.md)

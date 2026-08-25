@@ -4,15 +4,15 @@
 
 ## 1. Адаптив без брейкпоинтов (фундаментально)
 
-- Три **независимых, неизменных** раскладки: `desktop`, `tablet`, `mobile`. Каждая грузит свой CSS-файл (`s4/css/<device>/`). Нет mobile-first, нет «`md:` перебивает desktop».
-- Устройство всегда остаётся самим собой. Ты не «адаптируешь под экран» — ты задаёшь три отдельных макета.
+- Три **независимых, неизменных** раскладки: `desktop`, `tablet`, `mobile`. Каждая грузит свой CSS-файл (`s4/css/<device>/`). Нет mobile-first, нет "`md:` перебивает desktop".
+- Устройство всегда остаётся самим собой. Ты не "адаптируешь под экран" — ты задаёшь три отдельных макета.
 - **Ф2 = префикс устройства + ориентации, а НЕ медиа-запрос.** Перевод привычки: Tailwind `md:` → `d_p_` (десктоп, портретная), `lg:` → `d_l_` (десктоп, альбомная).
 - Ф2 нужна только если значение **отличается от базового** на этом устройстве; одинаково везде — одна Ф1.
 
 **Как писать адаптив (модель рантайма).** `S4()` грузит CSS **только текущего** `{device × orientation}`; классы других устройств в HTML просто не подгружаются и не влияют. Поэтому одну разметку пишешь сразу под все целевые устройства:
 
 - **Ф1** (без префикса) — базовое значение, работает везде.
-- **Ф2** (`{device}_{orientation}_…`) — переопределяет Ф1 **только** на своём устройстве/ориентации.
+- **Ф2** (`{device}_{orientation}_...`) — переопределяет Ф1 **только** на своём устройстве/ориентации.
 
 Покрывай реальные ориентации: десктоп/планшет — в основном `landscape` (`d_l_`, `t_l_`), мобильный — `portrait` (`m_p_`). Мнемоника Tailwind: `md:`/`lg:` ≈ `d_l_` (не буквально). Пример сетки 3→2→1 колонка:
 
@@ -21,7 +21,7 @@
             d_l_grid-template-columns--3
             t_l_grid-template-columns--2
             m_p_grid-template-columns--1">
-  …
+  ...
 </div>
 ```
 
@@ -32,14 +32,14 @@
 - Все переменные (палитра, размеры, типографика) и их значения по пресетам light/dark — в [variables.md](variables.md), сгенерировано из `config.css` → `:scope {}`. Исходник — `config.css` для каждого устройства + 2 пресета (light/dark).
 - Для утилитарной вёрстки используй пресет-переменные напрямую в Ф3: `var(--positive--mute)`, `var(--size--4)` и т.п.
 - Цвет = **акцент × оттенок**: акценты `prime` / `second` / `positive` / `negative` / `success` / `danger`; оттенки `base` / `light` / `dark` / `mute`. Модификатор класса: `--{accent}--{shade}` (напр. `background-color--positive--mute`, `:hover` → `background-color--positive--dark:hover`).
-- Элементный API позже уточнит, какие переменные «принадлежат» элементам; для утилитарной вёрстки сейчас это не нужно.
+- Элементный API позже уточнит, какие переменные "принадлежат" элементам; для утилитарной вёрстки сейчас это не нужно.
 
 **Семантика цвета (роли).** Опирайся на семантику акцентов, не подбирай токены наугад:
 - Основное действие / акцент: `--prime` (+ оттенки `--prime--light` / `--prime--dark` / `--prime--mute` по силе).
 - Вторичное действие: `--second`.
 - Успех / позитив: `--success`. Опасность / ошибка: `--danger`.
 - Поверхность и текст — из пресет-дефолтов (`--background-color`, `--color` в блоке `[preset]`), иначе развалится тема. Не задавай фон/текст вручную — бери дефолты или акцентные токены.
-- Прозрачность: оттенок `--mute` (≈45%) либо шкалы `--white--01…09` / `--black--01…09`.
+- Прозрачность: оттенок `--mute` (≈45%) либо шкалы `--white--01...09` / `--black--01...09`.
 
 ## 3. Много-значные свойства
 
@@ -55,19 +55,19 @@
 
 ### Центрированный блок с макс. шириной
 ```html
-<div class="margin-inline--auto inline-size--100" style="--max-inline-size: 72em">…</div>
+<div class="margin-inline--auto inline-size--100" style="--max-inline-size: 72em">...</div>
 ```
 
 ### Сетка колонок (16em + 1fr)
 ```html
-<div class="display--grid" style="--grid-template-columns: 16em 1fr">…</div>
+<div class="display--grid" style="--grid-template-columns: 16em 1fr">...</div>
 ```
 
 ### Карточная колонка (flex, отступы, дети БЕЗ комбинаторов)
 ```html
 <div class="display--flex flex-direction--column gap--md">
-  <div class="padding-inline--l4 padding-block--s1 background-color--positive--mute">…</div>
-  <div class="padding-inline--l4 padding-block--s1 background-color--positive--mute">…</div>
+  <div class="padding-inline--l4 padding-block--s1 background-color--positive--mute">...</div>
+  <div class="padding-inline--l4 padding-block--s1 background-color--positive--mute">...</div>
 </div>
 ```
 Правило: нет селекторов вида `.parent > *`. Утилиты навешивай на каждый дочерний узел. `:has()` появится позже.
@@ -80,20 +80,20 @@
 
 ### Соотношение сторон
 ```html
-<div class="aspect-ratio--1/1">…</div>
-<div class="d_l_aspect-ratio--16/9">…</div> <!-- адаптивный модификатор -->
+<div class="aspect-ratio--1/1">...</div>
+<div class="d_l_aspect-ratio--16/9">...</div> <!-- адаптивный модификатор -->
 ```
 Нет нужного значения → Ф3 `style="--aspect-ratio: 3/2"`.
 
 ### Адаптив вне словаря (Ф2 + Ф3)
 ```html
-<div class="min-block-size" style="--m_p_min-block-size: 100dvb">…</div>
+<div class="min-block-size" style="--m_p_min-block-size: 100dvb">...</div>
 ```
 Префикс устройства + ориентации ставится в имя переменной.
 
 ### Сброс радиуса одного угла
 ```html
-<div class="border-radius--md border-end-end-radius--unset">…</div>
+<div class="border-radius--md border-end-end-radius--unset">...</div>
 ```
 
 ## 6. Состояния (пока только :hover)
@@ -102,7 +102,7 @@
 
 ```html
 <button class="background-color--positive--mute background-color--positive--dark:hover">Кнопка</button>
-<div class="d_l_color--prime d_l_color--second:hover">…</div>
+<div class="d_l_color--prime d_l_color--second:hover">...</div>
 ```
 
 - Работает и для Ф1 (все устройства), и для Ф2 (только своё устройство/ориентация).

@@ -2,7 +2,7 @@
 
 Сгенерировано автоматически скриптом s4-index.mjs. Не редактировать вручную.
 
-Источник: `s4/css/<device>/config.css` → `@layer presets { @scope ([preset=light|dark]) { :scope { … } } }`.
+Источник: `s4/css/<device>/config.css` → `@layer presets { @scope ([preset=light|dark]) { :scope { ... } } }`.
 Значения — из `desktop/config.css` (токены совпадают по всем устройствам).
 Всего переменных: 112.
 

@@ -1,6 +1,6 @@
 @mixin \[preset\]() {
     /* [preset] */ 
-    [preset] {
+    &[preset] {
         --position: relative;
         --background-color: var(--positive--light);
         --color: var(--negative);

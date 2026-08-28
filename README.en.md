@@ -151,7 +151,7 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers — see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).
+Once connected, all utility classes are available in HTML. Full list of properties and modifiers - see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).
 
 **Example:**
 ```html
@@ -242,7 +242,7 @@ Basics: `--white`, `--black`, `--white--01`...`--white--09`, `--black--01`...`--
 
 ### Only logical properties
 
-S4 uses **only logical CSS properties**. Physical ones (`height`, `width`, `margin-top`, `padding-left`, `top`, `right`, etc.) are not used — there are no classes for them.
+S4 uses **only logical CSS properties**. Physical ones (`height`, `width`, `margin-top`, `padding-left`, `top`, `right`, etc.) are not used - there are no classes for them.
 
 | Instead of physical | Use logical |
 |---|---|
@@ -262,12 +262,12 @@ All classes of Formulas 1, 2 and 3 use logical names: `display--grid`, `d_l_marg
 
 <br>
 
-## Utility classes — 3 formulas
+## Utility classes - 3 formulas
 
-> Full alphabetical list of properties with ready classes — see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).  
-> System architecture — [s4/S4.md](s4/S4.md).
+> Full alphabetical list of properties with ready classes - see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).  
+> System architecture - [s4/S4.md](s4/S4.md).
 
-### Formula 1 — unified
+### Formula 1 - unified
 
 ```
 .{property}--{modifier}
@@ -280,7 +280,7 @@ Style is the same across all devices and orientations.
 | `border--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
-### Formula 2 — adaptive
+### Formula 2 - adaptive
 
 ```
 .{device}_{orientation}_{property}--{modifier}
@@ -298,7 +298,7 @@ With pseudo-class: `d_l_background-color--transparent\:hover:hover`
 
 With pseudo-element: `d_l_display--none\:\:before::before`
 
-### Formula 3 — variable
+### Formula 3 - variable
 
 ```
 .{property}
@@ -365,7 +365,7 @@ Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://
 
 1. **One selector per node.** Use either `<e-{name}>` or `<tag class="element--{name}">`. Never both.
 2. **Specificity.** Class `.element--name` (0,1,0,0) - on par with S4 utilities. Custom tag `<e-name>` (0,0,1,0) - base layer. Any utility class overrides element styles without `!important`.
-3. **Resets are not needed.** S4 normalizes elements on its own via `elements.css` and the preset. Do not add `margin: 0`, `box-sizing: border-box` or other resets — they are already present.
+3. **Resets are not needed.** S4 normalizes elements on its own via `elements.css` and the preset. Do not add `margin: 0`, `box-sizing: border-box` or other resets - they are already present.
 
 Base HTML is already styled - classes are optional:
 
@@ -395,7 +395,7 @@ S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribu
 @scope ([preset=dark])  { /* dark preset */ }
 ```
 
-**Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` — the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
+**Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` - the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
 
 Each `@scope` block contains all preset variables for the given device. Example `:scope` contents:
 ```css
@@ -433,7 +433,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
 }
 ```
 
-For device-independent styling, use Formula 1 or explicit values. Presets affect only variables — utility classes from Formula 1 and 2 are preset-independent.
+For device-independent styling, use Formula 1 or explicit values. Presets affect only variables - utility classes from Formula 1 and 2 are preset-independent.
 
 Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 

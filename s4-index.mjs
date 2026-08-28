@@ -1,9 +1,10 @@
-// Генератор словарей С4 для AI-агента.
-// 1) s4/index.md — базовые классы (Формула 1 + 3) из s4/css/utilities.css.
-// 2) s4/variables.md — переменные (токены) из s4/css/<device>/config.css → @scope([preset]) :scope{}.
-// Префиксные классы Формулы 2 лежат в device-файлах и не включаются в index.md:
-// агент выводит их из базовых по правилу «добавь префикс устройства+ориентации» (см. AGENT.md).
-// Назначение: агент читает оба файла офлайн и видит базовый словарь классов и значения переменных.
+// Генератор словарей С4 для AI-агента (JSON, внутри дистрибутива s4/contract/).
+// 1) s4/contract/utilities.json — базовые классы (Формула 1 + 3) из s4/css/utilities.css. ТОЛЬКО для валидатора.
+// 2) s4/contract/tokens.json — публичные токены (CSS-переменные) из s4/css/<device>/config.css -> @scope([preset]) :scope{}.
+// Префиксные классы Формулы 2 лежат в device-файлах и не включаются в utilities.json:
+// агент/валидатор выводит их из базовых по правилу «добавь префикс устройства+ориентации» (см. s4/AGENT.md).
+// Назначение: s4/contract/* — единый источник правды для агента (маршрутизация/спецификации) и валидатора.
+// Старые MD-словари s4/index.md и s4/variables.md больше не генерируются (заменены JSON).
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -11,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const utilities = join(root, 's4', 'css', 'utilities.css');
-const out = join(root, 's4', 'index.md');
+const contract = join(root, 's4', 'contract');
 
 const ruleRe = /[^{}]+\{/g;
 const classRe = /\.[^,{} \n\t>+~*(]+/g;
@@ -34,26 +35,29 @@ while ((rule = ruleRe.exec(text))) {
     }
 }
 
-const raw = [...classes].sort();
-const sorted = raw.map((c) =>
-    c
-        .replace(/\\/g, '')
-        .replace(/:([a-z-]+):[a-z-]+$/i, ':$1')
-        .replace(/::([a-z-]+)::[a-z-]+$/i, '::$1')
-);
-const header =
-    '# С4 — словарь базовых классов\n\n' +
-    'Сгенерировано автоматически скриптом s4-index.mjs. Не редактировать вручную.\n\n' +
-    `Базовые классы (Формула 1 и 3, без префиксов устройств). Всего: ${sorted.length}.\n\n` +
-    'Имена — как в HTML `class=""` (без экранирования `\\:`).\n\n' +
-    'Префиксные варианты (Формула 2: `d_`, `t_`, `m_` + `l_`/`p_`) выводятся из базовых по правилу из [AGENT.md](AGENT.md).\n\n' +
-    '## Классы\n\n';
-const content = header + sorted.join('\n') + '\n';
+const sorted = [...classes]
+    .sort()
+    .map((c) =>
+        c
+            .replace(/\\/g, '')
+            .replace(/:([a-z-]+):[a-z-]+$/i, ':$1')
+            .replace(/::([a-z-]+)::[a-z-]+$/i, '::$1')
+    );
 
-writeFileSync(out, content);
-console.log(`С4 index: ${sorted.length} классов → ${out}`);
+// --- Машинный словарь утилит-классов для валидатора (s4/contract/utilities.json) ---
+const utilDesc =
+    'Машинный словарь ВАЛИДНЫХ УТИЛИТ-КЛАССОВ С4 (Формула 1 и 3: базовые, без префиксов устройств). ' +
+    'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
+    'НАЗНАЧЕНИЕ: ТОЛЬКО для валидатора (s4/contract/validate-s4.mjs) - он сверяет по этому списку, что класс в HTML существует. ' +
+    'АГЕНТ ЭТОТ ФАЙЛ НЕ ЧИТАЕТ (ни целиком, ни по частям без крайней нужды): для подсказки, какие утилиты применимы к элементу, ' +
+    'агент пользуется масками допустимыхУтилит в s4/contract/elements/<элемент>.json, а не этим словарем. ' +
+    'Варианты Ф2 с префиксами устройств (d_/t_/m_ + l_/p_) здесь не перечислены: валидатор строит их из базового имени по правилу префикса.';
+const utilArr = sorted.map((c) => c.replace(/^\./, ''));
+const utilJson = JSON.stringify({ описание: utilDesc, всего: utilArr.length, утилиты: utilArr }, null, 2);
+writeFileSync(join(contract, 'utilities.json'), utilJson + '\n');
+console.log(`С4 utilities: ${utilArr.length} классов → ${join(contract, 'utilities.json')}`);
 
-// --- Переменные (токены) из config.css -> :scope ---
+// --- Машинный словарь публичных токенов (s4/contract/tokens.json) ---
 function extractScopeVars(cfgText) {
     const byPreset = {};
     const scopeRe = /@scope \(\[preset=(\w+)\]\)\{:scope\{([^}]*)\}/g;
@@ -81,34 +85,18 @@ for (const d of devices) {
 
 const light = primaryVars.light || {};
 const dark = primaryVars.dark || {};
-const allNames = [...new Set([...Object.keys(light), ...Object.keys(dark)])];
+const allNames = [...new Set([...Object.keys(light), ...Object.keys(dark)])].sort();
+const publicNames = allNames.filter((n) => !n.startsWith('--size--'));
 
-function groupOf(name) {
-    const inner = name.slice(2);
-    const i = inner.indexOf('--');
-    return i === -1 ? inner : inner.slice(0, i);
-}
+const tokenMap = {};
+for (const n of publicNames) tokenMap[n] = { light: light[n] ?? '', dark: dark[n] ?? '' };
 
-const groups = {};
-for (const n of allNames) (groups[groupOf(n)] ||= []).push(n);
-
-let vcontent = '';
-vcontent += '# С4 — переменные (значения из :scope)\n\n';
-vcontent += 'Сгенерировано автоматически скриптом s4-index.mjs. Не редактировать вручную.\n\n';
-vcontent += 'Источник: `s4/css/<device>/config.css` → `@layer presets { @scope ([preset=light|dark]) { :scope { … } } }`.\n';
-vcontent += `Значения — из \`desktop/config.css\`${devicesAgree ? ' (токены совпадают по всем устройствам)' : ' (ВНИМАНИЕ: значения различаются по устройствам — показан desktop)'}.\n`;
-vcontent += `Всего переменных: ${allNames.length}.\n\n`;
-vcontent += 'Имена — как в CSS: `--имя`. Используй через `var(--имя)` в Ф3: `style="--property: var(--имя)"`.\n\n';
-
-for (const g of Object.keys(groups).sort()) {
-    vcontent += `## ${g}\n\n`;
-    vcontent += '| Переменная | light | dark |\n|---|---|---|\n';
-    for (const n of groups[g].sort()) {
-        vcontent += `| \`${n}\` | ${light[n] ?? ''} | ${dark[n] ?? ''} |\n`;
-    }
-    vcontent += '\n';
-}
-
-const vout = join(root, 's4', 'variables.md');
-writeFileSync(vout, vcontent);
-console.log(`С4 variables: ${allNames.length} переменных → ${vout}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);
+const tokenDesc =
+    'Машинный словарь ПУБЛИЧНЫХ ТОКЕНОВ (CSS-переменных) С4 из s4/css/<device>/config.css -> @scope([preset=light|dark]) :scope{}. ' +
+    'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
+    'НАЗНАЧЕНИЕ: агент читает для Ф3 (var(--имя)) и чтобы знать допустимые имена; валидатор проверяет существование имени. ' +
+    'ПРИВАТНЫЕ ТОКЕНЫ --size--* ИСКЛЮЧЕНЫ (агент не пишет их напрямую в вёрстке). ' +
+    `Значения - из desktop/config.css${devicesAgree ? ' (токены совпадают по всем устройствам)' : ' (ВНИМАНИЕ: значения различаются по устройствам - показан desktop)'}.`;
+const tokenJson = JSON.stringify({ описание: tokenDesc, всего: publicNames.length, токены: tokenMap }, null, 2);
+writeFileSync(join(contract, 'tokens.json'), tokenJson + '\n');
+console.log(`С4 tokens: ${publicNames.length} токенов → ${join(contract, 'tokens.json')}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);

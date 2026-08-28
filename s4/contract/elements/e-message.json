@@ -1,0 +1,17 @@
+{
+  "тег": "e-message",
+  "классДубликат": "element--message",
+  "роли": ["status", "alert"],
+  "модификаторы": ["positive", "negative", "prime", "second", "success", "danger"],
+  "обязательныеДети": ["e-body"],
+  "допустимыеУтилиты": ["display", "flex", "grid", "gap", "align*", "justify*", "margin-block*"],
+  "запрещённыеУтилиты": [
+    "background-color*", "background-image*", "box-shadow*",
+    "border-radius*", "border-color*", "border-width*", "border-style*",
+    "padding*", "color*", "font-size*", "font-weight*", "text-decoration*"
+  ],
+  "композиция": "обязателен e-body (тело); заголовок при наличии - внутри e-body или отдельным блоком",
+  "правило": "модификатор danger -> role=alert; без danger -> role=status (по умолчанию)",
+  "рольПоУмолчанию": "status",
+  "акцентРоль": { "danger": "alert" }
+}

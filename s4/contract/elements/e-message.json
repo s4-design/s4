@@ -1,17 +1,78 @@
 {
   "тег": "e-message",
   "классДубликат": "element--message",
-  "роли": ["status", "alert"],
-  "модификаторы": ["positive", "negative", "prime", "second", "success", "danger"],
-  "обязательныеДети": ["e-body"],
-  "допустимыеУтилиты": ["display", "flex", "grid", "gap", "align*", "justify*", "margin-block*"],
-  "запрещённыеУтилиты": [
-    "background-color*", "background-image*", "box-shadow*",
-    "border-radius*", "border-color*", "border-width*", "border-style*",
-    "padding*", "color*", "font-size*", "font-weight*", "text-decoration*"
+  "описание": "Сообщение пользователю с цветовым акцентом: статус, уведомление или предупреждение.",
+  "модификаторы": [
+    "negative",
+    "prime",
+    "second",
+    "success",
+    "danger"
   ],
-  "композиция": "обязателен e-body (тело); заголовок при наличии - внутри e-body или отдельным блоком",
-  "правило": "модификатор danger -> role=alert; без danger -> role=status (по умолчанию)",
-  "рольПоУмолчанию": "status",
-  "акцентРоль": { "danger": "alert" }
+  "Дети": {
+    "header": {
+      "тег": "header",
+      "классДубликат": null,
+      "обязательный": false,
+      "примечание": "заголовок сообщения"
+    },
+    "e-body": {
+      "тег": "e-body",
+      "классДубликат": "element--body",
+      "обязательный": true,
+      "примечание": "тело сообщения"
+    },
+    "footer": {
+      "тег": "footer",
+      "классДубликат": null,
+      "обязательный": false,
+      "примечание": "действия (кнопки)"
+    },
+    "порядок": [
+      ["header", "e-body", "footer"],
+      ["header", "e-body"],
+      ["e-body", "footer"],
+      ["e-body"]
+    ]
+  },
+  "роли": {
+    "status": {
+      "модификаторы": [
+        "negative",
+        "prime",
+        "second",
+        "success"
+      ],
+      "когда": "Цветовой акцент статуса/уведомления (negative/prime/second/success)."
+    },
+    "alert": {
+      "модификаторы": [
+        "danger"
+      ],
+      "когда": "Цветовой акцент опасности/предупреждения (danger)."
+    }
+  },
+  "допустимыйКонтент": {
+    "примечание": "Внутри e-body - любой flow-контент; в header/footer - текст, кнопки, e-icon.",
+    "примеры": [
+      "e-body",
+      "header",
+      "footer",
+      "e-icon",
+      "button",
+      "p",
+      "ul/ol",
+      "img"
+    ]
+  },
+  "запрещено": {
+    "элементы": [
+      "вложенный e-message",
+      "несколько e-body",
+      "несколько модификаторов одновременно (взаимоисключающие)"
+    ],
+    "роли": [
+      "роли без цветового модификатора (роль выводится из модификатора)"
+    ]
+  }
 }

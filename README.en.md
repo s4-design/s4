@@ -93,6 +93,10 @@ No component catalog with dozens of props. There's a combination of `{element} +
 
 `elements → presets → utilities`. A utility always overrides a preset, a preset overrides an element. No `!important`, no speculation.
 
+### 6. JSON contracts
+
+Machine-readable specification for AI agents: `s4/contract/*.json`. Entry point - `patterns.json` (UI intent → element), element constraints - `elements/*.json`, global rules - `rules.json`. The single source of truth for code generation.
+
 <hr>
 
 System 4 (S4) is an AI-friendly interface system. This is not a marketing label but a consequence of the architecture: deterministic formulas + semantic HTML + flat modifier model.
@@ -107,7 +111,14 @@ Download the [latest release](https://github.com/s4-design/s4/releases/):
 
 ```
 s4/
-├── S4.md
+├── AGENTS.md
+├── contract/
+│   ├── patterns.json
+│   ├── rules.json
+│   ├── utilities.json
+│   ├── variables.json
+│   ├── validate-s4.mjs
+│   └── elements/
 ├── css/
 │   ├── elements.css
 │   ├── utilities.css
@@ -151,7 +162,7 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers - see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).
+Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1162 classes).
 
 **Example:**
 ```html
@@ -264,8 +275,8 @@ All classes of Formulas 1, 2 and 3 use logical names: `display--grid`, `d_l_marg
 
 ## Utility classes - 3 formulas
 
-> Full alphabetical list of properties with ready classes - see [s4/REFERENCE-UTILITIES.md](s4/REFERENCE-UTILITIES.md).  
-> System architecture - [s4/S4.md](s4/S4.md).
+> Full alphabetical list of properties with ready classes - in `s4/contract/utilities.json`.  
+> System architecture - `s4/AGENTS.md` + `s4/contract/*.json`.
 
 ### Formula 1 - unified
 

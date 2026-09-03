@@ -26,7 +26,7 @@
             <h4>Модифицированные</h4>
             <p class="display--flex flex-wrap--wrap gap--s2">
                 <a href="#a" class="element--button">Гиперссылка</a>
-                <a href="#abbr" class="element--button">Aббревиатура</a>
+                <a href="#abbr" class="element--button">Аббревиатура</a>
                 <a href="#address" class="element--button">Контактная информация</a>
                 <a href="#blockquote" class="element--button">Цитата</a>
                 <a href="#button" class="element--button">Кнопка</a>
@@ -70,7 +70,7 @@
                     <e-badge class="prime" role="status">prime</e-badge>
                     <e-badge class="second" role="status">second</e-badge>
                     <e-badge class="success" role="status">success</e-badge>
-                    <e-badge class="danger" role="status">danger</e-badge>
+                    <e-badge class="danger" role="alert">danger</e-badge>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -82,15 +82,21 @@
                     <span class="element--badge prime" role="status">prime</span>
                     <span class="element--badge second" role="status">second</span>
                     <span class="element--badge success" role="status">success</span>
-                    <span class="element--badge danger" role="status">danger</span>
+                    <span class="element--badge danger" role="alert">danger</span>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Разное</h5>
                 <hr />
                 <p class="display--flex flex-wrap--wrap gap--s2">
-                    <e-badge class="padding-inline--s3" role="status"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></e-badge>
+                    <e-badge role="status">
+                        <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
+                        значек
+                    </e-badge>
                     <e-badge class="display--block padding-inline--s3 element--truncate inline-size" style="--inline-size: var(--min-inline-size)" role="status">1234</e-badge>
+                    <e-badge class="padding-inline--s3" role="status">
+                        <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
+                    </e-badge>
                 </p>
             </div>
         </section>
@@ -231,7 +237,7 @@
                 <e-message role="status">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -243,7 +249,7 @@
                 <e-message class="negative" role="status">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -255,7 +261,7 @@
                 <e-message class="prime" role="status">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -267,7 +273,7 @@
                 <e-message class="second" role="status">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -279,7 +285,7 @@
                 <e-message class="success" role="status">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -291,7 +297,7 @@
                 <e-message class="danger" role="alert">
                     <header>Заголовок сообщения</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -306,7 +312,7 @@
                 <hr />
                 <e-message role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -317,7 +323,7 @@
                 </e-message>
                 <e-message class="negative" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -328,7 +334,7 @@
                 </e-message>
                 <e-message class="prime" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -339,7 +345,7 @@
                 </e-message>
                 <e-message class="second" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -350,7 +356,7 @@
                 </e-message>
                 <e-message class="success" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -361,7 +367,7 @@
                 </e-message>
                 <e-message class="danger" role="alert">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                     <footer class="margin-block-start--unset">
                         <div class="display--contents font-size--s1">
@@ -377,37 +383,37 @@
                 <e-message role="status">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="negative" role="status">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="prime" role="status">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="second" role="status">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="success" role="status">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="danger" role="alert">
                     <header>Заголовок</header>
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
             </div>
@@ -416,32 +422,32 @@
                 <hr />
                 <e-message role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="negative" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="prime" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="second" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="success" role="status">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
                 <e-message class="danger" role="alert">
                     <e-body>
-                        В теле сообщения может содержаться так-же медийный контент. Иконки, изображения, таблицы и прочее.
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
                     </e-body>
                 </e-message>
             </div>
@@ -1118,21 +1124,27 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Как элемент</h5>
                 <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2 align-items--baseline">
+                <p class="display--flex flex-wrap--wrap gap--s2 align-items--start">
                     <e-tag class="element--button" role="button">Метка</e-tag>
+                    <e-tag class="element--button" role="button">
+                        <span class="element--icon" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></span> С иконкой
+                    </e-tag>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Как класс</h5>
                 <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2 align-items--baseline">
+                <p class="display--flex flex-wrap--wrap gap--s2 align-items--start">
                     <span class="element--tag element--button" role="button">Метка</span>
+                    <span class="element--tag element--button" role="button">
+                        <span class="element--icon" style="--image: url(/test/icons/icon.svg)" aria-hidden="true"></span> С иконкой
+                    </span>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Цвета</h5>
                 <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2 align-items--baseline">
+                <p class="display--flex flex-wrap--wrap gap--s2 align-items--start">
                     <e-tag class="element--button" role="button">positive</e-tag>
                     <e-tag class="element--button negative" role="button">negative</e-tag>
                     <e-tag class="element--button prime" role="button">prime</e-tag>
@@ -1144,7 +1156,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">С закрытием</h5>
                 <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2 align-items--baseline">
+                <p class="display--flex flex-wrap--wrap gap--s2 align-items--start">
                     <e-tag class="element--button prime" role="button">
                         Метка с закрытием
                         <button class="differ" aria-label="Удалить метку" onclick="event.target.closest('e-tag').remove()">
@@ -1162,7 +1174,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Размеры</h5>
                 <hr />
-                <p class="display--flex flex-wrap--wrap gap--s2 align-items--baseline">
+                <p class="display--flex flex-wrap--wrap gap--s2 align-items--start">
                     <e-tag class="element--button font-size--s3" role="button">Метка s3</e-tag>
                     <e-tag class="element--button font-size--s2" role="button">Метка s2</e-tag>
                     <e-tag class="element--button font-size--s1" role="button">Метка s1</e-tag>
@@ -1272,7 +1284,7 @@
         </section>
 
         <section id="abbr" class="display--flex flex-wrap--wrap gap--md">
-            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Aббревиатура</h4>
+            <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Аббревиатура</h4>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Без расшифровки</h5><hr />
                 <p><abbr>аббревиатура</abbr></p>

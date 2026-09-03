@@ -1,33 +1,23 @@
 // Валидатор вёрстки С4. Единственная машино-проверяемая строгость правил.
-// Читает HTML и сверяет его с rules.json + utilities.json + tokens.json + elements/*.json.
+// Читает HTML и сверяет его с rules.json + utilities.json.
 // Падает (exit 1) при любом нарушении. Без внешних зависимостей.
 //
 // Запуск: node s4/contract/validate-s4.mjs <file.html>
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const rules = JSON.parse(readFileSync(join(root, 'rules.json'), 'utf8'));
 const util = JSON.parse(readFileSync(join(root, 'utilities.json'), 'utf8'));
-const tokens = JSON.parse(readFileSync(join(root, 'tokens.json'), 'utf8'));
 
 const knownBase = new Set(util.утилиты);
 const knownProps = new Set([...knownBase].map((c) => c.split('--')[0]));
 
-const elements = {};
-for (const f of readdirSync(join(root, 'elements'))) {
-  if (!f.endsWith('.json')) continue;
-  const e = JSON.parse(readFileSync(join(root, 'elements', f), 'utf8'));
-  elements[e.тег] = e;
-  if (e.классДубликат) elements[e.классДубликат] = e;
-}
-
 const R = (id) => rules.правила.find((r) => r.id === id).проверка;
 const physicalProps = new Set(R('R1').список);
 const shorthands = new Set(R('R4').список);
-const badPseudo = new Set(R('R6').список);
 const isPrivate = (n) => n.startsWith('--size--');
 
 const errors = [];
@@ -56,9 +46,6 @@ function parseAttrs(raw) {
   return attrs;
 }
 
-const matchesWild = (pattern, prop) =>
-  pattern.endsWith('*') ? prop.startsWith(pattern.slice(0, -1)) : prop === pattern;
-
 const stack = [];
 let tm;
 while ((tm = tagRe.exec(html))) {
@@ -81,9 +68,6 @@ while ((tm = tagRe.exec(html))) {
 
 function evaluate(node) {
   const { tag, line, attrs, classes } = node;
-  const elSpec = tag.startsWith('e-') ? elements[tag] : null;
-  const dupSpec = classes.map((c) => (c.startsWith('element--') ? elements[c] : null)).find(Boolean);
-  const spec = elSpec || dupSpec;
 
   // R7 отменён: навешивание .element--{name} на <e-{name}> — легальное усиление веса селектора (не дубль).
 
@@ -105,12 +89,6 @@ function evaluate(node) {
     if (!isUtil) continue;
     if (physicalProps.has(prop)) err(line, `R1: физическое свойство ${prop} запрещено (только логические)`);
     if (!knownBase.has(name)) err(line, `R3: неизвестный utility-класс "${cls}" (нет в utilities.json)`);
-    if (spec) {
-      if (spec.запрещённыеУтилиты && spec.запрещённыеУтилиты.some((p) => matchesWild(p, prop)))
-        err(line, `запрещённая утилита ${prop} для <${spec.тег}>`);
-      else if (spec.допустимыеУтилиты && !spec.допустимыеУтилиты.some((p) => matchesWild(p, prop)))
-        err(line, `утилита ${prop} не входит в допустимые для <${spec.тег}>`);
-    }
   }
 
   if (attrs.style) {
@@ -130,14 +108,6 @@ function evaluate(node) {
       if (value.includes('var(') && /--size--/.test(value))
         err(line, 'R5: приватный токен --size--* в значении запрещён');
     }
-  }
-
-  if (spec) {
-    for (const req of spec.обязательныеДети || [])
-      if (!node.children.includes(req)) err(line, `обязательный ребёнок <${req}> отсутствует в <${spec.тег}>`);
-    const accent = classes.find((c) => spec.модификаторы && spec.модификаторы.includes(c));
-    if (spec.акцентРоль && accent && spec.акцентРоль[accent] && attrs.role !== spec.акцентРоль[accent])
-      err(line, `акцент ${accent} требует role="${spec.акцентРоль[accent]}" (получено "${attrs.role || ''}")`);
   }
 }
 

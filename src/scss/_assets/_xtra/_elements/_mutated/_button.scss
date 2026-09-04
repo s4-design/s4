@@ -16,7 +16,11 @@
         padding-block: var(--padding-block);
         padding-inline: var(--padding-inline);
         border: var(--border);
-        border-radius: var(--border-radius);
+        border-radius:
+            var(--border-start-start-radius, var(--border-radius))
+            var(--border-start-end-radius, var(--border-radius))
+            var(--border-end-end-radius, var(--border-radius))
+            var(--border-end-start-radius, var(--border-radius));
         overflow: var(--overflow);
 
         min-inline-size: var(--min-inline-size);

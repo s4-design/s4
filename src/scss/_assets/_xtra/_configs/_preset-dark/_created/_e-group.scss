@@ -3,8 +3,8 @@
     .element--group {
         --display: contents;
 
-        &:is([class*=display--grid], [class*=display--inline-grid])[class*=-row],
-        &:is([class*=display--flex], [class*=display--inline-flex])[class*=-column] {
+        &:where(:is([class*=display--grid], [class*=display--inline-grid])[class*=-row]),
+        &:where(:is([class*=display--flex], [class*=display--inline-flex])[class*=-column]) {
         // &.direction--vertical {
             --margin-inline: 0;
             --margin-block-start: 0;
@@ -21,8 +21,8 @@
             }
         }
 
-        &:is([class*=display--grid], [class*=display--inline-grid])[class*=-column],
-        &:is([class*=display--flex], [class*=display--inline-flex])[class*=-row] {
+        &:where(:is([class*=display--grid], [class*=display--inline-grid])[class*=-column]),
+        &:where(:is([class*=display--flex], [class*=display--inline-flex])[class*=-row]) {
         // &.direction--horizontal {
             --margin-inline-start: 0;
             --margin-inline-end: 0;

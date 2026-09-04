@@ -1,5 +1,5 @@
 @mixin menu() {
-    :is([type=toolbar], [type=context]) {        
+    :is([type=toolbar], [role=toolbar], [type=context], [role=menu]) {        
         display: var(--display);
         gap: var(--gap);
         margin-block: var(--margin-block);

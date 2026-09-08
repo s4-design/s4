@@ -96,7 +96,7 @@
         --transition: all var(--transition-duration) var(--transition-timing-function);
         
         &[list] {
-            --appearance: none;    
+            --appearance: none;
         }
         &::placeholder {
             --font-style: italic;
@@ -136,8 +136,16 @@
         }
     }
 
+    [type=number] {
+        appearance: textfield;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            appearance: none;
+        }
+    }
+
     /* Ползунок диапазона */
-    :is([type=range]) {
+    [type=range] {
         --position: relative;
         --display: inline-grid;
         --grid-auto-flow: column;
@@ -267,14 +275,14 @@
         }
     }
 
-    :is([type=file]) {
+    [type=file] {
         --padding-block: var(--size--0);
         --padding-inline: var(--padding--s2);
         &::file-selector-button {
             display: none;
         }
     }
-    :is([type=color]) {
+    [type=color] {
         --inline-size: max-content;
         --padding-block: var(--padding--s3);
         --padding-inline: var(--padding--s3);

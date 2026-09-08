@@ -6,6 +6,6 @@
     stroke-linecap="round"
     stroke-linejoin="round"
 >
-    <title>Chevron up</title>
-    <path d="M6 15l6 -6l6 6" />
+    <title>Chevron left</title>
+    <path d="M15 6l-6 6l6 6" />
 </svg>

@@ -104,48 +104,341 @@
         <section id="e-group" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Группа</h4>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как элемент</h5>
+                <h5 class="margin-block-start--unset">Горизонтальная навигация по страницам</h5>
                 <hr />
-                <div><h6>Горизонтальная</h6>
-                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="navigation" aria-label="Навигация по страницам">
+                        <button class="padding-inline--s3" title="В начало">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="Назад">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-left.svg);"></e-icon>
+                        </button>
+                        <input class="text-align--center" type="text" readonly value="3 / 8" size="4"/>
+                        <button class="padding-inline--s3" title="Вперёд">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-right.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="В конец">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-right.svg);"></e-icon>
+                        </button>
                     </e-group>
-                </div>
-                <div><h6>Вертикальная</h6>
-                    <e-group class="display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </e-group>
-                </div>
+                </p>
+                <p>
+                    <nav class="element--group display--inline-flex flex-direction--row" aria-label="Навигация по страницам">
+                        <button class="padding-inline--s3" title="В начало">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="Назад">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-left.svg);"></e-icon>
+                        </button>
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                            3 / 8
+                        </span>
+                        <button class="padding-inline--s3" title="Вперёд">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-right.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="В конец">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-right.svg);"></e-icon>
+                        </button>
+                    </nav>
+                </p>
             </div>
-            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Как класс</h5>
+
+            <!-- <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Составная группа: ввод URL</h5>
                 <hr />
-                <div><h6>Горизонтальная</h6>
-                    <div class="element--group display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Ввод URL">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">https://</span>
+                        <input type="text" placeholder="example.com">
+                    </e-group>
+                </p>
+            </div> -->
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Составная группа: ввод суммы</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Ввод суммы">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">Сумма</span>
+                        <input type="number" placeholder="0.00">
+                        <select class="element--button">
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option value="rub">RUB</option>
+                        </select>
+                        <!-- <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon> -->
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Сегментированный переключатель периода</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="radiogroup">
+                        <label class="element--button"><input type="radio" name="period" checked /> Годы</label>
+                        <label class="element--button"><input type="radio" name="period" /> Месяцы</label>
+                        <label class="element--button"><input type="radio" name="period" /> Дни</label>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Поиск локации с кнопкой</h5>
+                <hr />
+                <p>
+                    <e-group class="display--flex flex-direction--row" role="group">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/map-pin.svg);"></e-icon>
+                        </span>
+                        <input class="flex-grow--1" type="text" placeholder="Поиск локации...">
+                        <button class="prime">Найти</button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Переключатель вида отображения</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="radiogroup">
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view" checked disabled/>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/layout-grid.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view"/>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/columns.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view" />
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/list.svg);"></e-icon>
+                        </label>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Степпер числового значения</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row align-items--center" role="group">
+                        <button class="padding-inline--s3" title="Минус">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/minus.svg);"></e-icon>
+                        </button>
+                        <input class="flex-grow--1" type="number" inputmode="numeric" size="3" value="3">
+                        <button class="padding-inline--s3" title="Плюс">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/plus.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Навигация Назад/Вперёд</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-grid grid-template-columns" style="--grid-template-columns: 1fr auto 1fr" role="navigation" aria-label="Навигация">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/arrow-left.svg);"></e-icon>
+                            Назад
+                        </button>
                         <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </div>
-                </div>
-                <div><h6>Вертикальная</h6>
-                    <div class="element--group display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                        <e-line role="separator"></e-line>
-                        <div class="background-color--positive padding-inline--s1 padding-block--s1">Ячейка</div>
-                    </div>
-                </div>
+                        <button>
+                            Вперёд
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/arrow-right.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Выпадающий выбор диапазона</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                            <span>
+                                <e-icon aria-hidden="true" style="--image: url(/test/icons/calendar.svg);"></e-icon>
+                                Диапазон
+                            </span>
+                        </span>
+                        <e-popover mode="hover" position="block-end inline-center">
+                            <button title="Кнопка">
+                                <e-truncate>7d</e-truncate>
+                            </button>
+                            <e-body role="region">
+                                <span class="max-inline-size" style="--max-inline-size: 16em;" role="menu" type="context">
+                                    <button class="justify-content--start">1d</button>
+                                    <button class="justify-content--start" disabled>7d</button>
+                                    <button class="justify-content--start">12d</button>
+                                    <e-line role="separator"></e-line>
+                                    <button class="justify-content--start">1m</button>
+                                </span>
+                            </e-body>
+                        </e-popover>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Рейтинг звёздами</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="img" aria-label="Рейтинг: 3 из 5">
+                        <button class="padding-inline--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Кнопка сохранения с дропдауном</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button class="prime padding-inline-end--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <e-popover mode="focus" position="block-end inline-start">
+                            <button class="prime padding-inline--s3">
+                                <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon>
+                            </button>
+                            <e-body role="region" aria-label="Варианты сохранения">
+                                <span role="menu" type="context">
+                                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon> Как новый</button>
+                                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon> Как копию</button>
+                                    <e-line role="separator"></e-line>
+                                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/file-type-pdf.svg);"></e-icon> Экспорт в PDF</button>
+                                </span>
+                            </e-body>
+                        </e-popover>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Сегментированный переключатель статуса</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="radiogroup" aria-label="Статус">
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status" checked />
+                            Активен
+                        </label>
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status" disabled />
+                            Отключён
+                        </label>
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status" checked />
+                            Активен
+                        </label>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Пара кнопок Сохранить / Опубликовать</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <button class="prime">Опубликовать</button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Фильтр со сбросом</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/filter.svg);"></e-icon>
+                            Фильтр
+                        </button>
+                        <button class="padding-inline--s3" title="Сбросить фильтр">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/restore.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Сохранение со счётчиком</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">3</span>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Буфер обмена</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/copy.svg);"></e-icon>
+                            Копировать
+                        </button>
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/cut.svg);"></e-icon>
+                            Вырезать
+                        </button>
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/clipboard.svg);"></e-icon> Вставить
+                        </button>
+                    </e-group>
+                </p>
+            </div>
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Флажки форматирования текста</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Форматирование текста">
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" checked />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/bold.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/bold.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" checked />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/italic.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/italic.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/underline.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/underline.svg);"></e-icon>
+                        </label>
+                    </e-group>
+                </p>
             </div>
         </section>
 
@@ -1449,12 +1742,26 @@
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Горизонтальная группа кнопок</h5><hr />
-                <p><e-group class="display--inline-flex flex-direction--row" role="group"><button><e-truncate>Кнопка 1</e-truncate></button><button><e-truncate>Кнопка 2</e-truncate></button><button><e-truncate>Кнопка 3</e-truncate></button></e-group></p>
+                <h5 class="margin-block-start--unset">Горизонтальная группа кнопок</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button><e-truncate>Кнопка 1</e-truncate></button>
+                        <button><e-truncate>Кнопка 2</e-truncate></button>
+                        <button><e-truncate>Кнопка 3</e-truncate></button>
+                    </e-group>
+                </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h5 class="margin-block-start--unset">Вертикальная группа кнопок</h5><hr />
-                <p><e-group class="display--inline-grid grid-auto-flow--row" role="group"><button><e-truncate>Кнопка 1</e-truncate></button><button><e-truncate>Кнопка 2</e-truncate></button><button><e-truncate>Кнопка 3</e-truncate></button></e-group></p>
+                <h5 class="margin-block-start--unset">Вертикальная группа кнопок</h5>
+                <hr />
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--row" role="group">
+                        <button><e-truncate>Кнопка 1</e-truncate></button>
+                        <button><e-truncate>Кнопка 2</e-truncate></button>
+                        <button><e-truncate>Кнопка 3</e-truncate></button>
+                    </e-group>
+                </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Цвета и состояния кнопки</h5><hr />
@@ -1705,7 +2012,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Как элемент</h5><hr />
                 <fieldset>
-                    <legend>Select an rally Lancia</legend>
+                    <legend>Выберите раллийную Lancia</legend>
                     <div class="display--flex flex-direction--column align-items--start gap--s2">
                         <label class="element--button"><input type="radio" name="fieldset-rl" checked /> Fulvia Coupe HF</label>
                         <label class="element--button"><input type="radio" name="fieldset-rl" /> Stratos HF</label>
@@ -1716,7 +2023,7 @@
                 </fieldset>
                 <h6>Отключено</h6>
                 <fieldset disabled>
-                    <legend>Select an rally Lancia</legend>
+                    <legend>Выберите раллийную Lancia</legend>
                     <div class="display--flex flex-direction--column align-items--start gap--s2">
                         <label class="element--button"><input type="radio" name="fieldset-rl-d" checked /> Fulvia Coupe HF</label>
                         <label class="element--button"><input type="radio" name="fieldset-rl-d" /> Stratos HF</label>
@@ -1724,7 +2031,7 @@
                 </fieldset>
                 <h6>Инертно</h6>
                 <fieldset inert>
-                    <legend>Select an rally Lancia</legend>
+                    <legend>Выберите раллийную Lancia</legend>
                     <div class="display--flex flex-direction--column align-items--start gap--s2">
                         <label class="element--button"><input type="radio" name="fieldset-rl-i" checked /> Fulvia Coupe HF</label>
                         <label class="element--button"><input type="radio" name="fieldset-rl-i" /> Stratos HF</label>
@@ -1738,10 +2045,10 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">С заголовком</h5><hr />
                 <figure class="display--inline-block">
-                    <figcaption>The 1985 Lancia Delta S4</figcaption>
+                    <figcaption>Lancia Delta S4 1985 года</figcaption>
                     <e-body role="region">
-                        <p>The Goodwood Festival of Speed held on 27th June 2014</p>
-                        <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="The 1985 Lancia Delta S4" />
+                        <p>Фестиваль скорости в Гудвуде, 27 июня 2014 года</p>
+                        <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="Lancia Delta S4 1985 года" />
                     </e-body>
                 </figure>
             </div>
@@ -1749,8 +2056,8 @@
                 <h5 class="margin-block-start--unset">Без заголовка</h5><hr />
                 <figure class="display--inline-block">
                     <e-body role="region">
-                        <p>The Goodwood Festival of Speed held on 27th June 2014</p>
-                        <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="The 1985 Lancia Delta S4" />
+                        <p>Фестиваль скорости в Гудвуде, 27 июня 2014 года</p>
+                        <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="Lancia Delta S4 1985 года" />
                     </e-body>
                 </figure>
             </div>
@@ -1929,7 +2236,7 @@
                 <div class="display--grid">
                     <input list="cars-datalist" id="cars-datalist-input" name="cars-datalist-input" type="text" />
                     <datalist id="cars-datalist">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -1940,7 +2247,7 @@
                     <h6>Заглушка</h6>
                     <input list="cars-datalist-placeholder" type="text" placeholder="Выберите вкус" />
                     <datalist id="cars-datalist-placeholder">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -1953,7 +2260,7 @@
                     <h6>Инертно</h6>
                     <input list="cars-datalist-inert" type="text" value="Chocolate" inert />
                     <datalist id="cars-datalist-inert">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -1962,7 +2269,7 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
                     <datalist id="cars-datalist-disabled">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -1973,7 +2280,7 @@
                     <h6>Ошибка</h6>
                     <input list="cars-datalist-error" type="text" required />
                     <datalist id="cars-datalist-error">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -2065,24 +2372,24 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Меню - вертикальная панель инструментов</h5>
                 <hr />
-                <menu type="context">
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
+                <span role="menu" type="context">
+                    <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                    <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                    <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
                     <e-line role="separator"></e-line>
-                    <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                </menu>
+                    <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                </span>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Меню - контекстное</h5>
                 <hr />
-                <menu type="context">
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button></li>
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Еще одно меню</button></li>
-                    <li><button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Еще меню</button></li>
+                <span role="menu" type="context">
+                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button>
+                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Ещё одно меню</button>
+                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Ещё одно меню</button>
                     <e-line role="separator"></e-line>
-                    <li><button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button></li>
-                </menu>
+                    <button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button>
+                </span>
             </div>
         </section>
 
@@ -2181,7 +2488,7 @@
                 <h5 class="margin-block-start--unset">Однострочный выбор</h5><hr />
                 <div class="display--grid">
                     <select name="cars">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -2191,7 +2498,7 @@
                     </select>
                     <h6>Выбрано</h6>
                     <select name="cars">
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -2201,7 +2508,7 @@
                     </select>
                     <h6>Отключено</h6>
                     <select name="cars" disabled>
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -2211,7 +2518,7 @@
                     </select>
                     <h6>Инертно</h6>
                     <select name="cars" inert>
-                        <option value="">Select an rally Lancia ...</option>
+                        <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
                         <option value="stratos">Stratos HF</option>
                         <option value="037">Rally 037</option>
@@ -2225,35 +2532,35 @@
                 <h5 class="margin-block-start--unset">Однострочный выбор в блоках</h5><hr />
                 <div class="display--grid">
                     <select name="cars2">
-                        <option value="">Select an rally Lancia ...</option>
-                        <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
-                        <optgroup label="B-group"><option value="037">Rally 037</option><option value="s4">Delta S4</option></optgroup>
-                        <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
-                        <optgroup label="Modern"><option value="Integrale">Delta HF Integrale</option></optgroup>
+                        <option value="">Выберите раллийную Lancia ...</option>
+                        <optgroup label="Классика"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
+                        <optgroup label="B-группа"><option value="037">Rally 037</option><option value="s4">Delta S4</option></optgroup>
+                        <optgroup label="Экспериментальные" disabled><option value="ecv">ECV</option></optgroup>
+                        <optgroup label="Современные"><option value="Integrale">Delta HF Integrale</option></optgroup>
                     </select>
                     <h6>Выбрано</h6>
                     <select name="cars2">
-                        <option value="">Select an rally Lancia ...</option>
-                        <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
-                        <optgroup label="B-group"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
-                        <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
-                        <optgroup label="Modern"><option value="Integrale">Delta HF Integrale</option></optgroup>
+                        <option value="">Выберите раллийную Lancia ...</option>
+                        <optgroup label="Классика"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
+                        <optgroup label="B-группа"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
+                        <optgroup label="Экспериментальные" disabled><option value="ecv">ECV</option></optgroup>
+                        <optgroup label="Современные"><option value="Integrale">Delta HF Integrale</option></optgroup>
                     </select>
                     <h6>Отключено</h6>
                     <select name="cars2" disabled>
-                        <option value="">Select an rally Lancia ...</option>
-                        <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
-                        <optgroup label="B-group"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
-                        <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
-                        <optgroup label="Modern"><option value="Integrale">Delta HF Integrale</option></optgroup>
+                        <option value="">Выберите раллийную Lancia ...</option>
+                        <optgroup label="Классика"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
+                        <optgroup label="B-группа"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
+                        <optgroup label="Экспериментальные" disabled><option value="ecv">ECV</option></optgroup>
+                        <optgroup label="Современные"><option value="Integrale">Delta HF Integrale</option></optgroup>
                     </select>
                     <h6>Инертно</h6>
                     <select name="cars2" inert>
-                        <option value="">Select an rally Lancia ...</option>
-                        <optgroup label="Classic"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
-                        <optgroup label="B-group"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
-                        <optgroup label="Experimental" disabled><option value="ecv">ECV</option></optgroup>
-                        <optgroup label="Modern"><option value="Integrale">Delta HF Integrale</option></optgroup>
+                        <option value="">Выберите раллийную Lancia ...</option>
+                        <optgroup label="Классика"><option value="fulvia">Fulvia Coupe HF</option><option value="stratos">Stratos HF</option></optgroup>
+                        <optgroup label="B-группа"><option value="037">Rally 037</option><option value="s4" selected>Delta S4</option></optgroup>
+                        <optgroup label="Экспериментальные" disabled><option value="ecv">ECV</option></optgroup>
+                        <optgroup label="Современные"><option value="Integrale">Delta HF Integrale</option></optgroup>
                     </select>
                 </div>
             </div>
@@ -2364,7 +2671,7 @@
         </section>
     </main>
 
-    <div class="position--fixed inset-block-end--0 inset-inline-end--0 margin-block-end--l2 margin-inline-end--l2 z-index--1 display--flex gap--s2 no-snapshot">
+    <div class="display--inline-flex flex-direction--row gap--s2 position--fixed inset-block-end--0 inset-inline-end--0 margin-block-end--l2 margin-inline-end--l2 z-index--1" style="--gap: unset" role="toolbar" aria-label="Навигация по страницам">
         <button
             class="padding-inline--s3"
             onclick="document.documentElement.setAttribute('preset', document.documentElement.getAttribute('preset') === 'dark' ? 'light' : 'dark')">

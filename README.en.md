@@ -33,7 +33,7 @@
 
 S4 is an **environment for building design systems**, not a framework with a component catalog. The S4 core provides the tooling: a three-layer `@layer` cascade, deterministic class formulas, device-specific loading. Presets define an interface configuration - visual identity and behavior. A design system is formed from the S4 core, a preset, and user's components and patterns.
 
-Default presets are built differently from most UI frameworks that revolve around components: Button, Card, Modal. Their values are independent: font-size = 16px, padding = 12px, radius = 8px.
+Default presets are built differently from most UI frameworks that revolve around components: Button, Card, Modal. Their values are independent: font-size = 1em, padding = .25em, radius = .5em.
 Light/dark presets are ready-made configurations with an EM-centered parametric model where all metrics derive from a single scale.
 
 Each preset is an independent configuration: light and dark may share metrics today, but nothing prevents them from differing entirely tomorrow.

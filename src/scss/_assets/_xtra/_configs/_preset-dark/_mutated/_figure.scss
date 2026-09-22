@@ -6,31 +6,34 @@
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));
         --overflow: auto;
-        :is(e-body, element--body) > & {
+        :is(e-body, element--body) > & { // figure в figure сбрасывает margin-inline
             --margin-inline: 0;
         }
-        &:where(:first-child:first-of-type) {
-            --margin-block: 0 var(--margin--md);
-        }
-        &:where(:last-child:last-of-type) {
-            --margin-block: var(--margin--md) 0;
-        }
-        &:where(:first-child:first-of-type:last-child:last-of-type) {
-            --margin-block: 0;
-        }
-        > figcaption,
-        > e-body,
-        > .element--body {
-            &:first-child:not(:last-child) {
+
+        > * {
+            --border-end-start-radius: var(--border-radius--s2);
+            --border-end-end-radius: var(--border-radius--s2);
+            --border-start-start-radius: var(--border-radius--s2);
+            --border-start-end-radius: var(--border-radius--s2);
+            &:where(:first-child:not(:last-child)) {
                 --border-end-start-radius: var(--border-radius--s3);
                 --border-end-end-radius: var(--border-radius--s3);
             }
-            &:last-child:not(:first-child) {
+            &:where(:last-child:not(:first-child)) {
                 --border-start-start-radius: var(--border-radius--s3);
                 --border-start-end-radius: var(--border-radius--s3);
             }
-            &:not(:first-child, :last-child) {
-                --border-radius: var(--border-radius--s3);
+            &:where(:not(:first-child, :last-child)) {
+                --border-end-start-radius: var(--border-radius--s3);
+                --border-end-end-radius: var(--border-radius--s3);
+                --border-start-start-radius: var(--border-radius--s3);
+                --border-start-end-radius: var(--border-radius--s3);
+            }
+            > * {
+                --border-end-start-radius: initial;
+                --border-end-end-radius: initial;
+                --border-start-start-radius: initial;
+                --border-start-end-radius: initial;
             }
         }
 

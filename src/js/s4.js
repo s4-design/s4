@@ -169,13 +169,18 @@ async function S4() {
     document.head.appendChild(style)
 
     try {
-        // Загружаем ключевой скрипт device-state
-        // Load the device-state key script
-        await loadScript(`${baseUrl}js/device-state.min.js`)
-        console.info(`Скрипт device-state загружен успешно | The device-state script loaded successfully`)
+        // Загружаем независимые от устройства слои сразу, не дожидаясь определения типа
+        // Load device-independent layers immediately, without waiting for device type
+        loadLink(`${baseUrl}css/elements.css`, 'css/elements')
+        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
-        // Загрузка dependencyMap из JSON с обработкой ошибок
-        const dependencyMap = await loadDependencyMap(`${baseUrl}dependency-map.json`)
+        // Параллельно загружаем скрипт устройства и карту зависимостей
+        // Load the device-state script and the dependency map in parallel
+        const [, dependencyMap] = await Promise.all([
+            loadScript(`${baseUrl}js/device-state.min.js`),
+            loadDependencyMap(`${baseUrl}dependency-map.json`)
+        ])
+        console.info(`Скрипт device-state загружен успешно | The device-state script loaded successfully`)
 
         // Проверяем, что объект device определен после загрузки скрипта
         // Check that the device object is defined after loading the script
@@ -188,17 +193,9 @@ async function S4() {
             orientation = device.orientation,
             currentDepends = dependencyMap[type]?.[orientation] || []
 
-        // Загружаем слой эдементов - var(--*) стили HTML-элементов и кастомных тегов
-        // Load the elements - var(--*) styles of HTML elements and custom tags
-        loadLink(`${baseUrl}css/elements.css`, 'css/elements')
-
         // Загружаем конфигурацию для текущего типа устройства (один раз, тип не меняется)
         // Load configuration for the current device type (once, type does not change)
         loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
-
-        // Загружаем базовые утилиты (всегда, до device-специфичных)
-        // Load base utilities (always, before device-specific)
-        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
         // Загружаем device-специфичны файлы стилей (конфигурации и утилиты)
         // Load device-specific css files (configuration and utilities)

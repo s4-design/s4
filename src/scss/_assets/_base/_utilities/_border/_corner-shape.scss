@@ -1,0 +1,49 @@
+@mixin corner-shape($device, $orientation, $enableVariables) {
+    /* corner shape */
+    $cornerShapeCorner: (
+        "start-start",
+        "start-end",
+        "end-end",
+        "end-start"
+    );
+    $cornerShapeXtraValue: (
+        unset: "unset",
+    );
+
+    .#{$device}#{$orientation}corner-shape {
+        @each $name, $xtraValue in $cornerShapeXtraValue {
+            &--#{$name} {
+                corner-shape: #{$xtraValue};
+            }
+        }
+    }
+
+    @each $corner in $cornerShapeCorner {
+        .#{$device}#{$orientation}corner-#{$corner}-shape {
+            @each $name, $xtraValue in $cornerShapeXtraValue {
+                &--#{$name} {
+                    corner-#{$corner}-shape: #{$xtraValue};
+                }
+            }
+        }
+    }
+
+    @if $enableVariables {
+        .corner-shape {
+            @if $device == "" and $orientation == "" {
+                corner-shape: var(--corner-shape);
+            } @else {
+                corner-shape: var(--#{$device}#{$orientation}corner-shape, var(--corner-shape));
+            }
+        }
+        @each $corner in $cornerShapeCorner {
+            .corner-#{$corner}-shape {
+                @if $device == "" and $orientation == "" {
+                    corner-#{$corner}-shape: var(--corner-#{$corner}-shape);
+                } @else {
+                    corner-#{$corner}-shape: var(--#{$device}#{$orientation}corner-#{$corner}-shape, var(--corner-#{$corner}-shape));
+                }
+            }
+        }
+    }
+}

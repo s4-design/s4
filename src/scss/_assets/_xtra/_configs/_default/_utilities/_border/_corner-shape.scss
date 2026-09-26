@@ -1,0 +1,34 @@
+$cornerShapeCorner: (
+    "start-start",
+    "start-end",
+    "end-end",
+    "end-start"
+);
+$cornerShapeValue: (
+    "round",
+    "scoop",
+    "bevel",
+    "notch",
+    "square",
+    "squircle"
+);
+
+@mixin corner-shape($device, $orientation) {
+    // preset: corner shape
+    .#{$device}#{$orientation}corner-shape {
+        @each $value in $cornerShapeValue {
+            &--#{$value} {
+                corner-shape: #{$value};
+            }
+        }
+    }
+    @each $corner in $cornerShapeCorner {
+        .#{$device}#{$orientation}corner-#{$corner}-shape {
+            @each $value in $cornerShapeValue {
+                &--#{$value} {
+                    corner-#{$corner}-shape: #{$value};
+                }
+            }
+        }
+    }
+}

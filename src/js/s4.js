@@ -47,7 +47,7 @@ async function loadDependencyMap(url) {
     try {
         const response = await fetch(url)
         if (!response.ok)
-            throw new Error(`Ошибка загрузки JSON | Loading error JSON: ${response.statusText}`)
+            throw new Error(`Ошибка загрузки JSON | Loading error JSON:\n${response.statusText}`)
         const data = await response.json()
 
         // Проверяем все ключи и значения через whitelist
@@ -84,7 +84,7 @@ async function loadDependencyMap(url) {
 // Function for loading CSS files
 function loadLink(href, id = '') {
     if (loadedLinks.has(href))
-        console.log(`Пропуск: "${href}" уже загружен | Skip: "${href}" is already loaded.`)
+        console.debug(`Уже загружен (пропуск) | Already loaded (skip):\n"${href}"`)
     else {
         // Создание нового <link> элемента
         // Create a new <link> element
@@ -93,7 +93,7 @@ function loadLink(href, id = '') {
         link.href = href
         link.rel = 'stylesheet'
         link.onerror = () => {
-            console.warn(`Ошибка загрузки CSS: "${href}" | Error loading CSS: "${href}"`)
+            console.warn(`Ошибка загрузки CSS | Error loading CSS:\n"${href}"`)
             loadedLinks.delete(href)
         }
         document.head.appendChild(link)
@@ -119,6 +119,7 @@ function updateLinks(currentDepends, allDependencies) {
     // Load dependency styles
     currentDepends.forEach(obj => {
         const [key] = Object.keys(obj)
+        console.debug(`Добавлен | Added:\n"${baseUrl}css/${key}/${obj[key]}-utilities.css"`)
         loadLink(`${baseUrl}css/${key}/${obj[key]}-utilities.css`, `${key}/${obj[key]}-utilities`)
     })
     
@@ -128,6 +129,7 @@ function updateLinks(currentDepends, allDependencies) {
         const [key] = Object.keys(obj)
         const element = document.getElementById(`${key}/${obj[key]}-utilities`)
         if (element && !currentDepends.some(dep => areDependenciesEqual(dep, obj))) {
+            console.debug(`Убран | Removed:\n"${baseUrl}css/${key}/${obj[key]}-utilities.css"`)
             element.remove()
             loadedLinks.delete(`${baseUrl}css/${key}/${obj[key]}-utilities.css`)
         }
@@ -169,13 +171,18 @@ async function S4() {
     document.head.appendChild(style)
 
     try {
-        // Загружаем ключевой скрипт device-state
-        // Load the device-state key script
-        await loadScript(`${baseUrl}js/device-state.min.js`)
-        console.info(`Скрипт device-state загружен успешно | The device-state script loaded successfully`)
+        // Загружаем независимые от устройства слои сразу, не дожидаясь определения типа
+        // Load device-independent layers immediately, without waiting for device type
+        loadLink(`${baseUrl}css/elements.css`, 'css/elements')
+        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
-        // Загрузка dependencyMap из JSON с обработкой ошибок
-        const dependencyMap = await loadDependencyMap(`${baseUrl}dependency-map.json`)
+        // Параллельно загружаем скрипт устройства и карту зависимостей
+        // Load the device-state script and the dependency map in parallel
+        const [, dependencyMap] = await Promise.all([
+            loadScript(`${baseUrl}js/device-state.min.js`),
+            loadDependencyMap(`${baseUrl}dependency-map.json`)
+        ])
+        console.debug(`Скрипт device-state загружен успешно | The device-state script loaded successfully`)
 
         // Проверяем, что объект device определен после загрузки скрипта
         // Check that the device object is defined after loading the script
@@ -188,17 +195,9 @@ async function S4() {
             orientation = device.orientation,
             currentDepends = dependencyMap[type]?.[orientation] || []
 
-        // Загружаем слой эдементов - var(--*) стили HTML-элементов и кастомных тегов
-        // Load the elements - var(--*) styles of HTML elements and custom tags
-        loadLink(`${baseUrl}css/elements.css`, 'css/elements')
-
         // Загружаем конфигурацию для текущего типа устройства (один раз, тип не меняется)
         // Load configuration for the current device type (once, type does not change)
         loadLink(`${baseUrl}css/${device.type}/config.css`, `${device.type}/config`)
-
-        // Загружаем базовые утилиты (всегда, до device-специфичных)
-        // Load base utilities (always, before device-specific)
-        loadLink(`${baseUrl}css/utilities.css`, 'css/utilities')
 
         // Загружаем device-специфичны файлы стилей (конфигурации и утилиты)
         // Load device-specific css files (configuration and utilities)

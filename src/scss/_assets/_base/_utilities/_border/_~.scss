@@ -11,6 +11,7 @@ $borderSides:(
 @use "border-spacing" as border-spacing;
 @use "border-style" as border-style;
 @use "border-width" as border-width;
+@use "corner-shape" as corner-shape;
 
 @mixin border($device, $orientation, $enableVariables) {
     @include border-collapse.border-collapse($device, $orientation, $enableVariables);
@@ -19,4 +20,5 @@ $borderSides:(
     @include border-spacing.border-spacing($device, $orientation, $enableVariables);
     @include border-style.border-style($device, $orientation, $enableVariables, $borderSides);
     @include border-width.border-width($device, $orientation, $enableVariables, $borderSides);
+    @include corner-shape.corner-shape($device, $orientation, $enableVariables);
 }

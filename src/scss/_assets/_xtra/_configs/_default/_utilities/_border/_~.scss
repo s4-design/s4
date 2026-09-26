@@ -2,6 +2,7 @@
 
 @use "border-color" as *;
 @use "border-radius" as *;
+@use "corner-shape" as *;
 
 @mixin border($device, $orientation) {
     @include border-color(
@@ -13,4 +14,5 @@
         $accentColorsPostfixes
     );
     @include border-radius($device, $orientation);
+    @include corner-shape($device, $orientation);
 }

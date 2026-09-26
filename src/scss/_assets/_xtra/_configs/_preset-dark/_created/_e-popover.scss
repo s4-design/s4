@@ -151,6 +151,10 @@
             --opacity: 0;
             --visibility: hidden;
             --pointer-events: none;
+            --border-start-start-radius: initial;
+            --border-start-end-radius: initial;
+            --border-end-end-radius: initial;
+            --border-end-start-radius: initial;
         }
         &:is([mode]) > e-body:hover,
         &:is([mode]) > .element--body:hover,

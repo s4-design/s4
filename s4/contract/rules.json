@@ -1,0 +1,61 @@
+{
+  "описание": "Глобальные запреты и инварианты С4. Единственный авторитет для агента и валидатора s4/contract/validate-s4.mjs. Любой .md вторичен и при расхождении уступает этому файлу.",
+  "правила": [
+    {
+      "id": "R1",
+      "тезис": "Только логические свойства (block-size, margin-inline, inset-block, ...). Физические запрещены.",
+      "проверка": {
+        "тип": "physicalProperty",
+        "список": ["width", "height", "min-width", "max-width", "min-height", "max-height", "margin-top", "margin-right", "margin-bottom", "margin-left", "padding-top", "padding-right", "padding-bottom", "padding-left", "top", "right", "bottom", "left", "border-top", "border-right", "border-bottom", "border-left", "border-top-width", "border-right-width", "border-bottom-width", "border-left-width", "border-top-style", "border-right-style", "border-bottom-style", "border-left-style", "border-top-color", "border-right-color", "border-bottom-color", "border-left-color", "border-top-left-radius", "border-top-right-radius", "border-bottom-left-radius", "border-bottom-right-radius"]
+      }
+    },
+    {
+      "id": "R2",
+      "тезис": "Без !important. Каскад решает всё без него.",
+      "проверка": { "тип": "noImportant" }
+    },
+    {
+      "id": "R3",
+      "тезис": "Один класс = одно свойство. Класс должен быть в utilities.json (базовый) или валидная Ф2-производная.",
+      "проверка": { "тип": "classInDictionary" }
+    },
+    {
+      "id": "R4",
+      "тезис": "Физические многозначные сокращения запрещены в инлайн-стиле (margin, padding, border, inset, ...). Используй utility-классы.",
+      "проверка": {
+        "тип": "noShorthand",
+        "список": ["margin", "padding", "border", "border-style", "border-width", "border-color", "border-radius", "border-spacing", "inset", "border-block", "border-inline", "margin-block", "margin-inline", "padding-block", "padding-inline"]
+      }
+    },
+    {
+      "id": "R5",
+      "тезис": "--size--* приватный строительный материал. Не использовать в вёрстке (ни в class, ни в var()).",
+      "проверка": { "тип": "privateToken", "шаблон": "--size--*" }
+    },
+    {
+      "id": "R6",
+      "тезис": "Только :hover генерируется как состояние. :focus/:active/:checked/:disabled классами не существуют.",
+      "проверка": { "тип": "noPseudo", "список": [":focus", ":active", ":checked", ":disabled", ":visited", ":link"] }
+    },
+    {
+      "id": "G4",
+      "тезис": "Допустимо навешивать .element--{name} на тот же <e-{name}> для повышения веса селектора — чтобы пресет элемента перебивал вложенные миксины (например, element--button на потомках). Это не дубль, а усиление веса.",
+      "проверка": { "тип": "guideline" }
+    },
+    {
+      "id": "G3",
+      "тезис": "Поверхность предпочтительно задаётся пресетом и модификаторами элемента. Прямая surface-утилита (color--*, font-size--*, background-color--* и т.п.) допустима, когда нужен иной дизайн по запросу пользователя.",
+      "проверка": { "тип": "guideline" }
+    },
+    {
+      "id": "G1",
+      "тезис": "Семантический HTML сначала (<button>, <table>, <menu>, <input> вместо <div>).",
+      "проверка": { "тип": "guideline" }
+    },
+    {
+      "id": "G2",
+      "тезис": "Формула 2 только если значение отличается от базового элемента на устройстве.",
+      "проверка": { "тип": "guideline" }
+    }
+  ]
+}

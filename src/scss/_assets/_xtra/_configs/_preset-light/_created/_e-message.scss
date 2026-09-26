@@ -39,6 +39,12 @@
                 --border-start-start-radius: var(--border-radius--s3);
                 --border-start-end-radius: var(--border-radius--s3);
             }
+            > * {
+                --border-end-start-radius: initial;
+                --border-end-end-radius: initial;
+                --border-start-start-radius: initial;
+                --border-start-end-radius: initial;
+            }
         }
         > header {
             --font-weight: 600;

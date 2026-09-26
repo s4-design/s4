@@ -1,0 +1,35 @@
+{
+    "desktop": {
+        "landscape": [
+            {"desktop": "landscape"}
+        ],
+        "portrait": [
+            {"desktop": "landscape"},
+            {"desktop": "portrait"}
+        ]
+    },
+    "tablet": {
+        "landscape": [
+            {"desktop": "landscape"},
+            {"tablet": "landscape"}
+        ],
+        "portrait": [
+            {"desktop": "landscape"},
+            {"desktop": "portrait"},
+            {"tablet": "landscape"},
+            {"tablet": "portrait"}
+        ]
+    },
+    "mobile": {
+        "landscape": [
+            {"desktop": "landscape"},
+            {"mobile": "portrait"},
+            {"mobile": "landscape"}
+        ],
+        "portrait": [
+            {"desktop": "landscape"},
+            {"desktop": "portrait"},
+            {"mobile": "portrait"}
+        ]
+    }
+}

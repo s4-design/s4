@@ -5,6 +5,7 @@
         --table-layout: fixed;
         --border-collapse: separate;
         --border-spacing: var(--size--quantum);
+        --border-radius: calc(var(--border-radius--s2) + var(--border-spacing));
         --background-color: var(--positive--light);
 
         caption {

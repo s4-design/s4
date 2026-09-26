@@ -1,5 +1,5 @@
 @mixin menu() {
-    :is([type=toolbar], [type=context]) {
+    :is([type=toolbar], [role=toolbar], [type=context], [role=menu]) {
         --gap: var(--gap--s2);
         --margin-block: 0;
         --margin-inline: 0;
@@ -16,10 +16,10 @@
             --display: contents;
         }
     }
-    [type=toolbar] {
+    :is([type=toolbar], [role=toolbar]) {
         --display: inline-flex;
     }
-    [type=context] {
+    :is([type=context], [role=menu]) {
         --display: inline-grid;
         --align-content: baseline;
     }

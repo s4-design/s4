@@ -8,7 +8,7 @@
     <script>S4()</script>
 </head>
 <body>
-    <main class="max-inline-size margin-inline--auto" style="--max-inline-size: 70em;">
+    <main class="max-inline-size margin-inline--auto padding-inline--md" style="--max-inline-size: 72em;">
         <h3 class="margin-block-end--unset">Тестовая страница</h3>
         <section class="font-size--s2">
             <!-- ссылки якоря на блоки с элементами -->
@@ -104,6 +104,53 @@
         <section id="e-group" class="display--flex flex-wrap--wrap gap--md">
             <h4 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Группа</h4>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Настраиваемая, как элемент</h5>
+                <hr />
+                <div><h6>Горизонтальная</h6>
+                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </e-group>
+                </div>
+                <div><h6>Вертикальная</h6>
+                    <e-group class="display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </e-group>
+                </div>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h5 class="margin-block-start--unset">Настраиваемая, ак класс</h5>
+                <hr />
+                <div><h6>Горизонтальная</h6>
+                    <div class="element--group display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </div>
+                </div>
+                <div><h6>Вертикальная</h6>
+                    <div class="element--group display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="flex-basis" style="--flex-basis: 100%">
+
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h5 class="margin-block-start--unset">Горизонтальная навигация по страницам</h5>
                 <hr />
                 <p>
@@ -159,7 +206,7 @@
                 <h5 class="margin-block-start--unset">Составная группа: ввод суммы</h5>
                 <hr />
                 <p>
-                    <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Ввод суммы">
+                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group" aria-label="Ввод суммы">
                         <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">Сумма</span>
                         <input type="number" placeholder="0.00">
                         <select class="element--button">
@@ -189,9 +236,9 @@
                 <hr />
                 <p>
                     <e-group class="display--flex flex-direction--row" role="group">
-                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                        <button class="padding-inline--s3" title="Местоположение">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/map-pin.svg);"></e-icon>
-                        </span>
+                        </button>
                         <input class="flex-grow--1" type="text" placeholder="Поиск локации...">
                         <button class="prime">Найти</button>
                     </e-group>
@@ -223,12 +270,12 @@
                 <h5 class="margin-block-start--unset">Степпер числового значения</h5>
                 <hr />
                 <p>
-                    <e-group class="display--inline-flex flex-direction--row align-items--center" role="group">
-                        <button class="padding-inline--s3" title="Минус">
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button class="padding-inline--s3" title="Уменьшить">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/minus.svg);"></e-icon>
                         </button>
                         <input class="flex-grow--1" type="number" inputmode="numeric" size="3" value="3">
-                        <button class="padding-inline--s3" title="Плюс">
+                        <button class="padding-inline--s3" title="Увеличить">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/plus.svg);"></e-icon>
                         </button>
                     </e-group>
@@ -257,7 +304,7 @@
                 <h5 class="margin-block-start--unset">Выпадающий выбор диапазона</h5>
                 <hr />
                 <p>
-                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group">
                         <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
                             <span>
                                 <e-icon aria-hidden="true" style="--image: url(/test/icons/calendar.svg);"></e-icon>
@@ -387,7 +434,7 @@
                 <h5 class="margin-block-start--unset">Сохранение со счётчиком</h5>
                 <hr />
                 <p>
-                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                    <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group">
                         <button>
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                             Сохранить
@@ -2365,7 +2412,7 @@
                     <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
                     <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
                     <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
-                    <e-line role="separator"></e-line>
+                    <li><e-line role="separator"></e-line></li>
                     <li><button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button></li>
                 </menu>
             </div>

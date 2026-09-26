@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.1.0] — 2026-09-01
+
+### Added
+- JSON-контракты для AI-агентов: `patterns.json` (38 паттернов), `rules.json` (R1-R6, G1-G4), `utilities.json` (1162 класса), `variables.json` (94 переменные)
+- Валидатор HTML: `s4/contract/validate-s4.mjs` (проверка по правилам R1-R6)
+- `s4/AGENTS.md` — инструкции для AI-агентов
+- Элементы: `<ul>`, `<ol>` (маркеры через `::marker`, пресеты light/dark)
+
+### Changed
+- `patterns.json`: `list` → `list-ul` + `list-ol`
+- `h.json` → `h1-h6.json` (переименование, исправление ссылки из паттерна `heading`)
+- Ключ `роли` → `roles` унифицирован во всех JSON-файлах элементов
+- словарь публичных CSS-переменных переименован в `variables.json`
+- `validate-s4.mjs`: удалён мёртвый код (element-specific проверки)
+
+### Removed
+- `s4/S4.md`, `s4/REFERENCE-UTILITIES.md`, `s4/REFERENCE-ELEMENTS.md` (заменены JSON-контрактами)
+
+### Docs
+- README.md/README.en.md: исправлены ссылки на удалённые файлы, обновлена структура s4/, добавлен раздел "JSON-контракты" в AI-friendly
+
 ## [1.0.1] — 2026-08-21
 
 ### Added

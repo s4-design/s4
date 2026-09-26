@@ -100,13 +100,13 @@ function evaluate(node) {
       if (!prop) continue;
       if (value.includes('!important')) err(line, 'R2: !important запрещён');
       if (prop.startsWith('--')) {
-        if (isPrivate(prop)) err(line, `R5: приватный токен ${prop} в вёрстке запрещён`);
+        if (isPrivate(prop)) err(line, `R5: приватная переменная ${prop} в вёрстке запрещена`);
       } else {
         if (physicalProps.has(prop)) err(line, `R1: физическое свойство ${prop} в style запрещено`);
         if (shorthands.has(prop)) err(line, `R4: сокращение ${prop} в style запрещено (используй utility-класс)`);
       }
       if (value.includes('var(') && /--size--/.test(value))
-        err(line, 'R5: приватный токен --size--* в значении запрещён');
+        err(line, 'R5: приватная переменная --size--* в значении запрещена');
     }
   }
 }

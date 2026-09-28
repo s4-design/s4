@@ -2,16 +2,20 @@ const fs = require('fs')
 const path = require('path')
 const packageJson = require('./package.json')
 
+const LICENSE_YEAR = 2024
+const LICENSE_RU = 'Лицензии: на территории Российской Федерации действует MIT, за её пределами - CC BY-NC-SA 4.0'
+const LICENSE_EN = 'Licenses: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it'
+
 // Шаблон комментария
 const headerTemplate =
 `/*!
  * ${packageJson.name.toUpperCase()} v${packageJson.version} - ${packageJson.homepage}
  *
- * Авторское право © ${new Date().getFullYear()} ${packageJson.author.name}
- * Copyright © ${new Date().getFullYear()} ${packageJson.author.name}
+ * Авторское право (с) ${LICENSE_YEAR} ${packageJson.author.name}
+ * Copyright (c) ${LICENSE_YEAR} ${packageJson.author.name}
  *
- * Выпущен по лицензии ${packageJson.license}
- * Released under the ${packageJson.license} License
+ * ${LICENSE_RU}
+ * ${LICENSE_EN}
  */`
 
 // Функция для добавления заголовка в файл
@@ -20,14 +24,14 @@ const addHeaderToFile = (filePath) => {
     let content = fs.readFileSync(filePath, 'utf8')
 
     // Логирование информации о файле
-    console.log(`Processing file: ${filePath}`)
+    console.log(`Обработка файла | Processing file: ${filePath}`)
 
     // Удаление BOM, если Sass на Windows добавил его
     content = content.replace(/^\uFEFF/, '')
 
     // Проверка, есть ли уже комментарий (чтобы не добавлять дубликаты)
     if (content.startsWith('/*!')) {
-        console.log(`Header already exists in: ${filePath}`)
+        console.log(`Шапка уже существует | Header is exists in: ${filePath}`)
         return
     }
 
@@ -37,9 +41,9 @@ const addHeaderToFile = (filePath) => {
     try {
         const newContent = headerTemplate + '\n' + content
         fs.writeFileSync(filePath, newContent, 'utf8')
-        console.log(`Added header to: ${filePath}`)
+        console.log(`Шапка добавлена | Added header to: ${filePath}`)
     } catch (e) {
-        console.warn(`Warning: Could not write header to ${filePath} — ${e.message}`)
+        console.warn(`Не удалось записать шапку в | Could not write header to ${filePath} - ${e.message}`)
     }
 }
 
@@ -53,13 +57,19 @@ const addHeaderToFilesInDirectory = (dir) => {
 
         if (stats.isDirectory()) {
             // Если это папка, запускаем рекурсивно обработку этой папки
-            console.log(`Entering directory: ${filePath}`)
+            console.log(`Вход в папку | Entering directory: ${filePath}`)
             addHeaderToFilesInDirectory(filePath)
         } else if (stats.isFile() && (file.endsWith('.js') || file.endsWith('.css'))) {
             // Добавляем заголовок только в файлы с расширениями .js и .css
-            addHeaderToFile(filePath)
+            if (file === 'device-state.min.js') {
+                // device-state.min.js - внешний компонент (s4-device-state), у него собственная лицензионная шапка.
+                console.log(`Пропуск внешнего файла | Skipping external file: ${filePath}`)
+            } else {
+                // Добавляем заголовок только в собственные файлы .js и .css
+                addHeaderToFile(filePath)
+            }
         } else {
-            console.log(`Skipping file: ${filePath}`)
+            console.log(`Пропуск файла | Skipping file: ${filePath}`)
         }
     })
 }

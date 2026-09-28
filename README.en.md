@@ -460,7 +460,7 @@ Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
 ## License
 
-CC BY-NC-SA. See the [LICENSE](./LICENSE) file for details (including additional consents for commercial use for citizens of the Russian Federation).
+Dual license: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it. See the [LICENSE](./LICENSE) file for full text.
 
 <br>
 

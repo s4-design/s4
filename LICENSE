@@ -1,50 +1,65 @@
-РУ --------------------------------------------------------------------------------------------
+*-- РУ --*
 
-ЛИЦЕНЗИЯ CC BY-NC-SA
+**ДВОЙНАЯ ЛИЦЕНЗИЯ**
 
-https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru
+Данная программа распространяется на условиях двойной лицензии. На территории Российской Федерации применяется лицензия MIT (полный текст приведён ниже). За пределами Российской Федерации применяется лицензия Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
 
-Дополнительные согласия на коммерческое использование продукта с лицензией CC BY-NC-SA
+Правообладатель: Артур А. Селимов, гражданин Российской Федерации.
 
-Владелец данного продукта, распространяемого под лицензией Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), предоставляет
-следующее дополнительное согласие #1:
-1. Коммерческое использование.
-    Граждане Российской Федерации имеют право на коммерческое использование данного продукта,
-    при соблюдении всех следующих условий:
-        - Коммерческая организация, использующая данный продукт, принадлежит гражданину(нам)
-        Российской Федерации, который(ые) является(ются) владельцем(ами) более 50% акций или
-        долей этой организации.
-        - Гражданин(е) Российской Федерации контролирует(ют) деятельность коммерческой
-        организации, использующей данный продукт.
-2. Сохранение условий лицензии.
-    Данное согласие не отменяет остальных условий оригинальной лицензии CC BY-NC-SA 4.0,
-    включая требования указания авторства, запрет на коммерческое использование за
-    пределами указанных условий, и требование распространять производные работы на тех же
-    условиях.
+**ЧАСТЬ 1** - ЛИЦЕНЗИЯ MIT (для территории Российской Федерации)
+
+    Авторские права (c) 2024 Артур А. Селимов
+
+    Данная лицензия разрешает лицам, получившим копию данного программного обеспечения и сопутствующих файлов документации (далее — "Программное обеспечение"), безвозмездно использовать Программное обеспечение без каких-либо ограничений, включая неограниченное право на использование, копирование, изменение, слияние, публикацию, распространение, сублицензирование и продажу копий Программного обеспечения, а также предоставление лицам, которым Программное обеспечение предоставляется, права делать то же самое при соблюдении следующих условий:
+
+    Вышеуказанное уведомление об авторских правах и данное уведомление о разрешении должны быть включены во все копии или значимые части Программного обеспечения.
+
+    ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ "КАК ЕСТЬ", БЕЗ КАКИХ-ЛИБО ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ ГАРАНТИЙ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ, ГАРАНТИЯМИ ТОВАРНОЙ ПРИГОДНОСТИ, ПРИГОДНОСТИ ДЛЯ КОНКРЕТНОЙ ЦЕЛИ И НЕНАРУШЕНИЯ ПРАВ. НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ АВТОРЫ ИЛИ ПРАВООБЛАДАТЕЛИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ ЗА ЛЮБЫЕ ИСКИ, УБЫТКИ ИЛИ ИНЫЕ ОБЯЗАТЕЛЬСТВА, ВОЗНИКАЮЩИЕ В РЕЗУЛЬТАТЕ ИСПОЛЬЗОВАНИЯ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ИЛИ ИНЫХ ДЕЙСТВИЙ В СВЯЗИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.
+
+**ЧАСТЬ 2** - ЛИЦЕНЗИЯ CC BY-NC-SA 4.0 (для территорий за пределами Российской Федерации)
+
+    За пределами Российской Федерации данная программа распространяется на условиях лицензии Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+
+    Полный текст лицензии: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru
+
+    Краткое описание условий лицензии:
+
+    - Attribution (Указание авторства) — Вы должны указать авторство, предоставить ссылку на лицензию и отметить, были ли внесены изменения в произведение. Это нужно делать в любых разумных формах, но не так, чтобы лицензиар поддерживал Вас или использование Вами данного произведения.
+    - NonCommercial (Некоммерческое использование) — Вы не можете использовать произведение в коммерческих целях.
+    - ShareAlike (Аналогичное распространение) — Если Вы изменяете, преобразуете или берёте за основу данное произведение, Вы должны распространять полученное произведение по лицензии, идентичной данной.
+
+    Дополнительные ограничения не применяются — в той мере, в какой они не применимы согласно лицензии.
 
 
-EN --------------------------------------------------------------------------------------------
+*-- EN --*
 
-CC BY-NC-SA LICENSE
+**DUAL LICENSE**
 
-EN: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+This software is distributed under a dual license. Within the territory of the Russian Federation, the MIT License applies (full text below). Outside the Russian Federation, the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license applies.
 
-Additional Consent for Commercial Use of Product Licensed under CC BY-NC-SA
+Copyright holder: Artur A. Selimov, citizen of the Russian Federation.
 
-The owner of this product, distributed under the Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license, hereby grants
-the following additional consent #1:
+**PART 1** - MIT LICENSE (for the territory of the Russian Federation)
 
-1. Commercial Use.
-    Citizens of the Russian Federation are granted the right to use this productvcommercially,
-    provided that all the following conditions are met:
-        - The commercial organization using this product is owned by a citizen(s) of the
-        Russian Federation, who holds more than 50% of the shares or equity of this organization.
-        - The citizen(s) of the Russian Federation control(s) the activities of the commercial
-        organization using this product.
-2. Preservation of License Terms.
-    This consent does not waive the remaining conditions of the original CC BY-NC-SA 4.0
-    license, including the requirements for attribution, restrictions on commercial use outside
-    of the specified conditions, and the requirement to distribute derivative works under the
-    same terms.
+    Copyright (c) 2024 Artur A. Selimov
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+**PART 2** - CC BY-NC-SA 4.0 LICENSE (for territories outside the Russian Federation)
+
+    Outside the Russian Federation, this software is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+
+    Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
+
+    Summary of license terms:
+
+    - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+    - NonCommercial — You may not use the material for commercial purposes.
+    - ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
+    No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.

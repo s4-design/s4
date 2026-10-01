@@ -50,7 +50,7 @@
         "second",
         "success"
       ],
-      "когда": "Цветовой акцент статуса/уведомления: negative, prime, second, success."
+      "когда": "Цветовой акцент статуса/уведомления: neutral (без модификатора), negative, prime, second, success."
     },
     "alert": {
       "модификаторы": [

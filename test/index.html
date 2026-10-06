@@ -567,20 +567,50 @@
         <section id="e-line" class="display--flex flex-wrap--wrap gap--md">
             <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Линия</h2>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">Горизонтальная</h3>
+                <h3 class="font-size--l3">Как элемент</h3>
                 <hr />
-                <e-group class="display--inline-grid grid-auto-flow--row" role="group">
+                <h3 class="font-size--l3">Горизонтальная</h3>
+                <e-group class="display--inline-grid grid-auto-flow--row gap--md" role="group">
+                    <div>Ячейка</div>
+                    <e-line role="separator"></e-line>
+                    <div>Ячейка</div>
+                </e-group>
+                <h3 class="font-size--l3">Вертикальная</h3>
+                <e-group class="display--inline-flex flex-direction--row gap--md" role="group">
                     <div>Ячейка</div>
                     <e-line role="separator"></e-line>
                     <div>Ячейка</div>
                 </e-group>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">Вертикальная</h3>
+                <h3 class="font-size--l3">Как класс</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная</h4>
+                <e-group class="display--inline-grid grid-auto-flow--row gap--md" role="group">
+                    <div>Ячейка</div>
+                    <span class="element--line" role="separator"></span>
+                    <div>Ячейка</div>
+                </e-group>
+                <h4 class="font-size--l2">Вертикальная</h4>
                 <e-group class="display--inline-flex flex-direction--row gap--md" role="group">
                     <div>Ячейка</div>
-                    <e-line role="separator"></e-line>
+                    <span class="element--line" role="separator"></span>
+                    <div>Ячейка</div>
+                </e-group>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Декоративная линия без семантики</h3>
+                <hr />
+                <h4 class="font-size--l2">Горизонтальная</h4>
+                <e-group class="display--inline-grid grid-auto-flow--row gap--md" role="group">
+                    <div>Ячейка</div>
+                    <span class="element--line" role="none"></span>
+                    <div>Ячейка</div>
+                </e-group>
+                <h4 class="font-size--l2">Вертикальная</h4>
+                <e-group class="display--inline-flex flex-direction--row gap--md" role="group">
+                    <div>Ячейка</div>
+                    <e-line role="none"></e-line>
                     <div>Ячейка</div>
                 </e-group>
             </div>
@@ -809,6 +839,42 @@
                 </e-message>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Как класс</h3>
+                <hr />
+                <h4 class="font-size--l2">С заголовком и подвалом</h4>
+                <div class="element--message" role="status">
+                    <header>Заголовок сообщения</header>
+                    <span class="element--body">
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
+                    </span>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </div>
+                <h4 class="font-size--l2">Без заголовка с подвалом</h4>
+                <div class="element--message" role="status">
+                    <span class="element--body">
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
+                    </span>
+                    <footer class="margin-block-start--unset">
+                        <div class="display--contents font-size--s1">
+                            <button class="differ background-color--transparent margin-inline-start--auto">Кнопка</button>
+                            <button class="negative">Кнопка</button>
+                        </div>
+                    </footer>
+                </div>
+                <h4 class="font-size--l2">С заголовком без подвала</h4>
+                <div class="element--message" role="status">
+                    <header>Заголовок сообщения</header>
+                    <span class="element--body">
+                        В теле сообщения может содержаться также медийный контент. Иконки, изображения, таблицы и прочее.
+                    </span>
+                </div>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Контентные примеры</h3>
                 <hr />
                 <e-message class="danger" role="alert">
@@ -853,7 +919,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -876,7 +942,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -899,7 +965,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -923,7 +989,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -949,7 +1015,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -972,7 +1038,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -996,7 +1062,7 @@
                             <button title="Кнопка">
                                 <e-truncate>center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1020,7 +1086,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1043,7 +1109,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1069,7 +1135,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1093,7 +1159,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1116,7 +1182,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1139,7 +1205,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1167,7 +1233,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1190,7 +1256,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1213,7 +1279,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1237,7 +1303,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1263,7 +1329,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1286,7 +1352,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1310,7 +1376,7 @@
                             <button title="Кнопка">
                                 <e-truncate>center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1334,7 +1400,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1357,7 +1423,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1383,7 +1449,7 @@
                             <button title="Кнопка">
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1407,7 +1473,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1430,7 +1496,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start center</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -1453,7 +1519,7 @@
                             <button title="Кнопка">
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="dialog" aria-label="Меню">
                                 <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
                                         <button class="justify-content--start">
@@ -2521,6 +2587,37 @@
                     <h4 class="font-size--l2">Ошибка</h4>
                     <input type="week" min="2024-W01" max="2024-W52" value="2024-W60" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
+                </div>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Телефон</h3>
+                <hr />
+                <div class="display--grid">
+                    <input type="tel" value="+7 900 000-00-00" placeholder="Телефон" required />
+                    <h4 class="font-size--l2">Заглушка</h4>
+                    <input type="tel" placeholder="Телефон" required />
+                    <h4 class="font-size--l2">Отключено</h4>
+                    <input type="tel" value="+7 900 000-00-00" disabled />
+                    <h4 class="font-size--l2">Инертно</h4>
+                    <input type="tel" value="+7 900 000-00-00" inert />
+                    <h4 class="font-size--l2">Ошибка</h4>
+                    <input type="tel" value="" required />
+                    <small class="margin-inline--s2">Пусто или не соответствует шаблону</small>
+                    <h4 class="font-size--l2">Только для чтения</h4>
+                    <input type="tel" value="+7 900 000-00-00" readonly />
+                </div>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Диапазон</h3>
+                <hr />
+                <div class="display--grid">
+                    <input type="range" min="0" max="100" value="50" />
+                    <h4 class="font-size--l2">Отключено</h4>
+                    <input type="range" min="0" max="100" value="50" disabled />
+                    <h4 class="font-size--l2">Инертно</h4>
+                    <input type="range" min="0" max="100" value="50" inert />
+                    <h4 class="font-size--l2">Только для чтения</h4>
+                    <input type="range" min="0" max="100" value="50" readonly />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">

@@ -165,7 +165,7 @@
                         <button class="padding-inline--s3" title="Назад">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-left.svg);"></e-icon>
                         </button>
-                        <input class="text-align--center" type="text" readonly value="3 / 8" size="4"/>
+                        <input aria-label="Номер страницы" class="text-align--center" type="text" readonly value="3 / 8" size="4"/>
                         <button class="padding-inline--s3" title="Вперёд">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-right.svg);"></e-icon>
                         </button>
@@ -212,7 +212,7 @@
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group" aria-label="Ввод суммы">
                         <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">Сумма</span>
-                        <input type="number" placeholder="0.00">
+                        <input aria-label="Ввод суммы" type="number" placeholder="0.00">
                         <select class="element--button">
                             <option value="usd">USD</option>
                             <option value="eur">EUR</option>
@@ -249,7 +249,7 @@
                         <button class="padding-inline--s3" title="Местоположение">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/map-pin.svg);"></e-icon>
                         </button>
-                        <input class="flex-grow--1" type="text" placeholder="Поиск локации...">
+                        <input aria-label="Поиск локации" class="flex-grow--1" type="text" placeholder="Поиск локации...">
                         <button class="prime">Найти</button>
                     </e-group>
                 </p>
@@ -284,7 +284,7 @@
                         <button class="padding-inline--s3" title="Уменьшить">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/minus.svg);"></e-icon>
                         </button>
-                        <input class="flex-grow--1" type="number" inputmode="numeric" size="3" value="3">
+                        <input aria-label="Числовое значение" class="flex-grow--1" type="number" inputmode="numeric" size="3" value="3">
                         <button class="padding-inline--s3" title="Увеличить">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/plus.svg);"></e-icon>
                         </button>
@@ -325,13 +325,13 @@
                             <button title="Кнопка">
                                 <e-truncate>7d</e-truncate>
                             </button>
-                            <e-body role="region">
+                            <e-body role="region" aria-label="Lancia Delta S4 1985 года, без заголовка">
                                 <span class="max-inline-size" style="--max-inline-size: 16em;" role="menu">
-                                    <button class="justify-content--start">1d</button>
-                                    <button class="justify-content--start" disabled>7d</button>
-                                    <button class="justify-content--start">12d</button>
+                                    <button role="menuitem" class="justify-content--start">1d</button>
+                                    <button role="menuitem" class="justify-content--start" disabled>7d</button>
+                                    <button role="menuitem" class="justify-content--start">12d</button>
                                     <e-line role="separator"></e-line>
-                                    <button class="justify-content--start">1m</button>
+                                    <button role="menuitem" class="justify-content--start">1m</button>
                                 </span>
                             </e-body>
                         </e-popover>
@@ -344,19 +344,19 @@
                 <hr />
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Рейтинг: 3 из 5">
-                        <button class="padding-inline--s3">
+                        <button class="padding-inline--s3" aria-label="Оценка 1 из 5">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
                         </button>
-                        <button class="padding-inline--s3">
+                        <button class="padding-inline--s3" aria-label="Оценка 2 из 5">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
                         </button>
-                        <button class="padding-inline--s3">
+                        <button class="padding-inline--s3" aria-label="Оценка 3 из 5">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
                         </button>
-                        <button class="padding-inline--s3">
+                        <button class="padding-inline--s3" aria-label="Оценка 4 из 5">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
                         </button>
-                        <button class="padding-inline--s3">
+                        <button class="padding-inline--s3" aria-label="Оценка 5 из 5">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
                         </button>
                     </e-group>
@@ -373,21 +373,21 @@
                             Сохранить
                         </button>
                         <e-popover mode="focus" position="block-end inline-start">
-                            <button class="prime padding-inline--s3">
+                            <button class="prime padding-inline--s3" aria-label="Другие варианты сохранения">
                                 <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon>
                             </button>
                             <e-body role="region" aria-label="Варианты сохранения">
                                 <span role="menu">
-                                    <button class="justify-content--start">
+                                    <button role="menuitem" class="justify-content--start">
                                         <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                                         Как новый
                                     </button>
-                                    <button class="justify-content--start">
+                                    <button role="menuitem" class="justify-content--start">
                                         <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                                         Как копию
                                     </button>
                                     <e-line role="separator"></e-line>
-                                    <button class="justify-content--start">
+                                    <button role="menuitem" class="justify-content--start">
                                         <e-icon aria-hidden="true" style="--image: url(/test/icons/file-type-pdf.svg);"></e-icon>
                                         Экспорт в PDF
                                     </button>
@@ -922,15 +922,15 @@
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -945,15 +945,15 @@
                                 <e-truncate>block-end center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -968,15 +968,15 @@
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -992,15 +992,15 @@
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1018,15 +1018,15 @@
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1041,15 +1041,15 @@
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1065,15 +1065,15 @@
                                 <e-truncate>center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1089,15 +1089,15 @@
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1112,15 +1112,15 @@
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1138,15 +1138,15 @@
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1162,15 +1162,15 @@
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1185,15 +1185,15 @@
                                 <e-truncate>block-start center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1208,15 +1208,15 @@
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1236,15 +1236,15 @@
                                 <e-truncate>block-end inline-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1259,15 +1259,15 @@
                                 <e-truncate>block-end center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1282,15 +1282,15 @@
                                 <e-truncate>block-end inline-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1306,15 +1306,15 @@
                                 <e-truncate>inline-end block-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1332,15 +1332,15 @@
                                 <e-truncate>inline-start block-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1355,15 +1355,15 @@
                                 <e-truncate>inline-end center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1379,15 +1379,15 @@
                                 <e-truncate>center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1403,15 +1403,15 @@
                                 <e-truncate>inline-start center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1426,15 +1426,15 @@
                                 <e-truncate>inline-end block-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1452,15 +1452,15 @@
                                 <e-truncate>inline-start block-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1476,15 +1476,15 @@
                                 <e-truncate>block-start inline-end</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1499,15 +1499,15 @@
                                 <e-truncate>block-start center</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -1522,15 +1522,15 @@
                                 <e-truncate>block-start inline-start</e-truncate>
                             </button>
                             <e-body role="dialog" aria-label="Меню">
-                                <menu class="max-inline-size" style="--max-inline-size: 16em;" type="context">
+                                <menu role="menu" class="max-inline-size" style="--max-inline-size: 16em;" type="context">
                                     <li>
-                                        <button class="justify-content--start">
+                                        <button role="menuitem" class="justify-content--start">
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Активный пункт меню</e-truncate>
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="justify-content--start" disabled>
+                                        <button role="menuitem" class="justify-content--start" disabled>
                                             <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
                                             <e-truncate>Отключенный пункт меню</e-truncate>
                                         </button>
@@ -2169,7 +2169,7 @@
                         <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                         <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                     </summary>
-                    <e-body role="region">
+                    <e-body role="region" aria-label="Lancia Delta S4 1985 года">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque provident itaque dolorem, optio corrupti ex cumque eum, repudiandae numquam obcaecati esse nobis adipisci pariatur odio accusantium blanditiis! Repellendus, vitae molestiae?</p>
                         <p>Perspiciatis, ipsum repudiandae! Recusandae id eveniet exercitationem perspiciatis repellat magnam error est? Ut, porro. Ratione, minus enim. Neque cum, nesciunt cupiditate corrupti illum id vel quis sint commodi facere perferendis.</p>
                     </e-body>
@@ -2184,7 +2184,7 @@
                         <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                         <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                     </summary>
-                    <e-body role="region">
+                    <e-body role="region" aria-label="Горизонтальная группа, блок 2">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque provident itaque dolorem, optio corrupti ex cumque eum, repudiandae numquam obcaecati esse nobis adipisci pariatur odio accusantium blanditiis! Repellendus, vitae molestiae?</p>
                     </e-body>
                 </details>
@@ -2198,7 +2198,7 @@
                         <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                         <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                     </summary>
-                    <e-body role="region">
+                    <e-body role="region" aria-label="Горизонтальная группа, блок 1">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         <details>
                             <summary>
@@ -2206,7 +2206,7 @@
                                 <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                                 <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                             </summary>
-                            <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                            <e-body role="region" aria-label="Вертикальная группа, блок 2"><p>Lorem ipsum dolor sit amet.</p></e-body>
                         </details>
                     </e-body>
                     <details>
@@ -2215,7 +2215,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вертикальная группа, блок 1"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                 </details>
             </div>
@@ -2229,7 +2229,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вложенный блок 2"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                     <details>
                         <summary>
@@ -2237,7 +2237,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вложенный блок 1"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                 </e-group>
             </div>
@@ -2251,7 +2251,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вложения групп скрытой информации"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                     <details>
                         <summary>
@@ -2259,7 +2259,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Инертный блок скрытой информации"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                 </e-group>
             </div>
@@ -2338,7 +2338,7 @@
                 <hr />
                 <figure class="display--inline-block">
                     <figcaption>Lancia Delta S4 1985 года</figcaption>
-                    <e-body role="region">
+                    <e-body role="region" aria-label="Скрытая информация">
                         <p>Фестиваль скорости в Гудвуде, 27 июня 2014 года</p>
                         <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="Lancia Delta S4 1985 года" />
                     </e-body>
@@ -2348,7 +2348,7 @@
                 <h3 class="font-size--l3">Без заголовка</h3>
                 <hr />
                 <figure class="display--inline-block">
-                    <e-body role="region">
+                    <e-body role="region" aria-label="Выбор периода">
                         <p>Фестиваль скорости в Гудвуде, 27 июня 2014 года</p>
                         <img class="display--block max-inline-size--100" src="https://c6.staticflickr.com/6/5542/14358061157_51b9bf5a6f_h.jpg" alt="Lancia Delta S4 1985 года" />
                     </e-body>
@@ -2393,17 +2393,17 @@
                 <h3 class="font-size--l3">Однострочный текст</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="text" value="Просто текст" placeholder="Текст формы" required />
+                    <input aria-label="Однострочный текст, инертно" type="text" value="Просто текст" placeholder="Текст формы" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="text" placeholder="Заглушка формы" required />
+                    <input aria-label="Однострочный текст, заглушка" type="text" placeholder="Заглушка формы" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="text" value="Просто текст" disabled />
+                    <input aria-label="Однострочный текст, отключено" type="text" value="Просто текст" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="text" value="Просто текст" inert />
+                    <input aria-label="Однострочный текст, инертно" type="text" value="Просто текст" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="text" required />
+                    <input aria-label="Однострочный текст, ошибка" type="text" required />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="text" value="Просто текст" readonly />
+                    <input aria-label="Однострочный текст, только для чтения" type="text" value="Просто текст" readonly />
                     <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
@@ -2411,15 +2411,15 @@
                 <h3 class="font-size--l3">Загрузка файла</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="file" required />
+                    <input aria-label="Загрузка файла, только для чтения" type="file" required />
                     <h4 class="font-size--l2">Заглушка</h4>
                     <div>отсутствует</div>
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="file" disabled />
+                    <input aria-label="Загрузка файла, отключено" type="file" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="file" inert />
+                    <input aria-label="Загрузка файла, инертно" type="file" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="file" required />
+                    <input aria-label="Загрузка файла, ошибка" type="file" required />
                     <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
@@ -2427,30 +2427,30 @@
                 <h3 class="font-size--l3">Цвет</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="color" value="#ff0000" />
+                    <input aria-label="Цвет, ошибка" type="color" value="#ff0000" />
                     <h4 class="font-size--l2">Выбор цвета</h4>
-                    <input type="color" />
+                    <input aria-label="Цвет, выбор цвета" type="color" />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="color" value="#00ff00" disabled />
+                    <input aria-label="Цвет, отключено" type="color" value="#00ff00" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="color" value="#00ff00" inert />
+                    <input aria-label="Цвет, инертно" type="color" value="#00ff00" inert />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Скрытый текст</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="password" value="sa89d7n8" placeholder="Пароль" required />
+                    <input aria-label="Скрытый текст, инертно" type="password" value="sa89d7n8" placeholder="Пароль" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="password" placeholder="Пароль" required />
+                    <input aria-label="Скрытый текст, заглушка" type="password" placeholder="Пароль" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="password" value="sa89d7n8" disabled />
+                    <input aria-label="Скрытый текст, отключено" type="password" value="sa89d7n8" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="password" value="sa89d7n8" inert />
+                    <input aria-label="Скрытый текст, инертно" type="password" value="sa89d7n8" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="password" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" value="abc" />
+                    <input aria-label="Скрытый текст, ошибка" type="password" required pattern="(?=.*\d)(?=.*[A-Z]).{8,}" value="abc" />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="password" value="sa89d7n8" readonly />
+                    <input aria-label="Скрытый текст, только для чтения" type="password" value="sa89d7n8" readonly />
                     <small class="margin-inline--s2">Не соответствует шаблону</small>
                 </div>
             </div>
@@ -2458,17 +2458,17 @@
                 <h3 class="font-size--l3">Адрес электронной почты</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="email" value="your@email.ru" placeholder="Адрес электронной почты" required />
+                    <input aria-label="Адрес электронной почты, только для чтения" type="email" value="your@email.ru" placeholder="Адрес электронной почты" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="email" placeholder="Адрес электронной почты" required />
+                    <input aria-label="Адрес электронной почты, заглушка" type="email" placeholder="Адрес электронной почты" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="email" value="your@email.ru" disabled />
+                    <input aria-label="Адрес электронной почты, отключено" type="email" value="your@email.ru" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="email" value="your@email.ru" inert />
+                    <input aria-label="Адрес электронной почты, инертно" type="email" value="your@email.ru" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="email" value="your@ email.ru" required />
+                    <input aria-label="Адрес электронной почты, ошибка" type="email" value="your@ email.ru" required />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="email" value="your@email.ru" readonly />
+                    <input aria-label="Адрес электронной почты, только для чтения" type="email" value="your@email.ru" readonly />
                     <small class="margin-inline--s2">Не соответствует шаблону</small>
                 </div>
             </div>
@@ -2476,17 +2476,17 @@
                 <h3 class="font-size--l3">Ссылка</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="url" value="http://www.url.ru" placeholder="Ссылка" required />
+                    <input aria-label="Ссылка, только для чтения" type="url" value="http://www.url.ru" placeholder="Ссылка" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="url" placeholder="Ссылка" required />
+                    <input aria-label="Ссылка, заглушка" type="url" placeholder="Ссылка" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="url" placeholder="Ссылка" disabled />
+                    <input aria-label="Ссылка, отключено" type="url" placeholder="Ссылка" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="url" placeholder="Ссылка" inert />
+                    <input aria-label="Ссылка, инертно" type="url" placeholder="Ссылка" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="url" value="www.url.ru" required />
+                    <input aria-label="Ссылка, ошибка" type="url" value="www.url.ru" required />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="url" value="http://www.url.ru" readonly />
+                    <input aria-label="Ссылка, только для чтения" type="url" value="http://www.url.ru" readonly />
                     <small class="margin-inline--s2">Не соответствует шаблону</small>
                 </div>
             </div>
@@ -2494,17 +2494,17 @@
                 <h3 class="font-size--l3">Поле поиска</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="search" value="Строка поиска" placeholder="Поле поиска" required />
+                    <input aria-label="Поле поиска, только для чтения" type="search" value="Строка поиска" placeholder="Поле поиска" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="search" placeholder="Поле поиска" required />
+                    <input aria-label="Поле поиска, заглушка" type="search" placeholder="Поле поиска" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="search" placeholder="Поле поиска" disabled />
+                    <input aria-label="Поле поиска, отключено" type="search" placeholder="Поле поиска" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="search" placeholder="Поле поиска" inert />
+                    <input aria-label="Поле поиска, инертно" type="search" placeholder="Поле поиска" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="search" placeholder="Поле поиска" required />
+                    <input aria-label="Поле поиска, ошибка" type="search" placeholder="Поле поиска" required />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="search" value="Строка поиска" readonly />
+                    <input aria-label="Поле поиска, только для чтения" type="search" value="Строка поиска" readonly />
                     <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
@@ -2512,15 +2512,15 @@
                 <h3 class="font-size--l3">Дата</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="date" value="2024-12-31" required />
+                    <input aria-label="Дата, только для чтения" type="date" value="2024-12-31" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="date" required />
+                    <input aria-label="Дата, заглушка" type="date" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="date" disabled />
+                    <input aria-label="Дата, отключено" type="date" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="date" inert />
+                    <input aria-label="Дата, инертно" type="date" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="date" min="2024-01-01" max="2024-12-31" value="2025-01-01" required />
+                    <input aria-label="Дата, ошибка" type="date" min="2024-01-01" max="2024-12-31" value="2025-01-01" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
                 </div>
             </div>
@@ -2528,15 +2528,15 @@
                 <h3 class="font-size--l3">Время</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="time" value="12:00" required />
+                    <input aria-label="Время, ошибка" type="time" value="12:00" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="time" required />
+                    <input aria-label="Время, заглушка" type="time" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="time" disabled />
+                    <input aria-label="Время, отключено" type="time" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="time" inert />
+                    <input aria-label="Время, инертно" type="time" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="time" min="09:00" max="18:00" value="25:00" required />
+                    <input aria-label="Время, ошибка" type="time" min="09:00" max="18:00" value="25:00" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
                 </div>
             </div>
@@ -2544,15 +2544,15 @@
                 <h3 class="font-size--l3">Дата и время</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="datetime-local" value="2024-12-31T12:00" required />
+                    <input aria-label="Дата и время, ошибка" type="datetime-local" value="2024-12-31T12:00" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="datetime-local" required />
+                    <input aria-label="Дата и время, заглушка" type="datetime-local" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="datetime-local" disabled />
+                    <input aria-label="Дата и время, отключено" type="datetime-local" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="datetime-local" inert />
+                    <input aria-label="Дата и время, инертно" type="datetime-local" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="datetime-local" min="2024-01-01T00:00" max="2024-12-31T23:59" value="2025-01-01T13:00" required />
+                    <input aria-label="Дата и время, ошибка" type="datetime-local" min="2024-01-01T00:00" max="2024-12-31T23:59" value="2025-01-01T13:00" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
                 </div>
             </div>
@@ -2560,15 +2560,15 @@
                 <h3 class="font-size--l3">Месяц и год</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="month" value="2024-12" required />
+                    <input aria-label="Месяц и год, ошибка" type="month" value="2024-12" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="month" required />
+                    <input aria-label="Месяц и год, заглушка" type="month" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="month" disabled />
+                    <input aria-label="Месяц и год, отключено" type="month" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="month" inert />
+                    <input aria-label="Месяц и год, инертно" type="month" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="month" min="2024-01" max="2024-12" value="2025-13" required />
+                    <input aria-label="Месяц и год, ошибка" type="month" min="2024-01" max="2024-12" value="2025-13" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
                 </div>
             </div>
@@ -2576,15 +2576,15 @@
                 <h3 class="font-size--l3">Неделя и год</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="week" value="2024-W01" required />
+                    <input aria-label="Неделя и год, ошибка" type="week" value="2024-W01" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="week" required />
+                    <input aria-label="Неделя и год, заглушка" type="week" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="week" disabled />
+                    <input aria-label="Неделя и год, отключено" type="week" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="week" inert />
+                    <input aria-label="Неделя и год, инертно" type="week" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="week" min="2024-W01" max="2024-W52" value="2024-W60" required />
+                    <input aria-label="Неделя и год, ошибка" type="week" min="2024-W01" max="2024-W52" value="2024-W60" required />
                     <small class="margin-inline--s2">Пустое значение или значение за пределами диапазона</small>
                 </div>
             </div>
@@ -2592,29 +2592,29 @@
                 <h3 class="font-size--l3">Телефон</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="tel" value="+7 900 000-00-00" placeholder="Телефон" required />
+                    <input aria-label="Телефон, ошибка" type="tel" value="+7 900 000-00-00" placeholder="Телефон" required />
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input type="tel" placeholder="Телефон" required />
+                    <input aria-label="Телефон, заглушка" type="tel" placeholder="Телефон" required />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="tel" value="+7 900 000-00-00" disabled />
+                    <input aria-label="Телефон, отключено" type="tel" value="+7 900 000-00-00" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="tel" value="+7 900 000-00-00" inert />
+                    <input aria-label="Телефон, инертно" type="tel" value="+7 900 000-00-00" inert />
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="tel" value="" required />
+                    <input aria-label="Телефон, ошибка" type="tel" value="" required />
                     <small class="margin-inline--s2">Пусто или не соответствует шаблону</small>
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="tel" value="+7 900 000-00-00" readonly />
+                    <input aria-label="Телефон, только для чтения" type="tel" value="+7 900 000-00-00" readonly />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Диапазон</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="range" min="0" max="100" value="50" />
+                    <input aria-label="Диапазон, только для чтения" type="range" min="0" max="100" value="50" />
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input type="range" min="0" max="100" value="50" disabled />
+                    <input aria-label="Диапазон, отключено" type="range" min="0" max="100" value="50" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input type="range" min="0" max="100" value="50" inert />
+                    <input aria-label="Диапазон, инертно" type="range" min="0" max="100" value="50" inert />
                     <h4 class="font-size--l2">Только для чтения</h4>
                     <div>отсутствует</div>
                 </div>
@@ -2634,7 +2634,7 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
                     <h4 class="font-size--l2">Заглушка</h4>
-                    <input list="cars-datalist-placeholder" type="text" placeholder="Выберите вкус" />
+                    <input aria-label="Фразовый контент, заглушка" list="cars-datalist-placeholder" type="text" placeholder="Выберите вкус" />
                     <datalist id="cars-datalist-placeholder">
                         <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
@@ -2645,9 +2645,9 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
                     <h4 class="font-size--l2">Отключено</h4>
-                    <input list="cars-datalist-disabled" type="text" value="Chocolate" disabled />
+                    <input aria-label="Фразовый контент, отключено" list="cars-datalist-disabled" type="text" value="Chocolate" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
-                    <input list="cars-datalist-inert" type="text" value="Chocolate" inert />
+                    <input aria-label="Фразовый контент, инертно" list="cars-datalist-inert" type="text" value="Chocolate" inert />
                     <datalist id="cars-datalist-inert">
                         <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
@@ -2667,7 +2667,7 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
                     <h4 class="font-size--l2">Ошибка</h4>
-                    <input list="cars-datalist-error" type="text" required />
+                    <input aria-label="Фразовый контент, ошибка" list="cars-datalist-error" type="text" required />
                     <datalist id="cars-datalist-error">
                         <option value="">Выберите раллийную Lancia ...</option>
                         <option value="fulvia">Fulvia Coupe HF</option>
@@ -2678,7 +2678,7 @@
                         <option value="Integrale">Delta HF Integrale</option>
                     </datalist>
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="text" value="Chocolate" readonly />
+                    <input aria-label="Фразовый контент, только для чтения" type="text" value="Chocolate" readonly />
                     <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
@@ -2687,13 +2687,13 @@
                 <hr />
                 <div class="display--grid">
                     <h4 class="font-size--l2">Проверка пустоты</h4>
-                    <input type="text" placeholder="Текст формы" required />
+                    <input aria-label="Текст с немедленной валидацией, проверка пустоты" type="text" placeholder="Текст формы" required />
                     <h4 class="font-size--l2">Диапазон</h4>
-                    <input type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required />
+                    <input aria-label="Текст с немедленной валидацией, диапазон" type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required />
                     <h4 class="font-size--l2">Шаблон</h4>
-                    <input type="text" placeholder="Все кроме цифр" pattern="\D+" required />
+                    <input aria-label="Текст с немедленной валидацией, шаблон" type="text" placeholder="Все кроме цифр" pattern="\D+" required />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="text" value="Текст только для чтения" readonly />
+                    <input aria-label="Текст с немедленной валидацией, только для чтения" type="text" value="Текст только для чтения" readonly />
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -2701,13 +2701,13 @@
                 <hr />
                 <div class="display--grid">
                     <h4 class="font-size--l2">Проверка пустоты</h4>
-                    <input type="text" placeholder="Текст формы" required data-validation="user" />
+                    <input aria-label="Текст с валидацией после взаимодействия пользователя, проверка пустоты" type="text" placeholder="Текст формы" required data-validation="user" />
                     <h4 class="font-size--l2">Диапазон</h4>
-                    <input type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required data-validation="user" />
+                    <input aria-label="Текст с валидацией после взаимодействия пользователя, диапазон" type="text" placeholder="От 3 до 10 символов" minlength="3" maxlength="10" required data-validation="user" />
                     <h4 class="font-size--l2">Шаблон</h4>
-                    <input type="text" placeholder="Все кроме цифр" pattern="\D+" required data-validation="user" />
+                    <input aria-label="Текст с валидацией после взаимодействия пользователя, шаблон" type="text" placeholder="Все кроме цифр" pattern="\D+" required data-validation="user" />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="text" value="Текст только для чтения" readonly />
+                    <input aria-label="Текст с валидацией после взаимодействия пользователя, только для чтения" type="text" value="Текст только для чтения" readonly />
                 </div>
             </div>
         </section>
@@ -2788,21 +2788,21 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Меню - вертикальная панель инструментов</h3>
                 <hr />
-                <menu type="context">
+                <menu role="menu" type="context">
                     <li>
-                        <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                        <button role="menuitem" class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
                     </li>
                     <li>
-                        <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                        <button role="menuitem" class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
                     </li>
                     <li>
-                        <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                        <button role="menuitem" class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
                     </li>
                     <li>
                         <e-line role="separator"></e-line>
                     </li>
                     <li>
-                        <button class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
+                        <button role="menuitem" class="padding-inline--s3" title="Кнопка"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon></button>
                     </li>
                 </menu>
             </div>
@@ -2810,11 +2810,11 @@
                 <h3 class="font-size--l3">Меню - контекстное, как класс</h3>
                 <hr />
                 <span role="menu">
-                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button>
-                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Ещё одно меню</button>
-                    <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Ещё одно меню</button>
+                    <button role="menuitem" class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button>
+                    <button role="menuitem" class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Ещё одно меню</button>
+                    <button role="menuitem" class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Ещё одно меню</button>
                     <e-line role="separator"></e-line>
-                    <button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button>
+                    <button role="menuitem" class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button>
                 </span>
             </div>
         </section>
@@ -3336,6 +3336,7 @@
     <div class="display--inline-flex flex-direction--row gap--s2 position--fixed inset-block-end--0 inset-inline-end--0 margin-block-end--l2 margin-inline-end--l2 z-index--1" style="--gap: unset" role="toolbar" aria-label="Навигация по страницам">
         <button
             class="padding-inline--s3"
+            aria-label="Переключить тему"
             onclick="document.documentElement.setAttribute('preset', document.documentElement.getAttribute('preset') === 'dark' ? 'light' : 'dark')">
             <e-icon aria-hidden="true" style="--image: url(/test/icons/sun-moon.svg)"></e-icon>
         </button>

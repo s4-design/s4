@@ -44,10 +44,12 @@
                 <a href="#label" class="element--button">Подпись</a>
                 <a href="#mark" class="element--button">Выделение</a>
                 <a href="#menu" class="element--button">Меню</a>
+                <a href="#ol" class="element--button">Нумерованный список</a>
                 <a href="#p" class="element--button">Абзац</a>
                 <a href="#pre" class="element--button">Преформатированный код</a>
                 <a href="#q" class="element--button">Строчная цитата</a>
                 <a href="#radio" class="element--button">Переключатель</a>
+                <a href="#samp" class="element--button">Пример вывода</a>
                 <a href="#select" class="element--button">Список выбора</a>
                 <a href="#small" class="element--button">Малый текст</a>
                 <a href="#strong" class="element--button">Сильное выделение</a>
@@ -172,7 +174,7 @@
                         </button>
                     </e-group>
                 </p>
-                <p>
+                <div>
                     <nav class="element--group display--inline-flex flex-direction--row" aria-label="Навигация по страницам">
                         <button class="padding-inline--s3" title="В начало">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
@@ -190,7 +192,7 @@
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-right.svg);"></e-icon>
                         </button>
                     </nav>
-                </p>
+                </div>
             </div>
 
             <!-- <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -324,7 +326,7 @@
                                 <e-truncate>7d</e-truncate>
                             </button>
                             <e-body role="region">
-                                <span class="max-inline-size" style="--max-inline-size: 16em;" role="menu" type="context">
+                                <span class="max-inline-size" style="--max-inline-size: 16em;" role="menu">
                                     <button class="justify-content--start">1d</button>
                                     <button class="justify-content--start" disabled>7d</button>
                                     <button class="justify-content--start">12d</button>
@@ -375,7 +377,7 @@
                                 <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon>
                             </button>
                             <e-body role="region" aria-label="Варианты сохранения">
-                                <span role="menu" type="context">
+                                <span role="menu">
                                     <button class="justify-content--start">
                                         <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                                         Как новый
@@ -2425,16 +2427,13 @@
                 <h3 class="font-size--l3">Цвет</h3>
                 <hr />
                 <div class="display--grid">
-                    <input type="color" value="#ff0000" required />
+                    <input type="color" value="#ff0000" />
                     <h4 class="font-size--l2">Выбор цвета</h4>
-                    <input type="color" required />
+                    <input type="color" />
                     <h4 class="font-size--l2">Отключено</h4>
                     <input type="color" value="#00ff00" disabled />
                     <h4 class="font-size--l2">Инертно</h4>
                     <input type="color" value="#00ff00" inert />
-                    <h4 class="font-size--l2">Ошибка</h4>
-                    <input type="color" required />
-                    <small class="margin-inline--s2">Пустое значение</small>
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -2617,7 +2616,7 @@
                     <h4 class="font-size--l2">Инертно</h4>
                     <input type="range" min="0" max="100" value="50" inert />
                     <h4 class="font-size--l2">Только для чтения</h4>
-                    <input type="range" min="0" max="100" value="50" readonly />
+                    <div>отсутствует</div>
                 </div>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -2810,13 +2809,40 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Меню - контекстное, как класс</h3>
                 <hr />
-                <span role="menu" type="context">
+                <span role="menu">
                     <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Пункт меню</button>
                     <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Ещё одно меню</button>
                     <button class="justify-content--start"><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> И Ещё одно меню</button>
                     <e-line role="separator"></e-line>
                     <button class="justify-content--start" disabled><e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Отключено</button>
                 </span>
+            </div>
+        </section>
+
+        <section id="ol" class="display--flex flex-wrap--wrap gap--md">
+            <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Нумерованный список</h2>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Плоский список</h3>
+                <hr />
+                <ol>
+                    <li>Пункт списка 1</li>
+                    <li>Пункт списка 2</li>
+                    <li>Пункт списка 3</li>
+                </ol>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Вложенный список</h3>
+                <hr />
+                <ol>
+                    <li>
+                        Пункт списка 1
+                        <ol>
+                            <li>Вложенный пункт 1</li>
+                            <li>Вложенный пункт 2</li>
+                        </ol>
+                    </li>
+                    <li>Пункт списка 2</li>
+                </ol>
             </div>
         </section>
 
@@ -3050,6 +3076,15 @@
                         </label>
                     </e-group>
                 </p>
+            </div>
+        </section>
+
+        <section id="samp" class="display--flex flex-wrap--wrap gap--md">
+            <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Пример вывода</h2>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Пример вывода программы</h3>
+                <hr />
+                <p>Результат выполнения <samp>Ошибка: элемент не найден</samp> в тексте.</p>
             </div>
         </section>
 

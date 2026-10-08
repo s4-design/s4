@@ -1,4 +1,11 @@
 @mixin samp() {
     samp {
+        color: var(--color);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        line-height: var(--line-height);
+        vertical-align: var(--vertical-align);
     }
 }

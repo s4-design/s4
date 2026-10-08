@@ -1,4 +1,33 @@
 @mixin samp() {
     samp {
+        --color: var(--negative--dark);
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s2);
+        --background-color: var(--positive--dark);
+        --border-radius: var(--border-radius--s2);
+        --line-height: inherit;
+        --vertical-align: center;
+        &::before {
+            content: attr(data-content\:\:before, "> ");
+        }
+        &::after {
+            content: attr(data-content\:\:after, " _");
+        }
+        @each $color in (
+            "negative",
+            "prime",
+            "second",
+            "success",
+            "danger"
+        ) {
+            &.#{$color} {
+                @if ($color == "negative") {
+                    --background-color: var(--#{$color}--light);
+                    --color: var(--positive--light);
+                } @else {
+                    --background-color: var(--#{$color}--dark);
+                }
+            }
+        }
     }
 }

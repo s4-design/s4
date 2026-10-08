@@ -45,6 +45,7 @@
                 <a href="#mark" class="element--button">Выделение</a>
                 <a href="#menu" class="element--button">Меню</a>
                 <a href="#ol" class="element--button">Нумерованный список</a>
+                <a href="#ul" class="element--button">Маркированный список</a>
                 <a href="#p" class="element--button">Абзац</a>
                 <a href="#pre" class="element--button">Преформатированный код</a>
                 <a href="#q" class="element--button">Строчная цитата</a>
@@ -1711,21 +1712,21 @@
         <section id="abbr" class="display--flex flex-wrap--wrap gap--md">
             <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Аббревиатура</h2>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">Без расшифровки</h3>
+                <h3 class="font-size--l3">Без атрибута title - маркера нет</h3>
                 <hr />
                 <p>
                     <abbr>аббревиатура</abbr>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">С расшифровкой</h3>
+                <h3 class="font-size--l3">Атрибут title заполнен - маркер обычным цветом</h3>
                 <hr />
                 <p>
                     <abbr title="аббревиатура">аббревиатура</abbr>
                 </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">С пустой расшифровкой</h3>
+                <h3 class="font-size--l3">Атрибут title пустой - маркер цветом ошибки</h3>
                 <hr />
                 <p>
                     <abbr title="">аббревиатура</abbr>
@@ -2375,6 +2376,12 @@
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <hr />
                 <p>Illum maiores beatae neque nisi itaque ipsum harum error optio ex?</p>
+                <h4 class="font-size--l2">Роль separator</h4>
+                <hr role="separator" />
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <h4 class="font-size--l2">Роль none - декоративный разделитель</h4>
+                <hr role="none" />
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </section>
 
@@ -2846,6 +2853,33 @@
             </div>
         </section>
 
+        <section id="ul" class="display--flex flex-wrap--wrap gap--md">
+            <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Маркированный список</h2>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Плоский список</h3>
+                <hr />
+                <ul>
+                    <li>Пункт списка 1</li>
+                    <li>Пункт списка 2</li>
+                    <li>Пункт списка 3</li>
+                </ul>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Вложенный список</h3>
+                <hr />
+                <ul>
+                    <li>
+                        Пункт списка 1
+                        <ul>
+                            <li>Вложенный пункт 1</li>
+                            <li>Вложенный пункт 2</li>
+                        </ul>
+                    </li>
+                    <li>Пункт списка 2</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="p" class="display--flex flex-wrap--wrap gap--md">
             <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Абзац</h2>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
@@ -3082,9 +3116,30 @@
         <section id="samp" class="display--flex flex-wrap--wrap gap--md">
             <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Пример вывода</h2>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
-                <h3 class="font-size--l3">Пример вывода программы</h3>
+                <h3 class="font-size--l3">Обычный</h3>
                 <hr />
-                <p>Результат выполнения <samp>Ошибка: элемент не найден</samp> в тексте.</p>
+                <p>Результат выполнения <samp>Элемент найден, данные получены</samp> в тексте.</p>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Цветовые схемы</h3>
+                <hr />
+                <p><samp class="negative">Элемент найден, данные отсутствуют</samp></p>
+                <p><samp class="prime">ATENTION: мало свободного места</samp></p>
+                <p><samp class="second">DEBUG: соединение установлено</samp></p>
+                <p><samp class="success">OK: операция выполнена</samp></p>
+                <p><samp class="danger">ERROR: данные повреждены</samp></p>
+            </div>
+            <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
+                <h3 class="font-size--l3">Смена символов</h3>
+                <hr />
+                <h4 class="font-size--l2">Дефолт</h4>
+                <p><samp class="danger">Ошибка</samp></p>
+                <h4 class="font-size--l2">Символ до</h4>
+                <p><samp class="danger" data-content::before="» ">Ошибка</samp></p>
+                <h4 class="font-size--l2">Символ после</h4>
+                <p><samp class="danger" data-content::after=" ...">Ошибка</samp></p>
+                <h4 class="font-size--l2">Оба символа</h4>
+                <p><samp class="danger" data-content::before="[" data-content::after="]">Ошибка</samp></p>
             </div>
         </section>
 

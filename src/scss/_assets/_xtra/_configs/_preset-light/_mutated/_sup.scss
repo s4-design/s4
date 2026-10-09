@@ -1,5 +1,5 @@
 @mixin sup() {
-    :where(sup),
+    sup,
     .element--sup {
         --font-size: var(--font-size--s1);
         --line-height: var(--size--4);

@@ -12,7 +12,7 @@ const headerTemplate =
  * ${packageJson.name.toUpperCase()} v${packageJson.version} - ${packageJson.homepage}
  *
  * Авторское право (с) ${LICENSE_YEAR} ${packageJson.author.name}
- * Copyright (c) ${LICENSE_YEAR} ${packageJson.author.name}
+ * Copyright (с) ${LICENSE_YEAR} ${packageJson.author.name}
  *
  * ${LICENSE_RU}
  * ${LICENSE_EN}

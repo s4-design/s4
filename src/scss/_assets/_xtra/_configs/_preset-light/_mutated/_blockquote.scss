@@ -4,7 +4,7 @@
         --margin-inline: var(--margin--l4);
         --margin-block: var(--margin--md);
         --font-size: var(--font-size--l1);
-        :is(e-body, element--body) > & {
+        :is(e-body, .element--body) > & {
             --margin-inline: 0;
         }
         > * {

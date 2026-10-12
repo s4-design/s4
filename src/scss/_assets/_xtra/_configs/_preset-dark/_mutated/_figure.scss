@@ -6,7 +6,7 @@
         --background-color: var(--positive--light);
         --background-image: linear-gradient(var(--positive--mute));
         --overflow: auto;
-        :is(e-body, element--body) > & { // figure в figure сбрасывает margin-inline
+        :is(e-body, .element--body) > & { // figure в figure сбрасывает margin-inline
             --margin-inline: 0;
         }
 

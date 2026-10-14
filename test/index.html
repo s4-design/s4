@@ -110,7 +110,7 @@
                 <h3 class="font-size--l3">Настраиваемая, как элемент</h3>
                 <hr />
                 <div>
-                    <h4 class="font-size--l2">Горизонтальная</h4>
+                    <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                     <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
                         <e-line role="separator"></e-line>
@@ -120,8 +120,28 @@
                     </e-group>
                 </div>
                 <div>
-                    <h4 class="font-size--l2">Вертикальная</h4>
+                    <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                    <e-group class="display--inline-grid grid-auto-flow--column" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </e-group>
+                </div>
+                <div>
+                    <h4 class="font-size--l2">Вертикальная на inline-grid + row</h4>
                     <e-group class="display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </e-group>
+                </div>
+                <div>
+                    <h4 class="font-size--l2">Вертикальная на inline-flex + column</h4>
+                    <e-group class="display--inline-flex flex-direction--column" style="--border-radius: var(--border-radius--md)" role="group">
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
                         <e-line role="separator"></e-line>
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
@@ -133,7 +153,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Настраиваемая, как класс</h3>
                 <hr />
-                <div><h4 class="font-size--l2">Горизонтальная</h4>
+                <div><h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                     <div class="element--group display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--md)" role="group">
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
                         <e-line role="separator"></e-line>
@@ -142,8 +162,26 @@
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
                     </div>
                 </div>
-                <div><h4 class="font-size--l2">Вертикальная</h4>
+                <div><h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                    <div class="element--group display--inline-grid grid-auto-flow--column" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </div>
+                </div>
+                <div><h4 class="font-size--l2">Вертикальная на inline-grid + row</h4>
                     <div class="element--group display--inline-grid grid-auto-flow--row" style="--border-radius: var(--border-radius--md)" role="group">
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                        <e-line role="separator"></e-line>
+                        <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
+                    </div>
+                </div>
+                <div><h4 class="font-size--l2">Вертикальная на inline-flex + column</h4>
+                    <div class="element--group display--inline-flex flex-direction--column" style="--border-radius: var(--border-radius--md)" role="group">
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
                         <e-line role="separator"></e-line>
                         <div class="background-color--positive padding-inline--s1 padding-block--s2">Ячейка</div>
@@ -158,6 +196,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Горизонтальная навигация по страницам</h3>
                 <hr />
+                <h4 class="font-size--l2">Как элемент, inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="navigation" aria-label="Навигация по страницам">
                         <button class="padding-inline--s3" title="В начало">
@@ -175,8 +214,45 @@
                         </button>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Как элемент, inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="navigation" aria-label="Навигация по страницам, вертикально">
+                        <button class="padding-inline--s3" title="В начало">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="Назад">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-left.svg);"></e-icon>
+                        </button>
+                        <input aria-label="Номер страницы сетка" class="text-align--center" type="text" readonly value="3 / 8" size="4"/>
+                        <button class="padding-inline--s3" title="Вперёд">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-right.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="В конец">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-right.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
                 <div>
+                    <h4 class="font-size--l2">Как nav + класс, inline-flex + row</h4>
                     <nav class="element--group display--inline-flex flex-direction--row" aria-label="Навигация по страницам">
+                        <button class="padding-inline--s3" title="В начало">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="Назад">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-left.svg);"></e-icon>
+                        </button>
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                            3 / 8
+                        </span>
+                        <button class="padding-inline--s3" title="Вперёд">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-right.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" title="В конец">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-right.svg);"></e-icon>
+                        </button>
+                    </nav>
+                    <h4 class="font-size--l2">Как nav + класс, inline-grid + column</h4>
+                    <nav class="element--group display--inline-grid grid-auto-flow--column" aria-label="Навигация по страницам, nav и сетка">
                         <button class="padding-inline--s3" title="В начало">
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/chevrons-left.svg);"></e-icon>
                         </button>
@@ -210,6 +286,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Составная группа: ввод суммы</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group" aria-label="Ввод суммы">
                         <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">Сумма</span>
@@ -222,11 +299,24 @@
                         <!-- <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon> -->
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" style="--border-radius: var(--border-radius--s2)" role="group" aria-label="Ввод суммы, вертикально">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">Сумма</span>
+                        <input aria-label="Ввод суммы вертикально" type="number" placeholder="0.00">
+                        <select class="element--button">
+                            <option value="usd">USD</option>
+                            <option value="eur">EUR</option>
+                            <option value="rub">RUB</option>
+                        </select>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Сегментированный переключатель периода</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="radiogroup" aria-label="Период">
                         <label class="element--button">
@@ -240,11 +330,26 @@
                         </label>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="radiogroup" aria-label="Период, вертикально">
+                        <label class="element--button">
+                            <input type="radio" name="period-column" checked /> Годы
+                        </label>
+                        <label class="element--button">
+                            <input type="radio" name="period-column" /> Месяцы
+                        </label>
+                        <label class="element--button">
+                            <input type="radio" name="period-column" /> Дни
+                        </label>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Поиск локации с кнопкой</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на flex + row</h4>
                 <p>
                     <e-group class="display--flex flex-direction--row" role="group">
                         <button class="padding-inline--s3" title="Местоположение">
@@ -254,11 +359,32 @@
                         <button class="prime">Найти</button>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
+                <p>
+                    <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button class="padding-inline--s3" title="Местоположение">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/map-pin.svg);"></e-icon>
+                        </button>
+                        <input aria-label="Поиск локации inline" class="flex-grow--1" type="text" placeholder="Поиск локации...">
+                        <button class="prime">Найти</button>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
+                        <button class="padding-inline--s3" title="Местоположение">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/map-pin.svg);"></e-icon>
+                        </button>
+                        <input aria-label="Поиск локации сетка" type="text" placeholder="Поиск локации...">
+                        <button class="prime">Найти</button>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Переключатель вида отображения</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="radiogroup" aria-label="Вид отображения">
                         <label class="element--button padding-inline--s3">
@@ -275,11 +401,29 @@
                         </label>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="radiogroup" aria-label="Вид отображения, вертикально">
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view-column" checked/>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/layout-grid.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view-column"/>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/columns.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="radio" name="view-column" />
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/list.svg);"></e-icon>
+                        </label>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Степпер числового значения</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group">
                         <button class="padding-inline--s3" title="Уменьшить">
@@ -291,13 +435,40 @@
                         </button>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
+                        <button class="padding-inline--s3" title="Уменьшить">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/minus.svg);"></e-icon>
+                        </button>
+                        <input aria-label="Числовое значение сетка" type="number" inputmode="numeric" size="3" value="3">
+                        <button class="padding-inline--s3" title="Увеличить">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/plus.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Навигация Назад/Вперёд</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
-                    <e-group class="display--inline-grid grid-template-columns" style="--grid-template-columns: 1fr auto 1fr" role="navigation" aria-label="Навигация">
+                    <e-group class="display--inline-flex flex-direction--row" role="navigation" aria-label="Навигация">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/arrow-left.svg);"></e-icon>
+                            Назад
+                        </button>
+                        <e-line role="separator"></e-line>
+                        <button>
+                            Вперёд
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/arrow-right.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column с grid-template-columns</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column grid-template-columns" style="--grid-template-columns: 1fr auto 1fr" role="navigation" aria-label="Навигация сетка">
                         <button>
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/arrow-left.svg);"></e-icon>
                             Назад
@@ -314,6 +485,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Выпадающий выбор диапазона</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group">
                         <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
@@ -338,11 +510,37 @@
                         </e-popover>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" style="--border-radius: var(--border-radius--s2)" role="group">
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">
+                            <span>
+                                <e-icon aria-hidden="true" style="--image: url(/test/icons/calendar.svg);"></e-icon>
+                                Диапазон
+                            </span>
+                        </span>
+                        <e-popover mode="hover" position="block-end center">
+                            <button title="Кнопка">
+                                <e-truncate>7d</e-truncate>
+                            </button>
+                            <e-body role="region" aria-label="Диапазон, группа на inline-grid">
+                                <span class="max-inline-size" style="--max-inline-size: 16em;" role="menu">
+                                    <button role="menuitem" class="justify-content--start">1d</button>
+                                    <button role="menuitem" class="justify-content--start" disabled>7d</button>
+                                    <button role="menuitem" class="justify-content--start">12d</button>
+                                    <e-line role="separator"></e-line>
+                                    <button role="menuitem" class="justify-content--start">1m</button>
+                                </span>
+                            </e-body>
+                        </e-popover>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Рейтинг звёздами</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Рейтинг: 3 из 5">
                         <button class="padding-inline--s3" aria-label="Оценка 1 из 5">
@@ -362,11 +560,32 @@
                         </button>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group" aria-label="Рейтинг сетка: 3 из 5">
+                        <button class="padding-inline--s3" aria-label="Оценка 1 из 5 сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" aria-label="Оценка 2 из 5 сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" aria-label="Оценка 3 из 5 сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-filled.svg);     --background-color: orange;"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" aria-label="Оценка 4 из 5 сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
+                        </button>
+                        <button class="padding-inline--s3" aria-label="Оценка 5 из 5 сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/star-outline.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Кнопка сохранения с дропдауном</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group">
                         <button class="prime padding-inline-end--s3">
@@ -397,11 +616,43 @@
                         </e-popover>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
+                        <button class="prime padding-inline-end--s3">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <e-popover mode="focus" position="block-end inline-start">
+                            <button class="prime padding-inline--s3" aria-label="Другие варианты сохранения сетка">
+                                <e-icon aria-hidden="true" style="--image: url(/test/icons/chevron-down.svg);"></e-icon>
+                            </button>
+                            <e-body role="region" aria-label="Варианты сохранения сетка">
+                                <span role="menu">
+                                    <button role="menuitem" class="justify-content--start">
+                                        <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                                        Как новый
+                                    </button>
+                                    <button role="menuitem" class="justify-content--start">
+                                        <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                                        Как копию
+                                    </button>
+                                    <e-line role="separator"></e-line>
+                                    <button role="menuitem" class="justify-content--start">
+                                        <e-icon aria-hidden="true" style="--image: url(/test/icons/file-type-pdf.svg);"></e-icon>
+                                        Экспорт в PDF
+                                    </button>
+                                </span>
+                            </e-body>
+                        </e-popover>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Сегментированный переключатель статуса</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="radiogroup" aria-label="Статус">
                         <label class="element--button">
@@ -418,13 +669,41 @@
                         </label>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="radiogroup" aria-label="Статус, вертикально">
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status-column" checked />
+                            Активен
+                        </label>
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status-column" disabled />
+                            Отключён
+                        </label>
+                        <label class="element--button">
+                            <input class="display--none" type="radio" name="status-column" />
+                            Активен
+                        </label>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Пара кнопок Сохранить / Опубликовать</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <button class="prime">Опубликовать</button>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
                         <button>
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                             Сохранить
@@ -437,6 +716,7 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Фильтр со сбросом</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group">
                         <button>
@@ -448,13 +728,36 @@
                         </button>
                     </e-group>
                 </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/filter.svg);"></e-icon>
+                            Фильтр
+                        </button>
+                        <button class="padding-inline--s3" title="Сбросить фильтр сетка">
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/restore.svg);"></e-icon>
+                        </button>
+                    </e-group>
+                </p>
             </div>
 
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Сохранение со счётчиком</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" style="--border-radius: var(--border-radius--s2)" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
+                            Сохранить
+                        </button>
+                        <span class="display--grid align-items--center padding-inline--s1 user-select--none background-color--positive--mute">3</span>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" style="--border-radius: var(--border-radius--s2)" role="group">
                         <button>
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/device-floppy.svg);"></e-icon>
                             Сохранить
@@ -467,8 +770,25 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Буфер обмена</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group">
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/copy.svg);"></e-icon>
+                            Копировать
+                        </button>
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/cut.svg);"></e-icon>
+                            Вырезать
+                        </button>
+                        <button>
+                            <e-icon aria-hidden="true" style="--image: url(/test/icons/clipboard.svg);"></e-icon> Вставить
+                        </button>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group">
                         <button>
                             <e-icon aria-hidden="true" style="--image: url(/test/icons/copy.svg);"></e-icon>
                             Копировать
@@ -487,8 +807,29 @@
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Флажки форматирования текста</h3>
                 <hr />
+                <h4 class="font-size--l2">Горизонтальная на inline-flex + row</h4>
                 <p>
                     <e-group class="display--inline-flex flex-direction--row" role="group" aria-label="Форматирование текста">
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" checked />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/bold.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/bold.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" checked />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/italic.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/italic.svg);"></e-icon>
+                        </label>
+                        <label class="element--button padding-inline--s3">
+                            <input class="display--none" type="checkbox" />
+                            <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/underline.svg);"></e-icon>
+                            <e-icon check class="color--negative--mute" aria-hidden="true" style="--image: url(/test/icons/underline.svg);"></e-icon>
+                        </label>
+                    </e-group>
+                </p>
+                <h4 class="font-size--l2">Горизонтальная на inline-grid + column</h4>
+                <p>
+                    <e-group class="display--inline-grid grid-auto-flow--column" role="group" aria-label="Форматирование текста, вертикально">
                         <label class="element--button padding-inline--s3">
                             <input class="display--none" type="checkbox" checked />
                             <e-icon uncheck aria-hidden="true" style="--image: url(/test/icons/bold.svg);"></e-icon>

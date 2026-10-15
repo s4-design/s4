@@ -1,8 +1,8 @@
 {
     "name": "s4",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "packageManager": "pnpm@11.9.0",
-    "description": "Кодо-ориентированная среда для построения дизайн-систем",
+    "description": "Кодо-центричная среда для построения дизайн-систем",
     "keywords": [
         "s4",
         "design-system",

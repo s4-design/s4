@@ -1,0 +1,6 @@
+@mixin ul() {
+    ul {
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+    }
+}

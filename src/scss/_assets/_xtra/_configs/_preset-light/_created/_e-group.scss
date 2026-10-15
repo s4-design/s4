@@ -38,5 +38,16 @@
                 --border-end-start-radius: 0;
             }
         }
+
+        > * {
+            --z-index: initial;
+        }
+        > :is(button, input, select, .element--button) {
+            &:hover:not(:disabled),
+            &:active:not(:disabled),
+            &:focus-visible:not(:hover) {
+                --z-index: 1;
+            }
+        }
     }
 }

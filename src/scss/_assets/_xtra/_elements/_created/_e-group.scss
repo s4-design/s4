@@ -15,14 +15,7 @@
                 var(--border-start-end-radius, var(--border-radius))
                 var(--border-end-end-radius, var(--border-radius))
                 var(--border-end-start-radius, var(--border-radius));
-        }
-
-        > :is(button, input, select, .element--button) {
-            &:hover:not(:disabled),
-            &:active:not(:disabled),
-            &:focus-visible:not(:hover) {
-                z-index: 1;
-            }
+            z-index: var(--z-index);
         }
     }
 }

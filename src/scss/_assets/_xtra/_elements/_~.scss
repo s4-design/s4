@@ -28,6 +28,7 @@
 @use "_mutated/label" as *;
 @use "_mutated/mark" as *;
 @use "_mutated/menu" as *;
+@use "_mutated/ol" as *;
 @use "_mutated/p" as *;
 @use "_mutated/q" as *;
 @use "_mutated/pre" as *;
@@ -39,6 +40,7 @@
 @use "_mutated/strong" as *;
 @use "_mutated/table" as *;
 @use "_mutated/textarea" as *;
+@use "_mutated/ul" as *;
 
 
 @mixin elements() {
@@ -66,6 +68,7 @@
         @include label;
         @include mark;
         @include menu;
+        @include ol;
         @include p;
         @include q;
         @include pre;
@@ -77,6 +80,7 @@
         @include strong;
         @include table;
         @include textarea;
+        @include ul;
 
         /* created */
         @include e-badge;

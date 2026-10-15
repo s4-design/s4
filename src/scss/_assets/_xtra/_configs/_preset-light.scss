@@ -59,6 +59,7 @@
     @include label;
     @include mark;
     @include menu;
+    @include ol;
     @include p;
     @include q;
     @include pre;
@@ -70,6 +71,7 @@
     @include strong;
     @include table;
     @include textarea;
+    @include ul;
     
     // created    
     @include e-badge;

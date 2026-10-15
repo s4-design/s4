@@ -20,6 +20,7 @@
 - [Philosophy](#philosophy)
 - [AI-friendly](#ai-friendly)
 - [Quick start](#quick-start)
+- [Browser requirements](#browser-requirements)
 - [Architecture](#architecture)
 - [Utility classes - 3 formulas](#utility-classes--3-formulas)
 - [Elements](#elements)
@@ -112,6 +113,7 @@ Download the [latest release](https://github.com/s4-design/s4/releases/):
 ```
 s4/
 ├── AGENTS.md
+├── dependency-map.json
 ├── contract/
 │   ├── patterns.json
 │   ├── rules.json
@@ -144,7 +146,7 @@ s4/
 ```html
 <html>
     <head>
-        <script src="/s4/js/s4.min.js"></script>
+        <script src="./s4/js/s4.min.js"></script>
         <script>S4()</script>
     </head>
     <body>
@@ -162,7 +164,7 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1162 classes).
+Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1202 classes).
 
 **Example:**
 ```html
@@ -182,6 +184,14 @@ CSS is split into three layers in order of increasing specificity:
 1. **elements** - styling HTML elements and custom tags via `var(--*)`
 2. **presets** - CSS variable values set in the preset (`@scope ([preset=light])`, `@scope ([preset=dark])`)
 3. **utilities** - utility classes (hard values + variables)
+
+<br>
+
+## Browser requirements
+
+S4 relies on modern CSS features and, as of the current release, preset isolation via `@scope` + `:scope` **sets the baseline**: Chromium 118+, Firefox 146+, Safari 26+.
+
+The `corner-shape` utilities (bevel, notch, round, scoop, square, squircle) are supported in Chromium 139+ only. In Firefox and Safari they are still in preview - these are separate classes and do not block the core of the system.
 
 <br>
 
@@ -288,7 +298,7 @@ Style is the same across all devices and orientations.
 
 | Class | CSS |
 |---|---|
-| `border--collapse` | `border-collapse: collapse` |
+| `border-collapse--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
 ### Formula 2 - adaptive
@@ -305,9 +315,11 @@ Style is tied to device and orientation.
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
-With pseudo-class: `d_l_background-color--transparent\:hover:hover`
+With pseudo-class (in `class=""` without escaping): `d_l_background-color--transparent:hover`
 
-With pseudo-element: `d_l_display--none\:\:before::before`
+In a CSS selector the same class is written with an escaped colon: `.d_l_background-color--transparent\:hover:hover`
+
+Pseudo-element formulas (`::before`, `::after`) were removed in 1.0.0 and are absent from the utilities dictionary.
 
 ### Formula 3 - variable
 
@@ -362,13 +374,21 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<hr>` | - | Horizontal rule |
 | `<input>` | - | Input field |
 | `<label>` | - | Label |
+| `<mark>` | - | Marked text |
 | `<menu>` | - | Menu |
+| `<ol>` | - | Ordered list |
 | `<p>` | - | Paragraph |
+| `<pre>` | - | Preformatted text |
+| `<q>` | - | Inline quotation |
+| `<samp>` | - | Sample output |
 | `<select>` | - | Select |
+| `<small>` | - | Small text |
+| `<strong>` | - | Strong text |
 | `<sub>` | `.element--sub` | Subscript |
 | `<sup>` | `.element--sup` | Superscript |
 | `<table>` | - | Table |
 | `<textarea>` | - | Multiline field |
+| `<ul>` | - | Unordered list |
 
 Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG icons are used via `<e-icon>` with `--image: url(...)`.
 
@@ -416,7 +436,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
     --color: var(--negative);
     --tab-size: 4;
     --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
     --font-weight: normal;
     --line-height: var(--size--6);
     --text-underline-offset: var(--size--quantum);

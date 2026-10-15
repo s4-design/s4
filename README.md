@@ -20,6 +20,7 @@
 - [Философия](#философия)
 - [AI-friendly](#ai-friendly)
 - [Быстрый старт](#быстрый-старт)
+- [Требования к браузерам](#требования-к-браузерам)
 - [Архитектура](#архитектура)
 - [Утилитарные классы - 3 формулы](#утилитарные-классы--3-формулы)
 - [Элементы](#элементы)
@@ -112,6 +113,7 @@ AI не нужно управлять каждым размером отдель
 ```
 s4/
 ├── AGENTS.md
+├── dependency-map.json
 ├── contract/
 │   ├── patterns.json
 │   ├── rules.json
@@ -144,7 +146,7 @@ s4/
 ```html
 <html>
     <head>
-        <script src="/s4/js/s4.min.js"></script>
+        <script src="./s4/js/s4.min.js"></script>
         <script>S4()</script>
     </head>
     <body>
@@ -162,7 +164,7 @@ s4/
 
 Если нужен кастомный пресет - установите `[preset="..."]` на `<html>` до вызова `S4()`.
 
-После подключения все утилитарные классы доступны в HTML. Полный список свойств и модификаторов - в `s4/contract/utilities.json` (1162 класса).
+После подключения все утилитарные классы доступны в HTML. Полный список свойств и модификаторов - в `s4/contract/utilities.json` (1202 класса).
 
 **Пример:**
 ```html
@@ -182,6 +184,14 @@ CSS разделён на три слоя в порядке увеличения
 1. **elements** - стилизация HTML-элементов и кастомных тегов через `var(--*)`
 2. **presets** - значения CSS-переменных, заданные в пресете (`@scope ([preset=light])`, `@scope ([preset=dark])`)
 3. **utilities** - утилитарные классы (жёсткие значения + переменные)
+
+<br>
+
+## Требования к браузерам
+
+С4 использует современные CSS-технологии и на момент текущего релиза изоляция пресетов `@scope` + `:scope` - **определяет порог** Chromium 118+, Firefox 146+, Safari 26+.
+
+Утилиты `corner-shape` (bevel, notch, round, scoop, square, squircle) поддерживаются только Chromium 139+. В Firefox и Safari они пока в preview - это отдельные классы, основу системы они не блокируют.
 
 <br>
 
@@ -288,7 +298,7 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 
 | Класс | CSS |
 |---|---|
-| `border--collapse` | `border-collapse: collapse` |
+| `border-collapse--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
 ### Формула 2 - адаптивная
@@ -305,9 +315,11 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
-С псевдоклассом: `d_l_background-color--transparent\:hover:hover`
+С псевдоклассом (в `class=""` без экранирования): `d_l_background-color--transparent:hover`
 
-С псевдоэлементом: `d_l_display--none\:\:before::before`
+В CSS-селекторе тот же класс записывается с экранированным двоеточием: `.d_l_background-color--transparent\:hover:hover`
+
+Псевдоэлементные формулы (`::before`, `::after`) удалены в 1.0.0 и в словаре утилит отсутствуют.
 
 ### Формула 3 - переменная
 
@@ -362,13 +374,21 @@ HTML-элементы и кастомные теги С4 стилизуются 
 | `<hr>` | - | Разделитель |
 | `<input>` | - | Поле ввода |
 | `<label>` | - | Подпись |
+| `<mark>` | - | Выделенный текст |
 | `<menu>` | - | Меню |
+| `<ol>` | - | Нумерованный список |
 | `<p>` | - | Абзац |
+| `<pre>` | - | Форматированный текст |
+| `<q>` | - | Короткая цитата |
+| `<samp>` | - | Пример вывода |
 | `<select>` | - | Выбор |
+| `<small>` | - | Мелкий текст |
+| `<strong>` | - | Важный текст |
 | `<sub>` | `.element--sub` | Нижний индекс |
 | `<sup>` | `.element--sup` | Верхний индекс |
 | `<table>` | - | Таблица |
 | `<textarea>` | - | Многострочное поле |
+| `<ul>` | - | Маркированный список |
 
 Иконки для интерфейсов С4 рекомендуется брать из [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG-иконки используются через `<e-icon>` с `--image: url(...)`.
 
@@ -416,7 +436,7 @@ HTML-элементы и кастомные теги С4 стилизуются 
     --color: var(--negative);
     --tab-size: 4;
     --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
     --font-weight: normal;
     --line-height: var(--size--6);
     --text-underline-offset: var(--size--quantum);

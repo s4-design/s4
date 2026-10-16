@@ -22,6 +22,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm lint
+
       - run: pnpm _s4-scss
 
       - run: pnpm _s4-js

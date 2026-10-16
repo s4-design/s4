@@ -1,3 +1,4 @@
+/* exported S4 */
 // Определение базового URL для папки фреймворка
 // Define base URL for framework folder
 // script: .../s4/js/s4.min.js → baseUrl: .../s4/
@@ -67,7 +68,7 @@ async function loadDependencyMap(url) {
     } catch (error) {
         console.error('Ошибка при загрузке или парсинге dependencyMap | Error loading or parsing dependencyMap:', error)
         // Возвращаем значения по умолчанию в случае ошибки или отсутствия JSON
-        // Return default values ​​in case of error or missing JSON
+        // Return default values in case of error or missing JSON
         return {
             "desktop": {
                 "landscape": [{"desktop": "landscape"}],

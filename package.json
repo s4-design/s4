@@ -26,22 +26,17 @@
         "url": "git+https://github.com/s4-design/s4.git"
     },
     "scripts": {
-        "major": "pnpm version major",
         "_header-update": "node header.update.js",
-        "_dev-patch": "pnpm version patch",
-        "_dev-scss": "sass --watch src/scss:../s4-doc/public/s4/css --no-source-map",
-        "_dev-js": "nodemon --exec \"terser src/js/s4.js --output ../s4-doc/public/s4/js/s4.min.js --mangle\" --ignore ../s4-doc/public/s4/js/s4.min.js",
-        "dev": "pnpm _dev-patch && concurrently \"pnpm _dev-scss\" \"pnpm _dev-js\"",
-        "_dev-test": "node test/snapshot.mjs",
-        "_dev-test-update": "node test/snapshot.mjs --update",
+        "_dev-scss": "sass --watch src/scss:s4/css --no-source-map",
+        "test": "node test/snapshot.mjs",
+        "test-update": "node test/snapshot.mjs --update",
         "lint": "pnpm lint:js && pnpm lint:css",
         "lint:js": "eslint src/js",
         "lint:css": "stylelint \"src/scss/**/*.scss\"",
-        "_s4-minor": "pnpm version minor",
         "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed --no-charset",
         "_s4-js": "terser src/js/s4.js --output s4/js/s4.min.js --mangle",
         "_s4-index": "node s4-index.mjs",
-        "s4": "pnpm _s4-minor && pnpm _s4-scss && pnpm _s4-js && pnpm _s4-index && pnpm _header-update"
+        "s4": "pnpm _s4-scss && pnpm _s4-js && pnpm _s4-index && pnpm _header-update"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",

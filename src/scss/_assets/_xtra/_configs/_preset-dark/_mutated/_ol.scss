@@ -1,0 +1,6 @@
+@mixin ol() {
+    ol {
+        --margin-block: var(--margin--md);
+        --margin-inline: 0;
+    }
+}

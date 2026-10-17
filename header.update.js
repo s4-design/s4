@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const packageJson = require('./package.json')
 
-const LICENSE_YEAR = 2024
+const LICENSE_YEAR = 2026
 const LICENSE_RU = 'Лицензии: на территории Российской Федерации действует MIT, за её пределами - CC BY-NC-SA 4.0'
 const LICENSE_EN = 'Licenses: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it'
 
@@ -11,8 +11,8 @@ const headerTemplate =
 `/*!
  * ${packageJson.name.toUpperCase()} v${packageJson.version} - ${packageJson.homepage}
  *
- * Авторское право (с) ${LICENSE_YEAR} ${packageJson.author.name}
- * Copyright (с) ${LICENSE_YEAR} ${packageJson.author.name}
+ * Авторское право (c) ${LICENSE_YEAR} ${packageJson.author.name}
+ * Copyright (c) ${LICENSE_YEAR} ${packageJson.author.name}
  *
  * ${LICENSE_RU}
  * ${LICENSE_EN}
@@ -35,7 +35,7 @@ const addHeaderToFile = (filePath) => {
         return
     }
 
-    // ! ВНИМАНИЕ - Удаление текущих комментариев запрещено, т.к. это приведет к уделению комментариев в файлах с лицензией, например: device-state.min.js !
+    // ! ВНИМАНИЕ - Удаление текущих комментариев запрещено, т.к. это приведет к удалению комментариев в файлах с лицензией, например: device-state.min.js !
 
     // Добавление заголовка и запись нового содержимого
     try {

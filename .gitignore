@@ -7,7 +7,8 @@ dev_old
 sandbox
 releases
 tmp
-test/__diff__/
+__diff__
+__snapshots__
 
 #files
 *.log
@@ -17,3 +18,5 @@ test/__diff__/
 AGENTS.md
 CONTEXT.md
 WORKLOG.md
+
+package_dev.json

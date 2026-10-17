@@ -1,3 +1,4 @@
+/* exported S4 */
 // Определение базового URL для папки фреймворка
 // Define base URL for framework folder
 // script: .../s4/js/s4.min.js → baseUrl: .../s4/
@@ -21,6 +22,11 @@ function loadScript(url) {
         script.onload = resolve
         script.onerror = reject
         document.head.appendChild(script)
+    }).catch(error => {
+        // Отказ не кэшируем, иначе одна сетевая осечка навсегда заблокирует повторные вызовы
+        // Do not cache rejections, otherwise a single network failure blocks retries forever
+        scriptPromises.delete(url)
+        throw error
     })
 
     scriptPromises.set(url, promise)
@@ -62,7 +68,7 @@ async function loadDependencyMap(url) {
     } catch (error) {
         console.error('Ошибка при загрузке или парсинге dependencyMap | Error loading or parsing dependencyMap:', error)
         // Возвращаем значения по умолчанию в случае ошибки или отсутствия JSON
-        // Return default values ​​in case of error or missing JSON
+        // Return default values in case of error or missing JSON
         return {
             "desktop": {
                 "landscape": [{"desktop": "landscape"}],
@@ -86,6 +92,10 @@ function loadLink(href, id = '') {
     if (loadedLinks.has(href))
         console.debug(`Уже загружен (пропуск) | Already loaded (skip):\n"${href}"`)
     else {
+        // Сообщаем только здесь: к этому моменту известно, что файла ещё не было в кэше
+        // Logged here only: at this point we know the file was not cached yet
+        console.debug(`Добавлен | Added:\n"${href}"`)
+
         // Создание нового <link> элемента
         // Create a new <link> element
         const link = document.createElement('link')
@@ -119,7 +129,6 @@ function updateLinks(currentDepends, allDependencies) {
     // Load dependency styles
     currentDepends.forEach(obj => {
         const [key] = Object.keys(obj)
-        console.debug(`Добавлен | Added:\n"${baseUrl}css/${key}/${obj[key]}-utilities.css"`)
         loadLink(`${baseUrl}css/${key}/${obj[key]}-utilities.css`, `${key}/${obj[key]}-utilities`)
     })
     
@@ -150,9 +159,16 @@ function setPresetBasedOnPreference() {
 // Function to control CSS loading depending on device and orientation
 async function S4() {
 
+    // Повторный вызов ничего не делает: слушатель пресета и <style> со слоями добавляются один раз
+    // Repeat calls are no-ops: the preset listener and the <style> layer list are added once
+    const root = document.documentElement
+    if (root.hasAttribute('data-s4-initialized'))
+        return
+    root.setAttribute('data-s4-initialized', '')
+
     // Установка пресета при загрузке страницы
     // Set preset on page load
-    const userPreset = document.documentElement.getAttribute('preset')
+    const userPreset = root.getAttribute('preset')
     if (userPreset)
         _s4PresetIsAuto = false
     else {
@@ -186,7 +202,7 @@ async function S4() {
 
         // Проверяем, что объект device определен после загрузки скрипта
         // Check that the device object is defined after loading the script
-        if (!device)
+        if (typeof device === 'undefined')
             throw new Error('Объект device не определен | The device object is not defined')
 
         // После загрузки скрипта инициализируем переменные
@@ -213,6 +229,9 @@ async function S4() {
             }
         })
     } catch (error) {
+        // Снимаем флаг, иначе после упавшей загрузки повторный вызов S4() уже ничего не сделает
+        // Clear the flag, otherwise a failed load would make every later S4() call a no-op
+        root.removeAttribute('data-s4-initialized')
         console.error('Ошибка при загрузке скрипта или инициализации устройства | Error loading script or initializing device:', error)
     }
 }

@@ -4,8 +4,7 @@
     $base: $base * 1em;         // значение $base должно быть относительной единицей em
     
     @if $base < 1em {
-        @error "sizes(): при $base (#{$base}) < 1em uantum будет невидим!";
-        @warn "$base принудительно установлено 1em.";
+        @warn "sizes(): $base (#{$base}) < 1em - квант --size--quantum будет невидим. Значение принудительно установлено 1em.";
         $base: 1em;
     }
 

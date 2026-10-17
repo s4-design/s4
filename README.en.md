@@ -20,6 +20,7 @@
 - [Philosophy](#philosophy)
 - [AI-friendly](#ai-friendly)
 - [Quick start](#quick-start)
+- [Browser requirements](#browser-requirements)
 - [Architecture](#architecture)
 - [Utility classes - 3 formulas](#utility-classes--3-formulas)
 - [Elements](#elements)
@@ -57,7 +58,7 @@ Architectural invariants of S4:
 2. **Deterministic class formulas** - any class parses into a CSS rule without context.
 3. **Size scale `--size--*`** - 18 variables (17 steps + utility `--size--quantum`), linear-parametric. Step = `--size--4 / 4`.
 4. **Device-specific loading** - each `{device × orientation}` has its own CSS file.
-5. **Presets** - interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
+5. **Presets** - interface configurations, isolated via `@scope ([preset=...])` with separate builds for each device.
 
 <br>
 
@@ -79,7 +80,7 @@ AI recovers CSS from a class without context. The reverse - composing a class fr
 
 ### 2. Semantic HTML
 
-S4 styles standard HTML tags: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`–`h6`. `<button>Save</button>` is more intelligible to an LLM than `<PrimaryActionButton />`.
+S4 styles standard HTML tags: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`-`h6`. `<button>Save</button>` is more intelligible to an LLM than `<PrimaryActionButton />`.
 
 ### 3. Parametric scaling
 
@@ -112,6 +113,7 @@ Download the [latest release](https://github.com/s4-design/s4/releases/):
 ```
 s4/
 ├── AGENTS.md
+├── dependency-map.json
 ├── contract/
 │   ├── patterns.json
 │   ├── rules.json
@@ -144,7 +146,7 @@ s4/
 ```html
 <html>
     <head>
-        <script src="/s4/js/s4.min.js"></script>
+        <script src="./s4/js/s4.min.js"></script>
         <script>S4()</script>
     </head>
     <body>
@@ -162,7 +164,7 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1162 classes).
+Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1202 classes).
 
 **Example:**
 ```html
@@ -170,6 +172,78 @@ Once connected, all utility classes are available in HTML. Full list of properti
   Flex on desktop (landscape), grid on mobile (portrait)
 </div>
 ```
+
+### Dependency map
+
+`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
+
+The map is plain JSON (an example ships in the release - `dependency-map.json`). The base map is built into `s4.min.js` and applies when the file is missing or malformed. A project picks the map it needs - from the minimal base to a cascade one, where files of other devices are added to the device (classes of all devices are available in any orientation).
+
+**Base map (built into `s4.min.js`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Release example (`dependency-map.json`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Cascade map (compatibility example):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"desktop": "landscape"}, {"tablet": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"desktop": "landscape"}, {"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"mobile": "portrait"}]
+    }
+}
+```
+
+For `tablet/portrait` the three variants give:
+
+| Map variant | Utility files | Total files | Raw size |
+|-------------|---------------|-------------|----------|
+| Base (built-in) | `tablet/portrait` | 4 | 267 KB |
+| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 335 KB |
+| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 470 KB |
+
+Across all device and orientation combinations: base map - 4 files, 267-268 KB; release example - 4-5 files, 267-336 KB; cascade - 4-7 files, 268-470 KB.
+
+CSS size does not depend on the number of classes used. For light pages, size is reduced at the project build step with tools like PurgeCSS - unused classes are cut from the bundle.
 
 ### Styles structure
 
@@ -182,6 +256,14 @@ CSS is split into three layers in order of increasing specificity:
 1. **elements** - styling HTML elements and custom tags via `var(--*)`
 2. **presets** - CSS variable values set in the preset (`@scope ([preset=light])`, `@scope ([preset=dark])`)
 3. **utilities** - utility classes (hard values + variables)
+
+<br>
+
+## Browser requirements
+
+S4 relies on modern CSS features and, as of the current release, preset isolation via `@scope` + `:scope` **sets the baseline**: Chromium 118+, Firefox 146+, Safari 26+.
+
+The `corner-shape` utilities (bevel, notch, round, scoop, square, squircle) are supported in Chromium 139+ only. In Firefox and Safari they are still in preview - these are separate classes and do not block the core of the system.
 
 <br>
 
@@ -288,7 +370,7 @@ Style is the same across all devices and orientations.
 
 | Class | CSS |
 |---|---|
-| `border--collapse` | `border-collapse: collapse` |
+| `border-collapse--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
 ### Formula 2 - adaptive
@@ -305,9 +387,11 @@ Style is tied to device and orientation.
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
-With pseudo-class: `d_l_background-color--transparent\:hover:hover`
+With pseudo-class (in `class=""` without escaping): `d_l_background-color--transparent:hover`
 
-With pseudo-element: `d_l_display--none\:\:before::before`
+In a CSS selector the same class is written with an escaped colon: `.d_l_background-color--transparent\:hover:hover`
+
+Pseudo-element formulas (`::before`, `::after`) were removed in 1.0.0 and are absent from the utilities dictionary.
 
 ### Formula 3 - variable
 
@@ -358,17 +442,25 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<dl>` | - | Description list |
 | `<fieldset>` | - | Fieldset |
 | `<figure>` | - | Figure |
-| `<h1>`–`<h6>` | `.element--h1` ... `.element--h6` | Headings |
+| `<h1>`-`<h6>` | `.element--h1` ... `.element--h6` | Headings |
 | `<hr>` | - | Horizontal rule |
 | `<input>` | - | Input field |
 | `<label>` | - | Label |
+| `<mark>` | - | Marked text |
 | `<menu>` | - | Menu |
+| `<ol>` | - | Ordered list |
 | `<p>` | - | Paragraph |
+| `<pre>` | - | Preformatted text |
+| `<q>` | - | Inline quotation |
+| `<samp>` | - | Sample output |
 | `<select>` | - | Select |
+| `<small>` | - | Small text |
+| `<strong>` | - | Strong text |
 | `<sub>` | `.element--sub` | Subscript |
 | `<sup>` | `.element--sup` | Superscript |
 | `<table>` | - | Table |
 | `<textarea>` | - | Multiline field |
+| `<ul>` | - | Unordered list |
 
 Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG icons are used via `<e-icon>` with `--image: url(...)`.
 
@@ -416,7 +508,7 @@ Each `@scope` block contains all preset variables for the given device. Example 
     --color: var(--negative);
     --tab-size: 4;
     --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
     --font-weight: normal;
     --line-height: var(--size--6);
     --text-underline-offset: var(--size--quantum);

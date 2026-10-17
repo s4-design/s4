@@ -20,6 +20,7 @@
 - [Философия](#философия)
 - [AI-friendly](#ai-friendly)
 - [Быстрый старт](#быстрый-старт)
+- [Требования к браузерам](#требования-к-браузерам)
 - [Архитектура](#архитектура)
 - [Утилитарные классы - 3 формулы](#утилитарные-классы--3-формулы)
 - [Элементы](#элементы)
@@ -79,7 +80,7 @@ AI восстанавливает CSS из класса без контекст�
 
 ### 2. Семантический HTML
 
-С4 стилизует стандартные HTML-теги: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`–`h6`. `<button>Сохранить</button>` для LLM понятнее, чем `<PrimaryActionButton />`.
+С4 стилизует стандартные HTML-теги: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`-`h6`. `<button>Сохранить</button>` для LLM понятнее, чем `<PrimaryActionButton />`.
 
 ### 3. Параметрическое масштабирование
 
@@ -112,6 +113,7 @@ AI не нужно управлять каждым размером отдель
 ```
 s4/
 ├── AGENTS.md
+├── dependency-map.json
 ├── contract/
 │   ├── patterns.json
 │   ├── rules.json
@@ -144,7 +146,7 @@ s4/
 ```html
 <html>
     <head>
-        <script src="/s4/js/s4.min.js"></script>
+        <script src="./s4/js/s4.min.js"></script>
         <script>S4()</script>
     </head>
     <body>
@@ -162,7 +164,7 @@ s4/
 
 Если нужен кастомный пресет - установите `[preset="..."]` на `<html>` до вызова `S4()`.
 
-После подключения все утилитарные классы доступны в HTML. Полный список свойств и модификаторов - в `s4/contract/utilities.json` (1162 класса).
+После подключения все утилитарные классы доступны в HTML. Полный список свойств и модификаторов - в `s4/contract/utilities.json` (1202 класса).
 
 **Пример:**
 ```html
@@ -170,6 +172,78 @@ s4/
   Flex на десктопе (landscape), grid на мобильном (portrait)
 </div>
 ```
+
+### Карта зависимостей
+
+`S4()` загружает CSS по карте: `{устройство}/{ориентация} → упорядоченный список файлов`. Помимо карты всегда загружаются `elements.css`, `utilities.css` и `{устройство}/config.css`.
+
+Карта - обычный JSON (в релизе лежит пример - `dependency-map.json`). Базовая карта встроена в `s4.min.js` и применяется, если файла нет или он повреждён. Карту выбирают под нужды проекта - от минимальной базовой до каскадной, где к устройству добавляются файлы других устройств (классы всех устройств доступны в любой ориентации).
+
+**Базовая карта (встроена в `s4.min.js`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Пример в релизе (`dependency-map.json`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Каскадная карта (пример совместимости):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"desktop": "landscape"}, {"tablet": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"desktop": "landscape"}, {"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"mobile": "portrait"}]
+    }
+}
+```
+
+Для `tablet/portrait` три варианта дают:
+
+| Вариант карты | Утилит-файлы | Всего файлов | Объём raw |
+|---------------|--------------|--------------|-----------|
+| Базовая (встроенная) | `tablet/portrait` | 4 | 267 КБ |
+| Пример в релизе | `tablet/landscape`, `tablet/portrait` | 5 | 335 КБ |
+| Каскадная | `desktop/*`, `tablet/*` (все четыре) | 7 | 470 КБ |
+
+По всем комбинациям устройств и ориентаций: базовая карта - 4 файла, 267-268 КБ; пример в релизе - 4-5 файлов, 267-336 КБ; каскадная - 4-7 файлов, 268-470 КБ.
+
+Объём CSS не зависит от числа использованных классов. Для лёгких страниц размер сокращают на этапе сборки проекта инструментами вида PurgeCSS - незадействованные классы вырезаются из бандла.
 
 ### Структура стилей
 
@@ -182,6 +256,14 @@ CSS разделён на три слоя в порядке увеличения
 1. **elements** - стилизация HTML-элементов и кастомных тегов через `var(--*)`
 2. **presets** - значения CSS-переменных, заданные в пресете (`@scope ([preset=light])`, `@scope ([preset=dark])`)
 3. **utilities** - утилитарные классы (жёсткие значения + переменные)
+
+<br>
+
+## Требования к браузерам
+
+С4 использует современные CSS-технологии и на момент текущего релиза изоляция пресетов `@scope` + `:scope` - **определяет порог** Chromium 118+, Firefox 146+, Safari 26+.
+
+Утилиты `corner-shape` (bevel, notch, round, scoop, square, squircle) поддерживаются только Chromium 139+. В Firefox и Safari они пока в preview - это отдельные классы, основу системы они не блокируют.
 
 <br>
 
@@ -288,7 +370,7 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 
 | Класс | CSS |
 |---|---|
-| `border--collapse` | `border-collapse: collapse` |
+| `border-collapse--collapse` | `border-collapse: collapse` |
 | `box-sizing--border-box` | `box-sizing: border-box` |
 
 ### Формула 2 - адаптивная
@@ -305,9 +387,11 @@ JS-фреймворк (Svelte, React, Vue) подключается отдель
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
-С псевдоклассом: `d_l_background-color--transparent\:hover:hover`
+С псевдоклассом (в `class=""` без экранирования): `d_l_background-color--transparent:hover`
 
-С псевдоэлементом: `d_l_display--none\:\:before::before`
+В CSS-селекторе тот же класс записывается с экранированным двоеточием: `.d_l_background-color--transparent\:hover:hover`
+
+Псевдоэлементные формулы (`::before`, `::after`) удалены в 1.0.0 и в словаре утилит отсутствуют.
 
 ### Формула 3 - переменная
 
@@ -358,17 +442,25 @@ HTML-элементы и кастомные теги С4 стилизуются 
 | `<dl>` | - | Список определений |
 | `<fieldset>` | - | Группа полей |
 | `<figure>` | - | Иллюстрация |
-| `<h1>`–`<h6>` | `.element--h1` ... `.element--h6` | Заголовки |
+| `<h1>`-`<h6>` | `.element--h1` ... `.element--h6` | Заголовки |
 | `<hr>` | - | Разделитель |
 | `<input>` | - | Поле ввода |
 | `<label>` | - | Подпись |
+| `<mark>` | - | Выделенный текст |
 | `<menu>` | - | Меню |
+| `<ol>` | - | Нумерованный список |
 | `<p>` | - | Абзац |
+| `<pre>` | - | Форматированный текст |
+| `<q>` | - | Короткая цитата |
+| `<samp>` | - | Пример вывода |
 | `<select>` | - | Выбор |
+| `<small>` | - | Мелкий текст |
+| `<strong>` | - | Важный текст |
 | `<sub>` | `.element--sub` | Нижний индекс |
 | `<sup>` | `.element--sup` | Верхний индекс |
 | `<table>` | - | Таблица |
 | `<textarea>` | - | Многострочное поле |
+| `<ul>` | - | Маркированный список |
 
 Иконки для интерфейсов С4 рекомендуется брать из [Tabler Icons](https://github.com/tabler/tabler-icons/tree/main/icons) (MIT). SVG-иконки используются через `<e-icon>` с `--image: url(...)`.
 
@@ -416,7 +508,7 @@ HTML-элементы и кастомные теги С4 стилизуются 
     --color: var(--negative);
     --tab-size: 4;
     --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans";
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
     --font-weight: normal;
     --line-height: var(--size--6);
     --text-underline-offset: var(--size--quantum);

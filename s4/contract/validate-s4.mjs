@@ -4,7 +4,7 @@
 //
 // Запуск: node s4/contract/validate-s4.mjs <file.html>
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -89,7 +89,7 @@ while (stack.length) {
 function evaluate(node) {
   const { tag, line, attrs, classes } = node;
 
-  // R7 отменён: навешивание .element--{name} на <e-{name}> — легальное усиление веса селектора (не дубль).
+  // R7 отменён: навешивание .element--{name} на <e-{name}> - легальное усиление веса селектора (не дубль).
 
   for (const cls of classes) {
     if (cls.startsWith('element--')) continue;
@@ -163,6 +163,95 @@ let sb;
 while ((sb = styleBlockRe.exec(htmlScannable))) {
   scanCss(sb[1], lineOf(sb.index));
 }
+
+// Деление группы селекторов по запятым вне скобок.
+function splitTopLevel(text) {
+  const out = [];
+  let depth = 0;
+  let cur = '';
+  for (const ch of text) {
+    if (ch === '(' || ch === '[') depth++;
+    else if (ch === ')' || ch === ']') depth--;
+    if (ch === ',' && depth === 0) {
+      out.push(cur.trim());
+      cur = '';
+    } else cur += ch;
+  }
+  if (cur.trim()) out.push(cur.trim());
+  return out;
+}
+
+// Диапазон в имени элемента: h1-h6 -> h1..h6.
+function expandRange(name) {
+  const m = name.match(/^([a-z]+)(\d+)-([a-z]+)(\d+)$/);
+  if (!m || m[1] !== m[3]) return [name];
+  const out = [];
+  for (let i = Number(m[2]); i <= Number(m[4]); i++) out.push(m[1] + i);
+  return out;
+}
+
+// Сверка контрактов с дистрибутивным CSS: у каждого элемента из elements/modified
+// и elements/created должен быть носитель в css/elements.css - селектор-тег,
+// класс-дубликат (.element--) или атрибут-дубликат ([attr=value] из значений атрибутов).
+// Сироты CSS (body, служебные селекторы, производные) не проверяются.
+function checkContracts() {
+  const elRoot = join(root, 'elements');
+  const cssText = readFileSync(join(root, '..', 'css', 'elements.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+
+  // Головы правил верхнего уровня; тела деклараций пропускаются.
+  const heads = [];
+  (function walk(text) {
+    let i = 0;
+    while (i < text.length) {
+      const open = text.indexOf('{', i);
+      if (open === -1) return;
+      const head = text.slice(i, open).trim();
+      let depth = 1;
+      let j = open + 1;
+      while (j < text.length && depth > 0) {
+        if (text[j] === '{') depth++;
+        else if (text[j] === '}') depth--;
+        j++;
+      }
+      const body = text.slice(open + 1, j - 1);
+      if (body.includes('{')) walk(body);
+      if (head && !head.startsWith('@')) heads.push(head);
+      i = j;
+    }
+  })(cssText);
+
+  // Начала селекторов: тег или класс-дубликат.
+  const starts = new Set();
+  for (const head of heads) {
+    for (const sel of splitTopLevel(head)) {
+      const m = sel.match(/^(?:\.element--([a-z0-9-]+)|([a-z][a-z0-9-]*))/);
+      if (m) starts.add(m[1] ? '.element--' + m[1] : m[2]);
+    }
+  }
+
+  for (const dir of ['modified', 'created']) {
+    const dirPath = join(elRoot, dir);
+    for (const file of readdirSync(dirPath)) {
+      if (!file.endsWith('.json')) continue;
+      const base = file.slice(0, -5);
+      const spec = JSON.parse(readFileSync(join(dirPath, file), 'utf8'))[base] || {};
+      // Атрибуты-дубликаты: [attr=value] для каждого не-class значения.
+      const attrSels = [];
+      for (const [aname, attr] of Object.entries(spec.атрибуты || {})) {
+        if (aname === 'class') continue;
+        for (const value of Object.keys(attr.значения || {})) attrSels.push(`[${aname}=${value}]`);
+      }
+      for (const name of expandRange(base)) {
+        const ok = starts.has(name)
+          || starts.has('.element--' + name.replace(/^e-/, ''))
+          || attrSels.some((s) => cssText.includes(s));
+        if (!ok) errors.push(`элемент "${name}" (контракт ${file}): нет носителя в css/elements.css`);
+      }
+    }
+  }
+}
+
+checkContracts();
 
 if (warnings.length) {
   console.log('Предупреждения структуры (на exit code не влияют):');

@@ -27,13 +27,13 @@ const MIME = {
     '.ttf': 'font/ttf'
 }
 
-// Извлекаем id всех <section> из index.html — список снапшотов всегда актуален
+// Извлекаем id всех <section> из index.html - список снапшотов всегда актуален
 function getSectionIds() {
     const html = readFileSync(join(TEST_DIR, 'index.html'), 'utf8')
     return [...html.matchAll(/<section\s+id="([^"]+)"/g)].map((m) => m[1])
 }
 
-// Минимальный статический сервер — без внешних зависимостей
+// Минимальный статический сервер - без внешних зависимостей
 function startServer() {
     return new Promise((resolve, reject) => {
         const server = createServer((req, res) => {
@@ -81,7 +81,7 @@ async function testPreset(browser, url, preset, sectionIds) {
     await page.evaluate((p) => {
         document.documentElement.setAttribute('preset', p)
     }, preset)
-    // Скрываем плавающие кнопки навигации (смена пресета / «Вверх»), чтобы не попадали в снимки
+    // Скрываем плавающие кнопки навигации (смена пресета / "Вверх"), чтобы не попадали в снимки
     await page.addStyleTag({ content: '.no-snapshot { display: none !important; }' })
     await page.waitForTimeout(300)
 
@@ -96,7 +96,7 @@ async function testPreset(browser, url, preset, sectionIds) {
         const count = await locator.count()
 
         if (count === 0) {
-            console.log(`  SKIP  #${id} — not found`)
+            console.log(`  SKIP  #${id} - not found`)
             skip++
             continue
         }
@@ -105,7 +105,7 @@ async function testPreset(browser, url, preset, sectionIds) {
         const visible = await el.isVisible().catch(() => false)
 
         if (!visible) {
-            console.log(`  SKIP  #${id} — not visible`)
+            console.log(`  SKIP  #${id} - not visible`)
             skip++
             continue
         }
@@ -117,7 +117,7 @@ async function testPreset(browser, url, preset, sectionIds) {
         try {
             shotBuffer = await el.screenshot({ timeout: 5000 })
         } catch {
-            console.log(`  SKIP  #${id} — screenshot failed`)
+            console.log(`  SKIP  #${id} - screenshot failed`)
             skip++
             continue
         }
@@ -135,7 +135,7 @@ async function testPreset(browser, url, preset, sectionIds) {
         const shot = PNG.sync.read(shotBuffer)
 
         if (shot.width !== baseline.width || shot.height !== baseline.height) {
-            console.log(`  FAIL  #${id} — size mismatch (baseline ${baseline.width}x${baseline.height}, got ${shot.width}x${shot.height})`)
+            console.log(`  FAIL  #${id} - size mismatch (baseline ${baseline.width}x${baseline.height}, got ${shot.width}x${shot.height})`)
             fail++
             continue
         }
@@ -148,7 +148,7 @@ async function testPreset(browser, url, preset, sectionIds) {
             pass++
         } else {
             writeFileSync(join(diffDir, `${id}.png`), PNG.sync.write(diff))
-            console.log(`  FAIL  #${id} — ${mismatched} px differ`)
+            console.log(`  FAIL  #${id} - ${mismatched} px differ`)
             fail++
         }
     }

@@ -80,7 +80,7 @@ AI recovers CSS from a class without context. The reverse - composing a class fr
 
 ### 2. Semantic HTML
 
-S4 styles standard HTML tags: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`–`h6`. `<button>Save</button>` is more intelligible to an LLM than `<PrimaryActionButton />`.
+S4 styles standard HTML tags: `button`, `details`, `table`, `menu`, `input`, `select`, `a`, `h1`-`h6`. `<button>Save</button>` is more intelligible to an LLM than `<PrimaryActionButton />`.
 
 ### 3. Parametric scaling
 
@@ -442,7 +442,7 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<dl>` | - | Description list |
 | `<fieldset>` | - | Fieldset |
 | `<figure>` | - | Figure |
-| `<h1>`–`<h6>` | `.element--h1` ... `.element--h6` | Headings |
+| `<h1>`-`<h6>` | `.element--h1` ... `.element--h6` | Headings |
 | `<hr>` | - | Horizontal rule |
 | `<input>` | - | Input field |
 | `<label>` | - | Label |

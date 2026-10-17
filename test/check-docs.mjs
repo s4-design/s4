@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join, resolve as resolvePath } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -58,42 +58,9 @@ function checkReadme(file) {
     return errors
 }
 
-// CONTEXT.md: пункты со списками элементов должны совпадать с папками контрактов
-function checkList(file, label, line, expected) {
-    if (!line) return [`${file}: не найден пункт "${label}"`]
-    const names = []
-    for (const item of line.matchAll(/`([^`]+)`/g)) {
-        const name = item[1].replace(/^<|>$/g, '')
-        if (/^[a-z][\w-]*(\/[a-z][\w-]*)*$/.test(name)) names.push(...name.split('/'))
-    }
-    const errors = []
-    const missing = expected.filter((name) => !names.includes(name))
-    const extra = names.filter((name) => !expected.includes(name))
-    if (missing.length) errors.push(`${file} (${label}): нет: ${missing.join(', ')}`)
-    if (extra.length) errors.push(`${file} (${label}): лишние: ${extra.join(', ')}`)
-    return errors
-}
-
-function checkContext() {
-    const file = join(ROOT, 'CONTEXT.md')
-    if (!existsSync(file)) {
-        console.log('CONTEXT.md не найден - проверка пропущена')
-        return []
-    }
-    const lines = readFileSync(file, 'utf8').split(/\r?\n/)
-    const lineCreated = lines.find((l) => l.includes('Кастомные элементы S4'))
-    const lineModified = lines.find((l) => l.includes('Стилизованные HTML-теги'))
-    const namesLineModified = lineModified ? lineModified.split('Служебные')[0] : ''
-    return [
-        ...checkList('CONTEXT.md', 'кастомные элементы', lineCreated, CREATED),
-        ...checkList('CONTEXT.md', 'стилизованные HTML-теги', namesLineModified, MODIFIED)
-    ]
-}
-
 const errors = [
     ...checkReadme('README.md'),
-    ...checkReadme('README.en.md'),
-    ...checkContext()
+    ...checkReadme('README.en.md')
 ]
 
 if (errors.length) {

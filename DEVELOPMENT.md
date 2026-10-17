@@ -14,7 +14,7 @@
 | `_s4-js` | `pnpm _s4-js` | Минифицирует рантайм `src/js/s4.js` в `s4/js/s4.min.js` |
 | `_s4-index` | `pnpm _s4-index` | Собирает словари контракта `utilities.json` и `variables.json` из уже скомпилированных файлов `s4/css/` |
 | `_header-update` | `pnpm _header-update` | Обновляет лицензионные шапки файлов `s4/` (год, версия) |
-| `check-docs` | `pnpm check-docs` | Сверяет документацию с контрактами: число утилит и списки элементов в `README.md`, `README.en.md` и `CONTEXT.md` (если он есть) против `s4/contract/utilities.json` и `s4/contract/elements/` |
+| `check-docs` | `pnpm check-docs` | Сверяет документацию с контрактами: число утилит и таблицу элементов в `README.md` и `README.en.md` против `s4/contract/utilities.json` и `s4/contract/elements/` |
 
 Порядок шагов обязателен: `_s4-index` читает результат `_s4-scss`, `check-docs` - результат `_s4-index`. Расхождение документации с контрактами останавливает сборку с кодом выхода 1.
 

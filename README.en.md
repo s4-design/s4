@@ -58,7 +58,7 @@ Architectural invariants of S4:
 2. **Deterministic class formulas** - any class parses into a CSS rule without context.
 3. **Size scale `--size--*`** - 18 variables (17 steps + utility `--size--quantum`), linear-parametric. Step = `--size--4 / 4`.
 4. **Device-specific loading** - each `{device × orientation}` has its own CSS file.
-5. **Presets** - interface configurations (metrics, colors, typography, animations, behavior), isolated via `@scope ([preset=...])` with separate builds for each device.
+5. **Presets** - interface configurations, isolated via `@scope ([preset=...])` with separate builds for each device.
 
 <br>
 

@@ -173,6 +173,78 @@ s4/
 </div>
 ```
 
+### Карта зависимостей
+
+`S4()` загружает CSS по карте: `{устройство}/{ориентация} → упорядоченный список файлов`. Помимо карты всегда загружаются `elements.css`, `utilities.css` и `{устройство}/config.css`.
+
+Карта - обычный JSON (в релизе лежит пример - `dependency-map.json`). Базовая карта встроена в `s4.min.js` и применяется, если файла нет или он повреждён. Карту выбирают под нужды проекта - от минимальной базовой до каскадной, где к устройству добавляются файлы других устройств (классы всех устройств доступны в любой ориентации).
+
+**Базовая карта (встроена в `s4.min.js`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Пример в релизе (`dependency-map.json`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Каскадная карта (пример совместимости):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"desktop": "landscape"}, {"tablet": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"desktop": "landscape"}, {"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"mobile": "portrait"}]
+    }
+}
+```
+
+Для `tablet/portrait` три варианта дают:
+
+| Вариант карты | Утилит-файлы | Всего файлов | Объём raw |
+|---------------|--------------|--------------|-----------|
+| Базовая (встроенная) | `tablet/portrait` | 4 | 267 КБ |
+| Пример в релизе | `tablet/landscape`, `tablet/portrait` | 5 | 335 КБ |
+| Каскадная | `desktop/*`, `tablet/*` (все четыре) | 7 | 470 КБ |
+
+По всем комбинациям устройств и ориентаций: базовая карта - 4 файла, 267-268 КБ; пример в релизе - 4-5 файлов, 267-336 КБ; каскадная - 4-7 файлов, 268-470 КБ.
+
+Объём CSS не зависит от числа использованных классов. Для лёгких страниц размер сокращают на этапе сборки проекта инструментами вида PurgeCSS - незадействованные классы вырезаются из бандла.
+
 ### Структура стилей
 
 CSS разделён на три слоя в порядке увеличения специфичности:

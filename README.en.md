@@ -173,6 +173,78 @@ Once connected, all utility classes are available in HTML. Full list of properti
 </div>
 ```
 
+### Dependency map
+
+`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
+
+The map is plain JSON (an example ships in the release - `dependency-map.json`). The base map is built into `s4.min.js` and applies when the file is missing or malformed. A project picks the map it needs - from the minimal base to a cascade one, where files of other devices are added to the device (classes of all devices are available in any orientation).
+
+**Base map (built into `s4.min.js`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Release example (`dependency-map.json`):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"tablet": "landscape"}],
+        "portrait": [{"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"mobile": "portrait"}]
+    }
+}
+```
+
+**Cascade map (compatibility example):**
+```json
+{
+    "desktop": {
+        "landscape": [{"desktop": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}]
+    },
+    "tablet": {
+        "landscape": [{"desktop": "landscape"}, {"tablet": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"tablet": "landscape"}, {"tablet": "portrait"}]
+    },
+    "mobile": {
+        "landscape": [{"desktop": "landscape"}, {"mobile": "portrait"}, {"mobile": "landscape"}],
+        "portrait": [{"desktop": "landscape"}, {"desktop": "portrait"}, {"mobile": "portrait"}]
+    }
+}
+```
+
+For `tablet/portrait` the three variants give:
+
+| Map variant | Utility files | Total files | Raw size |
+|-------------|---------------|-------------|----------|
+| Base (built-in) | `tablet/portrait` | 4 | 267 KB |
+| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 335 KB |
+| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 470 KB |
+
+Across all device and orientation combinations: base map - 4 files, 267-268 KB; release example - 4-5 files, 267-336 KB; cascade - 4-7 files, 268-470 KB.
+
+CSS size does not depend on the number of classes used. For light pages, size is reduced at the project build step with tools like PurgeCSS - unused classes are cut from the bundle.
+
 ### Styles structure
 
 CSS is split into three layers in order of increasing specificity:

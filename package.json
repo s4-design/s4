@@ -30,13 +30,14 @@
         "_dev-scss": "sass --watch src/scss:s4/css --no-source-map",
         "test": "node test/snapshot.mjs",
         "test-update": "node test/snapshot.mjs --update",
+        "check-docs": "node test/check-docs.mjs",
         "lint": "pnpm lint:js && pnpm lint:css",
         "lint:js": "eslint src/js",
         "lint:css": "stylelint \"src/scss/**/*.scss\"",
         "_s4-scss": "sass src/scss:s4/css --no-source-map --style=compressed --no-charset",
         "_s4-js": "terser src/js/s4.js --output s4/js/s4.min.js --mangle",
         "_s4-index": "node s4-index.mjs",
-        "s4": "pnpm _s4-scss && pnpm _s4-js && pnpm _s4-index && pnpm _header-update"
+        "s4": "pnpm _s4-scss && pnpm _s4-js && pnpm _s4-index && pnpm _header-update && pnpm check-docs"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",

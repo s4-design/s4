@@ -2577,13 +2577,18 @@
                 <h3 class="font-size--l3">Вертикальная группа скрытой информации</h3>
                 <hr />
                 <e-group class="display--grid grid-auto-flow--row" role="group">
-                    <details>
+                    <details open>
                         <summary>
                             <e-open role="none">Cкрытая</e-open> <e-close role="none">Раскрытая</e-close> информация
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region" aria-label="Вложенный блок 2"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вложенный блок 1">
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            <button class="justify-content--start">
+                                <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon> Кнопка
+                            </button>
+                        </e-body>
                     </details>
                     <details>
                         <summary>
@@ -2591,7 +2596,7 @@
                             <e-icon class="element--close" style="--image:url(/test/icons/chevron-up.svg)" aria-hidden="true"></e-icon>
                             <e-icon class="element--open" style="--image:url(/test/icons/chevron-down.svg)" aria-hidden="true"></e-icon>
                         </summary>
-                        <e-body role="region" aria-label="Вложенный блок 1"><p>Lorem ipsum dolor sit amet.</p></e-body>
+                        <e-body role="region" aria-label="Вложенный блок 2"><p>Lorem ipsum dolor sit amet.</p></e-body>
                     </details>
                 </e-group>
             </div>

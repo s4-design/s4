@@ -21,6 +21,21 @@ const shorthands = new Set(R('R4').список);
 const forbiddenPseudo = new Set(R('R6').список);
 const isPrivate = (n) => n.startsWith('--size--');
 
+// Обязательные атрибуты из контрактов элементов (поле "обязательный" у атрибута).
+const requiredAttrs = new Map();
+for (const dir of ['modified', 'created']) {
+  const dirPath = join(root, 'elements', dir);
+  for (const file of readdirSync(dirPath)) {
+    if (!file.endsWith('.json')) continue;
+    const name = file.slice(0, -5);
+    const spec = JSON.parse(readFileSync(join(dirPath, file), 'utf8'))[name] || {};
+    const required = Object.entries(spec.атрибуты || {})
+      .filter(([, attr]) => attr.обязательный === true)
+      .map(([attrName]) => attrName);
+    if (required.length) requiredAttrs.set(name, required);
+  }
+}
+
 const errors = [];
 const err = (line, msg) => errors.push(`строка ${line}: ${msg}`);
 
@@ -112,6 +127,18 @@ function evaluate(node) {
     // "background-color--transparent:hover", а не "background-color--transparent".
     const knownName = pseudo ? name + pseudo : name;
     if (!knownBase.has(knownName)) err(line, `R3: неизвестный utility-класс "${cls}" (нет в utilities.json)`);
+  }
+
+  // Обязательные атрибуты контракта: у тега-носителя и у класса-дубликата.
+  for (const [name, required] of requiredAttrs) {
+    const isTag = tag === name;
+    const isDuplicate = name.startsWith('e-') && classes.includes('element--' + name.slice(2));
+    if (!isTag && !isDuplicate) continue;
+    for (const attrName of required) {
+      if (!(attrName in attrs) || attrs[attrName] === '') {
+        err(line, `обязательный атрибут "${attrName}" отсутствует у <${tag}> (контракт ${name})`);
+      }
+    }
   }
 
   if (attrs.style) checkDeclarations(attrs.style, line, '');

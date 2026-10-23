@@ -469,6 +469,7 @@ Icons for S4 interfaces are recommended to be taken from [Tabler Icons](https://
 1. **One selector per node.** Use either `<e-{name}>` or `<tag class="element--{name}">`. Never both.
 2. **Specificity.** Class `.element--name` (0,1,0,0) - on par with S4 utilities. Custom tag `<e-name>` (0,0,1,0) - base layer. Any utility class overrides element styles without `!important`.
 3. **Resets are not needed.** S4 normalizes elements on its own via `elements.css` and the preset. Do not add `margin: 0`, `box-sizing: border-box` or other resets - they are already present.
+4. **`<strong>` is for importance only.** Do not use `<strong>` only for visual bold - use the appropriate `<b>` elements or utilities from `font-weight--600` to `font-weight--900`.
 
 Base HTML is already styled - classes are optional:
 

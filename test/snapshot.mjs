@@ -2,7 +2,7 @@ import { chromium } from 'playwright'
 import pixelmatch from 'pixelmatch'
 import { PNG } from 'pngjs'
 import { createServer } from 'node:http'
-import { readFileSync, readdirSync, statSync, existsSync, mkdirSync, writeFileSync, createReadStream } from 'node:fs'
+import { readFileSync, readdirSync, statSync, existsSync, mkdirSync, writeFileSync, createReadStream, copyFileSync, rmSync } from 'node:fs'
 import { join, resolve as resolvePath, extname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -14,7 +14,8 @@ const PRESETS = ['light', 'dark']
 const SNAPSHOTS_DIR = join(__dirname, '__snapshots__')
 const DIFF_DIR = join(__dirname, '__diff__')
 
-const update = process.argv.includes('--update')
+const approve = process.argv.includes('--approve')
+const ACTUAL_SUFFIX = '.actual.png'
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -69,6 +70,42 @@ function startServer() {
     })
 }
 
+// Утверждаем проверенные снимки из __diff__: actual становится эталоном
+function approveSnapshots() {
+    let approved = 0
+
+    for (const preset of PRESETS) {
+        const diffDir = join(DIFF_DIR, preset)
+
+        if (!existsSync(diffDir)) {
+            continue
+        }
+
+        const snapDir = join(SNAPSHOTS_DIR, preset)
+        mkdirSync(snapDir, { recursive: true })
+
+        for (const file of readdirSync(diffDir)) {
+            if (!file.endsWith(ACTUAL_SUFFIX)) {
+                continue
+            }
+
+            const id = file.slice(0, -ACTUAL_SUFFIX.length)
+            copyFileSync(join(diffDir, file), join(snapDir, `${id}.png`))
+            console.log(`  APPROVE ${preset}/#${id}`)
+            approved++
+        }
+    }
+
+    if (approved === 0) {
+        console.log('Nothing to approve: no actual snapshots in __diff__.')
+    } else {
+        console.log(`\nApproved: ${approved}`)
+    }
+
+    rmSync(DIFF_DIR, { recursive: true, force: true })
+    console.log('Cleared: __diff__')
+}
+
 async function testPreset(browser, url, preset, sectionIds) {
     const snapDir = join(SNAPSHOTS_DIR, preset)
     const diffDir = join(DIFF_DIR, preset)
@@ -89,6 +126,7 @@ async function testPreset(browser, url, preset, sectionIds) {
 
     let pass = 0
     let fail = 0
+    let newSnapshots = 0
     let skip = 0
 
     for (const id of sectionIds) {
@@ -123,46 +161,72 @@ async function testPreset(browser, url, preset, sectionIds) {
         }
 
         const shotPath = join(snapDir, `${id}.png`)
+        const expectedPath = join(diffDir, `${id}.expected.png`)
+        const actualPath = join(diffDir, `${id}${ACTUAL_SUFFIX}`)
+        const diffPath = join(diffDir, `${id}.diff.png`)
 
-        if (update || !existsSync(shotPath)) {
-            writeFileSync(shotPath, shotBuffer)
-            console.log(`  SAVE  #${id}`)
-            pass++
+        const hasBaseline = existsSync(shotPath)
+        const shot = PNG.sync.read(shotBuffer)
+        let baseline = null
+        let sameSize = false
+        let diff = null
+        let mismatched = 0
+
+        if (hasBaseline) {
+            baseline = PNG.sync.read(readFileSync(shotPath))
+            sameSize = shot.width === baseline.width && shot.height === baseline.height
+
+            if (sameSize) {
+                diff = new PNG({ width: baseline.width, height: baseline.height })
+                mismatched = pixelmatch(baseline.data, shot.data, diff.data, baseline.width, baseline.height, { threshold: 0.1 })
+            }
+        }
+
+        if (!hasBaseline) {
+            writeFileSync(actualPath, shotBuffer)
+            console.log(`  NEW   #${id}`)
+            newSnapshots++
             continue
         }
 
-        const baseline = PNG.sync.read(readFileSync(shotPath))
-        const shot = PNG.sync.read(shotBuffer)
-
-        if (shot.width !== baseline.width || shot.height !== baseline.height) {
+        if (!sameSize) {
+            copyFileSync(shotPath, expectedPath)
+            writeFileSync(actualPath, shotBuffer)
             console.log(`  FAIL  #${id} - size mismatch (baseline ${baseline.width}x${baseline.height}, got ${shot.width}x${shot.height})`)
             fail++
             continue
         }
 
-        const diff = new PNG({ width: baseline.width, height: baseline.height })
-        const mismatched = pixelmatch(baseline.data, shot.data, diff.data, baseline.width, baseline.height, { threshold: 0.1 })
-
         if (mismatched === 0) {
             console.log(`  PASS  #${id}`)
             pass++
         } else {
-            writeFileSync(join(diffDir, `${id}.png`), PNG.sync.write(diff))
+            copyFileSync(shotPath, expectedPath)
+            writeFileSync(actualPath, shotBuffer)
+            writeFileSync(diffPath, PNG.sync.write(diff))
             console.log(`  FAIL  #${id} - ${mismatched} px differ`)
             fail++
         }
     }
 
     await page.close()
-    return { pass, fail, skip }
+    return { pass, fail, new: newSnapshots, skip }
 }
 
 async function run() {
+    if (approve) {
+        console.log('=== S4 Snapshot Approve ===\n')
+        approveSnapshots()
+        return
+    }
+
     console.log('=== S4 Snapshot Tests ===')
-    console.log(`Mode: ${update ? 'UPDATE' : 'COMPARE'}\n`)
+    console.log('Mode: COMPARE\n')
 
     const sectionIds = getSectionIds()
     console.log(`Sections found: ${sectionIds.length}\n`)
+
+    rmSync(DIFF_DIR, { recursive: true, force: true })
 
     const { server, url } = await startServer()
     console.log(`Server ready at ${url}\n`)
@@ -173,12 +237,14 @@ async function run() {
 
         let totalPass = 0
         let totalFail = 0
+        let totalNew = 0
         let totalSkip = 0
 
         for (const preset of PRESETS) {
             const result = await testPreset(browser, url, preset, sectionIds)
             totalPass += result.pass
             totalFail += result.fail
+            totalNew += result.new
             totalSkip += result.skip
         }
 
@@ -188,8 +254,8 @@ async function run() {
             return `${preset}: ${count} snapshots`
         }).join(', ')
 
-        console.log(`\n=== Results: ${totalPass} passed, ${totalFail} failed, ${totalSkip} skipped (${summary}) ===`)
-        process.exit(totalFail > 0 ? 1 : 0)
+        console.log(`\n=== Results: ${totalPass} passed, ${totalFail} failed, ${totalNew} new, ${totalSkip} skipped (${summary}) ===`)
+        process.exit(totalFail + totalNew > 0 ? 1 : 0)
     } catch (err) {
         console.error('Error:', err)
         process.exit(1)
@@ -199,4 +265,7 @@ async function run() {
     }
 }
 
-run()
+run().catch((err) => {
+    console.error('Error:', err)
+    process.exit(1)
+})

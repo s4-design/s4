@@ -14,7 +14,7 @@
             <!-- ссылки якоря на блоки с элементами -->
             <h2 class="font-size--l4">Созданные элементы</h2>
             <p class="display--flex flex-wrap--wrap gap--s2">
-                <a href="#e-badge" class="element--button">Значек</a>
+                <a href="#e-badge" class="element--button">Значок</a>
                 <a href="#e-group" class="element--button">Группа</a>
                 <a href="#e-icon" class="element--button">Иконка</a>
                 <a href="#e-line" class="element--button">Линия</a>
@@ -63,12 +63,12 @@
         <hr class="margin-block-start--l4 margin-inline--auto max-inline-size--50" />
 
         <section id="e-badge" class="display--flex flex-wrap--wrap gap--md">
-            <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Значек</h2>
+            <h2 class="margin-block-end--unset flex-basis" style="--flex-basis: 100%">Значок</h2>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Как элемент</h3>
                 <hr />
                 <p class="display--flex flex-wrap--wrap gap--s2">
-                    <e-badge role="status">значек</e-badge>
+                    <e-badge role="status">значок</e-badge>
                     <e-badge class="negative" role="status">negative</e-badge>
                     <e-badge class="prime" role="status">prime</e-badge>
                     <e-badge class="second" role="status">second</e-badge>
@@ -80,7 +80,7 @@
                 <h3 class="font-size--l3">Как класс</h3>
                 <hr />
                 <p class="display--flex flex-wrap--wrap gap--s2">
-                    <span class="element--badge" role="status">значек</span>
+                    <span class="element--badge" role="status">значок</span>
                     <span class="element--badge negative" role="status">negative</span>
                     <span class="element--badge prime" role="status">prime</span>
                     <span class="element--badge second" role="status">second</span>
@@ -94,7 +94,7 @@
                 <p class="display--flex flex-wrap--wrap gap--s2">
                     <e-badge role="status">
                         <e-icon aria-hidden="true" style="--image: url(/test/icons/icon.svg);"></e-icon>
-                        значек
+                        значок
                     </e-badge>
                     <e-badge class="display--block padding-inline--s3 element--truncate inline-size" style="--inline-size: var(--min-inline-size)" role="status">1234</e-badge>
                     <e-badge class="padding-inline--s3" role="status">
@@ -3700,12 +3700,20 @@
                 <p>
                     H<sub>2</sub>O
                 </p>
+                <h4 class="font-size--l2">Класс-дубликат</h4>
+                <p>
+                    CO<span class="element--sub">2</span>
+                </p>
             </div>
             <div class="border-radius--md padding-inline--md padding-block--md align-self--start flex-grow--1 flex-basis" style="--flex-basis: 20em">
                 <h3 class="font-size--l3">Верхний индекс</h3>
                 <hr />
                 <p>
                     10<sup>2</sup>
+                </p>
+                <h4 class="font-size--l2">Класс-дубликат</h4>
+                <p>
+                    E = mc<span class="element--sup">2</span>
                 </p>
             </div>
         </section>

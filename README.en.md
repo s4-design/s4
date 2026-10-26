@@ -553,7 +553,7 @@ Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
 ## License
 
-Dual license: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it. See the [LICENSE](./LICENSE) file for full text.
+Dual license: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it. Individual licensing is available for commercial use outside the Russian Federation, use in proprietary products, or other terms - see Part 3 in [LICENSE](./LICENSE).
 
 <br>
 

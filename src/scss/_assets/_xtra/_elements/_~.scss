@@ -12,6 +12,7 @@
 @use "_mutated/[inert]" as *;
 @use "_mutated/a" as *;
 @use "_mutated/abbr" as *;
+@use "_mutated/b" as *;
 @use "_mutated/blockquote" as *;
 @use "_mutated/body" as *;
 @use "_mutated/button" as *;
@@ -52,6 +53,7 @@
         @include \[inert\];
         @include a;
         @include abbr;
+        @include b;
         @include blockquote;
         @include body;
         @include button;

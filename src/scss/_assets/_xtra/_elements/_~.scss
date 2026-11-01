@@ -19,6 +19,7 @@
 @use "_mutated/cite" as *;
 @use "_mutated/code" as *;
 @use "_mutated/details" as *;
+@use "_mutated/del" as *;
 @use "_mutated/∶disabled" as *;
 @use "_mutated/dl" as *;
 @use "_mutated/fieldset" as *;
@@ -60,6 +61,7 @@
         @include cite;
         @include code;
         @include details;
+        @include del;
         @include disabled;
         @include dl;
         @include fieldset;

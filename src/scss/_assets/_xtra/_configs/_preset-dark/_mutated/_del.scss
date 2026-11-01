@@ -1,0 +1,6 @@
+@mixin del() {
+    del {
+        --color: var(--negative--dark);
+        --text-decoration-color: var(--negative--light);
+    }
+}

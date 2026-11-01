@@ -27,6 +27,7 @@
 @use "_mutated/figure" as *;
 @use "_mutated/h" as *;
 @use "_mutated/hr" as *;
+@use "_mutated/i" as *;
 @use "_mutated/input" as *;
 @use "_mutated/label" as *;
 @use "_mutated/mark" as *;
@@ -70,6 +71,7 @@
         @include figure;
         @include h;
         @include hr;
+        @include i;
         @include input;
         @include label;
         @include mark;

@@ -45,8 +45,10 @@
     @include button($hover-active);
     @include cite;
     @include code;
+    @include del;
     @include details($hover-active);
     @include dl;
+    @include em;
     @include fieldset;
     @include figure;
     @include h($aria-level: 1, $font-size--delta: $h_font-size--delta, $margin: unset unset var(--margin--s2) unset);

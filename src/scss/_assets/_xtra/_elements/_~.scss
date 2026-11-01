@@ -22,6 +22,7 @@
 @use "_mutated/del" as *;
 @use "_mutated/∶disabled" as *;
 @use "_mutated/dl" as *;
+@use "_mutated/em" as *;
 @use "_mutated/fieldset" as *;
 @use "_mutated/figure" as *;
 @use "_mutated/h" as *;
@@ -64,6 +65,7 @@
         @include del;
         @include disabled;
         @include dl;
+        @include em;
         @include fieldset;
         @include figure;
         @include h;

@@ -1,6 +1,18 @@
 @mixin del() {
     del {
+        position: var(--position);
         color: var(--color);
         text-decoration-color: var(--text-decoration-color);
+        background-color: var(--background-color);
+        &:where([data-content\:\:before]) {
+            padding-inline-start: var(--padding-inline-start);
+            padding-inline-end: var(--padding-inline-end);
+            display: var(--display);
+            &::before {
+                position: var(--position);
+                margin-inline-start: var(--margin-inline-start);
+                content: attr(data-content\:\:before);
+            }
+        }
     }
 }

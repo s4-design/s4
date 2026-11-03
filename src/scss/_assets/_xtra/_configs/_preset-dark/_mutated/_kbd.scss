@@ -1,0 +1,18 @@
+@mixin kbd() {
+    kbd {
+        --color: var(--negative--light);
+        --padding-block: var(--padding--s3);
+        --padding-inline: var(--padding--s2);
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --border-width: thin;
+        --border-style: solid;
+        --border-color: var(--negative--mute);
+        --border-radius: var(--border-radius--s2);
+        --box-shadow: 0 var(--box-shadow--s1) var(--box-shadow--s2) 0 var(--black--04);
+        --vertical-align: center;
+        --font-size: var(--font-size--s3);
+        --font-family: inherit;
+        --line-height: inherit;
+    }
+}

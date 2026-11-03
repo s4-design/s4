@@ -30,6 +30,7 @@
 @use "_mutated/i" as *;
 @use "_mutated/input" as *;
 @use "_mutated/ins" as *;
+@use "_mutated/kbd" as *;
 @use "_mutated/label" as *;
 @use "_mutated/mark" as *;
 @use "_mutated/menu" as *;
@@ -76,6 +77,7 @@
         @include i;
         @include input;
         @include ins;
+        @include kbd;
         @include label;
         @include mark;
         @include menu;

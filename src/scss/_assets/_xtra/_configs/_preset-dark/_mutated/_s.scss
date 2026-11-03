@@ -1,0 +1,6 @@
+@mixin s() {
+    s {
+        --color: var(--negative--dark);
+        --text-decoration-color: var(--negative--light);
+    }
+}

@@ -37,6 +37,7 @@
 @use "_mutated/p" as *;
 @use "_mutated/q" as *;
 @use "_mutated/pre" as *;
+@use "_mutated/s" as *;
 @use "_mutated/samp" as *;
 @use "_mutated/small" as *;
 @use "_mutated/select" as *;
@@ -82,6 +83,7 @@
         @include p;
         @include q;
         @include pre;
+        @include s;
         @include samp;
         @include small;
         @include select;

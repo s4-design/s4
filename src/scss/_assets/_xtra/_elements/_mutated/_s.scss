@@ -1,0 +1,6 @@
+@mixin s() {
+    s {
+        color: var(--color);
+        text-decoration-color: var(--text-decoration-color);
+    }
+}

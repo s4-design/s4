@@ -1,0 +1,52 @@
+@mixin meter() {
+    meter {
+        --optimum: var(--success);
+        --sub-optimum: var(--second);
+        --less-sub-optimum: var(--danger);
+        
+        --position: relative;
+        --display: block;
+        --min-inline-size: var(--min-block-size);
+        --min-block-size: calc(var(--line-height) * 2);
+        --inline-size: 100%;
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --background-clip: padding-box;
+        --border: none;
+        --border-radius: var(--border-radius--s2);
+        --overflow: hidden;
+        --outline-color: var(--negative--dark);
+        --outline-style: solid;
+        --outline-width: var(--size--quantum);
+        --outline-offset: calc(var(--size--quantum) * -1);
+        --line-height: var(--size--4);
+        --transition: all var(--transition-duration) var(--transition-timing-function);
+    }
+
+    meter::-webkit-meter-optimum-value {
+        --background-color: var(--optimum);
+        --background-image: none;
+    }
+    meter:-moz-meter-optimum::-moz-meter-bar {
+        --background-color: var(--optimum);
+        --background-image: none;
+    }
+
+    meter::-webkit-meter-suboptimum-value {
+        --background-color: var(--sub-optimum);
+        --background-image: none;
+    }
+    meter:-moz-meter-sub-optimum::-moz-meter-bar {
+        --background-color: var(--sub-optimum);
+        --background-image: none;
+    }
+
+    meter::-webkit-meter-even-less-good-value {
+        --background-color: var(--less-sub-optimum);
+        --background-image: none;
+    }
+    meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+        --background-color: var(--less-sub-optimum);
+        --background-image: none;
+    }
+}

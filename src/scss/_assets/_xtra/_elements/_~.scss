@@ -34,10 +34,12 @@
 @use "_mutated/label" as *;
 @use "_mutated/mark" as *;
 @use "_mutated/menu" as *;
+@use "_mutated/meter" as *;
 @use "_mutated/ol" as *;
 @use "_mutated/p" as *;
 @use "_mutated/q" as *;
 @use "_mutated/pre" as *;
+@use "_mutated/progress" as *;
 @use "_mutated/s" as *;
 @use "_mutated/samp" as *;
 @use "_mutated/small" as *;
@@ -81,10 +83,12 @@
         @include label;
         @include mark;
         @include menu;
+        @include meter;
         @include ol;
         @include p;
         @include q;
         @include pre;
+        @include progress;
         @include s;
         @include samp;
         @include small;

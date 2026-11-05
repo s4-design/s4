@@ -1,0 +1,23 @@
+@mixin progress() {
+    progress {
+        --background-color: var(--positive--light);
+        --background-image: linear-gradient(var(--positive--mute));
+        --block-size: 2em;
+        --line-height: var(--size--4);
+        --transition: all var(--transition-duration) var(--transition-timing-function);
+        --background-clip: padding-box;
+        --border: var(--size--1) solid var(--positive);
+        --border-radius: var(--border-radius--s2);
+    }
+    progress::-webkit-progress-bar {
+        --border-radius: var(--border-radius--s3);
+        --background-color: transparent;
+        --overflow: hidden;
+    }
+    progress::-webkit-progress-value {
+        --background-color: var(--prime);
+    }
+    progress::-moz-progress-bar {
+        --background-color: var(--prime);
+    }
+}

@@ -82,15 +82,18 @@
     --border-radius--l3: var(--size--7);
     --border-radius--l4: var(--size--8);
 }
-@mixin box-shadow () {
-    --box-shadow--s3: var(--size--quantum);
-    --box-shadow--s2: var(--size--0p5);
-    --box-shadow--s1: var(--size--1);
-    --box-shadow--md: var(--size--2);
-    --box-shadow--l1: var(--size--3);
-    --box-shadow--l2: var(--size--4);
-    --box-shadow--l3: var(--size--5);
-    --box-shadow--l4: var(--size--6);
+@mixin box-shadow (
+    $shadowColor: --black--05
+) {
+    --box-shadow--s3: var(--size--0) var(--size--0p5) var(--size--1);
+    --box-shadow--s2: var(--size--0) var(--size--1p5) var(--size--2);
+    --box-shadow--s1: var(--size--0) var(--size--2p5) var(--size--3);
+    --box-shadow--md: var(--size--0) var(--size--3p5) var(--size--4);
+    --box-shadow--l1: var(--size--0) var(--size--4p5) var(--size--5);
+    --box-shadow--l2: var(--size--0) var(--size--5p5) var(--size--6);
+    --box-shadow--l3: var(--size--0) var(--size--6p5) var(--size--7);
+    --box-shadow--l4: var(--size--0) var(--size--7p5) var(--size--8);
+    --box-shadow-color: var(#{$shadowColor});
 }
 
 @mixin base-colors (

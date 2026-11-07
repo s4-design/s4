@@ -4,7 +4,7 @@
         @each $size in $shadowSize {
             &--#{$size},
             &--#{$size}\:hover:hover {
-                box-shadow: 0 var(--box-shadow--#{$size}) calc(var(--box-shadow--#{$size}) * 2) calc(var(--box-shadow--#{$size}) * .5) $shadowColor;
+                box-shadow: var(--box-shadow--#{$size}) var(--box-shadow-color);
             }
         }
     }

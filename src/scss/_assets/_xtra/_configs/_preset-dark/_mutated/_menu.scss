@@ -11,7 +11,7 @@
         --outline-style: solid;
         --outline-width: var(--size--quantum);
         --outline-offset: calc(var(--size--quantum) * 0);
-        --box-shadow: 0 var(--box-shadow--s1) calc(var(--box-shadow--s1) * 2) calc(var(--box-shadow--s1) * 0.5) var(--black--02);
+        --box-shadow: var(--box-shadow--s2) var(--box-shadow-color);
         > li {
             --display: contents;
         }

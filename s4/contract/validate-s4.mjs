@@ -14,6 +14,8 @@ const util = JSON.parse(readFileSync(join(root, 'utilities.json'), 'utf8'));
 
 const knownBase = new Set(util.утилиты);
 const knownProps = new Set([...knownBase].map((c) => c.split('--')[0]));
+// Формула 2: префикс устройства+ориентации снимается, остаток проверяется по тому же словарю
+// и обязан содержать модификатор: d_l_inline-size - ошибка, d_l_inline-size--50 - валидно.
 
 const R = (id) => rules.правила.find((r) => r.id === id).проверка;
 const physicalProps = new Set(R('R1').список);
@@ -110,6 +112,7 @@ function evaluate(node) {
     if (cls.startsWith('element--')) continue;
     let name = cls.startsWith('.') ? cls.slice(1) : cls;
     const dm = name.match(/^(d|t|m)_(l|p)_(.+)$/);
+    const isF2 = Boolean(dm);
     if (dm) name = dm[3];
     let pseudo = '';
     if (name.includes(':')) {
@@ -119,6 +122,10 @@ function evaluate(node) {
       if (forbiddenPseudo.has(pseudo)) err(line, `R6: состояние ${pseudo} запрещено в утилит-классах (разрешено только :hover)`);
     }
     const hasMod = name.includes('--');
+    if (isF2 && !hasMod) {
+      err(line, `R3: класс Формулы 2 "${cls}" без модификатора (допустимо: базовый "${name}" или "${cls}--{modifier}")`);
+      continue;
+    }
     const prop = name.split('--')[0];
     const isUtil = hasMod || knownProps.has(prop);
     if (!isUtil) continue;

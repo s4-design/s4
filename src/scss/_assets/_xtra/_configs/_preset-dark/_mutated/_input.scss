@@ -42,7 +42,7 @@
             --outline-color: currentColor;
         }
         &:has(+ label) {
-            --margin-inline-end: var(--margin--s3);
+            --margin-inline: 0 var(--margin--s3);
         }
 
     }

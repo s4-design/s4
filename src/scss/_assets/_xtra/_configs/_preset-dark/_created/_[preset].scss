@@ -14,5 +14,8 @@
         --overscroll-behavior: none;
         --scrollbar-gutter: stable;
         --hyphens: auto;
+        --transition-duration: .15s;
+        --transition-timing-function: linear;
+        --box-shadow-color: var(--black--04);
     }
 }

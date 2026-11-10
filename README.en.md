@@ -164,7 +164,7 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1202 classes).
+Once connected, all utility classes are available in HTML. Base classes of Formula 1/3 are in `s4/contract/utilities.json` (1202 classes); Formula 2 classes are not listed: they are a prefix + base name from the dictionary, see `s4/contract/formulas.json`.
 
 **Example:**
 ```html
@@ -358,6 +358,7 @@ All classes of Formulas 1, 2 and 3 use logical names: `display--grid`, `d_l_marg
 ## Utility classes - 3 formulas
 
 > Full alphabetical list of properties with ready classes - in `s4/contract/utilities.json`.  
+> Formulas, Formula 2/3 choice, inheritance and priority - in `s4/contract/formulas.json`.  
 > System architecture - `s4/AGENTS.md` + `s4/contract/*.json`.
 
 ### Formula 1 - unified
@@ -387,6 +388,8 @@ Style is tied to device and orientation.
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
+Formula 2 does not exist without a modifier: ```.{device}_{orientation}_{property}``` is an error! Only ```.{property}``` (Formula 3) is valid.
+
 With pseudo-class (in `class=""` without escaping): `d_l_background-color--transparent:hover`
 
 In a CSS selector the same class is written with an escaped colon: `.d_l_background-color--transparent\:hover:hover`
@@ -413,6 +416,8 @@ color: var(--d_l_color, var(--color));
 With pseudo-class: `.color\:hover:hover`
 
 Without Formula 3 the property value would be hardcoded in CSS. Formula 3 makes it context-dependent - the preset on the device decides its value. The same element can have a different `color` on desktop vs mobile, in light vs dark preset, without changing HTML.
+
+Formula 3 reads a variable from the element, its ancestor, or `[preset]`, if the variable is declared there. If the variable is not set, the declaration is invalid. Formula 1 + Formula 3 is allowed. When the device file is loaded, Formula 3 overrides Formula 1 because the device file is loaded after `utilities.css`; without the device file (custom map), Formula 1 overrides Formula 3 because Formula 1 comes after Formula 3 in `utilities.css`.
 
 <br>
 
@@ -490,7 +495,7 @@ An S4 preset is an **interface configuration** defining its visual identity and 
 
 A preset is a layer of a design system, not the whole system. Design system = S4 (core: cascade, formulas, device-loading) + preset (interface configuration) + components and patterns.
 
-Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in Formula 2 xtra utilities. For example, if a preset defines `--brand-gradient: linear-gradient(...)`, the class `d_l_background--brand-gradient` will work.
+Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in utilities: Formula 1 (`background--brand-gradient`) and Formula 2 with a prefix (`d_l_background--brand-gradient`). For example, if a preset defines `--brand-gradient: linear-gradient(...)`, both classes will work.
 
 S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribute on `<html>`:
 

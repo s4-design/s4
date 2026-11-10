@@ -43,6 +43,7 @@
     @include cite;
     @include code;
     @include del;
+    @include dialog;
     @include details($hover-active);
     @include dl;
     @include em;

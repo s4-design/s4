@@ -20,6 +20,7 @@
 @use "_mutated/code" as *;
 @use "_mutated/details" as *;
 @use "_mutated/del" as *;
+@use "_mutated/dialog" as *;
 @use "_mutated/∶disabled" as *;
 @use "_mutated/dl" as *;
 @use "_mutated/em" as *;
@@ -69,6 +70,7 @@
         @include code;
         @include details;
         @include del;
+        @include dialog;
         @include disabled;
         @include dl;
         @include em;

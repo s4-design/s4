@@ -1,0 +1,59 @@
+@mixin dialog() {
+    dialog {
+        display: var(--display);
+        flex-direction:var(--flex-direction);
+        inline-size: var(--inline-size);
+        max-inline-size: var(--max-inline-size);
+        max-block-size: var(--max-block-size);
+        gap: var(--gap);
+        margin-block: var(--margin-block);
+        margin-inline: var(--margin-inline);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
+        border: var(--border);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+
+        outline: var(--outline-width) var(--outline-style) var(--outline-color);
+        outline-offset: var(--outline-offset);
+
+        box-shadow: var(--box-shadow);
+
+        &:modal {
+            &::backdrop {
+                background-color: var(--background-color);
+                backdrop-filter: var(--backdrop-filter);
+            }
+        }    
+
+        > :where(header, e-body, .element--body, footer) {
+            flex-shrink: var(--flex-shrink);
+            border-end-start-radius: var(--border-end-start-radius);
+            border-end-end-radius: var(--border-end-end-radius);
+            border-start-start-radius: var(--border-start-start-radius);
+            border-start-end-radius: var(--border-start-end-radius);
+        }
+        > header {
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
+            font-weight: var(--font-weight);
+            color: var(--color);
+        }
+        > e-body,
+        > .element--body {
+            display: var(--display);
+            background-color: var(--background-color);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
+            color: var(--color);
+            overflow: var(--overflow);
+        }
+        > footer {
+            display: var(--display);
+            gap: var(--gap);
+            padding-block: var(--padding-block);
+            padding-inline: var(--padding-inline);
+        }        
+    }
+}

@@ -30,6 +30,7 @@
         "_dev-scss": "sass --watch src/scss:s4/css --no-source-map",
         "test": "node test/snapshot.mjs",
         "test-approve": "node test/snapshot.mjs --approve",
+        "test:loader": "node --test test/loader.test.mjs",
         "check-docs": "node test/check-docs.mjs",
         "lint": "pnpm lint:js && pnpm lint:css",
         "lint:js": "eslint src/js",

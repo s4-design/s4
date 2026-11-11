@@ -169,13 +169,13 @@ Once connected, all utility classes are available in HTML. Base classes of Formu
 **Example:**
 ```html
 <div class="d_l_display--flex m_p_display--grid">
-  Flex on desktop (landscape), grid on mobile (portrait)
+  Flex on desktop, grid on mobile
 </div>
 ```
 
 ### Dependency map
 
-`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
+`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. Files are loaded strictly in array order; the order is preserved when orientation changes. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
 
 The map is plain JSON (an example ships in the release - `dependency-map.json`). The base map is built into `s4.min.js` and applies when the file is missing or malformed. A project picks the map it needs - from the minimal base to a cascade one, where files of other devices are added to the device (classes of all devices are available in any orientation).
 
@@ -439,24 +439,34 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | | **HTML tags** | |
 | `<a>` | - | Link |
 | `<abbr>` | - | Abbreviation |
+| `<b>` | - | Bold text |
 | `<blockquote>` | - | Blockquote |
 | `<button>` | `.element--button` | Button |
 | `<cite>` | - | Citation |
 | `<code>` | - | Code fragment |
+| `<del>` | - | Deleted text |
 | `<details>` | - | Disclosure widget |
+| `<dialog>` | - | Dialog window |
 | `<dl>` | - | Description list |
+| `<em>` | - | Stress emphasis |
 | `<fieldset>` | - | Fieldset |
 | `<figure>` | - | Figure |
 | `<h1>`-`<h6>` | `.element--h1` ... `.element--h6` | Headings |
 | `<hr>` | - | Horizontal rule |
+| `<i>` | - | Italic text |
 | `<input>` | - | Input field |
+| `<ins>` | - | Inserted text |
+| `<kbd>` | - | Keyboard key |
 | `<label>` | - | Label |
 | `<mark>` | - | Marked text |
 | `<menu>` | - | Menu |
+| `<meter>` | - | Value gauge |
 | `<ol>` | - | Ordered list |
 | `<p>` | - | Paragraph |
 | `<pre>` | - | Preformatted text |
+| `<progress>` | - | Completion indicator |
 | `<q>` | - | Inline quotation |
+| `<s>` | - | Stale text |
 | `<samp>` | - | Sample output |
 | `<select>` | - | Select |
 | `<small>` | - | Small text |

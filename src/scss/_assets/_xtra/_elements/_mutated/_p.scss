@@ -1,5 +1,7 @@
 @mixin p() {
     p {
-        margin-block: var(--margin-block);
+        margin-block:
+            var(--margin-block-start, var(--margin-block))
+            var(--margin-block-end, var(--margin-block));
     }
 }

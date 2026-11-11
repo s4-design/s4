@@ -20,7 +20,12 @@ function loadScript(url) {
         const script = document.createElement('script')
         script.src = url
         script.onload = resolve
-        script.onerror = reject
+        script.onerror = error => {
+            // Удаляем упавший тег, иначе retry оставит его в DOM
+            // Remove the failed tag, otherwise retry leaves it in the DOM
+            script.remove()
+            reject(error)
+        }
         document.head.appendChild(script)
     }).catch(error => {
         // Отказ не кэшируем, иначе одна сетевая осечка навсегда заблокирует повторные вызовы

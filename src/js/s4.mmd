@@ -100,7 +100,7 @@ flowchart TD
     subgraph INVARIANTS["INVARIANTS: точные правила"]
         direction TB
         I1["PATH: baseUrl = currentScript.src.split('/').slice(0, -2).join('/') + '/';<br/>.../s4/js/s4.min.js даёт .../s4/;<br/>нужен classic script; module даёт currentScript = null"]
-        I2["SCRIPT CACHE: loadScript(url) хранит Promise в scriptPromises;<br/>создаёт script в head, onload resolve, onerror reject;<br/>повторный url возвращает тот же Promise; reject удаляет запись<br/>и пробрасывает ошибку дальше"]
+        I2["SCRIPT CACHE: loadScript(url) хранит Promise в scriptPromises;<br/>создаёт script в head, onload resolve, onerror удаляет script и reject;<br/>повторный url возвращает тот же Promise; reject удаляет запись<br/>и пробрасывает ошибку дальше"]
         I3["LINK CACHE: loadLink(href, id) хранит href в loadedLinks;<br/>создаёт link rel=stylesheet в head; cache hit = no-op;<br/>onerror удаляет link и href из кеша;<br/>base/config links не имеют data-s4-utility"]
         I4["UTILITY LINK: data-s4-utility = '';<br/>createUtilityLink только создаёт link, вставку делает updateLinks;<br/>поиск и удаление только по link[data-s4-utility];<br/>чужой элемент с тем же id не трогается;<br/>onerror удаляет link и href из loadedLinks"]
         I5["ANCHOR: comment s4-utilities добавляется в head;<br/>это правая граница группы; utility links всегда до него;<br/>после него utility links не появляются"]

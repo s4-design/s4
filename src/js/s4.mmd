@@ -1,0 +1,117 @@
+%% S4: загрузчик CSS. AI-модель исходника src/js/s4.js.
+%% Источник истины: src/js/s4.js. Порядок utility-файлов: s4/dependency-map.json.
+%% TL;DR: S4() один раз инициализирует preset и layers; грузит elements/utilities;
+%% параллельно device-state и карту; затем config и utility-группу по карте;
+%% смена orientation меняет только utility-группу.
+%% Сначала читать поток; внизу INVARIANTS с точными правилами и краевыми случаями.
+%% Быстро: TL;DR и INVARIANTS; поток нужен для отладки последовательности.
+
+flowchart TD
+    STATE["Состояние модуля:<br/>baseUrl; scriptPromises: Map; loadedLinks: Set;<br/>utilityAnchor; _s4PresetIsAuto; _s4OneTimeInitialized"]
+    STATE -.-> START
+    START["S4()"] --> INIT{"html имеет<br/>data-s4-initialized?"}
+    INIT -->|да| REPEAT["return:<br/>успешная инициализация уже была"]
+    INIT -->|нет| FLAG["set data-s4-initialized"]
+
+    FLAG --> ONCE{"_s4OneTimeInitialized?"}
+    ONCE -->|да| BASE
+    ONCE -->|нет| ONCE_SET["_s4OneTimeInitialized = true"]
+    ONCE_SET --> PRESET{"html[preset] непустой?"}
+    PRESET -->|да| MANUAL["_s4PresetIsAuto = false"]
+    PRESET -->|нет| AUTO["_s4PresetIsAuto = true<br/>setPresetBasedOnPreference()"]
+    AUTO --> DARK{"prefers-color-scheme: dark?"}
+    DARK -->|да| DARK_SET["html[preset] = dark"]
+    DARK -->|нет| LIGHT_SET["html[preset] = light"]
+    MANUAL --> LISTEN
+    DARK_SET --> LISTEN
+    LIGHT_SET --> LISTEN
+    LISTEN["matchMedia(prefers-color-scheme: light)<br/>addEventListener('change', setPresetBasedOnPreference)"] --> STYLE
+    STYLE["append style:<br/>@layer elements, presets, utilities;"] --> BASE
+
+    BASE["loadLink: elements.css, utilities.css"] --> PAR
+    PAR["await Promise.all:<br/>loadScript(device-state.min.js)<br/>loadDependencyMap(dependency-map.json)"] --> SCRIPT_CALL["loadScript(device-state.min.js)"]
+    PAR --> MAP_CALL["loadDependencyMap(dependency-map.json)"]
+
+    SCRIPT_CALL -->|успех| JOIN
+    SCRIPT_CALL -.->|reject| ERROR
+    MAP_CALL --> M0
+
+    subgraph MAP_ALG["loadDependencyMap"]
+        M0["fetch карты"] --> M1{"response.ok?"}
+        M1 -->|нет| MERR["throw"]
+        M1 -->|да| M2["response.json()"]
+        M2 -.->|ошибка парсинга| MERR
+        M2 --> M3["для каждой пары device/orientation"]
+        M3 --> M4["для каждой зависимости"]
+        M4 --> M5{"ключ и значение<br/>в whitelist?"}
+        M5 -->|нет| MERR
+        M5 -->|да| M6{"id уже был<br/>в этом массиве?"}
+        M6 -->|да| M7["console.error<br/>пропустить дубликат"]
+        M6 -->|нет| M8["оставить зависимость"]
+        M7 --> M9["следующая зависимость"]
+        M8 --> M9
+        M9 --> M4
+        M4 -->|массив закончился| M10["записать очищенный массив"]
+        M10 --> M13{"есть ещё пары?"}
+        M13 -->|да| M3
+        M13 -->|нет| M11["вернуть карту"]
+        MERR --> M12["console.error<br/>вернуть базовую карту"]
+    end
+
+    M11 --> JOIN
+    M12 --> JOIN
+    JOIN["обе задачи завершены"] --> DEVICE
+    DEVICE{"typeof device !== 'undefined'?"}
+    DEVICE -->|нет| ERROR
+    DEVICE -->|да| VARS["type = device.type<br/>orientation = device.orientation<br/>currentDepends = dependencyMap[type]?.[orientation] || []"]
+    VARS --> CONFIG["loadLink: css/{type}/config.css"]
+    CONFIG --> UPDATE_INIT["updateLinks(currentDepends)"]
+
+    subgraph UPDATE_ALG["updateLinks"]
+        UPDATE_INIT --> U0["anchor = getUtilityAnchor()<br/>comment s4-utilities; append to head if absent"]
+        U0 --> U1["desired = currentDepends.map(getDependencyInfo)<br/>id = device/orientation-utilities<br/>href = baseUrl + css/device/orientation-utilities.css"]
+        U1 --> U2["удалить link[data-s4-utility],<br/>которых нет в desired;<br/>удалить оба варианта их href из loadedLinks"]
+        U2 --> U3["для каждого desired"]
+        U3 --> U4{"link[data-s4-utility]<br/>с таким id есть,<br/>href совпадает,<br/>href есть в loadedLinks?"}
+        U4 -->|да| U6["использовать существующий link"]
+        U4 -->|нет| U5["удалить старый link, если был;<br/>createUtilityLink(dep);<br/>добавить href в loadedLinks;<br/>insertBefore(anchor)"]
+        U5 --> U7["следующая зависимость"]
+        U6 --> U7
+        U7 --> U3
+        U3 -->|все обработаны| U8{"current utility links<br/>совпадают с desiredLinks<br/>по длине и порядку?"}
+        U8 -->|да| U9["ничего не двигать"]
+        U8 -->|нет| U10["insertBefore каждого link<br/>перед anchor в порядке desired"]
+    end
+
+    U9 --> ORIENT
+    U10 --> ORIENT
+    ORIENT["device.onChangeOrientation(callback)"] --> READY["инициализация завершена:<br/>callback активен"]
+    READY --> WAIT["ждать изменение"]
+    WAIT --> CHANGE{"newOrientation !== orientation?"}
+    CHANGE -->|нет| WAIT
+    CHANGE -->|да| NEW["orientation = new<br/>currentDepends = dependencyMap[type]?.[orientation] || []"]
+    NEW --> UPDATE_ORIENT["updateLinks(currentDepends)"]
+    UPDATE_ORIENT --> WAIT
+
+    ERROR["catch:<br/>root.removeAttribute('data-s4-initialized')<br/>console.error"] --> FINISH
+    REPEAT --> FINISH
+    FINISH["конец вызова S4()"]
+
+    subgraph INVARIANTS["INVARIANTS: точные правила"]
+        direction TB
+        I1["PATH: baseUrl = currentScript.src.split('/').slice(0, -2).join('/') + '/';<br/>.../s4/js/s4.min.js даёт .../s4/;<br/>нужен classic script; module даёт currentScript = null"]
+        I2["SCRIPT CACHE: loadScript(url) хранит Promise в scriptPromises;<br/>создаёт script в head, onload resolve, onerror reject;<br/>повторный url возвращает тот же Promise; reject удаляет запись<br/>и пробрасывает ошибку дальше"]
+        I3["LINK CACHE: loadLink(href, id) хранит href в loadedLinks;<br/>создаёт link rel=stylesheet в head; cache hit = no-op;<br/>onerror удаляет link и href из кеша;<br/>base/config links не имеют data-s4-utility"]
+        I4["UTILITY LINK: data-s4-utility = '';<br/>createUtilityLink только создаёт link, вставку делает updateLinks;<br/>поиск и удаление только по link[data-s4-utility];<br/>чужой элемент с тем же id не трогается;<br/>onerror удаляет link и href из loadedLinks"]
+        I5["ANCHOR: comment s4-utilities добавляется в head;<br/>это правая граница группы; utility links всегда до него;<br/>после него utility links не появляются"]
+        I6["ORDER: порядок = порядок массива dependency-map;<br/>автоперестановки target-last нет; отдельного валидатора карты нет;<br/>пустой массив удаляет все utility links; elements, utilities и config остаются"]
+        I7["MAP: у зависимости берутся первые ключ и значение;<br/>ключ device из desktop/tablet/mobile, значение orientation из landscape/portrait;<br/>top-level ключи отдельно не валидируются; невалидная структура означает всю базовую карту;<br/>дубликат id внутри массива: console.error и пропуск только дубликата;<br/>базовая карта: по одному файлу на каждую пару device/orientation"]
+        I8["PRESET: непустой preset attr означает auto = false;<br/>без preset: auto = true и выбор по dark MQL;<br/>слушатель висит на light MQL; при change preset меняется только при auto = true"]
+        I9["FLAGS: data-s4-initialized ставится до работы; успех означает повторный S4() no-op;<br/>catch снимает его; _s4OneTimeInitialized не снимается,<br/>поэтому listener и style не дублируются при ретрае"]
+        I10["DEVICE: device - глобальный объект из device-state.min.js;<br/>type определяется один раз; config.css кешируется по href<br/>и при успешной инициализации повторно не грузится;<br/>смена orientation меняет только набор utility-файлов;<br/>отсутствующий ключ карты даёт currentDepends = []"]
+        I11["FAILURE: ошибка loadScript уходит в outer catch;<br/>ошибки карты возвращают базовую карту; onerror CSS не reject-ит S4,<br/>а удаляет link и href; после catch повторный вызов S4() разрешён"]
+        I12["LAYERS: style с @layer elements, presets, utilities<br/>добавляется один раз до base CSS; порядок слоёв фиксирован"]
+    end
+
+    classDef invariant fill:#fff3cd,stroke:#997404,color:#000
+    class I1,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12 invariant

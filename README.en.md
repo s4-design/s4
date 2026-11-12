@@ -516,25 +516,20 @@ S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribu
 
 **Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` - the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
 
-Each `@scope` block contains all preset variables for the given device. Example `:scope` contents:
+Preset variables for the agent are in `:scope`, except for the private `--size--*`; example of the public part for `light`:
 ```css
 :scope {
-    --position: relative;
-    --background-color: var(--positive--light);
-    --color: var(--negative);
-    --tab-size: 4;
-    --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
-    --font-weight: normal;
-    --line-height: var(--size--6);
-    --text-underline-offset: var(--size--quantum);
-    --overscroll-behavior: none;
-    --word-break: normal;
-    --hyphens: auto;
-    --transition-duration: .15s;
-    --transition-timing-function: linear;
+    --black--02: oklch(0 0 0 / 0.2);
+    --positive: oklch(0.82 0 254);
+    --font-size--md: var(--size--4);
+    --margin--md: var(--size--4);
+    --padding--md: var(--size--4);
+    --border-radius--md: var(--size--4);
+    --box-shadow--md: var(--size--0) var(--size--3p5) var(--size--4);
 }
 ```
+
+Internal element variables (`--position`, `--background-color`, `--color`, `--font-size`, `--font-family`, `--line-height`, `--transition-*`, `--box-shadow-color`) are in `&[preset]` and are not part of the public `s4/contract/variables.json` dictionary. For the agent, the dictionary is grouped by preset: `variables[preset][name]`; values are raw, as in CSS.
 
 **Device-specific presets:** each preset is built separately for each device - `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. `[preset=dark]` values on desktop may differ from `[preset=dark]` on mobile. Equality between devices is not guaranteed.
 
@@ -544,7 +539,10 @@ Each `@scope` block contains all preset variables for the given device. Example 
 @scope ([preset=my-name]) {
     :scope {
         --size--4: 1.25em;
-        --padding--md: 2em;
+        --padding--md: var(--size--6);
+    }
+
+    &[preset] {
         --color: var(--black--07);
         --font-family: "IBM Plex Sans", system-ui;
         --transition-duration: 0.2s;

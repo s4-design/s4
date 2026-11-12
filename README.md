@@ -516,25 +516,20 @@ HTML-элементы и кастомные теги С4 стилизуются 
 
 **Изоляция пресетов.** Пресет применяется к элементу с соответствующим атрибутом `[preset=...]`, независимо от вложенности. `<div preset="light">` может содержать `<div preset="dark">` - родительский пресет не влияет на дочерний и наоборот. Пресеты можно менять независимо от DOM-иерархии.
 
-Каждый блок `@scope` содержит все переменные пресета для данного устройства. Пример содержимого `:scope`:
+Переменные пресета для агента находятся в `:scope`, кроме приватных `--size--*`; пример публичной части для `light`:
 ```css
 :scope {
-    --position: relative;
-    --background-color: var(--positive--light);
-    --color: var(--negative);
-    --tab-size: 4;
-    --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
-    --font-weight: normal;
-    --line-height: var(--size--6);
-    --text-underline-offset: var(--size--quantum);
-    --overscroll-behavior: none;
-    --word-break: normal;
-    --hyphens: auto;
-    --transition-duration: .15s;
-    --transition-timing-function: linear;
+    --black--02: oklch(0 0 0 / 0.2);
+    --positive: oklch(0.82 0 254);
+    --font-size--md: var(--size--4);
+    --margin--md: var(--size--4);
+    --padding--md: var(--size--4);
+    --border-radius--md: var(--size--4);
+    --box-shadow--md: var(--size--0) var(--size--3p5) var(--size--4);
 }
 ```
+
+Внутренние переменные элементов (`--position`, `--background-color`, `--color`, `--font-size`, `--font-family`, `--line-height`, `--transition-*`, `--box-shadow-color`) находятся в `&[preset]` и не входят в публичный словарь `s4/contract/variables.json`. Для агента словарь сгруппирован по пресетам: `переменные[пресет][имя]`; значения сырые, как в CSS.
 
 **Device-специфичность пресетов:** каждый пресет собирается отдельно для каждого устройства - `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. Значения `[preset=dark]` на десктопе могут отличаться от `[preset=dark]` на мобильном. Равенство между устройствами не гарантировано.
 
@@ -544,7 +539,10 @@ HTML-элементы и кастомные теги С4 стилизуются 
 @scope ([preset=my-name]) {
     :scope {
         --size--4: 1.25em;
-        --padding--md: 2em;
+        --padding--md: var(--size--6);
+    }
+
+    &[preset] {
         --color: var(--black--07);
         --font-family: "IBM Plex Sans", system-ui;
         --transition-duration: 0.2s;

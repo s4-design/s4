@@ -60,14 +60,15 @@ console.log(`С4 utilities: ${utilArr.length} классов → ${join(contract
 // --- Машинный словарь публичных переменных (s4/contract/variables.json) ---
 function extractScopeVars(cfgText) {
     const byPreset = {};
-    const scopeRe = /@scope \(\[preset=(\w+)\]\)\{:scope\{([^}]*)\}/g;
+    const scopeRe = /@scope\s*\(\s*\[preset=(?:"([^"]+)"|'([^']+)'|([^\]\s]+))\]\s*\)\s*\{\s*:scope\s*\{([^}]*)\}/g;
     let s;
     while ((s = scopeRe.exec(cfgText))) {
+        const preset = s[1] ?? s[2] ?? s[3];
         const vars = {};
         const varRe = /(--[\w-]+)\s*:\s*([^;{}]+)/g;
         let v;
-        while ((v = varRe.exec(s[2]))) vars[v[1]] = v[2].trim();
-        byPreset[s[1]] = vars;
+        while ((v = varRe.exec(s[4]))) vars[v[1]] = v[2].trim();
+        byPreset[preset] = vars;
     }
     return byPreset;
 }
@@ -78,25 +79,31 @@ const primaryVars = extractScopeVars(readFileSync(join(root, 's4', 'css', 'deskt
 let devicesAgree = true;
 for (const d of devices) {
     const cv = extractScopeVars(readFileSync(join(root, 's4', 'css', d, 'config.css'), 'utf8'));
-    for (const p of Object.keys(primaryVars)) {
+    const comparedPresets = new Set([...Object.keys(primaryVars), ...Object.keys(cv)]);
+    for (const p of comparedPresets) {
         if (JSON.stringify(cv[p]) !== JSON.stringify(primaryVars[p])) devicesAgree = false;
     }
 }
 
-const light = primaryVars.light || {};
-const dark = primaryVars.dark || {};
-const allNames = [...new Set([...Object.keys(light), ...Object.keys(dark)])].sort();
-const publicNames = allNames.filter((n) => !n.startsWith('--size--'));
-
+const presetNames = Object.keys(primaryVars);
 const variableMap = {};
-for (const n of publicNames) variableMap[n] = { light: light[n] ?? '', dark: dark[n] ?? '' };
+for (const preset of presetNames) {
+    const names = Object.keys(primaryVars[preset])
+        .filter((n) => !n.startsWith('--size--'))
+        .sort();
+    variableMap[preset] = Object.fromEntries(names.map((n) => [n, primaryVars[preset][n]]));
+}
 
 const variableDesc =
-    'Машинный словарь ПУБЛИЧНЫХ CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset=light|dark]) :scope{}. ' +
+    'Машинный словарь ПУБЛИЧНЫХ CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset]) :scope{}. ' +
     'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
     'НАЗНАЧЕНИЕ: агент читает для Формулы 3 (var(--имя)) и чтобы знать допустимые имена; валидатор переменные в style не проверяет. ' +
+    'ПЕРЕМЕННЫЕ СГРУППИРОВАНЫ ПО ПРЕСЕТАМ: доступ - переменные[пресет][имя]. ' +
+    'ЗНАЧЕНИЯ СЫРЫЕ, КАК В CSS, И НЕ РАЗРЕШАЮТ АЛИАСЫ НА --size--*. ' +
     'ПРИВАТНЫЕ ПЕРЕМЕННЫЕ --size--* ИСКЛЮЧЕНЫ (агент не пишет их напрямую в вёрстке). ' +
+    'ПЕРЕМЕННЫЕ ИЗ &[preset] И ВНУТРИ ЭЛЕМЕНТОВ НЕ ВХОДЯТ. ' +
     `Значения - из desktop/config.css${devicesAgree ? ' (переменные совпадают по всем устройствам)' : ' (ВНИМАНИЕ: значения различаются по устройствам - показан desktop)'}.`;
 const variableJson = JSON.stringify({ описание: variableDesc, переменные: variableMap }, null, 2);
 writeFileSync(join(contract, 'variables.json'), variableJson + '\n');
-console.log(`С4 variables: ${publicNames.length} переменных → ${join(contract, 'variables.json')}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);
+const presetSummary = presetNames.map((p) => `${p}: ${Object.keys(variableMap[p]).length}`).join(', ');
+console.log(`С4 variables: ${presetNames.length} пресетов (${presetSummary}) → ${join(contract, 'variables.json')}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);

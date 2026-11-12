@@ -22,7 +22,7 @@
 
 | Скрипт | Команда | Назначение |
 |---|---|---|
-| `lint` | `pnpm lint` | Оба линтера подряд (то же выполняет CI) |
+| `lint` | `pnpm lint` | Оба линтера подряд |
 | `lint:js` | `pnpm lint:js` | ESLint по `src/js/` - правила в `eslint.config.mjs` |
 | `lint:css` | `pnpm lint:css` | Stylelint по `src/scss/` - правила в `.stylelintrc.json` (запрет физических свойств и дублей) |
 
@@ -37,7 +37,3 @@
 | `test` | `pnpm test` | Сравнить с эталонами; расхождения кладутся в `test/__diff__/` |
 | `test-approve` | `pnpm test-approve` | Перезаписать эталоны (после изменения стилей) |
 | `test:loader` | `pnpm test:loader` | Браузерные тесты загрузчика на Node test runner + Playwright Chromium |
-
-## CI
-
-`.github/workflows/ci.yml` на push в `master`/`dev_*` и PR в `master`: `pnpm lint` -> `pnpm s4` (сборка и автопроверка документации) -> артефакт `s4/` (только для `master`).

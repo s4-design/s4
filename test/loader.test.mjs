@@ -342,6 +342,32 @@ test('невалидная карта даёт базовый fallback', async (
     }
 })
 
+test('лишний ключ в зависимости даёт базовый fallback', async () => {
+    const { context, page } = await createPage(ORDER_CASES[0].viewport, DESKTOP_UA)
+    const errors = []
+
+    page.on('console', message => {
+        if (message.type() === 'error')
+            errors.push(message.text())
+    })
+
+    try {
+        await routeMap(page, {
+            desktop: {
+                landscape: [{ desktop: 'portrait', tablet: 'landscape' }]
+            }
+        })
+        await page.goto(baseUrl, { waitUntil: 'load' })
+        await waitForSettled(page, 'desktop', ['desktop/landscape-utilities'])
+
+        const state = await readHeadState(page)
+        assert.deepEqual(state.utilityIds, ['desktop/landscape-utilities'])
+        assert.ok(errors.some(text => text.includes('Ошибка при загрузке или парсинге')))
+    } finally {
+        await context.close()
+    }
+})
+
 test('ошибка loadScript снимает флаг и разрешает retry', async () => {
     const { context, page } = await createPage(ORDER_CASES[0].viewport, DESKTOP_UA)
     const scriptPattern = '**/s4/js/device-state.min.js'

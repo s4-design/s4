@@ -88,7 +88,8 @@ async function loadDependencyMap(url) {
                 const unique = []
 
                 for (const dep of data[device][orientation]) {
-                    if (!isAllowedKey(Object.keys(dep)[0]) || !isAllowedValue(Object.values(dep)[0]))
+                    const keys = Object.keys(dep)
+                    if (keys.length !== 1 || !isAllowedKey(keys[0]) || !isAllowedValue(dep[keys[0]]))
                         throw new Error('Некорректная структура dependency-map | Invalid dependency-map structure')
 
                     const dependency = getDependencyInfo(dep)

@@ -30,10 +30,13 @@
 
 Визуальные скриншотные тесты: Playwright сравнивает секции `test/index.html` с эталонами в двух пресетах. Команды и устройство - в `test/TEST.md`.
 
+Тесты загрузчика запускают `S4()` в Chromium через Node test runner.
+
 | Скрипт | Команда | Назначение |
 |---|---|---|
 | `test` | `pnpm test` | Сравнить с эталонами; расхождения кладутся в `test/__diff__/` |
-| `test-update` | `pnpm test-update` | Перезаписать эталоны (после изменения стилей) |
+| `test-approve` | `pnpm test-approve` | Перезаписать эталоны (после изменения стилей) |
+| `test:loader` | `pnpm test:loader` | Браузерные тесты загрузчика на Node test runner + Playwright Chromium |
 
 ## CI
 

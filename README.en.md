@@ -237,11 +237,11 @@ For `tablet/portrait` the three variants give:
 
 | Map variant | Utility files | Total files | Raw size |
 |-------------|---------------|-------------|----------|
-| Base (built-in) | `tablet/portrait` | 4 | 267 KB |
-| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 335 KB |
-| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 470 KB |
+| Base (built-in) | `tablet/portrait` | 4 | 302 KB |
+| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 369 KB |
+| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 504 KB |
 
-Across all device and orientation combinations: base map - 4 files, 267-268 KB; release example - 4-5 files, 267-336 KB; cascade - 4-7 files, 268-470 KB.
+Across all device and orientation combinations: base map - 4 files, 302-303 KB; release example - 4-5 files, 302-370 KB; cascade - 4-7 files, 303-504 KB.
 
 CSS size does not depend on the number of classes used. For light pages, size is reduced at the project build step with tools like PurgeCSS - unused classes are cut from the bundle.
 

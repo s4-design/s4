@@ -436,6 +436,7 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<e-tag>` | `.element--tag` | Tag |
 | `<e-group>` | `.element--group` | Grouping |
 | `<e-line>` | `.element--line` | Divider |
+| `<e-avatar>` | `.element--avatar` | Avatar |
 | | **HTML tags** | |
 | `<a>` | - | Link |
 | `<abbr>` | - | Abbreviation |

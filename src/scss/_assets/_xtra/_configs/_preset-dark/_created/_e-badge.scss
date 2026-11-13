@@ -26,6 +26,7 @@
         --text-align: center;
         --text-decoration-line: none;
         --white-space: nowrap;
+        --background-color: var(--positive--light);
         --color: var(--negative--light);
         --cursor: default;
         --appearance: none;
@@ -41,6 +42,7 @@
         ) {
             &.#{$color} {
                 @if ($color == "negative") {
+                    --background-color: var(--negative--light);
                     --color: var(--positive--dark);
                 } @else {
                     --color: var(--#{$color}--light);

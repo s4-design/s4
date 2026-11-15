@@ -179,6 +179,8 @@ Once connected, all utility classes are available in HTML. Base classes of Formu
 
 The map is plain JSON (an example ships in the release - `dependency-map.json`). The base map is built into `s4.min.js` and applies when the file is missing or malformed. A project picks the map it needs - from the minimal base to a cascade one, where files of other devices are added to the device (classes of all devices are available in any orientation).
 
+A layer applies only where it is listed in the array. If a layer is missing from the map, its classes and variables are not loaded: for example, an empty `mobile.portrait` array disables `m_p_*` in that combination. A Formula 2 prefix works only for layers present in the effective map.
+
 **Base map (built into `s4.min.js`):**
 ```json
 {
@@ -233,13 +235,35 @@ The map is plain JSON (an example ships in the release - `dependency-map.json`).
 }
 ```
 
-For `tablet/portrait` the three variants give:
+**Mobile-first map (example with a missing layer):**
+```json
+{
+    "mobile": {
+        "portrait": [],
+        "landscape": [{"mobile": "landscape"}]
+    },
+    "tablet": {
+        "portrait": [{"tablet": "portrait"}],
+        "landscape": [{"mobile": "landscape"}, {"tablet": "landscape"}]
+    },
+    "desktop": {
+        "portrait": [{"tablet": "portrait"}, {"desktop": "portrait"}],
+        "landscape": [{"mobile": "landscape"}, {"tablet": "landscape"}, {"desktop": "landscape"}]
+    }
+}
+```
+
+Here `mobile.portrait` is empty - `m_p_*` are not loaded. For this map `utilities.css` must be built from `m_p`, and the `desktop landscape` layer (`d_l`) must be returned to the distribution: without it desktop stays on the mobile base. This is a project decision, not the base map.
+
+For `tablet/portrait` the three desktop-first variants give:
 
 | Map variant | Utility files | Total files | Raw size |
 |-------------|---------------|-------------|----------|
 | Base (built-in) | `tablet/portrait` | 4 | 302 KB |
 | Release example | `tablet/landscape`, `tablet/portrait` | 5 | 369 KB |
 | Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 504 KB |
+
+The mobile-first map is not included in the comparison: it has a different base (`m_p`).
 
 Across all device and orientation combinations: base map - 4 files, 302-303 KB; release example - 4-5 files, 302-370 KB; cascade - 4-7 files, 303-504 KB.
 
@@ -305,6 +329,8 @@ Each adaptive class and CSS variable is tied to a device + orientation combinati
 | `m_` - mobile | |
 
 Prefix examples: `d_l_` (desktop, landscape), `m_p_` (mobile, portrait), `t_p_` (tablet, portrait).
+
+A prefix works only if the layer is present in the effective map: `d_l_*` works while `desktop.landscape` is in the map; a project map may omit the layer.
 
 CSS variables can also be adaptive. Formula 3 builds a fallback chain:
 

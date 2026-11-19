@@ -1,11 +1,9 @@
 @use "transform" as transform;
 @use "rotate" as rotate;
 @use "scale" as scale;
-@use "translate" as translate;
 
 @mixin transform($device, $orientation, $enableVariables) {
     @include transform.transform($device, $orientation, $enableVariables);
     @include rotate.rotate($device, $orientation, $enableVariables);
     @include scale.scale($device, $orientation, $enableVariables);
-    @include translate.translate($device, $orientation, $enableVariables);
 }

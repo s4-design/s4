@@ -1,0 +1,51 @@
+@mixin meter() {
+    meter,
+    meter::-webkit-meter-bar {
+        position: var(--position);
+        display: var(--display);
+        min-inline-size: var(--min-inline-size);
+        min-block-size: var(--min-block-size);
+        inline-size: var(--inline-size);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        border-end-start-radius: var(--border-end-start-radius, var(--border-radius));
+        border-end-end-radius: var(--border-end-end-radius, var(--border-radius));
+        border-start-start-radius: var(--border-start-start-radius, var(--border-radius));
+        border-start-end-radius: var(--border-start-end-radius, var(--border-radius));
+        overflow: var(--overflow);
+        outline-color: var(--outline-color);
+        outline-style: var(--outline-style);
+        outline-width: var(--outline-width);
+        outline-offset: var(--outline-offset);
+        transition: var(--transition);
+    }
+
+    meter::-webkit-meter-optimum-value {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+    meter:-moz-meter-optimum::-moz-meter-bar {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+
+    meter::-webkit-meter-suboptimum-value {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+    meter:-moz-meter-sub-optimum::-moz-meter-bar {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+
+    meter::-webkit-meter-even-less-good-value {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+    meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+    }
+}

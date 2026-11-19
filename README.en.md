@@ -164,20 +164,22 @@ s4/
 
 For a custom preset, set `[preset="..."]` on `<html>` before calling `S4()`.
 
-Once connected, all utility classes are available in HTML. Full list of properties and modifiers - in `s4/contract/utilities.json` (1202 classes).
+Once connected, all utility classes are available in HTML. Base classes of Formula 1/3 are in `s4/contract/utilities.json` (1202 classes); Formula 2 classes are not listed: they are a prefix + base name from the dictionary, see `s4/contract/formulas.json`.
 
 **Example:**
 ```html
 <div class="d_l_display--flex m_p_display--grid">
-  Flex on desktop (landscape), grid on mobile (portrait)
+  Flex on desktop, grid on mobile
 </div>
 ```
 
 ### Dependency map
 
-`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
+`S4()` loads CSS by the map: `{device}/{orientation} → ordered list of files`. Files are loaded strictly in array order; the order is preserved when orientation changes. In addition to the map, `elements.css`, `utilities.css` and `{device}/config.css` are always loaded.
 
 The map is plain JSON (an example ships in the release - `dependency-map.json`). The base map is built into `s4.min.js` and applies when the file is missing or malformed. A project picks the map it needs - from the minimal base to a cascade one, where files of other devices are added to the device (classes of all devices are available in any orientation).
+
+A layer applies only where it is listed in the array. If a layer is missing from the map, its classes and variables are not loaded: for example, an empty `mobile.portrait` array disables `m_p_*` in that combination. A Formula 2 prefix works only for layers present in the effective map.
 
 **Base map (built into `s4.min.js`):**
 ```json
@@ -233,15 +235,37 @@ The map is plain JSON (an example ships in the release - `dependency-map.json`).
 }
 ```
 
-For `tablet/portrait` the three variants give:
+**Mobile-first map (example with a missing layer):**
+```json
+{
+    "mobile": {
+        "portrait": [],
+        "landscape": [{"mobile": "landscape"}]
+    },
+    "tablet": {
+        "portrait": [{"tablet": "portrait"}],
+        "landscape": [{"mobile": "landscape"}, {"tablet": "landscape"}]
+    },
+    "desktop": {
+        "portrait": [{"tablet": "portrait"}, {"desktop": "portrait"}],
+        "landscape": [{"mobile": "landscape"}, {"tablet": "landscape"}, {"desktop": "landscape"}]
+    }
+}
+```
+
+Here `mobile.portrait` is empty - `m_p_*` are not loaded. For this map `utilities.css` must be built from `m_p`, and the `desktop landscape` layer (`d_l`) must be returned to the distribution: without it desktop stays on the mobile base. This is a project decision, not the base map.
+
+For `tablet/portrait` the three desktop-first variants give:
 
 | Map variant | Utility files | Total files | Raw size |
 |-------------|---------------|-------------|----------|
-| Base (built-in) | `tablet/portrait` | 4 | 267 KB |
-| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 335 KB |
-| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 470 KB |
+| Base (built-in) | `tablet/portrait` | 4 | 302 KB |
+| Release example | `tablet/landscape`, `tablet/portrait` | 5 | 369 KB |
+| Cascade | `desktop/*`, `tablet/*` (all four) | 7 | 504 KB |
 
-Across all device and orientation combinations: base map - 4 files, 267-268 KB; release example - 4-5 files, 267-336 KB; cascade - 4-7 files, 268-470 KB.
+The mobile-first map is not included in the comparison: it has a different base (`m_p`).
+
+Across all device and orientation combinations: base map - 4 files, 302-303 KB; release example - 4-5 files, 302-370 KB; cascade - 4-7 files, 303-504 KB.
 
 CSS size does not depend on the number of classes used. For light pages, size is reduced at the project build step with tools like PurgeCSS - unused classes are cut from the bundle.
 
@@ -306,6 +330,8 @@ Each adaptive class and CSS variable is tied to a device + orientation combinati
 
 Prefix examples: `d_l_` (desktop, landscape), `m_p_` (mobile, portrait), `t_p_` (tablet, portrait).
 
+A prefix works only if the layer is present in the effective map: `d_l_*` works while `desktop.landscape` is in the map; a project map may omit the layer.
+
 CSS variables can also be adaptive. Formula 3 builds a fallback chain:
 
 ```css
@@ -358,6 +384,7 @@ All classes of Formulas 1, 2 and 3 use logical names: `display--grid`, `d_l_marg
 ## Utility classes - 3 formulas
 
 > Full alphabetical list of properties with ready classes - in `s4/contract/utilities.json`.  
+> Formulas, Formula 2/3 choice, inheritance and priority - in `s4/contract/formulas.json`.  
 > System architecture - `s4/AGENTS.md` + `s4/contract/*.json`.
 
 ### Formula 1 - unified
@@ -387,6 +414,8 @@ Style is tied to device and orientation.
 | `m_p_position--sticky` | `position: sticky` |
 | `d_l_align-content--space-around` | `align-content: space-around` |
 
+Formula 2 does not exist without a modifier: ```.{device}_{orientation}_{property}``` is an error! Only ```.{property}``` (Formula 3) is valid.
+
 With pseudo-class (in `class=""` without escaping): `d_l_background-color--transparent:hover`
 
 In a CSS selector the same class is written with an escaped colon: `.d_l_background-color--transparent\:hover:hover`
@@ -414,6 +443,8 @@ With pseudo-class: `.color\:hover:hover`
 
 Without Formula 3 the property value would be hardcoded in CSS. Formula 3 makes it context-dependent - the preset on the device decides its value. The same element can have a different `color` on desktop vs mobile, in light vs dark preset, without changing HTML.
 
+Formula 3 reads a variable from the element, its ancestor, or `[preset]`, if the variable is declared there. If the variable is not set, the declaration is invalid. Formula 1 + Formula 3 is allowed. When the device file is loaded, Formula 3 overrides Formula 1 because the device file is loaded after `utilities.css`; without the device file (custom map), Formula 1 overrides Formula 3 because Formula 1 comes after Formula 3 in `utilities.css`.
+
 <br>
 
 ## Elements
@@ -431,27 +462,38 @@ HTML elements and S4 custom tags are styled via CSS variables - no hardcoded val
 | `<e-tag>` | `.element--tag` | Tag |
 | `<e-group>` | `.element--group` | Grouping |
 | `<e-line>` | `.element--line` | Divider |
+| `<e-avatar>` | `.element--avatar` | Avatar |
 | | **HTML tags** | |
 | `<a>` | - | Link |
 | `<abbr>` | - | Abbreviation |
+| `<b>` | - | Bold text |
 | `<blockquote>` | - | Blockquote |
 | `<button>` | `.element--button` | Button |
 | `<cite>` | - | Citation |
 | `<code>` | - | Code fragment |
+| `<del>` | - | Deleted text |
 | `<details>` | - | Disclosure widget |
+| `<dialog>` | - | Dialog window |
 | `<dl>` | - | Description list |
+| `<em>` | - | Stress emphasis |
 | `<fieldset>` | - | Fieldset |
 | `<figure>` | - | Figure |
 | `<h1>`-`<h6>` | `.element--h1` ... `.element--h6` | Headings |
 | `<hr>` | - | Horizontal rule |
+| `<i>` | - | Italic text |
 | `<input>` | - | Input field |
+| `<ins>` | - | Inserted text |
+| `<kbd>` | - | Keyboard key |
 | `<label>` | - | Label |
 | `<mark>` | - | Marked text |
 | `<menu>` | - | Menu |
+| `<meter>` | - | Value gauge |
 | `<ol>` | - | Ordered list |
 | `<p>` | - | Paragraph |
 | `<pre>` | - | Preformatted text |
+| `<progress>` | - | Completion indicator |
 | `<q>` | - | Inline quotation |
+| `<s>` | - | Stale text |
 | `<samp>` | - | Sample output |
 | `<select>` | - | Select |
 | `<small>` | - | Small text |
@@ -490,7 +532,7 @@ An S4 preset is an **interface configuration** defining its visual identity and 
 
 A preset is a layer of a design system, not the whole system. Design system = S4 (core: cascade, formulas, device-loading) + preset (interface configuration) + components and patterns.
 
-Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in Formula 2 xtra utilities. For example, if a preset defines `--brand-gradient: linear-gradient(...)`, the class `d_l_background--brand-gradient` will work.
+Any variable declared in a preset (`--{name}`) automatically becomes available as a modifier in utilities: Formula 1 (`background--brand-gradient`) and Formula 2 with a prefix (`d_l_background--brand-gradient`). For example, if a preset defines `--brand-gradient: linear-gradient(...)`, both classes will work.
 
 S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribute on `<html>`:
 
@@ -501,25 +543,20 @@ S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribu
 
 **Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` - the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
 
-Each `@scope` block contains all preset variables for the given device. Example `:scope` contents:
+Preset variables for the agent are in `:scope`, including the private `--size--*`; the latter are for understanding the scale and are forbidden in markup (R5). Example for `light`:
 ```css
 :scope {
-    --position: relative;
-    --background-color: var(--positive--light);
-    --color: var(--negative);
-    --tab-size: 4;
-    --font-size: var(--font-size--md);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
-    --font-weight: normal;
-    --line-height: var(--size--6);
-    --text-underline-offset: var(--size--quantum);
-    --overscroll-behavior: none;
-    --word-break: normal;
-    --hyphens: auto;
-    --transition-duration: .15s;
-    --transition-timing-function: linear;
+    --black--02: oklch(0 0 0 / 0.2);
+    --positive: oklch(0.82 0 254);
+    --font-size--md: var(--size--4);
+    --margin--md: var(--size--4);
+    --padding--md: var(--size--4);
+    --border-radius--md: var(--size--4);
+    --box-shadow--md: var(--size--0) var(--size--3p5) var(--size--4);
 }
 ```
+
+Internal element variables (`--position`, `--background-color`, `--color`, `--font-size`, `--font-family`, `--line-height`, `--transition-*`, `--box-shadow-color`) are in `&[preset]` and are not part of the `s4/contract/variables.json` dictionary (it contains only preset `:scope` variables, including `--size--*`). For the agent, the dictionary is grouped by preset: `variables[preset][name]`; values are raw, as in CSS.
 
 **Device-specific presets:** each preset is built separately for each device - `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. `[preset=dark]` values on desktop may differ from `[preset=dark]` on mobile. Equality between devices is not guaranteed.
 
@@ -529,7 +566,10 @@ Each `@scope` block contains all preset variables for the given device. Example 
 @scope ([preset=my-name]) {
     :scope {
         --size--4: 1.25em;
-        --padding--md: 2em;
+        --padding--md: var(--size--6);
+    }
+
+    &[preset] {
         --color: var(--black--07);
         --font-family: "IBM Plex Sans", system-ui;
         --transition-duration: 0.2s;
@@ -553,7 +593,7 @@ Preset switching at runtime is tracked via `matchMedia('prefers-color-scheme')`.
 
 ## License
 
-Dual license: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it. See the [LICENSE](./LICENSE) file for full text.
+Dual license: MIT applies within the territory of the Russian Federation, CC BY-NC-SA 4.0 outside it. Individual licensing is available for commercial use outside the Russian Federation, use in proprietary products, or other terms - see Part 3 in [LICENSE](./LICENSE).
 
 <br>
 

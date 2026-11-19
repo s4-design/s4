@@ -25,9 +25,6 @@
         @include gap;
         @include border-radius;
         @include box-shadow;
-
-        --transition-duration: .15s;
-        --transition-timing-function: linear;
     }
     
     /* elements */
@@ -39,13 +36,17 @@
     @include \:disabled;
     @include a($hover-active);
     @include abbr;
+    @include b;
     @include blockquote;
     @include body;
     @include button($hover-active);
     @include cite;
     @include code;
+    @include del;
+    @include dialog;
     @include details($hover-active);
     @include dl;
+    @include em;
     @include fieldset;
     @include figure;
     @include h($aria-level: 1, $font-size--delta: $h_font-size--delta);
@@ -55,14 +56,20 @@
     @include h($aria-level: 5, $font-size--delta: $h_font-size--delta);
     @include h($aria-level: 6, $font-size--delta: $h_font-size--delta);
     @include hr;
+    @include i;
     @include input;
+    @include ins;
+    @include kbd;
     @include label;
     @include mark;
     @include menu;
+    @include meter;
     @include ol;
     @include p;
     @include q;
     @include pre;
+    @include progress;
+    @include s;
     @include samp;
     @include small;
     @include select;
@@ -84,4 +91,5 @@
     @include e-truncate;
 
     @include e-group;
+    @include e-avatar;
 }

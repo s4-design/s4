@@ -1,0 +1,19 @@
+@mixin e-avatar() {
+    e-avatar,
+    .element--avatar {
+        --display: grid;
+        --justify-items: center;
+        --align-items: center;        
+        --inline-size: 3em;
+        --aspect-ratio: 1/1;
+        --border-radius: 50%;        
+        --background-color: var(--positive);
+        --background-image: transparent;
+        --background-position: center;
+        --background-size: cover;
+        > * {
+            --grid-row: 1/-1;
+            --grid-column: 1/-1;
+        }
+    }
+}

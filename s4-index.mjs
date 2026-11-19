@@ -1,8 +1,9 @@
 // Генератор словарей С4 для AI-агента (JSON, внутри дистрибутива s4/contract/).
-// 1) s4/contract/utilities.json - базовые классы (Формула 1 + 3) из s4/css/utilities.css. ТОЛЬКО для валидатора.
+// 1) s4/contract/utilities.json - базовые классы Формулы 1/Формулы 3 из s4/css/utilities.css. Для агента и валидатора.
 // 2) s4/contract/variables.json - публичные переменные из s4/css/<device>/config.css -> @scope([preset]) :scope{}.
 // Префиксные классы Формулы 2 лежат в device-файлах и не включаются в utilities.json:
-// агент/валидатор выводит их из базовых по правилу "добавь префикс устройства+ориентации" (см. s4/AGENTS.md).
+// агент/валидатор выводит их из базовых по правилу "префикс устройства+ориентации + обязательный модификатор"
+// (см. s4/AGENTS.md и s4/contract/formulas.json).
 // Назначение: s4/contract/* - единый источник правды для агента (маршрутизация/спецификации) и валидатора.
 // Старые MD-словари s4/index.md и s4/variables.md больше не генерируются (заменены JSON).
 
@@ -46,11 +47,11 @@ const sorted = [...classes]
 
 // --- Машинный словарь валидных утилит-классов (s4/contract/utilities.json) ---
 const utilDesc =
-    'Машинный словарь ВАЛИДНЫХ УТИЛИТ-КЛАССОВ С4 (базовые и существующие Ф2-производные `property--modifier`; без префиксов устройств). ' +
+    'Машинный словарь ВАЛИДНЫХ УТИЛИТ-КЛАССОВ С4 (базовые классы Формулы 1/Формулы 3; без префиксов устройств). ' +
     'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
     'НАЗНАЧЕНИЕ: агент сверяется со словарём перед использованием класса - не все сочетания формулы существуют, класса нет, бери иную формулу или базовый класс; ' +
     'валидатор (s4/contract/validate-s4.mjs) сверяет по этому списку, что класс в HTML существует, в любом случае - контракт действует и при ручной вёрстке. ' +
-    'Варианты Ф2 с префиксами устройств (d_/t_/m_ + l_/p_) здесь не перечислены: валидатор строит их из базового имени по правилу префикса.';
+    'Варианты Формулы 2 с префиксами устройств (d_/t_/m_ + l_/p_) здесь не перечислены: валидатор строит их из базового имени по правилу префикса и требует модификатор (см. s4/contract/formulas.json).';
 const utilArr = sorted.map((c) => c.replace(/^\./, ''));
 const utilJson = JSON.stringify({ описание: utilDesc, утилиты: utilArr }, null, 2);
 writeFileSync(join(contract, 'utilities.json'), utilJson + '\n');
@@ -59,14 +60,15 @@ console.log(`С4 utilities: ${utilArr.length} классов → ${join(contract
 // --- Машинный словарь публичных переменных (s4/contract/variables.json) ---
 function extractScopeVars(cfgText) {
     const byPreset = {};
-    const scopeRe = /@scope \(\[preset=(\w+)\]\)\{:scope\{([^}]*)\}/g;
+    const scopeRe = /@scope\s*\(\s*\[preset=(?:"([^"]+)"|'([^']+)'|([^\]\s]+))\]\s*\)\s*\{\s*:scope\s*\{([^}]*)\}/g;
     let s;
     while ((s = scopeRe.exec(cfgText))) {
+        const preset = s[1] ?? s[2] ?? s[3];
         const vars = {};
         const varRe = /(--[\w-]+)\s*:\s*([^;{}]+)/g;
         let v;
-        while ((v = varRe.exec(s[2]))) vars[v[1]] = v[2].trim();
-        byPreset[s[1]] = vars;
+        while ((v = varRe.exec(s[4]))) vars[v[1]] = v[2].trim();
+        byPreset[preset] = vars;
     }
     return byPreset;
 }
@@ -77,25 +79,29 @@ const primaryVars = extractScopeVars(readFileSync(join(root, 's4', 'css', 'deskt
 let devicesAgree = true;
 for (const d of devices) {
     const cv = extractScopeVars(readFileSync(join(root, 's4', 'css', d, 'config.css'), 'utf8'));
-    for (const p of Object.keys(primaryVars)) {
+    const comparedPresets = new Set([...Object.keys(primaryVars), ...Object.keys(cv)]);
+    for (const p of comparedPresets) {
         if (JSON.stringify(cv[p]) !== JSON.stringify(primaryVars[p])) devicesAgree = false;
     }
 }
 
-const light = primaryVars.light || {};
-const dark = primaryVars.dark || {};
-const allNames = [...new Set([...Object.keys(light), ...Object.keys(dark)])].sort();
-const publicNames = allNames.filter((n) => !n.startsWith('--size--'));
-
+const presetNames = Object.keys(primaryVars);
 const variableMap = {};
-for (const n of publicNames) variableMap[n] = { light: light[n] ?? '', dark: dark[n] ?? '' };
+for (const preset of presetNames) {
+    const names = Object.keys(primaryVars[preset]).sort();
+    variableMap[preset] = Object.fromEntries(names.map((n) => [n, primaryVars[preset][n]]));
+}
 
 const variableDesc =
-    'Машинный словарь ПУБЛИЧНЫХ CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset=light|dark]) :scope{}. ' +
+    'Машинный словарь CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset]) :scope{}. ' +
     'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
-    'НАЗНАЧЕНИЕ: агент читает для Ф3 (var(--имя)) и чтобы знать допустимые имена; валидатор проверяет существование имени. ' +
-    'ПРИВАТНЫЕ ПЕРЕМЕННЫЕ --size--* ИСКЛЮЧЕНЫ (агент не пишет их напрямую в вёрстке). ' +
+    'НАЗНАЧЕНИЕ: агент читает для Формулы 3 (var(--имя)) и чтобы знать допустимые имена; существование переменных валидатор не проверяет. ' +
+    'ПЕРЕМЕННЫЕ СГРУППИРОВАНЫ ПО ПРЕСЕТАМ: доступ - переменные[пресет][имя]. ' +
+    'ЗНАЧЕНИЯ СЫРЫЕ, КАК В CSS; АЛИАСЫ НА --size--* НЕ РАСКРЫВАЮТСЯ. ' +
+    'ПРИВАТНЫЕ ПЕРЕМЕННЫЕ --size--* ВКЛЮЧЕНЫ ДЛЯ ПОНИМАНИЯ МАСШТАБА, НО В ВЁРСТКЕ ЗАПРЕЩЕНЫ (R5): без крайней необходимости не используй. ' +
+    'ПЕРЕМЕННЫЕ ИЗ &[preset] И ВНУТРИ ЭЛЕМЕНТОВ НЕ ВХОДЯТ. ' +
     `Значения - из desktop/config.css${devicesAgree ? ' (переменные совпадают по всем устройствам)' : ' (ВНИМАНИЕ: значения различаются по устройствам - показан desktop)'}.`;
 const variableJson = JSON.stringify({ описание: variableDesc, переменные: variableMap }, null, 2);
 writeFileSync(join(contract, 'variables.json'), variableJson + '\n');
-console.log(`С4 variables: ${publicNames.length} переменных → ${join(contract, 'variables.json')}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);
+const presetSummary = presetNames.map((p) => `${p}: ${Object.keys(variableMap[p]).length}`).join(', ');
+console.log(`С4 variables: ${presetNames.length} пресетов (${presetSummary}) → ${join(contract, 'variables.json')}${devicesAgree ? '' : ' (ВНИМАНИЕ: устройства различаются!)'}`);

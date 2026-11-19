@@ -1,0 +1,19 @@
+@mixin e-avatar() {
+    e-avatar,
+    .element--avatar {
+        display: var(--display);
+        inline-size: var(--inline-size);
+        justify-items: var(--justify-items);
+        align-items: var(--align-items);
+        aspect-ratio: var(--aspect-ratio);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        background-position: var(--background-position);
+        background-size: var(--background-size);
+        > * {
+            grid-row: var(--grid-column);
+            grid-column: var(--grid-column);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@mixin kbd() {
+    kbd {
+        color: var(--color);
+        padding-block: var(--padding-block);
+        padding-inline: var(--padding-inline);
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        border: var(--border-width) var(--border-style) var(--border-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        vertical-align: var(--vertical-align);
+        font-size: var(--font-size);
+        font-family: var(--font-family);
+        line-height: var(--line-height);
+    }
+}

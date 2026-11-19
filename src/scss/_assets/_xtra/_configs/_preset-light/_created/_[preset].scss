@@ -12,6 +12,10 @@
         --line-height: var(--size--6);
         --text-underline-offset: var(--size--quantum);
         --overscroll-behavior: none;
+        --scrollbar-gutter: stable;
         --hyphens: auto;
+        --transition-duration: .125s;
+        --transition-timing-function: linear;
+        --box-shadow-color: var(--black--03);
     }
 }

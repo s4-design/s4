@@ -1,0 +1,5 @@
+@mixin em() {
+    em {
+        font-weight: var(--font-weight);
+    }
+}

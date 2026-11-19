@@ -1,0 +1,19 @@
+@mixin ins() {
+    ins {
+        --position: relative;
+        --background-color: transparent;
+        --color: var(--negative--dark);
+        --text-decoration-color: var(--negative--light);
+        &[data-content\:\:before] {
+            --display: block;
+            --padding-inline-start: var(--padding--l2);
+            --padding-inline-end: var(--padding--s2);
+            --background-color: var(--success--mute);
+            --text-decoration-color: transparent;
+            &::before {
+                --position: absolute;
+                --margin-inline-start: calc(var(--margin--md) * -1);
+            }
+        }
+    }
+}

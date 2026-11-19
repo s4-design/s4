@@ -1,0 +1,23 @@
+@mixin progress() {
+    progress {
+        background-color: var(--background-color);
+        background-image: var(--background-image);
+        block-size: var(--block-size);
+        line-height: var(--line-height);
+        transition: var(--transition);
+        background-clip: var(--background-clip);
+        border: var(--border);
+        border-radius: var(--border-radius);
+    }
+    progress::-webkit-progress-bar {
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        overflow: var(--overflow);
+    }
+    progress::-webkit-progress-value {
+        background-color: var(--background-color);
+    }
+    progress::-moz-progress-bar {
+        background-color: var(--background-color);
+    }
+}

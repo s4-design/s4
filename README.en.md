@@ -543,7 +543,7 @@ S4 detects the preset via `prefers-color-scheme` and sets the `[preset]` attribu
 
 **Preset isolation.** A preset applies to an element with the corresponding `[preset=...]` attribute, regardless of nesting. `<div preset="light">` can contain `<div preset="dark">` - the parent preset does not affect the child and vice versa. Presets can be changed independently of the DOM hierarchy.
 
-Preset variables for the agent are in `:scope`, except for the private `--size--*`; example of the public part for `light`:
+Preset variables for the agent are in `:scope`, including the private `--size--*`; the latter are for understanding the scale and are forbidden in markup (R5). Example for `light`:
 ```css
 :scope {
     --black--02: oklch(0 0 0 / 0.2);
@@ -556,7 +556,7 @@ Preset variables for the agent are in `:scope`, except for the private `--size--
 }
 ```
 
-Internal element variables (`--position`, `--background-color`, `--color`, `--font-size`, `--font-family`, `--line-height`, `--transition-*`, `--box-shadow-color`) are in `&[preset]` and are not part of the public `s4/contract/variables.json` dictionary. For the agent, the dictionary is grouped by preset: `variables[preset][name]`; values are raw, as in CSS.
+Internal element variables (`--position`, `--background-color`, `--color`, `--font-size`, `--font-family`, `--line-height`, `--transition-*`, `--box-shadow-color`) are in `&[preset]` and are not part of the `s4/contract/variables.json` dictionary (it contains only preset `:scope` variables, including `--size--*`). For the agent, the dictionary is grouped by preset: `variables[preset][name]`; values are raw, as in CSS.
 
 **Device-specific presets:** each preset is built separately for each device - `desktop/config.css`, `mobile/config.css`, `tablet/config.css`. `[preset=dark]` values on desktop may differ from `[preset=dark]` on mobile. Equality between devices is not guaranteed.
 

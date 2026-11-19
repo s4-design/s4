@@ -88,19 +88,17 @@ for (const d of devices) {
 const presetNames = Object.keys(primaryVars);
 const variableMap = {};
 for (const preset of presetNames) {
-    const names = Object.keys(primaryVars[preset])
-        .filter((n) => !n.startsWith('--size--'))
-        .sort();
+    const names = Object.keys(primaryVars[preset]).sort();
     variableMap[preset] = Object.fromEntries(names.map((n) => [n, primaryVars[preset][n]]));
 }
 
 const variableDesc =
-    'Машинный словарь ПУБЛИЧНЫХ CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset]) :scope{}. ' +
+    'Машинный словарь CSS-ПЕРЕМЕННЫХ С4 из s4/css/<device>/config.css -> @scope([preset]) :scope{}. ' +
     'Сгенерировано скриптом s4-index.mjs - не редактировать вручную. ' +
-    'НАЗНАЧЕНИЕ: агент читает для Формулы 3 (var(--имя)) и чтобы знать допустимые имена; валидатор переменные в style не проверяет. ' +
+    'НАЗНАЧЕНИЕ: агент читает для Формулы 3 (var(--имя)) и чтобы знать допустимые имена; существование переменных валидатор не проверяет. ' +
     'ПЕРЕМЕННЫЕ СГРУППИРОВАНЫ ПО ПРЕСЕТАМ: доступ - переменные[пресет][имя]. ' +
-    'ЗНАЧЕНИЯ СЫРЫЕ, КАК В CSS, И НЕ РАЗРЕШАЮТ АЛИАСЫ НА --size--*. ' +
-    'ПРИВАТНЫЕ ПЕРЕМЕННЫЕ --size--* ИСКЛЮЧЕНЫ (агент не пишет их напрямую в вёрстке). ' +
+    'ЗНАЧЕНИЯ СЫРЫЕ, КАК В CSS; АЛИАСЫ НА --size--* НЕ РАСКРЫВАЮТСЯ. ' +
+    'ПРИВАТНЫЕ ПЕРЕМЕННЫЕ --size--* ВКЛЮЧЕНЫ ДЛЯ ПОНИМАНИЯ МАСШТАБА, НО В ВЁРСТКЕ ЗАПРЕЩЕНЫ (R5): без крайней необходимости не используй. ' +
     'ПЕРЕМЕННЫЕ ИЗ &[preset] И ВНУТРИ ЭЛЕМЕНТОВ НЕ ВХОДЯТ. ' +
     `Значения - из desktop/config.css${devicesAgree ? ' (переменные совпадают по всем устройствам)' : ' (ВНИМАНИЕ: значения различаются по устройствам - показан desktop)'}.`;
 const variableJson = JSON.stringify({ описание: variableDesc, переменные: variableMap }, null, 2);
